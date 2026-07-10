@@ -28,13 +28,13 @@
 
   <header class="page-head">
     <h1>LinkEffekt Manual</h1>
-    <p class="pagemeta">Version 2.0 — Send, Receive and Receive Instrument · iOS 17+ / macOS 14+</p>
+    <p class="pagemeta">Version 2.0: Send, Receive and Receive Instrument · iOS 17+ / macOS 14+</p>
   </header>
 
   <nav class="toc" aria-label="Contents">
     <a href="#what"><span class="num">1</span>What is LinkEffekt?</a>
-    <a href="#lan"><span class="num">2</span>Quick start — LAN</a>
-    <a href="#online"><span class="num">3</span>Quick start — Online</a>
+    <a href="#lan"><span class="num">2</span>Quick start: LAN</a>
+    <a href="#online"><span class="num">3</span>Quick start: Online</a>
     <a href="#send"><span class="num">4</span>LinkEffekt Send</a>
     <a href="#receive"><span class="num">5</span>LinkEffekt Receive</a>
     <a href="#online-detail"><span class="num">6</span>Online mode in detail</a>
@@ -44,22 +44,22 @@
   </nav>
 
   <h2 id="what">1 · What is LinkEffekt?</h2>
-  <p>LinkEffekt streams audio between music apps and devices — over your local network (via Ableton Link Audio) or over the internet (Online mode). It ships as three AUv3 plugins that run inside any AUv3 host (AUM, Logic Pro, Cubasis, Drambo, GarageBand and others):</p>
+  <p>LinkEffekt streams audio between music apps and devices, over your local network (via Ableton Link Audio) or over the internet (Online mode). It ships as three AUv3 plugins that run inside any AUv3 host (AUM, Logic Pro, Cubasis, Drambo, GarageBand and others):</p>
 
   <div class="table-scroll">
     <table>
       <tr><th>Plugin</th><th>Type</th><th>Use it to</th></tr>
-      <tr><td><strong>LinkEffekt Send</strong></td><td>Audio effect</td><td>Stream a track's audio out — insert it on the track you want to share.</td></tr>
-      <tr><td><strong>LinkEffekt Receive</strong></td><td>Audio effect</td><td>Receive channels — works in every host. The standard receiver.</td></tr>
-      <tr><td><strong>LinkEffekt Receive Instrument</strong></td><td>Instrument</td><td>The same receiver as a sound source — for hosts that need one on the channel (e.g. as the source in AUM) or for Logic multi-output routing.</td></tr>
+      <tr><td><strong>LinkEffekt Send</strong></td><td>Audio effect</td><td>Stream a track's audio out. Insert it on the track you want to share.</td></tr>
+      <tr><td><strong>LinkEffekt Receive</strong></td><td>Audio effect</td><td>Receive channels. Works in every host; this is the standard receiver.</td></tr>
+      <tr><td><strong>LinkEffekt Receive Instrument</strong></td><td>Instrument</td><td>The same receiver as a sound source, for hosts that need one on the channel (e.g. as the source in AUM) or for Logic multi-output routing.</td></tr>
     </table>
   </div>
 
   <p><strong>Free vs. Unlimited Channels:</strong> the free version includes 1 Send and 1 Receive channel, fully functional on the local network. The one-time in-app purchase <strong>Unlimited Channels</strong> unlocks unlimited instances, monitoring multiple channels at once, and the <strong>Online</strong> (internet) mode. Purchase or restore it in the LinkEffekt app or directly inside the plugins.</p>
 
-  <div class="note"><strong>First step on iOS:</strong> open the LinkEffekt app once after installing. This triggers the Local Network permission — without it, the plugins cannot see each other.</div>
+  <div class="note"><strong>First step on iOS:</strong> open the LinkEffekt app once after installing. This triggers the Local Network permission. Without it, the plugins cannot see each other.</div>
 
-  <h2 id="lan">2 · Quick start — local network (LAN)</h2>
+  <h2 id="lan">2 · Quick start: local network (LAN)</h2>
   <p>You need <strong>two separate apps or devices</strong>: Send and Receive share one network identity inside the same host app, so they cannot connect to each other within a single host. Two devices, or two host apps on one device (e.g. Cubasis sends, AUM receives), both work.</p>
   <ol>
     <li><strong>Sender:</strong> insert <strong>LinkEffekt Send</strong> on a track. Tap the <strong>gear</strong> and enable <strong>Ableton Link</strong> and <strong>Share Audio</strong>. The orange banner disappears when sharing is active.</li>
@@ -68,41 +68,41 @@
     <li>You should hear audio and see the meter move. The status line reads:</li>
   </ol>
   <div class="diag"><span class="dot ok"></span><em>Receiving audio.</em></div>
-  <p><strong>Tip:</strong> name your Send channels (the <em>Name</em> field) — that name is what receivers see. Each additional Send instance appears as its own channel.</p>
+  <p><strong>Tip:</strong> name your Send channels (the <em>Name</em> field). That name is what receivers see, and each additional Send instance appears as its own channel.</p>
 
-  <h2 id="online">3 · Quick start — Online (internet)</h2>
+  <h2 id="online">3 · Quick start: Online (internet)</h2>
   <p>Online mode streams over the internet, peer-to-peer, encrypted end-to-end (DTLS). It requires <strong>Unlimited Channels</strong> on both sides.</p>
   <ol>
     <li><strong>Person A:</strong> in <strong>LinkEffekt Send</strong>, switch <strong>Destination</strong> to <strong>Online</strong>, tap <strong>Create Room</strong> and share the room code (copy button next to the code).</li>
     <li><strong>Person B:</strong> in <strong>LinkEffekt Receive</strong>, switch the top selector to <strong>Online</strong>, enter the code and tap <strong>Join</strong>.</li>
     <li>B picks A's channel from <strong>Now Receiving</strong>. For two-way audio, B also loads a Send (or uses <strong>Send my track</strong>, see <a href="#online-detail">§6</a>).</li>
-    <li>With <strong>Beat Sync</strong> on (default), press <strong>play on your host transport</strong> on both sides and set both hosts to the <strong>same tempo</strong> — the peer's audio locks onto your beat grid, delayed by whole bars (see <a href="#beatsync">§7</a>).</li>
+    <li>With <strong>Beat Sync</strong> on (default), press <strong>play on your host transport</strong> on both sides and set both hosts to the <strong>same tempo</strong>. The peer's audio locks onto your beat grid, delayed by whole bars (see <a href="#beatsync">§7</a>).</li>
   </ol>
   <p>The header shows an <strong>ONLINE</strong> badge with the room code whenever an instance is in Online mode: green dot = peer connected, orange = waiting for a peer.</p>
 
-  <h2 id="send">4 · LinkEffekt Send — reference</h2>
+  <h2 id="send">4 · LinkEffekt Send: reference</h2>
   <ul>
-    <li><strong>Name</strong> — the channel name receivers see. Renames propagate live, also in Online rooms.</li>
-    <li><strong>Send Audio</strong> — master switch for streaming this track. Off = the plugin passes audio through locally but sends nothing.</li>
-    <li><strong>Mute Local Output</strong> (default on) — mutes the track locally <em>after</em> streaming, so you don't hear the signal twice (once dry, once through the receiver with latency). Turn it off only if the receiver is somewhere you can't hear.</li>
-    <li><strong>Gain / Pan</strong> — applied to the stream (and to the local output), with click-free ramps. −∞ at the bottom of the gain range.</li>
-    <li><strong>Level meter</strong> — post gain/pan; red = clipping (tap to reset).</li>
-    <li><strong>Destination: LAN / Online</strong> — where this track streams. Switching Online → LAN removes only this track from the room; the room itself stays open until you tap <strong>Leave</strong> (a "room is still open" line with a Leave button stays visible in LAN mode).</li>
-    <li><strong>Gear (Ableton Link settings)</strong> — the Link session, <strong>Share Audio</strong> (required for LAN sending; Online is independent of it) and the <strong>Link Offset</strong> slider (±100 ms) to fine-align audio that arrives consistently early or late. Negative offsets can cause dropouts on the receiver — raise the receiver's latency if needed.</li>
-    <li><strong>Link Audio: Enabled/Disabled</strong> — status line, mirrors the Share Audio toggle.</li>
+    <li><strong>Name</strong>: the channel name receivers see. Renames propagate live, also in Online rooms.</li>
+    <li><strong>Send Audio</strong>: master switch for streaming this track. Off = the plugin passes audio through locally but sends nothing.</li>
+    <li><strong>Mute Local Output</strong> (default on): mutes the track locally <em>after</em> streaming, so you don't hear the signal twice (once dry, once through the receiver with latency). Turn it off only if the receiver is somewhere you can't hear.</li>
+    <li><strong>Gain / Pan</strong>: applied to the stream (and to the local output), with click-free ramps. The bottom of the gain range is true silence.</li>
+    <li><strong>Level meter</strong>: post gain/pan; red = clipping (tap to reset).</li>
+    <li><strong>Destination: LAN / Online</strong>: where this track streams. Switching Online to LAN removes only this track from the room; the room itself stays open until you tap <strong>Leave</strong> (a "room is still open" line with a Leave button stays visible in LAN mode).</li>
+    <li><strong>Gear (Ableton Link settings)</strong>: the Link session, <strong>Share Audio</strong> (required for LAN sending; Online is independent of it) and the <strong>Link Offset</strong> slider (±100 ms) to fine-align audio that arrives consistently early or late. Negative offsets can cause dropouts on the receiver; raise the receiver's latency if needed.</li>
+    <li><strong>Link Audio: Enabled/Disabled</strong>: status line, mirrors the Share Audio toggle.</li>
   </ul>
   <p><strong>Freemium:</strong> the second and further Send instances without Unlimited Channels keep passing audio through locally but do not stream ("Channel Limited" banner with an unlock button).</p>
 
-  <h2 id="receive">5 · LinkEffekt Receive — reference</h2>
+  <h2 id="receive">5 · LinkEffekt Receive: reference</h2>
   <ul>
-    <li><strong>LAN / Online selector</strong> — which world the channel list below shows. The header shows Link peers (LAN) or the room status (ONLINE badge).</li>
-    <li><strong>Now Receiving</strong> — pick exactly one channel. <em>"Channel (unavailable)"</em> means the sender disappeared (app closed, network lost).</li>
-    <li><strong>Monitor multiple channels</strong> (Unlimited Channels) — sum several channels into this plugin's stereo output. Channels that are active but belong to the other transport tab are shown with a LAN/Online tag so nothing is summed invisibly. For separate faders per channel, use one Receive instance per channel instead.</li>
-    <li><strong>Network Latency</strong> (3–200 ms, default 21.3) — how much audio is buffered. Lower = tighter, higher = safer. If the network needs more, LinkEffekt <strong>auto-raises</strong> the effective value (shown as <em>"Current: … (auto-adjusted)"</em>); it never lowers your setting on its own.</li>
-    <li><strong>Beat Sync status</strong> — <em>"In Sync"</em> (green metronome): the received audio is locked to your beat grid. <em>"Free-run"</em>: no shared beat reference; audio plays with minimal latency but is not beat-aligned.</li>
-    <li><strong>Mixer block</strong> — in signal order: <strong>Received</strong> (mute the incoming stream), <strong>Host track</strong> (Receive effect only; the track's own input — default muted to prevent feedback, see <a href="#troubleshooting">§8</a>), and <strong>Output</strong> with master gain/pan/mute.</li>
-    <li><strong>Diagnostics line</strong> — plain-language status under the channel menu (see <a href="#troubleshooting">§8</a> for what each message means).</li>
-    <li><strong>Gear → Settings</strong> — Ableton Link settings plus <strong>Live Mode</strong>: reports zero latency to the host so it skips delay compensation. For live playing/jamming only — tracks are not phase-aligned for recording.</li>
+    <li><strong>LAN / Online selector</strong>: which world the channel list below shows. The header shows Link peers (LAN) or the room status (ONLINE badge).</li>
+    <li><strong>Now Receiving</strong>: pick exactly one channel. <em>"Channel (unavailable)"</em> means the sender disappeared (app closed, network lost).</li>
+    <li><strong>Monitor multiple channels</strong> (Unlimited Channels): sum several channels into this plugin's stereo output. Channels that are active but belong to the other transport tab are shown with a LAN/Online tag so nothing is summed invisibly. For separate faders per channel, use one Receive instance per channel instead.</li>
+    <li><strong>Network Latency</strong> (3-200 ms, default 21.3): how much audio is buffered. Lower = tighter, higher = safer. If the network needs more, LinkEffekt <strong>auto-raises</strong> the effective value (shown as <em>"Current: … (auto-adjusted)"</em>); it never lowers your setting on its own.</li>
+    <li><strong>Beat Sync status</strong>: <em>"In Sync"</em> (green metronome) means the received audio is locked to your beat grid. <em>"Free-run"</em> means there is no shared beat reference; audio plays with minimal latency but is not beat-aligned.</li>
+    <li><strong>Mixer block</strong>, in signal order: <strong>Received</strong> (mute the incoming stream), <strong>Host track</strong> (Receive effect only; the track's own input, default muted to prevent feedback, see <a href="#troubleshooting">§8</a>), and <strong>Output</strong> with master gain/pan/mute.</li>
+    <li><strong>Diagnostics line</strong>: plain-language status under the channel menu (see <a href="#troubleshooting">§8</a> for what each message means).</li>
+    <li><strong>Gear, then Settings</strong>: Ableton Link settings plus <strong>Live Mode</strong>, which reports zero latency to the host so it skips delay compensation. For live playing/jamming only; tracks are not phase-aligned for recording.</li>
     <li><strong>Packet statistics</strong> (gaps/duplicates) appear automatically only when the network has problems.</li>
   </ul>
   <p><strong>Receive vs. Receive Instrument:</strong> identical engine. Use the <strong>effect</strong> everywhere you can insert it; use the <strong>Instrument</strong> where the channel needs a source (AUM source slot, Logic software-instrument track with multi-output).</p>
@@ -110,41 +110,41 @@
   <h2 id="online-detail">6 · Online mode in detail</h2>
   <ul>
     <li><strong>One room per host app.</strong> All Online instances inside the same host share one room and one connection. The first instance creates/joins; the others follow automatically. <strong>Leave</strong> disconnects all of the host's online tracks (the dialog says so).</li>
-    <li><strong>Multiple tracks:</strong> every Send-Online instance is its own stream — the peer sees each one as a separate channel (up to 8 per direction).</li>
-    <li><strong>Send my track</strong> (Receive effect in Online mode) — also streams this track's input into the room: full two-way audio in a single plugin slot. Built for hosts with only one usable slot, e.g. DJ apps.</li>
+    <li><strong>Multiple tracks:</strong> every Send-Online instance is its own stream. The peer sees each one as a separate channel (up to 8 per direction).</li>
+    <li><strong>Send my track</strong> (Receive effect in Online mode): also streams this track's input into the room, giving full two-way audio in a single plugin slot. Built for hosts with only one usable slot, e.g. DJ apps.</li>
     <li><strong>Room codes</strong> are one-time invitations relayed by the signaling server; the audio itself flows peer-to-peer, DTLS-encrypted. No audio passes through our servers. Rooms with only one participant close after 30 minutes; active sessions have no time limit.</li>
     <li><strong>Reconnect:</strong> if one side drops out, rejoin with the same code while the other side is still in the room. If both left, create a fresh room.</li>
-    <li><strong>Mono send</strong> (optional, in the Send settings) halves the bandwidth — useful on weak connections.</li>
+    <li><strong>Mono send</strong> (optional, in the Send settings) halves the bandwidth. Useful on weak connections.</li>
   </ul>
 
-  <h2 id="beatsync">7 · Beat Sync — how it works and what to expect</h2>
+  <h2 id="beatsync">7 · Beat Sync: how it works and what to expect</h2>
   <p>Audio that travels through a network <strong>always</strong> arrives late; no software can remove that. What LinkEffekt can do is make the delay <em>musical</em>:</p>
   <ul>
-    <li><strong>LAN:</strong> the receiver places the incoming audio onto your local Ableton Link grid. The result is a stable, grid-locked offset roughly equal to the Latency setting — instead of drifting timing. Both apps must be in the same Link session (Link enabled on both).</li>
-    <li><strong>Online:</strong> the delay is rounded up to <strong>whole bars</strong> on your host's beat grid — the peer's "1" lands exactly on your "1", typically one bar later (2&nbsp;s at 120&nbsp;BPM). Requirements: <strong>Beat Sync on</strong> (default), <strong>host transport playing</strong> on both sides, <strong>same tempo</strong> on both hosts. When you press play, expect about one bar of silence while the buffer fills, then it locks.</li>
-    <li><strong>Free-run</strong> is what you get without a shared beat reference: lowest latency, no alignment — fine for monitoring, speech, or when you play by ear.</li>
-    <li><strong>Recording into Ableton Live</strong> (LAN): enable <strong>Sync to Incoming Audio</strong> under Live's Settings → Link for sample-accurate placement; set Live's Link-Audio latency slider generously (100–200&nbsp;ms) and Monitor to <em>In</em>.</li>
+    <li><strong>LAN:</strong> the receiver places the incoming audio onto your local Ableton Link grid. The result is a stable, grid-locked offset roughly equal to the Latency setting, instead of drifting timing. Both apps must be in the same Link session (Link enabled on both).</li>
+    <li><strong>Online:</strong> the delay is rounded up to <strong>whole bars</strong> on your host's beat grid. The peer's "1" lands exactly on your "1", typically one bar later (2&nbsp;s at 120&nbsp;BPM). Requirements: <strong>Beat Sync on</strong> (default), <strong>host transport playing</strong> on both sides, <strong>same tempo</strong> on both hosts. When you press play, expect about one bar of silence while the buffer fills, then it locks.</li>
+    <li><strong>Free-run</strong> is what you get without a shared beat reference: lowest latency, no alignment. Fine for monitoring, speech, or when you play by ear.</li>
+    <li><strong>Recording into Ableton Live</strong> (LAN): enable <strong>Sync to Incoming Audio</strong> under Live's Settings → Link for sample-accurate placement; set Live's Link-Audio latency slider generously (100-200&nbsp;ms) and Monitor to <em>In</em>.</li>
   </ul>
-  <p>The two hosts' own metronomes are <strong>not</strong> aligned to each other over the internet — each side hears the peer on <em>their own</em> grid. In a remote jam that is exactly what you want, since each player only hears their own device.</p>
+  <p>The two hosts' own metronomes are <strong>not</strong> aligned to each other over the internet. Each side hears the peer on <em>their own</em> grid. In a remote jam that is exactly what you want, since each player only hears their own device.</p>
 
   <h2 id="troubleshooting">8 · Troubleshooting</h2>
 
   <h3>No channel appears in Now Receiving (LAN)</h3>
   <ul>
     <li>Send and Receive must run in <strong>different apps or devices</strong> (<a href="#lan">§2</a>).</li>
-    <li>Same Wi-Fi network? Some routers isolate clients ("AP/client isolation") — disable that, or use a hotspot.</li>
+    <li>Same Wi-Fi network? Some routers isolate clients ("AP/client isolation"). Disable that, or use a hotspot.</li>
     <li>Open the <strong>LinkEffekt app</strong> once (Local Network permission). The plugin shows an orange banner if this is missing.</li>
-    <li>On the sender: gear → <strong>Share Audio</strong> must be on.</li>
+    <li>On the sender: gear, then <strong>Share Audio</strong> must be on.</li>
   </ul>
 
-  <h3>Channel selected, but no sound — read the diagnostics line</h3>
-  <div class="diag"><span class="dot wait"></span><em>No audio from the sender…</em>&nbsp;— the sender isn't streaming: Share Audio off, Send Audio off, or a different network.</div>
-  <div class="diag"><span class="dot wait"></span><em>Receiving data, but it is silent…</em>&nbsp;— connection is fine; the sender's track has no signal.</div>
-  <div class="diag"><span class="dot wait"></span><em>…the host is not running this plugin.</em>&nbsp;— the host never renders the channel. In AUM: give the channel a source, or use Receive Instrument as the source.</div>
-  <div class="diag"><span class="dot wait"></span><em>Syncing to the beat — buffering…</em>&nbsp;— normal for a moment; if it persists, raise the Latency slider.</div>
-  <div class="diag"><span class="dot wait"></span><em>Receiving audio, but "Mute Received" / "Mute Output" is ON</em>&nbsp;— un-mute the control it names (also shown when the master gain sits at −∞).</div>
-  <div class="diag"><span class="dot wait"></span><em>Free limit reached…</em>&nbsp;— second Receive instance without Unlimited Channels; unlock or remove the other instance.</div>
-  <div class="diag"><span class="dot wait"></span><em>No audio from the peer yet…</em>&nbsp;— (Online) the peer left the room or isn't streaming.</div>
+  <h3>Channel selected, but no sound: read the diagnostics line</h3>
+  <div class="diag"><span class="dot wait"></span><em>No audio from the sender…</em>&nbsp;· the sender isn't streaming: Share Audio off, Send Audio off, or a different network.</div>
+  <div class="diag"><span class="dot wait"></span><em>Receiving data, but it is silent…</em>&nbsp;· connection is fine; the sender's track has no signal.</div>
+  <div class="diag"><span class="dot wait"></span><em>…the host is not running this plugin.</em>&nbsp;· the host never renders the channel. In AUM: give the channel a source, or use Receive Instrument as the source.</div>
+  <div class="diag"><span class="dot wait"></span><em>Syncing to the beat — buffering…</em>&nbsp;· normal for a moment; if it persists, raise the Latency slider.</div>
+  <div class="diag"><span class="dot wait"></span><em>Receiving audio, but "Mute Received" / "Mute Output" is ON</em>&nbsp;· un-mute the control it names (also shown when the master gain sits at silence).</div>
+  <div class="diag"><span class="dot wait"></span><em>Free limit reached…</em>&nbsp;· second Receive instance without Unlimited Channels; unlock or remove the other instance.</div>
+  <div class="diag"><span class="dot wait"></span><em>No audio from the peer yet…</em>&nbsp;· (Online) the peer left the room or isn't streaming.</div>
 
   <h3>Crackles or dropouts</h3>
   <p>Raise the <strong>Network Latency</strong> slider until clean, then add a small margin. On weak Wi-Fi move closer to the router; in Online mode try <strong>Mono send</strong>.</p>
@@ -162,21 +162,21 @@
   <p>The other side hasn't joined yet or joined a mistyped code. Re-share the code; both sides need Unlimited Channels.</p>
 
   <h3>Beat Sync won't lock (Online)</h3>
-  <p>Is the <strong>host transport playing</strong> on both sides? Same tempo? The status line names what's missing — a tempo mismatch is shown as <em>"you X / peer Y BPM"</em>.</p>
+  <p>Is the <strong>host transport playing</strong> on both sides? Same tempo? The status line names what's missing. A tempo mismatch is shown as <em>"you X / peer Y BPM"</em>.</p>
 
   <h3>Timing is stable but consistently early or late (LAN)</h3>
   <p>Use the <strong>Link Offset</strong> slider in the Send's gear settings to trim ±100&nbsp;ms.</p>
 
   <h2 id="faq">9 · Frequently asked questions</h2>
-  <p><strong>Does LinkEffekt work with Ableton Live?</strong> Yes — Live 12.4+ receives Link Audio directly (<a href="#beatsync">§7</a>). LinkEffekt Send appears there as an input channel.</p>
+  <p><strong>Does LinkEffekt work with Ableton Live?</strong> Yes. Live 12.4+ receives Link Audio directly (<a href="#beatsync">§7</a>), and LinkEffekt Send appears there as an input channel.</p>
   <p><strong>How many channels can I run?</strong> With Unlimited Channels: as many Send/Receive instances as your device handles; Online supports up to 8 streams per direction per host.</p>
   <p><strong>Does audio go through your servers?</strong> No. Online audio is peer-to-peer and DTLS-encrypted; the server only relays the room handshake. If a direct connection is impossible, an encrypted relay (TURN) forwards the still-encrypted stream.</p>
-  <p><strong>Why is there always some delay?</strong> Physics: network transit plus safety buffering. LinkEffekt makes the delay stable and — with Beat Sync — musical (<a href="#beatsync">§7</a>).</p>
+  <p><strong>Why is there always some delay?</strong> Physics: network transit plus safety buffering. LinkEffekt makes the delay stable and, with Beat Sync, musical (<a href="#beatsync">§7</a>).</p>
   <p><strong>Which sample rates are supported?</strong> The host's rate (44.1/48/96 kHz…) on both sides; LinkEffekt converts internally. Online always transmits at 48 kHz/Opus.</p>
 
   <footer>
     <span><a class="backlink" href="./">← LinkEffekt</a></span>
-    <span>Support: <a href="mailto:alexander.joannou@gmail.com">alexander.joannou@gmail.com</a> — please include your host app, device, and what the diagnostics line says.</span>
+    <span>Support: <a href="mailto:alexander.joannou@gmail.com">alexander.joannou@gmail.com</a>. Please include your host app, device, and what the diagnostics line says.</span>
   </footer>
 
 </div>
