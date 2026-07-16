@@ -69,6 +69,7 @@
   </ol>
   <div class="diag"><span class="dot ok"></span><em>Receiving audio.</em></div>
   <p><strong>Tip:</strong> name your Send channels (the <em>Name</em> field). That name is what receivers see, and each additional Send instance appears as its own channel.</p>
+  <p><strong>Same device or same host?</strong> LinkEffekt routes these cases over a direct fast path that needs no Wi-Fi and no Local Network permission: a sender in <em>another app on the same device</em> appears as a channel tagged <strong>This device</strong>, a sender <em>inside the same host app</em> as <strong>This host</strong>. Just pick them like any other channel — they are the lowest-latency, most stable options when everything runs on one iPad/Mac.</p>
 
   <h2 id="online">3 · Quick start: Online (internet)</h2>
   <p>Online mode streams over the internet, peer-to-peer, encrypted end-to-end (DTLS). It requires <strong>Unlimited Channels</strong> on both sides.</p>
@@ -98,11 +99,17 @@
     <li><strong>LAN / Online selector</strong>: which world the channel list below shows. The header shows Link peers (LAN) or the room status (ONLINE badge).</li>
     <li><strong>Now Receiving</strong>: pick exactly one channel. <em>"Channel (unavailable)"</em> means the sender disappeared (app closed, network lost).</li>
     <li><strong>Monitor multiple channels</strong> (Unlimited Channels): sum several channels into this plugin's stereo output. Channels that are active but belong to the other transport tab are shown with a LAN/Online tag so nothing is summed invisibly. For separate faders per channel, use one Receive instance per channel instead.</li>
-    <li><strong>Network Latency</strong> (3-200 ms, default 21.3): how much audio is buffered. Lower = tighter, higher = safer. If the network needs more, LinkEffekt <strong>auto-raises</strong> the effective value (shown as <em>"Current: … (auto-adjusted)"</em>); it never lowers your setting on its own.</li>
-    <li><strong>Beat Sync status</strong>: <em>"In Sync"</em> (green metronome) means the received audio is locked to your beat grid. <em>"Free-run"</em> means there is no shared beat reference; audio plays with minimal latency but is not beat-aligned.</li>
+    <li><strong>Sync status line</strong> (green metronome = locked and audio flowing): <em>"In sync · 12 ms"</em> shows the current buffering delay; <em>"In sync · on the bar"</em> means Bar Sync placement (whole bars, see <a href="#beatsync">§7</a>); <em>"Buffering…"</em> is normal for a moment after selecting a channel; <em>"Free-run"</em> means there is no shared beat reference (lowest latency, not beat-aligned); <em>"Beat sync off — enable Ableton Link…"</em> tells you Link is disabled in the gear settings.</li>
+    <li><strong>Bar Sync</strong> (LAN toggle; Online is always bar-synced): locks the incoming downbeat to your bar — up to one bar late, but rock-solid even over a shaky connection. Off = lowest latency; a small constant offset may remain depending on the host (see <a href="#beatsync">§7</a>).</li>
+    <li><strong>Advanced timing</strong> (collapsed by default — the automation handles buffering by itself):
+      <ul>
+        <li><strong>Network Latency</strong> (3-200 ms, default 10): how much audio is buffered — this is the <em>lower bound</em>; LinkEffekt <strong>auto-raises</strong> the effective value when the network needs more (shown as <em>"Current: … (auto-adjusted)"</em>) and never lowers your setting on its own. In Bar Sync mode the slider has no fine effect (delay is whole bars).</li>
+        <li><strong>Nudge</strong> (±100 ms): fine-tunes where the received downbeat lands. <strong>+</strong> (later) always works; <strong>−</strong> (earlier) is limited by how much audio is buffered — full range with Bar Sync, only a small margin in low-latency mode. Leave at 0 if it sounds right; a non-zero Nudge is shown next to the "Advanced timing" label.</li>
+      </ul>
+    </li>
     <li><strong>Mixer block</strong>, in signal order: <strong>Received</strong> (mute the incoming stream), <strong>Host track</strong> (Receive effect only; the track's own input, default muted to prevent feedback, see <a href="#troubleshooting">§8</a>), and <strong>Output</strong> with master gain/pan/mute.</li>
     <li><strong>Diagnostics line</strong>: plain-language status under the channel menu (see <a href="#troubleshooting">§8</a> for what each message means).</li>
-    <li><strong>Gear, then Settings</strong>: Ableton Link settings plus <strong>Live Mode</strong>, which reports zero latency to the host so it skips delay compensation. For live playing/jamming only; tracks are not phase-aligned for recording.</li>
+    <li><strong>Gear, then Settings</strong>: Ableton Link settings plus <strong>Live Mode</strong> (reports zero latency to the host so it skips delay compensation — for live playing/jamming only) and <strong>Show diagnostics</strong> (a technical sync readout under the channel list; useful when reporting an issue, off by default).</li>
     <li><strong>Packet statistics</strong> (gaps/duplicates) appear automatically only when the network has problems.</li>
   </ul>
   <p><strong>Receive vs. Receive Instrument:</strong> identical engine. Use the <strong>effect</strong> everywhere you can insert it; use the <strong>Instrument</strong> where the channel needs a source (AUM source slot, Logic software-instrument track with multi-output).</p>
@@ -120,9 +127,11 @@
   <h2 id="beatsync">7 · Beat Sync: how it works and what to expect</h2>
   <p>Audio that travels through a network <strong>always</strong> arrives late; no software can remove that. What LinkEffekt can do is make the delay <em>musical</em>:</p>
   <ul>
-    <li><strong>LAN:</strong> the receiver places the incoming audio onto your local Ableton Link grid. The result is a stable, grid-locked offset roughly equal to the Latency setting, instead of drifting timing. Both apps must be in the same Link session (Link enabled on both).</li>
-    <li><strong>Online:</strong> the delay is rounded up to <strong>whole bars</strong> on your host's beat grid. The peer's "1" lands exactly on your "1", typically one bar later (2&nbsp;s at 120&nbsp;BPM). Requirements: <strong>Beat Sync on</strong> (default), <strong>host transport playing</strong> on both sides, <strong>same tempo</strong> on both hosts. When you press play, expect about one bar of silence while the buffer fills, then it locks.</li>
+    <li><strong>LAN (low latency, Bar Sync off):</strong> the receiver places the incoming audio onto your local Ableton Link grid. The result is a stable, grid-locked offset roughly equal to the Latency setting, instead of drifting timing. Both apps must be in the same Link session (Link enabled on both).</li>
+    <li><strong>Bar Sync (LAN) / Online:</strong> the delay is rounded up to <strong>whole bars</strong> on your host's beat grid. The incoming "1" lands exactly on your "1", typically one bar later (2&nbsp;s at 120&nbsp;BPM). Online requirements: <strong>Beat Sync on</strong> (default), <strong>host transport playing</strong> on both sides, <strong>same tempo</strong> on both hosts. When you press play, expect about one bar of silence while the buffer fills, then it locks.</li>
     <li><strong>Free-run</strong> is what you get without a shared beat reference: lowest latency, no alignment. Fine for monitoring, speech, or when you play by ear.</li>
+    <li><strong>Hosts without plugin delay compensation</strong> (e.g. Cubasis 3): LinkEffekt reports its latency, but the host does not compensate for it — so in low-latency mode the received audio sits a small, <em>constant</em> amount behind your local tracks. That offset is a host limitation, not something a plugin can remove. It does not matter for monitoring; for grid-accurate work turn on <strong>Bar Sync</strong> (exact placement, one bar late) and use <strong>Nudge</strong> for the last few milliseconds. Hosts with delay compensation (e.g. AUM) are tight out of the box.</li>
+    <li><strong>If the plugin suggests Bar Sync</strong> (<em>"Timing looks shaky on this host"</em>): the host's beat reporting is jittering. Bar Sync absorbs that completely; the suggestion is one tap, never automatic.</li>
     <li><strong>Recording into Ableton Live</strong> (LAN): enable <strong>Sync to Incoming Audio</strong> under Live's Settings → Link for sample-accurate placement; set Live's Link-Audio latency slider generously (100-200&nbsp;ms) and Monitor to <em>In</em>.</li>
   </ul>
   <p>The two hosts' own metronomes are <strong>not</strong> aligned to each other over the internet. Each side hears the peer on <em>their own</em> grid. In a remote jam that is exactly what you want, since each player only hears their own device.</p>
@@ -165,7 +174,10 @@
   <p>Is the <strong>host transport playing</strong> on both sides? Same tempo? The status line names what's missing. A tempo mismatch is shown as <em>"you X / peer Y BPM"</em>.</p>
 
   <h3>Timing is stable but consistently early or late (LAN)</h3>
-  <p>Use the <strong>Link Offset</strong> slider in the Send's gear settings to trim ±100&nbsp;ms.</p>
+  <p>On the receiver, open <strong>Advanced timing</strong> and use <strong>Nudge</strong> (±100&nbsp;ms; − earlier needs Bar Sync for full range). Sender-side there is also the <strong>Link Offset</strong> slider in the Send's gear settings.</p>
+
+  <h3>Received audio sits slightly behind my local tracks (Cubasis and other hosts without delay compensation)</h3>
+  <p>That constant offset is the host not compensating plugin latency — see <a href="#beatsync">§7</a>. For grid-accurate recording: <strong>Bar Sync</strong> on, then <strong>Nudge</strong> to taste; afterwards shift the recorded region by the whole bars Bar Sync added.</p>
 
   <h2 id="faq">9 · Frequently asked questions</h2>
   <p><strong>Does LinkEffekt work with Ableton Live?</strong> Yes. Live 12.4+ receives Link Audio directly (<a href="#beatsync">§7</a>), and LinkEffekt Send appears there as an input channel.</p>
