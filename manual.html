@@ -104,7 +104,7 @@
     <li><strong>Advanced timing</strong> (collapsed by default — the automation handles buffering by itself):
       <ul>
         <li><strong>Network Latency</strong> (3-200 ms, default 10): how much audio is buffered — this is the <em>lower bound</em>; LinkEffekt <strong>auto-raises</strong> the effective value when the network needs more (shown as <em>"Current: … (auto-adjusted)"</em>) and never lowers your setting on its own. In Bar Sync mode the slider has no fine effect (delay is whole bars).</li>
-        <li><strong>Nudge</strong> (±100 ms): fine-tunes where the received downbeat lands. <strong>+</strong> (later) always works; <strong>−</strong> (earlier) is limited by how much audio is buffered — full range with Bar Sync, only a small margin in low-latency mode. Leave at 0 if it sounds right; a non-zero Nudge is shown next to the "Advanced timing" label.</li>
+        <li><strong>Nudge / Delay</strong>: fine-tunes where the received downbeat lands. With <strong>Bar Sync</strong> (or Online mode) the slider is bipolar (<strong>Nudge</strong>, ±100 ms) — a full bar of buffered audio gives room to play earlier or later. In low-latency mode the slider is <strong>Delay</strong> (0…+100 ms): audio can always be played later, but not earlier than the sender delivers it. Leave at 0 if it sounds right; a non-zero value is shown next to the "Advanced timing" label.</li>
       </ul>
     </li>
     <li><strong>Mixer block</strong>, in signal order: <strong>Received</strong> (mute the incoming stream), <strong>Host track</strong> (Receive effect only; the track's own input, default muted to prevent feedback, see <a href="#troubleshooting">§8</a>), and <strong>Output</strong> with master gain/pan/mute.</li>
@@ -174,7 +174,7 @@
   <p>Is the <strong>host transport playing</strong> on both sides? Same tempo? The status line names what's missing. A tempo mismatch is shown as <em>"you X / peer Y BPM"</em>.</p>
 
   <h3>Timing is stable but consistently early or late (LAN)</h3>
-  <p>On the receiver, open <strong>Advanced timing</strong> and use <strong>Nudge</strong> (±100&nbsp;ms; − earlier needs Bar Sync for full range). Sender-side there is also the <strong>Link Offset</strong> slider in the Send's gear settings.</p>
+  <p>On the receiver, open <strong>Advanced timing</strong> and use <strong>Nudge</strong> (±100&nbsp;ms with Bar Sync; in low-latency mode the slider is Delay-only — earlier audio doesn't exist yet). Sender-side there is also the <strong>Link Offset</strong> slider in the Send's gear settings.</p>
 
   <h3>Received audio sits slightly behind my local tracks (Cubasis and other hosts without delay compensation)</h3>
   <p>That constant offset is the host not compensating plugin latency — see <a href="#beatsync">§7</a>. For grid-accurate recording: <strong>Bar Sync</strong> on, then <strong>Nudge</strong> to taste; afterwards shift the recorded region by the whole bars Bar Sync added.</p>
