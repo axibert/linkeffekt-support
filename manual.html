@@ -55,6 +55,14 @@
     </table>
   </div>
 
+  <p><strong>What can you do with it?</strong></p>
+  <ul>
+    <li><strong>Jam with two devices in one room:</strong> each player’s iPad/iPhone streams its tracks to the others over Wi-Fi, beat-locked via Ableton Link (<a href="#lan">§2</a>, <a href="#beatsync">§7</a>).</li>
+    <li><strong>Route audio between apps on one device:</strong> e.g. send a track from AUM into Cubasis to record it — no Wi-Fi, no setup, lowest latency (<a href="#lan">§2</a>, <em>“Same device or same host”</em>).</li>
+    <li><strong>Bring a remote friend into the session:</strong> stream over the internet, peer-to-peer and encrypted; their audio locks onto your bars (<a href="#online">§3</a>, <a href="#online-detail">§6</a>).</li>
+    <li><strong>Record iOS audio in Ableton Live:</strong> Live 12.4+ receives LinkEffekt Send directly as a Link Audio input (<a href="#beatsync">§7</a>, FAQ).</li>
+    <li><strong>Monitor a whole band on one device:</strong> several Send channels, summed in one Receive — or one Receive per channel for separate faders (<a href="#receive">§5</a>).</li>
+  </ul>
   <p><strong>Free vs. Unlimited Channels:</strong> the free version includes 1 Send and 1 Receive channel, fully functional on the local network. The one-time in-app purchase <strong>Unlimited Channels</strong> unlocks unlimited instances, monitoring multiple channels at once, and the <strong>Online</strong> (internet) mode. Purchase or restore it in the LinkEffekt app or directly inside the plugins.</p>
 
   <div class="note"><strong>First step on iOS:</strong> open the LinkEffekt app once after installing. This triggers the Local Network permission. Without it, the plugins cannot see each other.</div>
@@ -69,7 +77,13 @@
   </ol>
   <div class="diag"><span class="dot ok"></span><em>Receiving audio.</em></div>
   <p><strong>Tip:</strong> name your Send channels (the <em>Name</em> field). That name is what receivers see, and each additional Send instance appears as its own channel.</p>
-  <p><strong>Same device or same host?</strong> LinkEffekt routes these cases over a direct fast path that needs no Wi-Fi and no Local Network permission: a sender in <em>another app on the same device</em> appears as a channel tagged <strong>This device</strong>, a sender <em>inside the same host app</em> as <strong>This host</strong>. Just pick them like any other channel — they are the lowest-latency, most stable options when everything runs on one iPad/Mac.</p>
+  <h3>Same device or same host — app-to-app routing</h3>
+  <p>Everything on one iPad/Mac? LinkEffekt routes these cases over a direct fast path that needs <strong>no Wi-Fi, no Local Network permission and no Ableton Link setup</strong> — it is the lowest-latency, most stable option:</p>
+  <ul>
+    <li>A sender in <em>another app on the same device</em> appears as a channel tagged <strong>This device</strong>.</li>
+    <li>A sender <em>inside the same host app</em> (e.g. AUM track 1 → track 2) appears as <strong>This host</strong>.</li>
+  </ul>
+  <p><strong>Example — record an AUM setup into Cubasis:</strong> insert <strong>LinkEffekt Send</strong> on the AUM channel you want to capture, open Cubasis, insert <strong>LinkEffekt Receive</strong> on an audio track, pick the channel tagged <strong>This device</strong>, arm the track and record. The same recipe routes a synth app through another host’s effects, or feeds a DJ app’s output into a recorder — anywhere iOS offers no direct audio path between apps.</p>
 
   <h2 id="online">3 · Quick start: Online (internet)</h2>
   <p>Online mode streams over the internet, peer-to-peer, encrypted end-to-end (DTLS). It requires <strong>Unlimited Channels</strong> on both sides.</p>
@@ -99,7 +113,7 @@
     <li><strong>LAN / Online selector</strong>: which world the channel list below shows. The header shows Link peers (LAN) or the room status (ONLINE badge).</li>
     <li><strong>Now Receiving</strong>: pick exactly one channel. <em>"Channel (unavailable)"</em> means the sender disappeared (app closed, network lost).</li>
     <li><strong>Monitor multiple channels</strong> (Unlimited Channels): sum several channels into this plugin's stereo output. Channels that are active but belong to the other transport tab are shown with a LAN/Online tag so nothing is summed invisibly. For separate faders per channel, use one Receive instance per channel instead.</li>
-    <li><strong>Sync status line</strong> (green metronome = locked and audio flowing): <em>"In sync · 12 ms"</em> shows the current buffering delay; <em>"In sync · on the bar"</em> means Bar Sync placement (whole bars, see <a href="#beatsync">§7</a>); <em>"Buffering…"</em> is normal for a moment after selecting a channel; <em>"Free-run"</em> means there is no shared beat reference (lowest latency, not beat-aligned); <em>"Beat sync off — enable Ableton Link…"</em> tells you Link is disabled in the gear settings.</li>
+    <li><strong>Sync status line</strong> (green metronome = locked and audio flowing): <em>"In sync · 12 ms"</em> shows the current buffering delay; <em>"In sync · on the bar"</em> means Bar Sync placement (whole bars, see <a href="#beatsync">§7</a>); <em>"Buffering…"</em> is normal for a moment after selecting a channel; <em>"Free-run — playing at lowest latency"</em> means there is no shared beat reference (audio flows normally, just not beat-aligned); <em>"Playing free-run … — enable Ableton Link (gear icon)"</em> tells you how to get beat-locked on LAN; <em>"Waiting for your host transport — press play"</em> (Online) means the beat lock is just waiting for your host’s transport to run.</li>
     <li><strong>Bar Sync</strong> (LAN toggle; Online is always bar-synced): locks the incoming downbeat to your bar — up to one bar late, but rock-solid even over a shaky connection. Off = lowest latency; a small constant offset may remain depending on the host (see <a href="#beatsync">§7</a>).</li>
     <li><strong>Advanced timing</strong> (collapsed by default — the automation handles buffering by itself):
       <ul>
@@ -141,6 +155,7 @@
   <h3>No channel appears in Now Receiving (LAN)</h3>
   <ul>
     <li>Send and Receive must run in <strong>different apps or devices</strong> (<a href="#lan">§2</a>).</li>
+    <li>Everything on one device? Look for the <strong>This device</strong> / <strong>This host</strong> tag — those channels work without Wi-Fi, network permission or Link (<a href="#lan">§2</a>).</li>
     <li>Same Wi-Fi network? Some routers isolate clients ("AP/client isolation"). Disable that, or use a hotspot.</li>
     <li>Open the <strong>LinkEffekt app</strong> once (Local Network permission). The plugin shows an orange banner if this is missing.</li>
     <li>On the sender: gear, then <strong>Share Audio</strong> must be on.</li>
@@ -181,6 +196,7 @@
 
   <h2 id="faq">9 · Frequently asked questions</h2>
   <p><strong>Does LinkEffekt work with Ableton Live?</strong> Yes. Live 12.4+ receives Link Audio directly (<a href="#beatsync">§7</a>), and LinkEffekt Send appears there as an input channel.</p>
+  <p><strong>Does it work without a network?</strong> Yes — between apps on one device (channels tagged <strong>This device</strong> / <strong>This host</strong>) no network, permission or Link setup is needed (<a href="#lan">§2</a>). Only cross-device LAN and Online need connectivity.</p>
   <p><strong>How many channels can I run?</strong> With Unlimited Channels: as many Send/Receive instances as your device handles; Online supports up to 8 streams per direction per host.</p>
   <p><strong>Does audio go through your servers?</strong> No. Online audio is peer-to-peer and DTLS-encrypted; the server only relays the room handshake. If a direct connection is impossible, an encrypted relay (TURN) forwards the still-encrypted stream.</p>
   <p><strong>Why is there always some delay?</strong> Physics: network transit plus safety buffering. LinkEffekt makes the delay stable and, with Beat Sync, musical (<a href="#beatsync">§7</a>).</p>
