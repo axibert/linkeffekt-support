@@ -102,7 +102,7 @@
     <li><strong>Mute Local Output</strong> (default on): mutes the track locally <em>after</em> streaming, so you don't hear the signal twice (once dry, once through the receiver with latency). Turn it off only if the receiver is somewhere you can't hear.</li>
     <li><strong>Gain / Pan</strong>: applied to the stream (and to the local output), with click-free ramps. The bottom of the gain range is true silence.</li>
     <li><strong>Level meter</strong>: post gain/pan; red = clipping (tap to reset).</li>
-    <li><strong>Destination: LAN / Online</strong>: where this track streams. Switching Online to LAN removes only this track from the room; the room itself stays open until you tap <strong>Leave</strong> (a "room is still open" line with a Leave button stays visible in LAN mode).</li>
+    <li><strong>Destination: LAN &amp; Local / Online</strong>: where this track streams (LAN &amp; Local always includes listeners on this device). Switching Online to LAN removes only this track from the room; the room itself stays open until you tap <strong>Leave</strong> (a "room is still open" line with a Leave button stays visible in LAN mode).</li>
     <li><strong>Gear (Ableton Link settings)</strong>: the Link session, <strong>Share Audio</strong> (required for LAN sending; Online is independent of it) and the <strong>Link Offset</strong> slider (±100 ms) to fine-align audio that arrives consistently early or late. Negative offsets can cause dropouts on the receiver; raise the receiver's latency if needed.</li>
     <li><strong>Link Audio: Enabled/Disabled</strong>: status line, mirrors the Share Audio toggle.</li>
   </ul>
@@ -110,14 +110,14 @@
 
   <h2 id="receive">5 · LinkEffekt Receive: reference</h2>
   <ul>
-    <li><strong>LAN / Online selector</strong>: which world the channel list below shows. The header shows Link peers (LAN) or the room status (ONLINE badge).</li>
+    <li><strong>LAN &amp; Local / Online selector</strong>: which world the channel list below shows — LAN &amp; Local covers network channels <em>and</em> the direct paths on this device (This host / This device). The header shows Link peers (LAN) or the room status (ONLINE badge).</li>
     <li><strong>Now Receiving</strong>: pick exactly one channel. <em>"Channel (unavailable)"</em> means the sender disappeared (app closed, network lost).</li>
-    <li><strong>Monitor multiple channels</strong> (Unlimited Channels): sum several channels into this plugin's stereo output. Channels that are active but belong to the other transport tab are shown with a LAN/Online tag so nothing is summed invisibly. For separate faders per channel, use one Receive instance per channel instead.</li>
+    <li><strong>Monitor multiple channels</strong> (Unlimited Channels): sum several channels into this plugin's stereo output. Channels that are active but belong to the other transport tab are shown with a LAN/Local/Online tag so nothing is summed invisibly. For separate faders per channel, use one Receive instance per channel instead.</li>
     <li><strong>Sync status line</strong> (green metronome = locked and audio flowing): <em>"In sync · 12 ms"</em> shows the current buffering delay; <em>"In sync · on the bar"</em> means Bar Sync placement (whole bars, see <a href="#beatsync">§7</a>); <em>"Buffering…"</em> is normal for a moment after selecting a channel; <em>"Free-run — playing at lowest latency"</em> means there is no shared beat reference (audio flows normally, just not beat-aligned); <em>"Playing free-run … — enable Ableton Link (gear icon)"</em> tells you how to get beat-locked on LAN; <em>"Waiting for your host transport — press play"</em> (Online) means the beat lock is just waiting for your host’s transport to run.</li>
     <li><strong>Bar Sync</strong> (LAN toggle; Online is always bar-synced): locks the incoming downbeat to your bar — up to one bar late, but rock-solid even over a shaky connection. Off = lowest latency; a small constant offset may remain depending on the host (see <a href="#beatsync">§7</a>).</li>
     <li><strong>Advanced timing</strong> (collapsed by default — the automation handles buffering by itself):
       <ul>
-        <li><strong>Network Latency</strong> (3-200 ms, default 10): how much audio is buffered — this is the <em>lower bound</em>; LinkEffekt <strong>auto-raises</strong> the effective value when the network needs more (shown as <em>"Current: … (auto-adjusted)"</em>) and never lowers your setting on its own. In Bar Sync mode the slider has no fine effect (delay is whole bars).</li>
+        <li><strong>Latency</strong> (3-200 ms, default 10): how much audio is buffered — this is the <em>lower bound</em>; LinkEffekt <strong>auto-raises</strong> the effective value when the network needs more (shown as <em>"Current: … (auto-adjusted)"</em>) and never lowers your setting on its own. In Bar Sync mode the slider has no fine effect (delay is whole bars).</li>
         <li><strong>Nudge / Delay</strong>: fine-tunes where the received downbeat lands. With <strong>Bar Sync</strong> (or Online mode) the slider is bipolar (<strong>Nudge</strong>, ±100 ms) — a full bar of buffered audio gives room to play earlier or later. In low-latency mode the slider is <strong>Delay</strong> (0…+100 ms): audio can always be played later, but not earlier than the sender delivers it. Leave at 0 if it sounds right; a non-zero value is shown next to the "Advanced timing" label.</li>
       </ul>
     </li>
@@ -171,7 +171,7 @@
   <div class="diag"><span class="dot wait"></span><em>No audio from the peer yet…</em>&nbsp;· (Online) the peer left the room or isn't streaming.</div>
 
   <h3>Crackles or dropouts</h3>
-  <p>Raise the <strong>Network Latency</strong> slider until clean, then add a small margin. On weak Wi-Fi move closer to the router; in Online mode try <strong>Mono send</strong>.</p>
+  <p>Raise the <strong>Latency</strong> slider until clean, then add a small margin. On weak Wi-Fi move closer to the router; in Online mode try <strong>Mono send</strong>.</p>
 
   <h3>Feedback howling</h3>
   <p>The receiving track has a live mic input feeding through. Keep <strong>Host track</strong> muted (the default) in the Receive mixer, or use the Receive <strong>Instrument</strong> (no input at all).</p>
