@@ -76,7 +76,8 @@
     <li>You should hear audio and see the meter move. The status line reads:</li>
   </ol>
   <div class="diag"><span class="dot ok"></span><em>Receiving audio.</em></div>
-  <p><strong>Tip:</strong> name your Send channels (the <em>Name</em> field). That name is what receivers see, and each additional Send instance appears as its own channel.</p>
+  <p><strong>Latency on one device:</strong> most of the end-to-end latency comes from the two host apps' audio buffer sizes, not from LinkEffekt (its own buffer starts at 3&nbsp;ms on direct paths). For the tightest timing set both apps to 128 or 256 frames (AUM: Settings &gt; Buffer Size; Cubasis: Setup &gt; Audio &gt; Latency). The Receive plugin shows the measured breakdown under <em>Advanced timing</em>: total, LinkEffekt's share, and the host apps' share.</p>
+<p><strong>Tip:</strong> name your Send channels (the <em>Name</em> field). That name is what receivers see, and each additional Send instance appears as its own channel.</p>
   <h3>Same device or same host — app-to-app routing</h3>
   <p>Everything on one iPad/Mac? LinkEffekt routes these cases over a direct fast path that needs <strong>no Wi-Fi, no Local Network permission and no Ableton Link setup</strong> — it is the lowest-latency, most stable option:</p>
   <ul>
@@ -117,7 +118,7 @@
     <li><strong>Bar Sync</strong> (toggle in the LAN &amp; Local tab; Online is always bar-synced): locks the incoming downbeat to your bar: up to one bar late, but rock-solid even over a shaky connection. Off = lowest latency. Hosts with plugin delay compensation (AUM, Logic) align the low-latency stream automatically; hosts without it (Cubasis) keep a small constant offset (see <a href="#beatsync">§7</a>).</li>
     <li><strong>Advanced timing</strong> (collapsed by default — the automation handles buffering by itself):
       <ul>
-        <li><strong>Latency</strong> (3-200 ms, default 10): how much audio is buffered — this is the <em>lower bound</em>; LinkEffekt <strong>auto-raises</strong> the effective value when the network needs more (shown as <em>"Current: … (auto-adjusted)"</em>) and never lowers your setting on its own. On a direct connection (<strong>This device</strong> / <strong>This host</strong>) the automatic starts as low as 3 ms while the slider sits at its default — the status line shows the real value. In Bar Sync mode the slider has no fine effect (delay is whole bars).</li>
+        <li><strong>Latency</strong> (3-200 ms, default 10): how much audio is buffered — this is the <em>lower bound</em>; LinkEffekt <strong>auto-raises</strong> the effective value when the network needs more (shown as <em>"Current: … (auto-adjusted)"</em>) and never lowers your setting on its own. On a direct connection (<strong>This device</strong> / <strong>This host</strong>) the automatic starts as low as 3 ms while the slider sits at its default — the status line shows the real value. In Bar Sync mode the slider has no fine effect (delay is whole bars). On direct paths a <em>Measured</em> line breaks the total down into LinkEffekt's buffer and the host apps' share (their audio buffer sizes plus output pipelines); lowering the buffer size in the host apps is the lever for the host share.</li>
         <li><strong>Nudge / Delay</strong>: fine-tunes where the received downbeat lands. With <strong>Bar Sync</strong> (or Online mode) the slider is bipolar (<strong>Nudge</strong>, ±100 ms) — a full bar of buffered audio gives room to play earlier or later. In low-latency mode the slider is <strong>Delay</strong> (0…+100 ms): audio can always be played later, but not earlier than the sender delivers it. Leave at 0 if it sounds right; a non-zero value is shown next to the "Advanced timing" label.</li>
       </ul>
     </li>
