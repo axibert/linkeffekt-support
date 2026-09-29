@@ -86,7 +86,7 @@
     <li>A sender <em>inside the same host app</em> (e.g. AUM track 1 to track 2) appears as <strong>This host</strong>.</li>
   </ul>
   <p><strong>Example, record an AUM setup into Cubasis:</strong> insert <strong>LinkEffekt Send</strong> on the AUM channel you want to capture, open Cubasis, insert <strong>LinkEffekt Receive</strong> on an audio track, pick the channel tagged <strong>This device</strong>, arm the track and record. The same recipe routes a synth app through another host’s effects, or feeds a DJ app’s output into a recorder: anywhere iOS offers no direct audio path between apps.</p>
-  <p><strong>Latency on one device:</strong> most of the end-to-end latency comes from the two host apps' audio buffer sizes, not from LinkEffekt (its own share on a direct path is a few&nbsp;ms). For the tightest timing set both apps to 128 or 256 frames (AUM: Settings &gt; Buffer Size; Cubasis: Setup &gt; Audio &gt; Latency). With <strong>Show diagnostics</strong> (gear) the Receive plugin shows the measured breakdown under the Latency slider: total, LinkEffekt's share, and the host apps' share.</p>
+  <p><strong>Latency on one device:</strong> most of the end-to-end latency comes from the two host apps' audio buffer sizes, not from LinkEffekt (its own share on a direct path is a few&nbsp;ms). For the tightest timing set both apps to 128 or 256 frames (AUM: Settings &gt; Buffer Size; Cubasis: Setup &gt; Audio &gt; Latency).</p>
 
   <h2 id="online">3 · Quick start: Online (internet)</h2>
   <p>Online mode streams over the internet, peer-to-peer, encrypted end-to-end (DTLS). It requires <strong>Unlimited Channels</strong> on both sides.</p>
@@ -114,7 +114,7 @@
       <ul>
         <li><strong>Link Offset</strong> (±100&nbsp;ms): shifts this channel's timing at every receiver. Negative offsets can cause dropouts on the receiver; raise the receiver's Latency if needed. <strong>Apply to all channels</strong> uses one value for all Send instances in this host.</li>
         <li><strong>Send at 48 kHz</strong>: for receivers that need 48&nbsp;kHz, e.g. Ableton Live's Link input.</li>
-        <li><strong>Show diagnostics</strong>: a technical readout for support requests, plus the plugin version.</li>
+        <li>The plugin version, the first thing support asks for.</li>
       </ul>
     </li>
   </ul>
@@ -140,7 +140,8 @@
     </li>
     <li><strong>Mixer block</strong>, in signal order: <strong>Received</strong> (mute the incoming stream), <strong>Host track</strong> (Receive effect only; the track's own input, default muted to prevent feedback, see <a href="#troubleshooting">§8</a>), and <strong>Output</strong> with master gain/pan/mute. Bypassing the Receive effect in your host passes the track through unchanged; <strong>Host track</strong> is then no longer muted, so mind a live mic near your speakers.</li>
     <li><strong>Diagnostics line</strong>: appears under the channel menu only when something is wrong, in plain language (see <a href="#troubleshooting">§8</a> for what each message means). When audio is flowing there is no message: the green dot, the status line and the meter say it.</li>
-    <li><strong>Gear, then Settings</strong>: Ableton Link settings plus <strong>Show diagnostics</strong> (a technical sync readout under the channel list, the measured latency breakdown and packet statistics; useful when reporting an issue, off by default).</li>
+    <li><strong>Gear, then Settings</strong>: Ableton Link settings and the plugin version.</li>
+    <li><strong>Diagnostics for support</strong>: every Send and Receive instance records its timing on this device while it runs (one line per second, plus events such as channel changes and dropouts). Nothing is shown in the plugin and nothing leaves the device on its own. If something sounds wrong, keep playing for a minute, then open the LinkEffekt app and tap <strong>Share diagnostics</strong> (AirDrop, Mail or Files).</li>
   </ul>
   <p><strong>Receive vs. Receive Instrument:</strong> identical engine. Use the <strong>effect</strong> everywhere you can insert it; use the <strong>Instrument</strong> where the channel needs a source (AUM source slot, Logic software-instrument track with multi-output).</p>
 
@@ -223,7 +224,7 @@
 
   <footer>
     <span><a class="backlink" href="./">← LinkEffekt</a></span>
-    <span>Support: <a href="mailto:alexander.joannou@gmail.com">alexander.joannou@gmail.com</a>. Please include your host app, device, and what the diagnostics line says.</span>
+    <span>Support: <a href="mailto:alexander.joannou@gmail.com">alexander.joannou@gmail.com</a>. Please include your host app and device, and attach the diagnostics (LinkEffekt app, <strong>Share diagnostics</strong>).</span>
   </footer>
 
 </div>
