@@ -199,7 +199,7 @@
     <div class="gtk">
       <p class="gtk-title">Good to know</p>
       <ul>
-        <li>More than one channel per Receive, or more than one Receive, needs <strong>Unlimited Channels</strong> on the monitoring device. Each player’s single Send is free.</li>
+        <li>More than one channel per Receive, or more than one Receive, needs the in-app purchase on the monitoring device. Each player’s single Send is free.</li>
         <li>A player who hears their own instrument through the sending app and notices a delay there: <strong>Live Mode</strong> in that Send (<a href="#send">§4</a>).</li>
       </ul>
     </div>
@@ -368,7 +368,7 @@
       <span class="route-wire both"></span>
       <span class="route-node">Your friend</span>
     </div>
-    <p class="need">Both of you need <strong>Unlimited Channels</strong>.</p>
+    <p class="need">Both of you need the in-app purchase.</p>
     <ol class="steps">
       <li>You: in <strong>LinkEffekt Send</strong>, switch to <strong>Online</strong>, tap <strong>Create Room</strong> and send your friend the room code (copy button next to the code).</li>
       <li>Your friend: in <strong>LinkEffekt Receive</strong>, switch to <strong>Online</strong>, enter the code, tap <strong>Join</strong> and pick your channel.</li>
@@ -481,7 +481,7 @@
     </li>
   </ul>
   <p><strong>Orange banner “Share Audio is off”:</strong> shown only where the switch actually blocks something, i.e. when nobody on this device is listening and the destination is LAN &amp; Local. Tap it to open the settings.</p>
-  <p><strong>Freemium:</strong> the second and further Send instances without Unlimited Channels keep passing audio through locally but do not stream (“Channel Limited” banner with an unlock button).</p>
+  <p><strong>Freemium:</strong> the second and further Send instances without the in-app purchase keep passing audio through locally but do not stream (“Channel Limited” banner with an unlock button).</p>
 
   <h2 id="receive">5 · LinkEffekt Receive: reference</h2>
   <figure class="shot">
@@ -504,7 +504,7 @@
   <ul>
     <li><strong>LAN &amp; Local / Online selector</strong>: which world the channel list below shows. LAN &amp; Local covers network channels <em>and</em> the direct paths on this device (This host / This device). The header shows Link peers (LAN) or the room status (ONLINE badge).</li>
     <li><strong>Now Receiving</strong>: pick exactly one channel. <em>“Channel (unavailable)”</em> means the sender disappeared (app closed, network lost).</li>
-    <li><strong>Monitor multiple channels</strong> (Unlimited Channels): sum several channels into this plugin's stereo output. Channels that are active but belong to the other transport tab are shown with a LAN/Local/Online tag so nothing is summed invisibly. For separate faders per channel, use one Receive instance per channel instead.</li>
+    <li><strong>Monitor multiple channels</strong> (in-app purchase): sum several channels into this plugin's stereo output. Channels that are active but belong to the other transport tab are shown with a LAN/Local/Online tag so nothing is summed invisibly. For separate faders per channel, use one Receive instance per channel instead.</li>
     <li><strong>Status</strong>: one line under the channel menu, always in the same place, so nothing below it jumps. Problems appear in the same place in orange (<a href="#troubleshooting">§8</a>), and so do the hints while nothing is selected, for example <em>“Channel 1 · iPad found: tap to listen”</em>.</li>
   </ul>
   <div class="table-scroll">
@@ -547,7 +547,7 @@
   <p><strong>Receive vs. Receive Instrument:</strong> identical engine. Use the <strong>effect</strong> everywhere you can insert it; use the <strong>Instrument</strong> where the channel needs a source (AUM source slot, a software-instrument track). Both have one stereo output.</p>
 
   <h2 id="online">6 · Online mode</h2>
-  <p>Online mode streams over the internet, peer-to-peer, encrypted end-to-end (DTLS). It requires <strong>Unlimited Channels</strong> on both sides. A walk-through for two players: <a href="#wf-online">§2, Jam online with a friend</a>.</p>
+  <p>Online mode streams over the internet, peer-to-peer, encrypted end-to-end (DTLS). It needs the in-app purchase on both sides. A walk-through for two players: <a href="#wf-online">§2, Jam online with a friend</a>.</p>
   <ol>
     <li><strong>Person A:</strong> in <strong>LinkEffekt Send</strong>, switch <strong>Destination</strong> to <strong>Online</strong>, tap <strong>Create Room</strong> and share the room code (copy button next to the code).</li>
     <li><strong>Person B:</strong> in <strong>LinkEffekt Receive</strong>, switch the top selector to <strong>Online</strong>, enter the code and tap <strong>Join</strong>.</li>
@@ -617,7 +617,7 @@
   <div class="diag"><span class="dot wait"></span><em>No audio from the sender. Is Share Audio on there? Same network?</em>&nbsp;· the sender isn't streaming: Share Audio off, Send Audio off, or a different network.</div>
   <div class="diag"><span class="dot wait"></span><em>The host is not running this plugin…</em>&nbsp;· the host never renders the channel. In AUM: give the channel a source, or use Receive Instrument as the source.</div>
   <div class="diag"><span class="dot wait"></span><em>Receiving, but Received is muted below</em> / <em>… Output is muted below</em> / <em>… Output Gain is at −∞</em>&nbsp;· un-mute or raise the control it names.</div>
-  <div class="diag"><span class="dot wait"></span><em>Free limit: this is a second receive instance…</em>&nbsp;· second Receive instance without Unlimited Channels; unlock or remove it.</div>
+  <div class="diag"><span class="dot wait"></span><em>Free limit: this is a second receive instance…</em>&nbsp;· second Receive instance without the in-app purchase; unlock or remove it.</div>
   <div class="diag"><span class="dot wait"></span><em>No audio from the peer…</em>&nbsp;· (Online) the peer left the room or isn't streaming.</div>
   <div class="diag"><span class="dot wait"></span><em>2× …: pick the right one.</em>&nbsp;· (after loading a project) the saved name exists more than once; pick the channel in the menu.</div>
 
@@ -650,7 +650,7 @@
   <p>Code typo (codes are letters/numbers only; pasted spaces are removed automatically), or the room expired because it stayed empty. Create a fresh room.</p>
 
   <h3>Online: stuck on “waiting for peer”</h3>
-  <p>The other side hasn't joined yet or joined a mistyped code. Re-share the code; both sides need Unlimited Channels.</p>
+  <p>The other side hasn't joined yet or joined a mistyped code. Re-share the code; both sides need the in-app purchase.</p>
 
   <h3>Beat Sync won't lock (Online)</h3>
   <p>Is the <strong>host transport playing</strong> on both sides? Same tempo? The status line names what's missing, and a tempo mismatch is shown with both values.</p>
@@ -670,7 +670,7 @@
   <h2 id="faq">9 · Frequently asked questions</h2>
   <p><strong>Does LinkEffekt work with Ableton Live?</strong> Yes, in both directions. Live 12.4+ receives Link Audio directly, and LinkEffekt Send appears there as an input channel. Live also sends: turn on Link and its <strong>Audio</strong> switch under Live's Settings &gt; Link, and every Live track with an audio output (including returns and the Main output) appears in LinkEffekt Receive as a channel. Live does not render ahead, so turn on <strong>Bar Sync</strong> in the Receive for exact placement on the bar. In Live, <strong>Sync to Incoming Audio</strong> depends on the direction: off when you only receive Live's tracks, on when you record into Live. Step by step: <a href="#wf-record-live">§2, Workflows</a>.</p>
   <p><strong>Does it work without a network?</strong> Yes. Between apps on one device (channels tagged <strong>This device</strong> / <strong>This host</strong>) no network, permission or Link setup is needed (<a href="#same-device">§3</a>). Only cross-device LAN and Online need connectivity.</p>
-  <p><strong>How many channels can I run?</strong> With Unlimited Channels: as many Send/Receive instances as your device handles; Online supports up to 8 streams per direction per host.</p>
+  <p><strong>How many channels can I run?</strong> With the in-app purchase: as many Send/Receive instances as your device handles; Online supports up to 8 streams per direction per host.</p>
   <p><strong>Does audio go through your servers?</strong> No. Online audio is peer-to-peer and DTLS-encrypted; the server only relays the room handshake. If a direct connection is impossible, an encrypted relay (TURN) forwards the still-encrypted stream.</p>
   <p><strong>Why is there always some delay?</strong> Physics: network transit plus safety buffering. LinkEffekt makes the delay stable and, with Beat Sync, musical (<a href="#beatsync">§7</a>). With a sender in AUM it lands right on your grid.</p>
   <p><strong>Which sample rates are supported?</strong> The host's rate (44.1/48/96 kHz…) on both sides; LinkEffekt converts internally. Online always transmits at 48 kHz/Opus.</p>
