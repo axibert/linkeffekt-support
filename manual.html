@@ -4,17 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>LinkEffekt Manual</title>
-<meta name="description" content="The complete LinkEffekt manual: setup on LAN and Online, Beat Sync explained, every control, and troubleshooting by diagnostic message.">
+<meta name="description" content="The complete LinkEffekt manual: step-by-step workflows, setup on LAN and Online, Beat Sync explained, every control, and troubleshooting by diagnostic message.">
 <link rel="icon" type="image/png" href="favicon-64.png">
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
+<script>document.documentElement.classList.add('js')</script>
 </head>
-<body>
-<div class="wrap narrow prose">
+<body class="manual">
 
+<div class="wrap wide">
   <header class="site-head">
     <a class="logo-link" href="./" aria-label="LinkEffekt home">
       <img class="logo" src="logo@3x.png" alt="LinkEffekt">
@@ -25,6 +26,57 @@
       <a href="mailto:alexander.joannou@gmail.com">Support</a>
     </nav>
   </header>
+</div>
+
+<div class="toc-bar" id="toc-bar">
+  <button type="button" aria-expanded="false" aria-controls="toc-bar-list">
+    <span class="cur-num">§</span><span class="cur-title">Contents</span>
+    <svg class="chev" viewBox="0 0 14 14" aria-hidden="true"><path d="M3 5l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </button>
+  <nav class="bar-list" id="toc-bar-list" aria-label="Chapters"></nav>
+</div>
+
+<div class="wrap wide manual-layout">
+
+  <aside class="side-toc" aria-label="Contents">
+    <div class="side-title">Contents</div>
+    <nav id="side-nav">
+      <a href="#what"><span class="num">1</span>What is LinkEffekt?</a>
+      <a href="#workflows"><span class="num">2</span>Workflows</a>
+      <div class="sub" data-for="workflows">
+        <a href="#wf-jam">Jam with two devices</a>
+        <a href="#wf-band">Monitor a band</a>
+        <a href="#wf-apps">Between apps on one device</a>
+        <a href="#wf-record-live">Record iOS audio in Live</a>
+        <a href="#wf-live-tracks">Play Live’s tracks on iOS</a>
+        <a href="#wf-live-both">Both directions with Live</a>
+        <a href="#wf-couch">Take the iPad to the couch</a>
+        <a href="#wf-online">Jam online with a friend</a>
+      </div>
+      <a href="#lan"><span class="num">3</span>Basics</a>
+      <div class="sub" data-for="lan">
+        <a href="#cable">Tip: plug in a cable</a>
+        <a href="#same-device">Same device or same host</a>
+      </div>
+      <a href="#send"><span class="num">4</span>LinkEffekt Send</a>
+      <a href="#receive"><span class="num">5</span>LinkEffekt Receive</a>
+      <a href="#online"><span class="num">6</span>Online mode</a>
+      <a href="#beatsync"><span class="num">7</span>Beat Sync</a>
+      <a href="#troubleshooting"><span class="num">8</span>Troubleshooting</a>
+      <div class="sub" data-for="troubleshooting">
+        <a href="#ts-no-channel">No channel appears</a>
+        <a href="#ts-off-beat">Off the beat</a>
+        <a href="#ts-no-sound">No sound</a>
+        <a href="#ts-dropouts">Crackles or dropouts</a>
+        <a href="#ts-airdrop">Dropouts after AirDrop</a>
+        <a href="#ts-mac-late">Mac sounds late</a>
+        <a href="#ts-live-metronome">Live’s metronome is late</a>
+      </div>
+      <a href="#faq"><span class="num">9</span>FAQ</a>
+    </nav>
+  </aside>
+
+  <main class="prose">
 
   <header class="page-head">
     <h1>LinkEffekt Manual</h1>
@@ -33,18 +85,18 @@
 
   <nav class="toc" aria-label="Contents">
     <a href="#what"><span class="num">1</span>What is LinkEffekt?</a>
-    <a href="#lan"><span class="num">2</span>Quick start: LAN</a>
-    <a href="#online"><span class="num">3</span>Quick start: Online</a>
+    <a href="#workflows"><span class="num">2</span>Workflows</a>
+    <a href="#lan"><span class="num">3</span>Basics</a>
     <a href="#send"><span class="num">4</span>LinkEffekt Send</a>
     <a href="#receive"><span class="num">5</span>LinkEffekt Receive</a>
-    <a href="#online-detail"><span class="num">6</span>Online mode in detail</a>
+    <a href="#online"><span class="num">6</span>Online mode</a>
     <a href="#beatsync"><span class="num">7</span>Beat Sync</a>
     <a href="#troubleshooting"><span class="num">8</span>Troubleshooting</a>
     <a href="#faq"><span class="num">9</span>FAQ</a>
   </nav>
 
   <h2 id="what">1 · What is LinkEffekt?</h2>
-  <p>LinkEffekt streams audio between music apps and devices, over your local network (via Ableton Link Audio) or over the internet (Online mode). It ships as three AUv3 plugins that run inside any AUv3 host (AUM, Logic Pro, Cubasis, Drambo, GarageBand and others):</p>
+  <p>LinkEffekt streams audio between music apps: between apps on the same iPhone or iPad, between devices on your local network (via Ableton Link Audio), or over the internet (Online mode). It ships as three AUv3 plugins that run inside any AUv3 host (AUM, Logic Pro, Cubasis, Drambo, GarageBand and others):</p>
 
   <div class="table-scroll">
     <table>
@@ -55,21 +107,293 @@
     </table>
   </div>
 
-  <p><strong>What can you do with it?</strong></p>
-  <ul>
-    <li><strong>Jam with two devices in one room:</strong> each player’s iPad/iPhone streams its tracks to the others over Wi-Fi, beat-locked via Ableton Link (<a href="#lan">§2</a>, <a href="#beatsync">§7</a>).</li>
-    <li><strong>Route audio between apps on one device:</strong> e.g. send a track from AUM into Cubasis to record it. No Wi-Fi, no setup, lowest latency (<a href="#lan">§2</a>, <em>“Same device or same host”</em>).</li>
-    <li><strong>Bring a remote friend into the session:</strong> stream over the internet, peer-to-peer and encrypted; their audio locks onto your bars (<a href="#online">§3</a>, <a href="#online-detail">§6</a>).</li>
-    <li><strong>Record iOS audio in Ableton Live:</strong> Live 12.4+ receives LinkEffekt Send directly as a Link Audio input (<a href="#beatsync">§7</a>, FAQ).</li>
-    <li><strong>Play Ableton Live's tracks on your iPad or iPhone:</strong> Live 12.4+ shares its tracks over Link Audio as well. Each track appears in LinkEffekt Receive as a channel; turn on <strong>Bar Sync</strong> to place it exactly on the bar (<a href="#beatsync">§7</a>, FAQ).</li>
-    <li><strong>Monitor a whole band on one device:</strong> several Send channels, summed in one Receive, or one Receive per channel for separate faders (<a href="#receive">§5</a>).</li>
-  </ul>
+  <p><strong>What can you do with it?</strong> Jam across devices, route audio between apps on one device, record iOS audio in Ableton Live, play Live’s tracks on your iPad, jam online with a friend, monitor a band. <a href="#workflows">§2 Workflows</a> walks you through each one, step by step.</p>
   <p><strong>Free vs. Unlimited Channels:</strong> the free version includes 1 Send and 1 Receive channel, fully functional on the local network. The one-time in-app purchase <strong>Unlimited Channels</strong> unlocks unlimited instances, monitoring multiple channels at once, and the <strong>Online</strong> (internet) mode. Purchase or restore it in the LinkEffekt app or directly inside the plugins.</p>
 
   <div class="note"><strong>First step:</strong> open the LinkEffekt app once after installing, on your iPhone and iPad, and allow Local Network access. Without it, the plugins cannot see each other.</div>
 
-  <h2 id="lan">2 · Quick start: local network (LAN)</h2>
-  <p>Send and Receive work on two devices, in two apps on one device, and in the same host app on different tracks.</p>
+  <h2 id="workflows">2 · Workflows</h2>
+  <p>Pick your situation. Each workflow names what you need and the few steps to get there. The chapters after it explain every control in detail.</p>
+
+  <div class="wf-index">
+    <p class="wf-group">In one room</p>
+    <a class="wf-tile" href="#wf-jam"><span class="wf-route">IPHONE ⇄ IPAD</span><span class="wf-name">Jam with two devices</span></a>
+    <a class="wf-tile" href="#wf-band"><span class="wf-route">PLAYERS → ONE MIX</span><span class="wf-name">Monitor a band on one device</span></a>
+    <p class="wf-group">On one device</p>
+    <a class="wf-tile" href="#wf-apps"><span class="wf-route">AUM → CUBASIS</span><span class="wf-name">Route audio between apps on one device</span></a>
+    <p class="wf-group">With Ableton Live</p>
+    <a class="wf-tile" href="#wf-record-live"><span class="wf-route">IPAD → LIVE</span><span class="wf-name">Record iOS audio in Ableton Live</span></a>
+    <a class="wf-tile" href="#wf-live-tracks"><span class="wf-route">LIVE → IPAD</span><span class="wf-name">Play Live’s tracks on your iPad or iPhone</span></a>
+    <a class="wf-tile" href="#wf-live-both"><span class="wf-route">IPAD ⇄ LIVE</span><span class="wf-name">Both directions with Live</span></a>
+    <a class="wf-tile" href="#wf-couch"><span class="wf-route">ONE SWITCH</span><span class="wf-name">Take the iPad to the couch</span></a>
+    <p class="wf-group">Over the internet</p>
+    <a class="wf-tile" href="#wf-online"><span class="wf-route">YOU ⇄ FRIEND</span><span class="wf-name">Jam online with a friend</span></a>
+  </div>
+
+  <article class="wf" id="wf-jam">
+    <p class="wf-kind">In one room</p>
+    <h3>Jam with two devices</h3>
+    <p class="wf-lead">iPad and iPhone in one room. Each of you plays a part, each hears the other right on the beat.</p>
+    <div class="route" role="img" aria-label="Route: iPhone in AUM to iPad in AUM and back, over Wi-Fi or a cable">
+      <span class="route-label">Wi-Fi or cable</span>
+      <span class="route-node">iPhone · AUM</span>
+      <span class="route-wire both"></span>
+      <span class="route-node">iPad · AUM</span>
+    </div>
+    <ol class="steps">
+      <li>In both host apps, turn on <strong>Ableton Link</strong> (in the app’s own settings, not only in the plugin).</li>
+      <li>On each device, insert <strong>LinkEffekt Send</strong> on the track you play. Tap the gear and turn on <strong>Ableton Link</strong> and <strong>Share Audio</strong>.</li>
+      <li>On each device, load <strong>LinkEffekt Receive</strong> on another track and pick the other device’s channel in <strong>Now Receiving</strong>.</li>
+      <li>The status reads <em>In sync</em>. Both directions play on the beat.</li>
+    </ol>
+    <figure class="shot">
+      <div class="shot-imgs">
+        <img src="img/manual/jam-send.png" width="340" height="427" loading="lazy" alt="LinkEffekt Send in AUM on the iPad, its status line reads Streaming to a listener">
+        <img src="img/manual/jam-receive.png" width="340" height="452" loading="lazy" alt="LinkEffekt Receive in AUM on the iPad, playing Channel 1 · iPhone, status In sync, Buffer 100 ms">
+      </div>
+      <figcaption>
+        <ul class="callouts">
+          <li><span class="cn">1</span>The Send: someone is listening.</li>
+          <li><span class="cn">2</span>The other device’s channel, named after the device.</li>
+          <li><span class="cn">3</span>On the beat.</li>
+          <li><span class="cn">4</span>Buffer: 100&nbsp;ms in reserve against Wi-Fi gaps, the default.</li>
+        </ul>
+      </figcaption>
+    </figure>
+    <div class="gtk">
+      <p class="gtk-title">Good to know</p>
+      <ul>
+        <li>Each part plays once in the room: the Send mutes your track on your device (<strong>Mute Local Output</strong>) and the other device plays it. On headphones, turn Mute Local Output off.</li>
+        <li>Everything in a sending app sounds a little later (typically 50 to 150&nbsp;ms): AUM renders ahead, so the other side gets it on the beat. If you play a live instrument there and that delay bothers you, see <strong>Live Mode</strong> (<a href="#send">§4</a>).</li>
+        <li>In a host without delay compensation (Cubasis), the other side plays behind the beat; turn on <strong>Bar Sync</strong> there (one bar late).</li>
+        <li>A cable instead of Wi-Fi: no dropouts from AirDrop, and a much smaller buffer (<a href="#cable">§3, Tip: plug in a cable</a>).</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="wf" id="wf-band">
+    <p class="wf-kind">In one room</p>
+    <h3>Monitor a band on one device</h3>
+    <p class="wf-lead">Several players, each with a Send. You hear them all on one device: at a rehearsal, at the mixing desk, in your in-ears.</p>
+    <div class="route" role="img" aria-label="Route: every player’s Send to one Receive, over Wi-Fi">
+      <span class="route-label">Wi-Fi</span>
+      <span class="route-node">Each player · Send</span>
+      <span class="route-wire"></span>
+      <span class="route-node">Your device · Receive</span>
+    </div>
+    <ol class="steps">
+      <li>Each player inserts <strong>LinkEffekt Send</strong> on their track and names it (e.g. <em>Vocals</em>). Gear: <strong>Ableton Link</strong> and <strong>Share Audio</strong> on.</li>
+      <li>On the monitoring device, either load one <strong>LinkEffekt Receive</strong> with <strong>Monitor multiple channels</strong> on and tick every channel (summed into one stereo output), or load one Receive per channel for separate faders in your host’s mixer.</li>
+    </ol>
+    <figure class="shot">
+      <div class="shot-imgs">
+        <img src="img/manual/channel-menu.png" width="400" height="395" loading="lazy" alt="The channel menu in LinkEffekt Receive: None, Channel 1 · iPad · This host, and the selected Channel 1 · iPhone">
+      </div>
+      <figcaption>
+        <ul class="callouts">
+          <li><span class="cn">1</span><span><em>This host</em>: a Send in this same app.</span></li>
+          <li><span class="cn">2</span>The channel you are listening to, with the sender’s device in its name.</li>
+        </ul>
+      </figcaption>
+    </figure>
+    <div class="gtk">
+      <p class="gtk-title">Good to know</p>
+      <ul>
+        <li>More than one channel per Receive, or more than one Receive, needs <strong>Unlimited Channels</strong> on the monitoring device. Each player’s single Send is free.</li>
+        <li>A player who hears their own instrument through the sending app and notices a delay there: <strong>Live Mode</strong> in that Send (<a href="#send">§4</a>).</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="wf" id="wf-apps">
+    <p class="wf-kind">On one device</p>
+    <h3>Route audio between apps on one device</h3>
+    <p class="wf-lead">Everything on one iPad or iPhone: record an AUM setup in Cubasis, or run a synth app through another host’s effects.</p>
+    <div class="route" role="img" aria-label="Route: AUM to Cubasis on the same device">
+      <span class="route-label">this device</span>
+      <span class="route-node">AUM</span>
+      <span class="route-wire"></span>
+      <span class="route-node">Cubasis</span>
+    </div>
+    <ol class="steps">
+      <li>In AUM, insert <strong>LinkEffekt Send</strong> on the channel you want.</li>
+      <li>In Cubasis, load <strong>LinkEffekt Receive</strong> on an audio track (or <strong>Receive Instrument</strong> on an instrument track) and pick the channel tagged <strong>This device</strong>.</li>
+      <li>Arm the track and record.</li>
+    </ol>
+    <figure class="shot">
+      <div class="shot-imgs">
+        <img src="img/manual/app-to-app.png" width="520" height="601" loading="lazy" alt="LinkEffekt Receive Instrument in Cubasis, receiving Channel 1 · iPad · This device with a 2 ms buffer">
+      </div>
+      <figcaption>
+        <ul class="callouts">
+          <li><span class="cn">1</span><span><em>This device</em>: the Send in AUM, no network involved.</span></li>
+          <li><span class="cn">2</span>A 2&nbsp;ms buffer on a direct path.</li>
+        </ul>
+      </figcaption>
+    </figure>
+    <div class="gtk">
+      <p class="gtk-title">Good to know</p>
+      <ul>
+        <li>No Wi-Fi, no Local Network permission, no Ableton Link setup and no gear settings in the Send.</li>
+        <li>Two tracks in the same app (AUM track 1 to track 2) show up as <strong>This host</strong>.</li>
+        <li>For the tightest timing, set both apps to 128 or 256 frames and turn off <strong>Multi-core Processing</strong> in Cubasis (Setup &gt; Audio, <a href="#beatsync">§7</a>).</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="wf" id="wf-record-live">
+    <p class="wf-kind">With Ableton Live</p>
+    <h3>Record iOS audio in Ableton Live</h3>
+    <p class="wf-lead">Your iPad session goes into Live, one Live track per iOS track.</p>
+    <div class="route" role="img" aria-label="Route: iPad in AUM to Ableton Live 12.4 or later on the Mac, over Wi-Fi or a cable">
+      <span class="route-label">Wi-Fi or cable</span>
+      <span class="route-node">iPad · AUM</span>
+      <span class="route-wire"></span>
+      <span class="route-node">Mac · Live 12.4+</span>
+    </div>
+    <ol class="steps">
+      <li>On the iPad, turn on <strong>Ableton Link</strong> in the host app. Insert <strong>LinkEffekt Send</strong> on each track you want in Live and give it a name (e.g. <em>Bass</em>). Gear: <strong>Ableton Link</strong> and <strong>Share Audio</strong> on.</li>
+      <li>In Live, open <strong>Settings &gt; Link</strong>: turn on <strong>Link</strong> and its <strong>Audio</strong> switch, and turn <strong>Sync to Incoming Audio</strong> on.</li>
+      <li>On a Live audio track, set the input to <strong>LinkEffekt</strong>, then the channel, and set Monitor to <strong>In</strong>.</li>
+      <li>Raise Live’s Link Audio latency until playback is stable, then record.</li>
+    </ol>
+    <figure class="shot">
+      <div class="shot-imgs">
+        <img src="img/manual/live-input.png" width="168" height="61" loading="lazy" alt="Ableton Live track input set to LinkEffekt, Channel 1">
+      </div>
+      <figcaption><p class="shot-note">Live’s track input: the peer <em>LinkEffekt</em>, then the channel.</p></figcaption>
+    </figure>
+    <div class="gtk">
+      <p class="gtk-title">Good to know</p>
+      <ul>
+        <li>Listen to everything through Live. The Send mutes the iPad by default, so you hear each track once and on Live’s grid. With Sync to Incoming Audio on, Live delays its own playback on purpose, so Live’s speakers and the iPad’s would not line up.</li>
+        <li>Leave AUM’s Link latency compensation at 0: LinkEffekt already places the audio on the Link beat.</li>
+        <li>The Mac sounds late against your iOS devices in general? Tools like SoundSource delay every app on the Mac; exclude Live there (<a href="#ts-mac-late">§8</a>).</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="wf" id="wf-live-tracks">
+    <p class="wf-kind">With Ableton Live</p>
+    <h3>Play Live’s tracks on your iPad or iPhone</h3>
+    <p class="wf-lead">Jam along with Live, run its tracks through iOS effects, or monitor Live on the iPad.</p>
+    <div class="route" role="img" aria-label="Route: Ableton Live 12.4 or later on the Mac to the iPad in AUM, over Wi-Fi or a cable">
+      <span class="route-label">Wi-Fi or cable</span>
+      <span class="route-node">Mac · Live 12.4+</span>
+      <span class="route-wire"></span>
+      <span class="route-node">iPad · AUM</span>
+    </div>
+    <ol class="steps">
+      <li>In Live, open <strong>Settings &gt; Link</strong>: turn on <strong>Link</strong> and its <strong>Audio</strong> switch, and turn <strong>Sync to Incoming Audio</strong> off.</li>
+      <li>On the iPad, turn on <strong>Ableton Link</strong> in the host app and leave its Link latency compensation at 0.</li>
+      <li>Load <strong>LinkEffekt Receive</strong> and pick a Live track in <strong>Now Receiving</strong>. Every Live track with an audio output appears, returns and the Main output included.</li>
+      <li>Turn on <strong>Bar Sync</strong>. The status reads <em>In sync · locked to the bar</em>.</li>
+    </ol>
+    <figure class="shot">
+      <div class="shot-imgs">
+        <img src="img/manual/live-bar-sync.png" width="420" height="458" loading="lazy" alt="LinkEffekt Receive with Bar Sync switched on, status In sync · locked to the bar, Advanced timing below">
+      </div>
+      <figcaption>
+        <ul class="callouts">
+          <li><span class="cn">1</span>Bar Sync on.</li>
+          <li><span class="cn">2</span>Locked to the bar: one bar late, exactly on your “1”.</li>
+          <li><span class="cn">3</span><span>Advanced timing: <strong>Nudge</strong> for the last few milliseconds.</span></li>
+        </ul>
+      </figcaption>
+    </figure>
+    <div class="gtk">
+      <p class="gtk-title">Good to know</p>
+      <ul>
+        <li>Live does not render ahead. Without Bar Sync, its tracks play behind your beat, and the status says by how much.</li>
+        <li>In this setup Live’s metronome lines up with your iOS apps.</li>
+      </ul>
+    </div>
+  </article>
+
+  <article class="wf" id="wf-live-both">
+    <p class="wf-kind">With Ableton Live</p>
+    <h3>Both directions with Live</h3>
+    <p class="wf-lead">The iPad sends to Live and plays Live’s tracks at the same time.</p>
+    <div class="route" role="img" aria-label="Route: iPad in AUM to Ableton Live and back, over Wi-Fi or a cable">
+      <span class="route-label">Wi-Fi or cable</span>
+      <span class="route-node">iPad · AUM</span>
+      <span class="route-wire both"></span>
+      <span class="route-node">Mac · Live 12.4+</span>
+    </div>
+    <ol class="steps">
+      <li>In Live, turn <strong>Sync to Incoming Audio</strong> on.</li>
+      <li>iPad to Live: set it up as in <a href="#wf-record-live">Record iOS audio in Ableton Live</a>.</li>
+      <li>Live to iPad: set it up as in <a href="#wf-live-tracks">Play Live’s tracks</a>, with <strong>Bar Sync</strong> on.</li>
+      <li>Listen through one device: each direction lands on the beat of the side that receives it.</li>
+    </ol>
+    <div class="gtk">
+      <p class="gtk-title">Good to know</p>
+      <p>Live’s speakers and the iPad’s are apart by Live’s Link Audio latency, so the room never sounds tight on both at once. Whoever sits at Live listens to Live, whoever plays the iPad listens to the iPad.</p>
+    </div>
+  </article>
+
+  <article class="wf" id="wf-couch">
+    <p class="wf-kind">With Ableton Live</p>
+    <h3>Take the iPad to the couch</h3>
+    <p class="wf-lead">Your iPad session streams every track to Live. You want to keep working on the iPad somewhere else and hear the whole session there.</p>
+    <ol class="steps">
+      <li>In any <strong>LinkEffekt Send</strong>, turn on <strong>Bypass all LinkEffekt Sends</strong> (right under Mute Local Output).</li>
+      <li>Every Send on the iPad stops streaming, in every host, and every track plays on the iPad. An orange note at the top of each Send says so.</li>
+      <li>Back at Live, tap the orange note to stream again.</li>
+    </ol>
+    <div class="plugin-banner" role="img" aria-label="The orange note in every Send: All LinkEffekt Sends are bypassed. Nothing is streamed. Tap to turn off.">
+      <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="9.5" fill="#fff"/><rect x="6.6" y="5.8" width="2.3" height="8.4" rx=".7" fill="#ff9f0a"/><rect x="11.1" y="5.8" width="2.3" height="8.4" rx=".7" fill="#ff9f0a"/></svg>
+      <span>All LinkEffekt Sends are bypassed. Nothing is streamed. Tap to turn off.</span>
+    </div>
+    <div class="gtk">
+      <p class="gtk-title">Good to know</p>
+      <p>The switch stays on until you turn it off, also after a restart.</p>
+    </div>
+  </article>
+
+  <article class="wf" id="wf-online">
+    <p class="wf-kind">Over the internet</p>
+    <h3>Jam online with a friend</h3>
+    <p class="wf-lead">Your friend is somewhere else. You both play, and each of you hears the other locked to your own bars.</p>
+    <div class="route" role="img" aria-label="Route: your Send to your friend’s Receive and back, over the internet, peer-to-peer">
+      <span class="route-label">internet, peer-to-peer</span>
+      <span class="route-node">You</span>
+      <span class="route-wire both"></span>
+      <span class="route-node">Your friend</span>
+    </div>
+    <p class="need">Both of you need <strong>Unlimited Channels</strong>.</p>
+    <ol class="steps">
+      <li>You: in <strong>LinkEffekt Send</strong>, switch to <strong>Online</strong>, tap <strong>Create Room</strong> and send your friend the room code (copy button next to the code).</li>
+      <li>Your friend: in <strong>LinkEffekt Receive</strong>, switch to <strong>Online</strong>, enter the code, tap <strong>Join</strong> and pick your channel.</li>
+      <li>Both of you set the same tempo and press play in the host.</li>
+      <li>For the way back, your friend loads a Send and you a Receive. They join the same room by themselves: one room per host app.</li>
+    </ol>
+    <figure class="shot">
+      <div class="shot-imgs">
+        <img src="img/manual/online-send.png" width="340" height="302" loading="lazy" alt="LinkEffekt Send on the iPhone in Online mode, room PAAP26 connected">
+        <img src="img/manual/online-receive.png" width="340" height="436" loading="lazy" alt="LinkEffekt Receive on the iPad in Online mode, status In sync · locked to the bar · internet">
+      </div>
+      <figcaption>
+        <ul class="callouts">
+          <li><span class="cn">1</span>Online.</li>
+          <li><span class="cn">2</span>The room code with its copy button; the green dot means your friend is connected.</li>
+          <li><span class="cn">3</span>The ONLINE badge shows the room in every instance.</li>
+          <li><span class="cn">4</span>Locked to the bar, over the internet.</li>
+        </ul>
+      </figcaption>
+    </figure>
+    <div class="gtk">
+      <p class="gtk-title">Good to know</p>
+      <ul>
+        <li>The friend’s audio lands on your “1”, whole bars late. Each of you hears the other on your own grid, which is exactly right as long as each listens to their own device.</li>
+        <li>To hear your own part while you stream, turn off <strong>Mute Local Output</strong> in the Send.</li>
+        <li>One plugin slot only (a DJ app)? <strong>Send my track</strong> in the Receive streams this track back into the room (<a href="#online">§6</a>).</li>
+      </ul>
+    </div>
+  </article>
+
+  <h2 id="lan">3 · Basics: local network and one device</h2>
+  <p>What every setup has in common, also in hosts without a workflow of their own (Logic Pro, Drambo, Loopy Pro and others). Send and Receive work on two devices, in two apps on one device, and in the same host app on different tracks.</p>
   <div class="note"><strong>Before you start: turn on Ableton Link in your host apps.</strong> AUM, Logic Pro, Drambo, Loopy Pro, Koala and most other music apps have their own Ableton Link switch in their settings, separate from the one in the LinkEffekt plugins. Turn it on in the sending and in the receiving app, so that both play in the same tempo and on the same beat. LinkEffekt places the received audio on your beat, and that only works if the sending app plays on the shared beat too. Apps without Ableton Link (GarageBand) stream fine, but in their own tempo and on their own bar: the audio arrives, it just cannot land on the beat of the others.</div>
   <ol>
     <li><strong>Sender:</strong> insert <strong>LinkEffekt Send</strong> on a track. For other devices, tap the <strong>gear</strong> and enable <strong>Ableton Link</strong> and <strong>Share Audio</strong>. The orange banner disappears when sharing is active.</li>
@@ -82,40 +406,64 @@
   <p><strong>Channel names:</strong> a new Send is named after its host track, or <em>“Channel 1”</em>, <em>“Channel 2”</em> and so on, followed by the device: <em>“Bass · iPad”</em>, <em>“Channel 1 · iPhone”</em>. So two devices never show the same name, and AUM and Cubasis on one iPad count together. A name you type, or one loaded with a project, stays exactly as it is. Each additional Send instance appears as its own channel.</p>
 
   <h3 id="cable">Tip: plug in a cable</h3>
-  <p>Wi-Fi works, but it can pause for a moment, above all around AirDrop (<a href="#troubleshooting">§8</a>). A cable doesn't, and you need no router for it: plug the iPhone straight into the iPad, wherever you are. Any cable that charges the iPhone from the iPad will do: USB-C to USB-C, USB-C to Lightning, or your usual cable with an adapter. Turn on <strong>Personal Hotspot</strong> on the iPhone (Settings > Personal Hotspot > Allow Others to Join) and turn Wi-Fi off on the iPad. The iPad's Settings now show <strong>Ethernet</strong>, and the iPhone's channel appears in the Receive as usual. AirDrop, AirPlay and the like no longer cause dropouts, and the <strong>Buffer</strong> in the Receive can come down from 100 to about 25 ms for a much shorter delay. One of the two devices needs Personal Hotspot (an iPhone, or an iPad with cellular); the other device's own internet traffic then runs over its mobile data, the audio stays on the cable. At home a wired network works too: each device on a USB-C Ethernet adapter to the router, Wi-Fi off.</p>
+  <p>Wi-Fi works, but it can pause for a moment, above all around AirDrop (<a href="#ts-airdrop">§8</a>). A cable doesn't, and you need no router for it.</p>
+  <ol class="steps">
+    <li>Plug the iPhone straight into the iPad. Any cable that charges the iPhone from the iPad will do: USB-C to USB-C, USB-C to Lightning, or your usual cable with an adapter.</li>
+    <li>On the iPhone, turn on <strong>Personal Hotspot</strong> (Settings &gt; Personal Hotspot &gt; Allow Others to Join).</li>
+    <li>On the iPad, turn Wi-Fi off. Its Settings now show <strong>Ethernet</strong>, and the iPhone's channel appears in the Receive as usual.</li>
+  </ol>
+  <p><strong>What you get:</strong> AirDrop, AirPlay and the like no longer cause dropouts, and the <strong>Buffer</strong> in the Receive can come down from 100 to about 25&nbsp;ms for a much shorter delay.</p>
+  <ul>
+    <li>One of the two devices needs Personal Hotspot (an iPhone, or an iPad with cellular). The other device's own internet traffic then runs over its mobile data; the audio stays on the cable.</li>
+    <li>At home a wired network works too: each device on a USB-C Ethernet adapter to the router, Wi-Fi off.</li>
+  </ul>
 
-  <h3>Same device or same host: app-to-app routing</h3>
+  <h3 id="same-device">Same device or same host: app-to-app routing</h3>
   <p>Everything on one iPhone or iPad? LinkEffekt routes these cases over a direct fast path that needs <strong>no Wi-Fi, no Local Network permission and no Ableton Link setup</strong>. It is the lowest-latency, most stable option:</p>
   <ul>
     <li>A sender in <em>another app on the same device</em> appears as a channel tagged <strong>This device</strong>.</li>
     <li>A sender <em>inside the same host app</em> (e.g. AUM track 1 to track 2) appears as <strong>This host</strong>.</li>
   </ul>
-  <p><strong>Example, record an AUM setup into Cubasis:</strong> insert <strong>LinkEffekt Send</strong> on the AUM channel you want to capture, open Cubasis, insert <strong>LinkEffekt Receive</strong> on an audio track, pick the channel tagged <strong>This device</strong>, arm the track and record. The same recipe routes a synth app through another host’s effects, or feeds a DJ app’s output into a recorder: anywhere iOS offers no direct audio path between apps.</p>
+  <p><strong>Example, record an AUM setup into Cubasis:</strong> see <a href="#wf-apps">§2, Route audio between apps on one device</a>. The same recipe routes a synth app through another host’s effects, or feeds a DJ app’s output into a recorder: anywhere iOS offers no direct audio path between apps.</p>
   <p><strong>Latency on one device:</strong> most of the end-to-end latency comes from the two host apps' audio buffer sizes, not from LinkEffekt (its own share on a direct path is a few&nbsp;ms). For the tightest timing set both apps to 128 or 256 frames (AUM: Settings &gt; Buffer Size; Cubasis: Setup &gt; Audio &gt; Latency).</p>
 
-  <h2 id="online">3 · Quick start: Online (internet)</h2>
-  <p>Online mode streams over the internet, peer-to-peer, encrypted end-to-end (DTLS). It requires <strong>Unlimited Channels</strong> on both sides.</p>
-  <ol>
-    <li><strong>Person A:</strong> in <strong>LinkEffekt Send</strong>, switch <strong>Destination</strong> to <strong>Online</strong>, tap <strong>Create Room</strong> and share the room code (copy button next to the code).</li>
-    <li><strong>Person B:</strong> in <strong>LinkEffekt Receive</strong>, switch the top selector to <strong>Online</strong>, enter the code and tap <strong>Join</strong>.</li>
-    <li>B picks A's channel from <strong>Now Receiving</strong>. For two-way audio, B also loads a Send (or uses <strong>Send my track</strong>, see <a href="#online-detail">§6</a>).</li>
-    <li>Press <strong>play on your host transport</strong> on both sides and set both hosts to the <strong>same tempo</strong>. The peer's audio locks onto your beat grid, delayed by whole bars (see <a href="#beatsync">§7</a>).</li>
-    <li>To hear your own track while you stream, turn off <strong>Mute Local Output</strong> in the Send. It is on by default so that nobody hears a track twice when the receiver is in the same room.</li>
-  </ol>
-  <p>The header shows an <strong>ONLINE</strong> badge with the room code whenever an instance is in Online mode: green dot = peer connected, orange = waiting for a peer.</p>
-
   <h2 id="send">4 · LinkEffekt Send: reference</h2>
+  <figure class="shot">
+    <div class="shot-imgs">
+      <img src="img/manual/send-overview.png" width="400" height="423" loading="lazy" alt="LinkEffekt Send on an iPhone with numbered markers on every control">
+    </div>
+    <figcaption>
+      <ul class="callouts compact">
+        <li><span class="cn">1</span>Status line</li>
+        <li><span class="cn">2</span>Destination</li>
+        <li><span class="cn">3</span>Name</li>
+        <li><span class="cn">4</span>Send Audio</li>
+        <li><span class="cn">5</span>Mute Local Output</li>
+        <li><span class="cn">6</span>Gain and Pan</li>
+        <li><span class="cn">7</span>Level meter</li>
+        <li><span class="cn">8</span>Gear: Ableton Link settings</li>
+      </ul>
+      <p class="shot-note">Not in the picture: <strong>Bypass all LinkEffekt Sends</strong>, right under Mute Local Output, and <strong>Live Mode</strong> at the bottom.</p>
+    </figcaption>
+  </figure>
   <ul>
     <li><strong>Status line</strong> under the header: <em>“Streaming to a listener”</em> or <em>“Waiting for a receiver”</em>. Listeners on this device (This device / This host) count too. In Online mode the ONLINE badge in the header shows the room status instead.</li>
     <li><strong>Destination: LAN &amp; Local / Online</strong>: where this track streams (LAN &amp; Local always includes listeners on this device). Switching Online to LAN &amp; Local removes only this track from the room; the room itself stays open until you tap <strong>Leave</strong> (a “room is still open” line with a Leave button stays visible in the LAN &amp; Local tab).</li>
     <li><strong>Name</strong>: the channel name receivers see. Renames propagate live, also in Online rooms, and receivers keep their subscription (and remember the new name for the next time the project loads). If another channel in your network carries the same name, the status line says so and offers <strong>Rename</strong> (adds the device, or the next free number). LinkEffekt never renames on its own.</li>
     <li><strong>Send Audio</strong>: master switch for streaming this track. Off = the plugin passes audio through locally but sends nothing.</li>
     <li><strong>Mute Local Output</strong> (default on): mutes the track here <em>after</em> streaming, so you don't hear it twice (once here, once through the receiver). It only applies while the track streams: with Send Audio off, the plugin bypassed or <strong>Bypass all LinkEffekt Sends</strong> on, the track plays here. Turn it off to hear yourself when the receiver is somewhere you can't hear: Online, headphones on the receiver, another room. In hosts with delay compensation such as AUM, the track then plays as much later as everything else in this app while the Send renders ahead, so it stays in time (see Live Mode).</li>
+    <li><strong>Bypass all LinkEffekt Sends</strong>: one switch for every Send on this device, in every host. Each Send then behaves as if your host bypassed it: nothing is streamed, and every track plays here unchanged. An orange note at the top of every Send says so; tap it to turn the switch off. It stays on until you turn it off, also after a restart. Example: <a href="#wf-couch">§2, Take the iPad to the couch</a>.</li>
     <li><strong>Gain / Pan</strong>: applied to the stream (and to the local output), with click-free ramps. The bottom of the gain range is true silence. Pan keeps the center at full level; turning it toward one side lowers the other.</li>
     <li><strong>Bypass</strong> (in your host): stops the stream and passes the track through unchanged.</li>
-    <li><strong>Bypass all LinkEffekt Sends</strong>: one switch for every Send on this device, in every host. Each Send then behaves as if your host bypassed it: nothing is streamed, and every track plays here unchanged. An orange note at the top of every Send says so; tap it to turn the switch off. It stays on until you turn it off, also after a restart. <strong>Example:</strong> your iPad session streams every track to Ableton Live, and you take the iPad to the couch to keep working on it: one switch and you hear the whole session on the iPad. Back at Live, turn it off and record.</li>
     <li><strong>Level meter</strong>: post gain/pan; red = clipping (tap to reset).</li>
-    <li><strong>Live Mode</strong> (at the bottom; only in hosts with delay compensation such as AUM, only while a receiver asks for it, and not in Online mode, where receivers are always on the bar): LinkEffekt Send asks the host to render this track ahead, exactly as far as its receivers need (their buffer plus the connection, up to 200&nbsp;ms), so they get the audio before its beat and play it on their grid (<a href="#beatsync">§7</a>). The host keeps its own tracks in time by delaying everything else in this app by the same amount. Live Mode is for the rare case that you play live in this app and that delay is in your ears: with it on there is no extra delay here, but <strong>receivers are no longer in sync</strong>. They play the stream behind the beat, by the connection plus their buffer; Bar Sync on a receiver puts it back on the bar, one bar late. The line under the switch says so, in orange while it is on. Receivers that are already listening follow by themselves with a short jump, behind the beat when you switch it on and back onto the beat when you switch it off. The switch appears only where the host really renders ahead and a receiver listens (never in Cubasis, which has no delay compensation).</li>
+    <li><strong>Live Mode</strong> (at the bottom of the Send):
+      <ul>
+        <li><span class="lbl">What it does:</span> in hosts with delay compensation such as AUM, LinkEffekt Send asks the host to render this track ahead, exactly as far as its receivers need (their buffer plus the connection, up to 200&nbsp;ms). They get the audio before its beat and play it on their grid (<a href="#beatsync">§7</a>). The host keeps its own tracks in time by delaying everything else in this app by the same amount.</li>
+        <li><span class="lbl">When to turn it on:</span> only if you play live in this app and that delay is in your ears. With it on there is no extra delay here, but <strong>receivers are no longer in sync</strong>: they play the stream behind the beat, by the connection plus their buffer. Bar Sync on a receiver puts it back on the bar, one bar late. The line under the switch says so, in orange while it is on.</li>
+        <li><span class="lbl">Switching:</span> receivers that are already listening follow by themselves with a short jump: behind the beat when you switch it on, back onto the beat when you switch it off.</li>
+        <li><span class="lbl">Where it appears:</span> only where the host really renders ahead and a receiver listens. Not in Online mode (receivers are always on the bar there), and never in Cubasis, which has no delay compensation.</li>
+      </ul>
+    </li>
     <li><strong>Gear (Ableton Link settings)</strong>: the Link session and <strong>Share Audio</strong> (required for sending to other devices; Online and listeners on this device work without it). Below that:
       <ul>
         <li><strong>Link Offset</strong> (±100&nbsp;ms): shifts this channel's timing at every receiver. Negative offsets can cause dropouts on the receiver; raise the receiver's Buffer if needed. <strong>Apply to all channels</strong> uses one value for all Send instances in this host.</li>
@@ -128,15 +476,52 @@
   <p><strong>Freemium:</strong> the second and further Send instances without Unlimited Channels keep passing audio through locally but do not stream (“Channel Limited” banner with an unlock button).</p>
 
   <h2 id="receive">5 · LinkEffekt Receive: reference</h2>
+  <figure class="shot">
+    <div class="shot-imgs">
+      <img src="img/manual/receive-overview.png" width="400" height="662" loading="lazy" alt="LinkEffekt Receive Instrument on an iPad with numbered markers on every control">
+    </div>
+    <figcaption>
+      <ul class="callouts compact">
+        <li><span class="cn">1</span>LAN &amp; Local / Online</li>
+        <li><span class="cn">2</span>Now Receiving</li>
+        <li><span class="cn">3</span>Status</li>
+        <li><span class="cn">4</span>Monitor multiple channels</li>
+        <li><span class="cn">5</span>Buffer</li>
+        <li><span class="cn">6</span>Received</li>
+        <li><span class="cn">7</span>Output</li>
+      </ul>
+      <p class="shot-note"><strong>Bar Sync</strong> appears next to the status where it helps.</p>
+    </figcaption>
+  </figure>
   <ul>
     <li><strong>LAN &amp; Local / Online selector</strong>: which world the channel list below shows. LAN &amp; Local covers network channels <em>and</em> the direct paths on this device (This host / This device). The header shows Link peers (LAN) or the room status (ONLINE badge).</li>
     <li><strong>Now Receiving</strong>: pick exactly one channel. <em>“Channel (unavailable)”</em> means the sender disappeared (app closed, network lost).</li>
     <li><strong>Monitor multiple channels</strong> (Unlimited Channels): sum several channels into this plugin's stereo output. Channels that are active but belong to the other transport tab are shown with a LAN/Local/Online tag so nothing is summed invisibly. For separate faders per channel, use one Receive instance per channel instead.</li>
-    <li><strong>Status</strong> (one line under the channel menu, always in the same place, so nothing below it jumps): <em>“In sync”</em> = on the beat, audio flowing; <em>“… ms behind the beat”</em> = the sender cannot render ahead (Cubasis, Ableton Live, Live Mode on the sender), the number says how far; <em>“In sync · locked to the bar”</em> = Bar Sync placement (whole bars, see <a href="#beatsync">§7</a>); <em>“Buffering…”</em> = normal for a moment after selecting a channel; <em>“Free-run, not locked to the beat”</em> = there is no shared beat reference (audio flows normally, just not beat-aligned); <em>“Free-run. Enable Ableton Link (gear)…”</em> tells you how to get beat-locked on LAN; <em>“Press play in your host to lock to the beat”</em> (Online) = the beat lock waits for your host’s transport; a tempo mismatch (Online) names both tempos. Problems appear in the same place in orange (<a href="#troubleshooting">§8</a>), and so do the hints while nothing is selected, for example <em>“Channel 1 · iPad found: tap to listen”</em>.</li>
-    <li><strong>Bar Sync</strong> (the switch next to the status; LAN &amp; Local tab; Online is always bar-synced): locks the incoming downbeat to your bar: one bar late, but rock-solid even over a shaky connection. It is offered where it helps: when the audio plays behind the beat, or when dropouts keep coming. On a direct connection (This device / This host) it is not needed. It places the audio on the shared Link beat, so Ableton Link must be on in the host apps (§2).</li>
-    <li><strong>Buffer</strong> (3 to 200&nbsp;ms, always visible in low-latency mode): how much audio LinkEffekt holds in reserve against gaps in the connection, like the Latency setting for Link Audio in Ableton Live. Default: 100&nbsp;ms over a network, 2&nbsp;ms on the same device. If the sender runs LinkEffekt Send in a host with delay compensation (AUM), it renders that far ahead, so you hear the audio on your beat <strong>and</strong> have the full buffer in reserve; otherwise the audio plays behind the beat by the connection plus the buffer, and the status says by how much. The value is set once when you pick a channel; after that nothing moves it: a gap longer than the buffer is a short dropout, and the audio returns on the beat. Move the slider to set your own value; it applies at once, and the sender follows (raising: at once, lowering: after ten seconds). <strong>Default</strong> takes you back. If dropouts keep coming (more than two in ten minutes), their count appears next to <em>Buffer</em>: raise the value until it stays quiet. Tap the count to start counting again; the buffer stays as it is.
+    <li><strong>Status</strong>: one line under the channel menu, always in the same place, so nothing below it jumps. Problems appear in the same place in orange (<a href="#troubleshooting">§8</a>), and so do the hints while nothing is selected, for example <em>“Channel 1 · iPad found: tap to listen”</em>.</li>
+  </ul>
+  <div class="table-scroll">
+    <table class="status-table">
+      <tr><th>Status</th><th>Meaning</th></tr>
+      <tr><td><span class="st"><span class="dot ok"></span>In sync</span></td><td>On the beat, audio flowing.</td></tr>
+      <tr><td><span class="st"><span class="dot ok"></span>… ms behind the beat</span></td><td>The sender cannot render ahead (Cubasis, Ableton Live, Live Mode on the sender); the number says how far.</td></tr>
+      <tr><td><span class="st"><span class="dot ok"></span>In sync · locked to the bar</span></td><td>Bar Sync placement, whole bars (<a href="#beatsync">§7</a>).</td></tr>
+      <tr><td><span class="st"><span class="dot"></span>Buffering…</span></td><td>Normal for a moment after picking a channel.</td></tr>
+      <tr><td><span class="st"><span class="dot"></span>Free-run, not locked to the beat</span></td><td>No shared beat reference. Audio flows normally, just not beat-aligned.</td></tr>
+      <tr><td><span class="st"><span class="dot"></span>Free-run. Enable Ableton Link (gear)…</span></td><td>Tells you how to get beat-locked on LAN.</td></tr>
+      <tr><td><span class="st"><span class="dot"></span>Press play in your host to lock to the beat</span></td><td>Online: the beat lock waits for your host’s transport.</td></tr>
+      <tr><td><span class="st"><span class="dot"></span>Tempo mismatch</span></td><td>Online: the line names both tempos.</td></tr>
+    </table>
+  </div>
+  <ul>
+    <li><strong>Bar Sync</strong> (the switch next to the status; LAN &amp; Local tab; Online is always bar-synced): locks the incoming downbeat to your bar: one bar late, but rock-solid even over a shaky connection. It is offered where it helps: when the audio plays behind the beat, or when dropouts keep coming. On a direct connection (This device / This host) it is not needed. It places the audio on the shared Link beat, so Ableton Link must be on in the host apps (<a href="#lan">§3</a>).</li>
+    <li><strong>Buffer</strong> (3 to 200&nbsp;ms, always visible in low-latency mode): how much audio LinkEffekt holds in reserve against gaps in the connection, like the Latency setting for Link Audio in Ableton Live.
       <ul>
-        <li><strong>If the connection itself changes while you play</strong> (a device switches to Bluetooth headphones, the sender's host changes its buffer size), LinkEffekt measures once more. Later audio: when some of it is missing in every tenth of a second for a full second while packets keep coming, the value goes up; you hear a gap or stutter of up to two seconds. Earlier audio: the value goes down and the stream jumps forward, without a dropout. Changes the sender announces (Live Mode, a new send-ahead) and ordinary network hiccups never trigger this.</li>
+        <li><span class="lbl">Default:</span> 100&nbsp;ms over a network, 2&nbsp;ms on the same device.</li>
+        <li><span class="lbl">On the beat or behind it:</span> if the sender runs LinkEffekt Send in a host with delay compensation (AUM), it renders that far ahead, so you hear the audio on your beat <strong>and</strong> have the full buffer in reserve. Otherwise the audio plays behind the beat by the connection plus the buffer, and the status says by how much.</li>
+        <li><span class="lbl">Set once:</span> the value is set when you pick a channel; after that nothing moves it. A gap longer than the buffer is a short dropout, and the audio returns on the beat.</li>
+        <li><span class="lbl">Your own value:</span> move the slider; it applies at once, and the sender follows (raising: at once, lowering: after ten seconds). <strong>Default</strong> takes you back.</li>
+        <li><span class="lbl">Dropout count:</span> if dropouts keep coming (more than two in ten minutes), their count appears next to <em>Buffer</em>: raise the value until it stays quiet. Tap the count to start counting again; the buffer stays as it is.</li>
+        <li><span class="lbl">If the connection itself changes while you play</span> (a device switches to Bluetooth headphones, the sender's host changes its buffer size), LinkEffekt measures once more. Later audio: when some of it is missing in every tenth of a second for a full second while packets keep coming, the value goes up; you hear a gap or stutter of up to two seconds. Earlier audio: the value goes down and the stream jumps forward, without a dropout. Changes the sender announces (Live Mode, a new send-ahead) and ordinary network hiccups never trigger this.</li>
       </ul>
     </li>
     <li><strong>Advanced timing</strong> (only with Bar Sync and in Online mode, collapsed by default):
@@ -149,54 +534,78 @@
     <li><strong>After loading a project</strong> the Receive picks its saved channel again, first by the sender's channel, otherwise by name, but only if exactly one channel carries that name. If there are several (for example two devices that both still use an old <em>“Channel 1”</em>), it picks nothing and the status says <em>“2× Channel 1: pick the right one.”</em> A wrong sender in your monitor would be worse than one tap.</li>
     <li><strong>When the sending app restarts</strong> (closed and opened again, or reloaded by the system), its channel comes back under the same name with a new identity. The Receive finds it again by itself a few seconds later, under the same rule: only if exactly one channel carries that name.</li>
     <li><strong>Gear, then Settings</strong>: Ableton Link settings and the plugin version.</li>
-    <li><strong>Diagnostics for support</strong>: every Send and Receive instance records its timing on this device while it runs (one line per second, plus events such as channel changes and dropouts). Nothing is shown in the plugin and nothing leaves the device on its own. If something sounds wrong, keep playing for a minute, then open the LinkEffekt app and tap <strong>Share diagnostics</strong> (AirDrop, Mail or Files). Share when you are done playing: the share sheet can unsettle the Wi-Fi for a while (<a href="#troubleshooting">§8</a>).</li>
+    <li><strong>Diagnostics for support</strong>: every Send and Receive instance records its timing on this device while it runs (one line per second, plus events such as channel changes and dropouts). Nothing is shown in the plugin and nothing leaves the device on its own. If something sounds wrong, keep playing for a minute, then open the LinkEffekt app and tap <strong>Share diagnostics</strong> (AirDrop, Mail or Files). Share when you are done playing: the share sheet can unsettle the Wi-Fi for a while (<a href="#ts-airdrop">§8</a>).</li>
   </ul>
   <p><strong>Receive vs. Receive Instrument:</strong> identical engine. Use the <strong>effect</strong> everywhere you can insert it; use the <strong>Instrument</strong> where the channel needs a source (AUM source slot, Logic software-instrument track with multi-output).</p>
 
-  <h2 id="online-detail">6 · Online mode in detail</h2>
+  <h2 id="online">6 · Online mode</h2>
+  <p>Online mode streams over the internet, peer-to-peer, encrypted end-to-end (DTLS). It requires <strong>Unlimited Channels</strong> on both sides. A walk-through for two players: <a href="#wf-online">§2, Jam online with a friend</a>.</p>
+  <ol>
+    <li><strong>Person A:</strong> in <strong>LinkEffekt Send</strong>, switch <strong>Destination</strong> to <strong>Online</strong>, tap <strong>Create Room</strong> and share the room code (copy button next to the code).</li>
+    <li><strong>Person B:</strong> in <strong>LinkEffekt Receive</strong>, switch the top selector to <strong>Online</strong>, enter the code and tap <strong>Join</strong>.</li>
+    <li>B picks A's channel from <strong>Now Receiving</strong>. For two-way audio, B also loads a Send (or uses <strong>Send my track</strong>, see below).</li>
+    <li>Press <strong>play on your host transport</strong> on both sides and set both hosts to the <strong>same tempo</strong>. The peer's audio locks onto your beat grid, delayed by whole bars (see <a href="#beatsync">§7</a>).</li>
+    <li>To hear your own track while you stream, turn off <strong>Mute Local Output</strong> in the Send. It is on by default so that nobody hears a track twice when the receiver is in the same room.</li>
+  </ol>
+  <p>The header shows an <strong>ONLINE</strong> badge with the room code whenever an instance is in Online mode: green dot = peer connected, orange = waiting for a peer.</p>
+  <h3 id="online-more">Good to know</h3>
   <ul>
     <li><strong>One room per host app.</strong> All Online instances inside the same host share one room and one connection. The first instance creates/joins; the others follow automatically. <strong>Leave</strong> disconnects all of the host's online tracks (the dialog says so).</li>
     <li><strong>Multiple tracks:</strong> every Send-Online instance is its own stream. The peer sees each one as a separate channel (up to 8 per direction).</li>
     <li><strong>Send my track</strong> (Receive effect in Online mode): also streams this track's input into the room, giving full two-way audio in a single plugin slot. Built for hosts with only one usable slot, e.g. DJ apps. To hear your own track as well, unmute <strong>Host track</strong> in the mixer block.</li>
-    <li><strong>Room codes</strong> are one-time invitations relayed by the signaling server; the audio itself flows peer-to-peer, DTLS-encrypted. No audio passes through our servers. Rooms with only one participant close after 30 minutes; active sessions have no time limit.</li>
+    <li><strong>Room codes</strong> are one-time invitations relayed by the signaling server; the audio itself flows peer-to-peer, DTLS-encrypted. No audio passes through the LinkEffekt servers. Rooms with only one participant close after 30 minutes; active sessions have no time limit.</li>
     <li><strong>Reconnect:</strong> if one side drops out, rejoin with the same code while the other side is still in the room. If both left, create a fresh room.</li>
   </ul>
 
   <h2 id="beatsync">7 · Beat Sync: how it works and what to expect</h2>
   <p>Audio that travels through a network <strong>always</strong> arrives late; no software can remove that. What LinkEffekt can do is make the delay <em>musical</em>:</p>
   <ul>
-    <li><strong>LAN (low latency, Bar Sync off):</strong> the receiver places the incoming audio onto your local Ableton Link grid: on the beat when the sender renders ahead, otherwise a fixed distance behind it (the connection plus your buffer, shown in the status), never drifting. Both host apps must be in the same Link session: Ableton Link on in the host apps themselves, not only in the plugins (§2).</li>
-    <li><strong>On the grid, with no offset:</strong> in a host with delay compensation (AUM), LinkEffekt Send has the host render its track ahead, exactly as far as its receivers ask for (their buffer plus the connection, up to 200&nbsp;ms). The audio then reaches each receiver before its beat, and the receiver plays it right on your grid with its full buffer in reserve. Bar Sync is not needed then and is not offered. With several receivers the sender renders ahead for the one that needs the most. In a jam, where both devices send and receive, both directions stay on the beat. The price is on the sender's side: everything in that app sounds that much later (typically 50 to 150&nbsp;ms). For material you play live there, turn <strong>Live Mode</strong> on in the Send (<a href="#send">§4</a>); receivers then play it behind the beat.</li>
-    <li><strong>Bar Sync (LAN) / Online:</strong> the delay is rounded up to <strong>whole bars</strong> on your host's beat grid. The incoming “1” lands exactly on your “1”, typically one bar later (2&nbsp;s at 120&nbsp;BPM). With the receiver in the same room, this suits sequenced material: someone playing live on the sending device would hear their part again one bar later from the receiver. Online requirements: <strong>host transport playing</strong> on both sides, <strong>same tempo</strong> on both hosts. When you press play, expect about one bar of silence while the buffer fills, then it locks. The stream plays what the sending app plays: if that app itself sits a few milliseconds off the Link beat, so does the stream, and <strong>Nudge</strong> moves it back.</li>
-    <li><strong>Free-run</strong> is what you get without a shared beat reference: lowest latency, no alignment. Fine for monitoring, speech, or when you play by ear.</li>
-    <li><strong>A constant offset in low-latency mode, when the sender does not render ahead</strong> (Cubasis, Ableton Live as the sender, Live Mode on): received audio sits behind your local tracks by the connection plus your buffer, as the status says, plus whatever your host delays after the plugin (Cubasis, for example, does not compensate plugin latency at all). That is the normal situation for any live signal and does not matter for monitoring; for grid-accurate work turn on <strong>Bar Sync</strong> (exact placement, one bar late) and use <strong>Nudge</strong> for the last few milliseconds.</li>
-    <li><strong>Cubasis: turn off Multi-core Processing</strong> (Setup, Audio). That setting <em>is</em> the extra buffer Cubasis puts behind the plugin without reporting it; Cubasis shows it as <strong>Guard buffer</strong>. With it off, the guard buffer is 0&nbsp;ms and the received audio is tight without any Nudge. The audio buffer size then no longer affects timing accuracy, so pick one that keeps the engine comfortable. If you must keep Multi-core on, read the Guard buffer value (Setup, Audio, tap the latency total) and set <strong>Nudge</strong> to minus that value (Bar Sync or Online); measured on device, a 21&nbsp;ms guard buffer needed exactly Nudge −21. When Cubasis is the <em>sender</em>, the sign flips: turn Multi-core off there, or use Bar Sync on the receiver with a positive Nudge of the same size. <strong>AUM</strong> has no such buffer.</li>
-    <li><strong>Ableton Live (LAN): set Sync to Incoming Audio</strong> (Live's Settings, Link) <strong>by what you do.</strong> In every case leave AUM's Link latency compensation at 0: LinkEffekt already places audio on the Link beat.
+    <li><strong>LAN (low latency, Bar Sync off):</strong> the receiver places the incoming audio onto your local Ableton Link grid: on the beat when the sender renders ahead, otherwise a fixed distance behind it (the connection plus your buffer, shown in the status), never drifting. Both host apps must be in the same Link session: Ableton Link on in the host apps themselves, not only in the plugins (<a href="#lan">§3</a>).</li>
+    <li><strong>On the grid, with no offset:</strong> in a host with delay compensation (AUM), LinkEffekt Send has the host render its track ahead, exactly as far as its receivers ask for (their buffer plus the connection, up to 200&nbsp;ms). The receiver then plays it right on your grid with its full buffer in reserve; Bar Sync is not needed and not offered.
       <ul>
-        <li><strong>Play Live's tracks on your iPad or iPhone</strong> (jam along, run them through iOS effects, monitor Live on the iPad): <strong>Sync to Incoming Audio off</strong>, and <strong>Bar Sync</strong> on in LinkEffekt Receive. Live's tracks then land on your iOS beat, and Live's metronome lines up with your iOS apps.</li>
-        <li><strong>Record iOS audio into Live:</strong> turn <strong>Sync to Incoming Audio on</strong>, Monitor <em>In</em> on the Live track, and Live's Link-Audio latency slider raised until playback is stable. LinkEffekt Send then lands sample-accurately on Live's grid. Live delays its own playback by that latency (Ableton's design), so Live's speakers sound that much later than your iOS devices and their metronomes. <strong>Workflow tip:</strong> listen to everything through Live. LinkEffekt Send mutes the iPad locally by default, so you hear each track once and on Live's grid.</li>
-        <li><strong>Both directions at once:</strong> turn <strong>Sync to Incoming Audio on</strong>, and turn <strong>Bar Sync</strong> on in the Receive. Each direction lands on the beat of the side that receives it. Listen through your own device: Live's speakers and the iPad's are apart by Live's Link-Audio latency.</li>
+        <li>With several receivers, the sender renders ahead for the one that needs the most.</li>
+        <li>In a jam, where both devices send and receive, both directions stay on the beat.</li>
+        <li>The price is on the sender's side: everything in that app sounds that much later (typically 50 to 150&nbsp;ms). For material you play live there, turn <strong>Live Mode</strong> on in the Send (<a href="#send">§4</a>); receivers then play it behind the beat.</li>
       </ul>
     </li>
+    <li><strong>Bar Sync (LAN) / Online:</strong> the delay is rounded up to <strong>whole bars</strong> on your host's beat grid. The incoming “1” lands exactly on your “1”, typically one bar later (2&nbsp;s at 120&nbsp;BPM).
+      <ul>
+        <li>With the receiver in the same room, this suits sequenced material: someone playing live on the sending device would hear their part again one bar later from the receiver.</li>
+        <li>Online needs the <strong>host transport playing</strong> on both sides and the <strong>same tempo</strong> on both hosts. When you press play, expect about one bar of silence while the buffer fills, then it locks.</li>
+        <li>The stream plays what the sending app plays: if that app itself sits a few milliseconds off the Link beat, so does the stream, and <strong>Nudge</strong> moves it back.</li>
+      </ul>
+    </li>
+    <li><strong>Free-run</strong> is what you get without a shared beat reference: lowest latency, no alignment. Fine for monitoring, speech, or when you play by ear.</li>
+    <li><strong>A constant offset in low-latency mode, when the sender does not render ahead</strong> (Cubasis, Ableton Live as the sender, Live Mode on): received audio sits behind your local tracks by the connection plus your buffer, as the status says, plus whatever your host delays after the plugin (Cubasis, for example, does not compensate plugin latency at all). That is the normal situation for any live signal and does not matter for monitoring; for grid-accurate work turn on <strong>Bar Sync</strong> (exact placement, one bar late) and use <strong>Nudge</strong> for the last few milliseconds.</li>
+    <li><strong>Cubasis: turn off Multi-core Processing</strong> (Setup &gt; Audio). That setting <em>is</em> the extra buffer Cubasis puts behind the plugin without reporting it; Cubasis shows it as <strong>Guard buffer</strong>.
+      <ul>
+        <li>With it off, the guard buffer is 0&nbsp;ms and the received audio is tight without any Nudge. The audio buffer size then no longer affects timing accuracy, so pick one that keeps the engine comfortable.</li>
+        <li>If you must keep Multi-core on, read the Guard buffer value (Setup &gt; Audio, tap the latency total) and set <strong>Nudge</strong> to minus that value (Bar Sync or Online). Measured on device: a 21&nbsp;ms guard buffer needed exactly Nudge −21.</li>
+        <li>When Cubasis is the <em>sender</em>, the sign flips: turn Multi-core off there, or use Bar Sync on the receiver with a positive Nudge of the same size.</li>
+        <li><strong>AUM</strong> has no such buffer.</li>
+      </ul>
+    </li>
+    <li><strong>Ableton Live (LAN): set Sync to Incoming Audio by what you do</strong> (Live's Settings &gt; Link): <strong>off</strong> to play Live’s tracks on iOS, <strong>on</strong> to record iOS audio into Live and when audio goes both ways. In every case leave AUM's Link latency compensation at 0: LinkEffekt already places audio on the Link beat. The three setups step by step: <a href="#wf-record-live">§2, Workflows</a>.</li>
   </ul>
   <p>The two hosts' own metronomes are <strong>not</strong> aligned to each other over the internet. Each side hears the peer on <em>their own</em> grid. In a remote jam that is exactly what you want, since each player only hears their own device.</p>
 
   <h2 id="troubleshooting">8 · Troubleshooting</h2>
 
-  <h3>No channel appears in Now Receiving (LAN)</h3>
+  <h3 id="ts-no-channel">No channel appears in Now Receiving (LAN)</h3>
   <ul>
-    <li>Everything on one device? Look for the <strong>This device</strong> / <strong>This host</strong> tag: those channels work without Wi-Fi, network permission or Link (<a href="#lan">§2</a>).</li>
+    <li>Everything on one device? Look for the <strong>This device</strong> / <strong>This host</strong> tag: those channels work without Wi-Fi, network permission or Link (<a href="#same-device">§3</a>).</li>
     <li>Same Wi-Fi network? Some routers isolate clients (“AP/client isolation”). Disable that, or use a hotspot.</li>
     <li>Open the <strong>LinkEffekt app</strong> once (Local Network permission). The plugin shows a hint if the app was never opened. Check that LinkEffekt is allowed in Settings → Privacy → Local Network, then restart the host app.</li>
     <li>On the sender: gear, then <strong>Ableton Link</strong> and <strong>Share Audio</strong> must be on.</li>
   </ul>
 
-  <h3>Audio arrives, but off the beat</h3>
+  <h3 id="ts-off-beat">Audio arrives, but off the beat</h3>
   <ul>
-    <li>Is <strong>Ableton Link</strong> on in both <strong>host apps</strong> (in the app's own settings, not only in the plugin's gear)? Without it the sending app plays in its own tempo and on its own bar, and no receiver can put that on your beat (§2).</li>
+    <li>Is <strong>Ableton Link</strong> on in both <strong>host apps</strong> (in the app's own settings, not only in the plugin's gear)? Without it the sending app plays in its own tempo and on its own bar, and no receiver can put that on your beat (<a href="#lan">§3</a>).</li>
     <li>Same tempo in both apps? With Link on, they follow each other automatically.</li>
   </ul>
-  <h3>Channel selected, but no sound: read the status under the channel menu</h3>
+
+  <h3 id="ts-no-sound">Channel selected, but no sound: read the status under the channel menu</h3>
   <div class="diag"><span class="dot wait"></span><em>No audio from the sender. Is Share Audio on there? Same network?</em>&nbsp;· the sender isn't streaming: Share Audio off, Send Audio off, or a different network.</div>
   <div class="diag"><span class="dot wait"></span><em>The host is not running this plugin…</em>&nbsp;· the host never renders the channel. In AUM: give the channel a source, or use Receive Instrument as the source.</div>
   <div class="diag"><span class="dot wait"></span><em>Receiving, but Received is muted below</em> / <em>… Output is muted below</em> / <em>… Output Gain is at −∞</em>&nbsp;· un-mute or raise the control it names.</div>
@@ -204,11 +613,18 @@
   <div class="diag"><span class="dot wait"></span><em>No audio from the peer…</em>&nbsp;· (Online) the peer left the room or isn't streaming.</div>
   <div class="diag"><span class="dot wait"></span><em>2× …: pick the right one.</em>&nbsp;· (after loading a project) the saved name exists more than once; pick the channel in the menu.</div>
 
-  <h3>Crackles or dropouts</h3>
+  <h3 id="ts-dropouts">Crackles or dropouts</h3>
   <p>The buffer is set once you pick a channel, so a connection that is less steady than at that moment produces dropouts rather than a moving number. When more than two occur in ten minutes, the Receive shows their count next to <em>Buffer</em>: raise the Buffer until it stays quiet. Tapping the count starts a new count, for example once the cause is gone. Where the sender renders ahead (AUM), a larger buffer stays on the beat, because the sender follows. On weak Wi-Fi move closer to the router, or use a direct connection on one device.</p>
 
-  <h3>Dropouts in bursts after AirDrop</h3>
-  <p>AirDrop, AirPlay, Universal Control, Sidecar and Handoff use a direct radio link between Apple devices. While that link is active, the Wi-Fi keeps pausing for up to almost half a second, more than a buffer on the beat can cover (Bar Sync can, one bar late). It starts as soon as a share sheet opens, before anything is sent, and after an AirDrop it can last about a quarter of an hour. Restarting the app or the host does not help, the dropouts stop by themselves. So while you play, don't AirDrop or open a share sheet on any of the devices, also not to send something to your Mac. Background and lock screen are fine: LinkEffekt keeps streaming without dropouts while the host runs in the background or the screen is locked. If your router lets you choose its channel, set 5 GHz to channel 44 or 149 (2.4 GHz: channel 6). The direct link uses these channels, so the Wi-Fi does not have to switch away for it. A cable avoids it entirely (<a href="#cable">§2, Tip: plug in a cable</a>).</p>
+  <h3 id="ts-airdrop">Dropouts in bursts after AirDrop</h3>
+  <p>AirDrop, AirPlay, Universal Control, Sidecar and Handoff use a direct radio link between Apple devices. While it is active, the Wi-Fi keeps pausing for up to almost half a second: more than a buffer on the beat can cover (Bar Sync can, one bar late).</p>
+  <ul>
+    <li>It starts as soon as a share sheet opens, before anything is sent, and after an AirDrop it can last about a quarter of an hour. Restarting the app or the host does not help; the dropouts stop by themselves.</li>
+    <li>So while you play, don't AirDrop or open a share sheet on any of the devices, also not to send something to your Mac.</li>
+    <li>Background and lock screen are fine: LinkEffekt keeps streaming without dropouts while the host runs in the background or the screen is locked.</li>
+    <li>If your router lets you choose its channel, set 5&nbsp;GHz to channel 44 or 149 (2.4&nbsp;GHz: channel 6). The direct link uses these channels, so the Wi-Fi does not have to switch away for it.</li>
+    <li>A cable avoids it entirely (<a href="#cable">§3, Tip: plug in a cable</a>).</li>
+  </ul>
 
   <h3>The receiver goes quiet or stutters for up to two seconds, or jumps once</h3>
   <p>The connection changed under it, e.g. Bluetooth headphones or a new buffer size in the sender's host. The receiver measures once more and plays on (<a href="#receive">§5</a>, Buffer). Live Mode on the sender costs only a short jump.</p>
@@ -234,18 +650,18 @@
   <h3>Timing is stable but consistently early or late (LAN)</h3>
   <p>On the receiver, turn on <strong>Bar Sync</strong> and use <strong>Nudge</strong> under <em>Advanced timing</em> (±100&nbsp;ms). Without Bar Sync there is nothing to nudge: audio cannot play earlier than the sender delivers it. Sender-side there is also the <strong>Link Offset</strong> slider in the Send's gear settings.</p>
 
-  <h3>My Mac sounds late against my iOS devices (Ableton Live, any Link app)</h3>
+  <h3 id="ts-mac-late">My Mac sounds late against my iOS devices (Ableton Live, any Link app)</h3>
   <p>Audio tools that hook into every app on the Mac, such as SoundSource, Audio Hijack or system-wide equalizers, delay the sound without telling the app, and Link cannot compensate for that. Exclude your DAW in that tool (SoundSource: Settings, Exclusions, then restart the DAW) or quit the tool. Measured with SoundSource: about 55&nbsp;ms.</p>
 
-  <h3>Ableton Live's metronome sounds later than my iPad's</h3>
+  <h3 id="ts-live-metronome">Ableton Live's metronome sounds later than my iPad's</h3>
   <p><strong>Sync to Incoming Audio</strong> is on in Live. It delays Live's own playback on purpose, which is right while you send audio to Live (<a href="#beatsync">§7</a>). If you only receive Live's tracks, turn it off.</p>
 
   <h3>Received audio sits slightly behind my local tracks</h3>
   <p>The status says how far (<em>“… ms behind the beat”</em>): the sender cannot render ahead (Cubasis, Ableton Live, Live Mode). If the sender runs in AUM with Live Mode off, it plays on the grid. Otherwise, for grid-accurate recording: <strong>Bar Sync</strong> on, then <strong>Nudge</strong> to taste; afterwards shift the recorded region by the whole bars Bar Sync added.</p>
 
   <h2 id="faq">9 · Frequently asked questions</h2>
-  <p><strong>Does LinkEffekt work with Ableton Live?</strong> Yes, in both directions. Live 12.4+ receives Link Audio directly (<a href="#beatsync">§7</a>), and LinkEffekt Send appears there as an input channel. Live also sends: turn on Link and its <strong>Audio</strong> switch under Live's Settings &gt; Link, and every Live track with an audio output (including returns and the Main output) appears in LinkEffekt Receive as a channel. Live does not render ahead, so turn on <strong>Bar Sync</strong> in the Receive for exact placement on the bar. In Live, <strong>Sync to Incoming Audio</strong> depends on the direction (<a href="#beatsync">§7</a>): off when you only receive Live's tracks, on when you record into Live.</p>
-  <p><strong>Does it work without a network?</strong> Yes. Between apps on one device (channels tagged <strong>This device</strong> / <strong>This host</strong>) no network, permission or Link setup is needed (<a href="#lan">§2</a>). Only cross-device LAN and Online need connectivity.</p>
+  <p><strong>Does LinkEffekt work with Ableton Live?</strong> Yes, in both directions. Live 12.4+ receives Link Audio directly, and LinkEffekt Send appears there as an input channel. Live also sends: turn on Link and its <strong>Audio</strong> switch under Live's Settings &gt; Link, and every Live track with an audio output (including returns and the Main output) appears in LinkEffekt Receive as a channel. Live does not render ahead, so turn on <strong>Bar Sync</strong> in the Receive for exact placement on the bar. In Live, <strong>Sync to Incoming Audio</strong> depends on the direction: off when you only receive Live's tracks, on when you record into Live. Step by step: <a href="#wf-record-live">§2, Workflows</a>.</p>
+  <p><strong>Does it work without a network?</strong> Yes. Between apps on one device (channels tagged <strong>This device</strong> / <strong>This host</strong>) no network, permission or Link setup is needed (<a href="#same-device">§3</a>). Only cross-device LAN and Online need connectivity.</p>
   <p><strong>How many channels can I run?</strong> With Unlimited Channels: as many Send/Receive instances as your device handles; Online supports up to 8 streams per direction per host.</p>
   <p><strong>Does audio go through your servers?</strong> No. Online audio is peer-to-peer and DTLS-encrypted; the server only relays the room handshake. If a direct connection is impossible, an encrypted relay (TURN) forwards the still-encrypted stream.</p>
   <p><strong>Why is there always some delay?</strong> Physics: network transit plus safety buffering. LinkEffekt makes the delay stable and, with Beat Sync, musical (<a href="#beatsync">§7</a>). With a sender in AUM it lands right on your grid.</p>
@@ -256,6 +672,83 @@
     <span>Support: <a href="mailto:alexander.joannou@gmail.com">alexander.joannou@gmail.com</a>. Please include your host app and device, and attach the diagnostics (LinkEffekt app, <strong>Share diagnostics</strong>).</span>
   </footer>
 
+  </main>
 </div>
+
+<script>
+/* Running table of contents: marks the chapter (and section) you are reading
+   in the sidebar, and names it in the pinned bar on narrow screens. */
+(function () {
+  var side = document.getElementById('side-nav');
+  var bar = document.getElementById('toc-bar');
+  if (!side || !bar) return;
+  var btn = bar.querySelector('button');
+  var list = bar.querySelector('.bar-list');
+  var curNum = bar.querySelector('.cur-num');
+  var curTitle = bar.querySelector('.cur-title');
+
+  var chapters = [].slice.call(side.querySelectorAll(':scope > a'));
+  chapters.forEach(function (a) { list.appendChild(a.cloneNode(true)); });
+  var barLinks = [].slice.call(list.querySelectorAll('a'));
+  var subs = [].slice.call(side.querySelectorAll('.sub a'));
+
+  function target(a) { return document.getElementById(a.getAttribute('href').slice(1)); }
+  var chapterTargets = chapters.map(target);
+  var subTargets = subs.map(target);
+
+  function setOpen(open) {
+    bar.classList.toggle('open', open);
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+  btn.addEventListener('click', function () { setOpen(!bar.classList.contains('open')); });
+  list.addEventListener('click', function (e) { if (e.target.closest('a')) setOpen(false); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setOpen(false); });
+
+  function current(targets, line) {
+    var idx = -1;
+    for (var i = 0; i < targets.length; i++) {
+      if (targets[i] && targets[i].getBoundingClientRect().top <= line) idx = i;
+    }
+    return idx;
+  }
+
+  var last = -2, lastSub = -2, ticking = false;
+  function update() {
+    ticking = false;
+    var line = Math.min(window.innerHeight * 0.3, 160);
+    var c = current(chapterTargets, line);
+    if (c !== last) {
+      last = c;
+      chapters.forEach(function (a, i) {
+        a.classList.toggle('active', i === c);
+        if (i === c) a.setAttribute('aria-current', 'true'); else a.removeAttribute('aria-current');
+      });
+      barLinks.forEach(function (a, i) { a.classList.toggle('active', i === c); });
+      var id = c >= 0 ? chapters[c].getAttribute('href').slice(1) : null;
+      [].forEach.call(side.querySelectorAll('.sub'), function (s) {
+        s.classList.toggle('open', s.getAttribute('data-for') === id);
+      });
+      if (c >= 0) {
+        curNum.textContent = '§' + chapters[c].querySelector('.num').textContent;
+        curTitle.textContent = chapters[c].textContent.replace(/^\d+/, '');
+      } else {
+        curNum.textContent = '§';
+        curTitle.textContent = 'Contents';
+      }
+    }
+    var s = current(subTargets, line);
+    if (s >= 0 && c >= 0 && !subs[s].parentNode.classList.contains('open')) s = -1;
+    if (s !== lastSub) {
+      lastSub = s;
+      subs.forEach(function (a, i) { a.classList.toggle('active', i === s); });
+    }
+  }
+  window.addEventListener('scroll', function () {
+    if (!ticking) { ticking = true; requestAnimationFrame(update); }
+  }, { passive: true });
+  window.addEventListener('resize', update);
+  update();
+})();
+</script>
 </body>
 </html>
