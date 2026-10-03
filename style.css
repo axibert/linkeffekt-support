@@ -406,6 +406,8 @@ footer a { color: var(--muted); }
 }
 
 .prose ol.steps { list-style: none; margin: 0; padding: 0; counter-reset: step; }
+/* Karte ohne Strecken-Zeile (Couch): Schritte so weit von der Einleitung wie sonst die Strecke */
+.prose .wf .wf-lead + ol.steps { margin-top: 1.2rem; }
 .prose ol.steps > li {
   counter-increment: step; position: relative;
   padding: 0 0 0 2.2rem; margin: 0 0 .65rem;
@@ -454,15 +456,6 @@ footer a { color: var(--muted); }
   transform: translateY(-1px);
 }
 .prose p.shot-note { margin: .7rem 0 0; font-size: .9rem; color: var(--muted); }
-
-/* the orange note from the plugin, quoted as it appears there */
-.plugin-banner {
-  display: flex; gap: .6rem; align-items: center;
-  background: #ff9f0a; color: #fff; border-radius: 9px;
-  padding: .6rem .8rem; margin: 1.1rem 0 0; max-width: 24rem;
-  font-weight: 650; font-size: .93rem; line-height: 1.35;
-}
-.plugin-banner svg { flex: none; width: 20px; height: 20px; }
 
 /* status vocabulary as a table */
 .prose table.status-table td:first-child { white-space: nowrap; }
