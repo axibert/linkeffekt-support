@@ -474,6 +474,14 @@ footer a { color: var(--muted); }
 
 @media (max-width: 560px) {
   .shot-imgs { flex-wrap: wrap; }
+  /* status table: status line on top, its meaning right below */
+  .prose .status-table, .status-table tbody, .status-table tr, .prose .status-table td { display: block; }
+  .status-table tr:first-child { display: none; }
+  .status-table tr { padding: .65rem 0; border-bottom: 1px solid var(--line); }
+  .prose .status-table td { padding: 0; border: 0; }
+  .prose table.status-table td:first-child { white-space: normal; }
+  .status-table .st { display: flex; }
+  .prose .status-table td + td { margin-top: .2rem; }
 }
 
 @media (max-width: 760px) {
