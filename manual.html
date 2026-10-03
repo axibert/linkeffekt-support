@@ -103,12 +103,12 @@
       <tr><th>Plugin</th><th>Type</th><th>Use it to</th></tr>
       <tr><td><strong>LinkEffekt Send</strong></td><td>Audio effect</td><td>Stream a track's audio out. Insert it on the track you want to share.</td></tr>
       <tr><td><strong>LinkEffekt Receive</strong></td><td>Audio effect</td><td>Receive channels. Works in every host; this is the standard receiver.</td></tr>
-      <tr><td><strong>LinkEffekt Receive Instrument</strong></td><td>Instrument</td><td>The same receiver as a sound source, for hosts that need one on the channel (e.g. as the source in AUM) or for Logic multi-output routing.</td></tr>
+      <tr><td><strong>LinkEffekt Receive Instrument</strong></td><td>Instrument</td><td>The same receiver as a sound source, for hosts that need one on the channel: as the source in AUM, or on a software-instrument track.</td></tr>
     </table>
   </div>
 
   <p><strong>What can you do with it?</strong> Jam across devices, route audio between apps on one device, record iOS audio in Ableton Live, play Live’s tracks on your iPad, jam online with a friend, monitor a band. <a href="#workflows">§2 Workflows</a> walks you through each one, step by step.</p>
-  <p><strong>Free vs. Unlimited Channels:</strong> the free version includes 1 Send and 1 Receive channel, fully functional on the local network. The one-time in-app purchase <strong>Unlimited Channels</strong> unlocks unlimited instances, monitoring multiple channels at once, and the <strong>Online</strong> (internet) mode. Purchase or restore it in the LinkEffekt app or directly inside the plugins.</p>
+  <p><strong>Free vs. Unlimited Channels:</strong> the free version includes 1 Send and 1 Receive channel, fully functional on the local network and between apps on one device. The one-time in-app purchase <strong>Unlimited Channels</strong> unlocks unlimited instances, monitoring multiple channels at once, and the <strong>Online</strong> (internet) mode. Purchase or restore it in the LinkEffekt app or directly inside the plugins.</p>
 
   <div class="note"><strong>First step:</strong> open the LinkEffekt app once after installing, on your iPhone and iPad, and allow Local Network access. Without it, the plugins cannot see each other.</div>
 
@@ -455,7 +455,7 @@
     </figcaption>
   </figure>
   <ul>
-    <li><strong>Status line</strong> under the header: <em>“Streaming to a listener”</em> or <em>“Waiting for a receiver”</em>. Listeners on this device (This device / This host) count too. In Online mode the ONLINE badge in the header shows the room status instead.</li>
+    <li><strong>Status line</strong> under the header: <em>“Streaming to a listener”</em> or <em>“Waiting for a receiver”</em>. Listeners on this device (This device / This host) count too. In Online mode the ONLINE badge in the header shows the room status instead. With <strong>Bypass all LinkEffekt Sends</strong> on, the line stays empty and the orange note says it all.</li>
     <li><strong>Destination: LAN &amp; Local / Online</strong>: where this track streams (LAN &amp; Local always includes listeners on this device). Switching Online to LAN &amp; Local removes only this track from the room; the room itself stays open until you tap <strong>Leave</strong> (a “room is still open” line with a Leave button stays visible in the LAN &amp; Local tab).</li>
     <li><strong>Name</strong>: the channel name receivers see. Renames propagate live, also in Online rooms, and receivers keep their subscription (and remember the new name for the next time the project loads). If another channel in your network carries the same name, the status line says so and offers <strong>Rename</strong> (adds the device, or the next free number). LinkEffekt never renames on its own.</li>
     <li><strong>Send Audio</strong>: master switch for streaming this track. Off = the plugin passes audio through locally but sends nothing.</li>
@@ -544,7 +544,7 @@
     <li><strong>Gear, then Settings</strong>: Ableton Link settings and the plugin version.</li>
     <li><strong>Diagnostics for support</strong>: every Send and Receive instance records its timing on this device while it runs (one line per second, plus events such as channel changes and dropouts). Nothing is shown in the plugin and nothing leaves the device on its own. If something sounds wrong, keep playing for a minute, then open the LinkEffekt app and tap <strong>Share diagnostics</strong> (AirDrop, Mail or Files). Share when you are done playing: the share sheet can unsettle the Wi-Fi for a while (<a href="#ts-airdrop">§8</a>).</li>
   </ul>
-  <p><strong>Receive vs. Receive Instrument:</strong> identical engine. Use the <strong>effect</strong> everywhere you can insert it; use the <strong>Instrument</strong> where the channel needs a source (AUM source slot, Logic software-instrument track with multi-output).</p>
+  <p><strong>Receive vs. Receive Instrument:</strong> identical engine. Use the <strong>effect</strong> everywhere you can insert it; use the <strong>Instrument</strong> where the channel needs a source (AUM source slot, a software-instrument track). Both have one stereo output.</p>
 
   <h2 id="online">6 · Online mode</h2>
   <p>Online mode streams over the internet, peer-to-peer, encrypted end-to-end (DTLS). It requires <strong>Unlimited Channels</strong> on both sides. A walk-through for two players: <a href="#wf-online">§2, Jam online with a friend</a>.</p>
