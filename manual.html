@@ -618,7 +618,7 @@
     <li>Both press <strong>play</strong> in the host, at the <strong>same tempo</strong>. The audio locks to your grid, whole bars late (see <a href="#beatsync">Beat Sync</a>).</li>
     <li>To hear your own track, turn off <strong>Mute Local Output</strong> in the Send (on by default, so nobody in one room hears a track twice).</li>
   </ol>
-  <p>The <strong>ONLINE</strong> badge in the header shows the room code: green = peer connected, orange = waiting.</p>
+  <p>The <strong>ONLINE</strong> badge in the header shows the room code: green = connected, orange = waiting for the peer or reconnecting, gray = room closed.</p>
   <details class="gtk" id="online-more">
   <summary class="gtk-title">Good to know</summary>
   <ul>
@@ -626,14 +626,14 @@
     <li><strong>Several tracks:</strong> each Send is its own channel at the peer (up to 8 per direction).</li>
     <li><strong>Send my track</strong> (Receive effect, Online): also streams this track into the room, two-way in one plugin slot, e.g. for DJ apps. To hear yourself too, unmute <strong>Host track</strong>.</li>
     <li><strong>Room codes</strong> are one-time invitations; the audio flows peer-to-peer, encrypted, never through LinkEffekt servers. A room with one participant closes after 30 minutes; active sessions have no limit.</li>
-    <li><strong>Reconnect:</strong> rejoin with the same code while the other side is still in the room; if both left, create a new one.</li>
+    <li><strong>Dropouts reconnect by themselves:</strong> after a network gap, a locked screen or sleep, LinkEffekt rebuilds the connection and shows <em>reconnecting…</em>; there is no need to leave. If the other side left, it shows <em>waiting for peer…</em> until they join again with the same code.</li>
   </ul>
   </details>
 
 <h2 id="beatsync">7 · Beat Sync: how it works and what to expect</h2>
   <p>Audio over a network <strong>always</strong> arrives late. LinkEffekt makes that delay <em>musical</em>:</p>
   <ul>
-    <li><strong>Sending from AUM:</strong> the Send plays ahead by the trip, so the audio lands on your beat.</li>
+    <li><strong>Sending from AUM or Logic Pro:</strong> the Send plays ahead by the trip, so the audio lands on your beat. In Logic, after loading, press Stop and Play once more when the Send asks for it.</li>
     <li><strong>Any other sender:</strong> a fixed distance behind the beat, or with <strong>Bar Sync</strong> exactly on the bar, one bar late.</li>
     <li><strong>Online:</strong> always on the bar.</li>
   </ul>
@@ -647,6 +647,7 @@
         <li>Several receivers: the sender serves the one that needs the most.</li>
         <li>In a jam, where both devices send and receive, both directions stay on the beat.</li>
         <li>The price: everything in the sending app sounds that much later (typically 50 to 150&nbsp;ms). Playing live there? <strong>Live Mode</strong> in the Send (see <a href="#send">LinkEffekt Send</a>); receivers then play behind the beat.</li>
+        <li><strong>Logic Pro for iPad</strong> takes a new delay only when it loads a project or starts playing, so the Send plays a fixed 150&nbsp;ms ahead there. After a fresh start of Logic the first Play (new project: the first two) is still behind the beat, and the Send shows <em>“Stop and play again to lock Logic to the beat.”</em> Saved projects remember it, and while Logic stays open every project is tight from the first Play. The Send recognises Logic only with Ableton Link on.</li>
       </ul>
     </li>
     <li><strong>Bar Sync (LAN) and Online:</strong> the delay is rounded up to <strong>whole bars</strong>; the incoming “1” lands on your “1”, usually one bar later (2&nbsp;s at 120&nbsp;BPM).
@@ -767,6 +768,20 @@
     <summary>Online: stuck on “waiting for peer”</summary>
     <div class="ts-body">
   <p>The other side hasn’t joined, or used a wrong code. Share it again; both sides need the in-app purchase.</p>
+    </div>
+  </details>
+
+  <details class="ts">
+    <summary>Online: “reconnecting…”</summary>
+    <div class="ts-body">
+  <p>The connection dropped and LinkEffekt is rebuilding it, usually within seconds. If it stays, check that both devices are online; the other side needs LinkEffekt 2.0.1 or later to rebuild from its end too.</p>
+    </div>
+  </details>
+
+  <details class="ts">
+    <summary>Online: “room closed”</summary>
+    <div class="ts-body">
+  <p>A room with only one participant closes after 30 minutes. Tap <strong>Leave</strong> and create a new room.</p>
     </div>
   </details>
 
