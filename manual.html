@@ -633,7 +633,7 @@
 <h2 id="beatsync">7 · Beat Sync: how it works and what to expect</h2>
   <p>Audio over a network <strong>always</strong> arrives late. LinkEffekt makes that delay <em>musical</em>:</p>
   <ul>
-    <li><strong>Sending from AUM or Logic Pro:</strong> the Send plays ahead by the trip, so the audio lands on your beat. In Logic, after loading, press Stop and Play once more when the Send asks for it.</li>
+    <li><strong>Sending from AUM or Logic Pro:</strong> the Send plays ahead by the trip, so the audio lands on your beat, from the first play, and nothing on the receiving side waits.</li>
     <li><strong>Any other sender:</strong> a fixed distance behind the beat, or with <strong>Bar Sync</strong> exactly on the bar, one bar late.</li>
     <li><strong>Online:</strong> always on the bar.</li>
   </ul>
@@ -647,7 +647,7 @@
         <li>Several receivers: the sender serves the one that needs the most.</li>
         <li>In a jam, where both devices send and receive, both directions stay on the beat.</li>
         <li>The price: everything in the sending app sounds that much later (typically 50 to 150&nbsp;ms). Playing live there? <strong>Live Mode</strong> in the Send (see <a href="#send">LinkEffekt Send</a>); receivers then play behind the beat.</li>
-        <li><strong>Logic Pro for iPad</strong> takes a new delay only when it loads a project or starts playing, so the Send plays a fixed 150&nbsp;ms ahead there. After a fresh start of Logic the first Play (new project: the first two) is still behind the beat, and the Send shows <em>“Stop and play again to lock Logic to the beat.”</em> Saved projects remember it, and while Logic stays open every project is tight from the first Play. The Send recognises Logic only with Ableton Link on.</li>
+        <li><strong>Logic Pro for iPad</strong> builds in a delay only when the Send is inserted or a project loads, and when playback starts, so the Send plays a fixed 150&nbsp;ms ahead there, on the beat from the first Play. After you switch <strong>Live Mode</strong> on or off, Logic follows on the second Play; until then the Send shows <em>“Stop and play again to lock Logic to the beat.”</em></li>
       </ul>
     </li>
     <li><strong>Bar Sync (LAN) and Online:</strong> the delay is rounded up to <strong>whole bars</strong>; the incoming “1” lands on your “1”, usually one bar later (2&nbsp;s at 120&nbsp;BPM).
