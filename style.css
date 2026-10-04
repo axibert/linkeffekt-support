@@ -12,6 +12,10 @@
   --faint: #6b757c;
   --ok: #30d158;
   --wait: #ff9f0a;
+  --prose: #c9cfd4;
+  --bar-bg: rgba(15, 18, 20, .94);
+  --btn-hover: #fff;
+  color-scheme: dark;
   --mono: "JetBrains Mono", "SF Mono", ui-monospace, Menlo, monospace;
   --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   --display: "Archivo", var(--sans);
@@ -49,7 +53,7 @@ a:focus-visible { outline: 2px solid var(--ok); outline-offset: 3px; border-radi
 }
 .site-head img.logo { height: 22px; width: auto; display: block; opacity: .92; }
 .site-head a.logo-link { text-decoration: none; }
-.site-nav { display: flex; gap: 1.4rem; font-size: .95rem; }
+.site-nav { display: flex; align-items: center; gap: 1.4rem; font-size: .95rem; }
 .site-nav a { color: var(--muted); text-decoration: none; }
 .site-nav a:hover { color: var(--text); }
 
@@ -108,7 +112,7 @@ a:focus-visible { outline: 2px solid var(--ok); outline-offset: 3px; border-radi
   color: var(--text);
 }
 .btn.primary { background: var(--text); color: var(--bg); border-color: var(--text); }
-.btn.primary:hover { background: #fff; }
+.btn.primary:hover { background: var(--btn-hover); }
 .btn:hover { border-color: var(--faint); }
 
 /* ---------- signal path (signature) ---------- */
@@ -224,8 +228,8 @@ footer a { color: var(--muted); }
   font-size: 1.5rem;
 }
 .prose h3 { font-size: 1.08rem; font-weight: 650; margin: 1.8rem 0 .6rem; }
-.prose p { margin: .8rem 0; color: #c9cfd4; }
-.prose ul, .prose ol { margin: .8rem 0 .8rem 1.3rem; color: #c9cfd4; }
+.prose p { margin: .8rem 0; color: var(--prose); }
+.prose ul, .prose ol { margin: .8rem 0 .8rem 1.3rem; color: var(--prose); }
 .prose li { margin: .35rem 0; }
 .prose strong { color: var(--text); }
 .prose code {
@@ -238,7 +242,7 @@ footer a { color: var(--muted); }
 .prose table { border-collapse: collapse; width: 100%; font-size: .93rem; }
 .prose th, .prose td { text-align: left; padding: .6rem .8rem; border-bottom: 1px solid var(--line); vertical-align: top; }
 .prose th { font-family: var(--mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--faint); }
-.prose td { color: #c9cfd4; }
+.prose td { color: var(--prose); }
 
 /* diagnostics quoted from the plugin — shown exactly as the app renders them */
 .diag {
@@ -330,7 +334,7 @@ footer a { color: var(--muted); }
 .js .toc-bar {
   display: block;
   position: sticky; top: 0; z-index: 30;
-  background: rgba(15, 18, 20, .94);
+  background: var(--bar-bg);
   -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--line);
 }
@@ -344,6 +348,7 @@ footer a { color: var(--muted); }
 }
 .toc-bar button:focus-visible { outline: 2px solid var(--ok); outline-offset: -2px; }
 .toc-bar .cur-num { font-family: var(--mono); font-size: .76rem; color: var(--faint); }
+.toc-bar .cur-num:empty { display: none; }
 .toc-bar .cur-title { flex: 1; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 .toc-bar .chev { width: 14px; height: 14px; color: var(--muted); transition: transform .2s; flex: none; }
 .toc-bar.open .chev { transform: rotate(180deg); }
@@ -446,12 +451,12 @@ footer a { color: var(--muted); }
 .shot figcaption { margin-top: .9rem; }
 .callouts { list-style: none; display: grid; gap: .45rem; }
 .prose ul.callouts { margin: 0; }
-.prose .callouts li { margin: 0; display: flex; gap: .6rem; align-items: baseline; font-size: .93rem; color: #c9cfd4; }
+.prose .callouts li { margin: 0; display: flex; gap: .6rem; align-items: baseline; font-size: .93rem; color: var(--prose); }
 .callouts.compact { grid-template-columns: 1fr 1fr; column-gap: 1.4rem; }
 .cn {
   flex: none; display: inline-block;
   width: 1.3rem; height: 1.3rem; border-radius: 50%;
-  background: #fff; color: var(--bg);
+  background: #fff; color: #15191c;
   font-family: var(--sans); font-weight: 700; font-size: .74rem; line-height: 1.3rem; text-align: center;
   transform: translateY(-1px);
 }
@@ -497,3 +502,233 @@ footer a { color: var(--muted); }
   font-family: var(--mono); font-size: .68rem; font-weight: 600; letter-spacing: .14em;
   text-transform: uppercase; color: var(--faint);
 }
+
+/* ---------- manual: light mode ----------
+   The manual follows the system setting until the reader picks one with the
+   switch in the header (kept in localStorage). Only the manual has a light
+   palette; the home page stays dark. Screenshots keep their dark frame, they
+   show the dark plugin. */
+
+html[data-theme="light"] { color-scheme: light; }
+@media (prefers-color-scheme: light) { html:not([data-theme="dark"]) { color-scheme: light; } }
+
+html[data-theme="light"] body.manual {
+  --bg: #f6f7f8; --panel: #ffffff; --panel-2: #eef1f3; --line: #dde2e6;
+  --text: #15191c; --prose: #353e45; --muted: #57626a; --faint: #6f7a82;
+  --ok: #1e9a46; --wait: #c46a00;
+  --bar-bg: rgba(246, 247, 248, .94); --btn-hover: #000;
+}
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) body.manual {
+    --bg: #f6f7f8; --panel: #ffffff; --panel-2: #eef1f3; --line: #dde2e6;
+    --text: #15191c; --prose: #353e45; --muted: #57626a; --faint: #6f7a82;
+    --ok: #1e9a46; --wait: #c46a00;
+    --bar-bg: rgba(246, 247, 248, .94); --btn-hover: #000;
+  }
+}
+/* the numbered markers in the screenshots are white with a dark ring */
+html[data-theme="light"] body.manual .cn { box-shadow: inset 0 0 0 1.5px #15191c; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) body.manual .cn { box-shadow: inset 0 0 0 1.5px #15191c; }
+}
+
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2rem; height: 2rem; flex: none;
+  background: none; border: 1px solid var(--line); border-radius: 8px;
+  color: var(--muted); cursor: pointer;
+}
+.theme-toggle:hover { color: var(--text); border-color: var(--faint); }
+.theme-toggle:focus-visible { outline: 2px solid var(--ok); outline-offset: 2px; }
+.theme-toggle svg { width: 16px; height: 16px; display: block; }
+.theme-toggle .ico-moon { display: none; }
+html[data-theme="light"] .theme-toggle .ico-sun { display: none; }
+html[data-theme="light"] .theme-toggle .ico-moon { display: block; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .theme-toggle .ico-sun { display: none; }
+  html:not([data-theme="dark"]) .theme-toggle .ico-moon { display: block; }
+}
+/* phones: the logo already leads home, so the Home link gives way to the switch */
+@media (max-width: 420px) {
+  .manual .site-nav a[href="./"] { display: none; }
+}
+
+/* ---------- manual: quick start ---------- */
+
+.quick {
+  background: var(--panel); border: 1px solid var(--line); border-radius: 16px;
+  padding: 1.5rem 1.4rem 1.4rem; margin: 0 0 2.4rem;
+}
+.prose .quick .quick-kicker {
+  margin: 0;
+  font-family: var(--mono); font-size: .68rem; font-weight: 600; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--faint);
+}
+.prose .quick h2 {
+  margin: .35rem 0 1.2rem; padding: 0; border: 0;
+  font-family: var(--display); font-weight: 700; font-size: 1.45rem; letter-spacing: -0.01em;
+}
+.quick-sync { display: grid; grid-template-columns: 1fr 1fr; gap: .8rem; margin-top: 1.4rem; }
+.sync-card { background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: .9rem 1rem 1rem; }
+.prose .sync-card p { margin: 0; font-size: .95rem; }
+.prose .sync-card .sync-kicker {
+  margin: 0 0 .4rem;
+  font-family: var(--mono); font-size: .68rem; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--faint);
+}
+.prose .quick .quick-next { margin: 1.2rem 0 0; font-size: .95rem; color: var(--muted); }
+
+/* ---------- manual: folded parts ----------
+   Tips, the long reference text, troubleshooting and FAQ open on demand.
+   A link into a folded part opens it (script at the end of manual.html). */
+
+.prose summary { cursor: pointer; list-style: none; }
+.prose summary::-webkit-details-marker { display: none; }
+.prose summary::after {
+  content: ""; flex: none;
+  width: .42rem; height: .42rem; margin: 0 .2rem 0 auto;
+  border-right: 1.6px solid currentColor; border-bottom: 1.6px solid currentColor;
+  transform: translateY(-.15rem) rotate(45deg); transition: transform .15s;
+}
+.prose details[open] > summary::after { transform: translateY(.1rem) rotate(-135deg); }
+.prose summary:focus-visible { outline: 2px solid var(--ok); outline-offset: 3px; border-radius: 4px; }
+
+/* workflow tips: the label line opens them */
+.prose details.gtk > summary { display: flex; align-items: center; gap: .6rem; }
+.prose details.gtk > summary:hover { color: var(--muted); }
+.prose details.gtk[open] > summary { margin-bottom: .55rem; }
+.prose details#online-more { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: .9rem 1.1rem 1rem; margin-top: 1.4rem; border-top: 1px solid var(--line); }
+
+/* reference chapters: one button opens the full text */
+.prose details.more { margin: 1.5rem 0 0; }
+.prose details.more > summary {
+  display: inline-flex; align-items: center; gap: .7rem;
+  padding: .55rem .95rem; border: 1px solid var(--line); border-radius: 10px;
+  background: var(--panel); color: var(--text); font-weight: 600; font-size: .95rem;
+}
+.prose details.more > summary::after { margin-left: .1rem; }
+.prose details.more > summary:hover { border-color: var(--faint); }
+.prose details.more[open] > summary { margin-bottom: .6rem; }
+
+/* troubleshooting and FAQ: a list of questions */
+.prose h2 + details.ts { border-top: 1px solid var(--line); }
+.prose details.ts { border-bottom: 1px solid var(--line); }
+.prose details.ts > summary {
+  display: flex; align-items: center; gap: 1rem;
+  padding: .8rem 0; font-weight: 600; font-size: 1rem; line-height: 1.4; color: var(--text);
+}
+.prose details.ts > summary:hover { color: var(--muted); }
+.ts-body { padding: 0 0 1.1rem; }
+.prose .ts-body > :first-child { margin-top: 0; }
+.prose .ts-body > :last-child { margin-bottom: 0; }
+.prose details[id] { scroll-margin-top: 4.6rem; }
+@media (min-width: 1080px) { .prose details[id] { scroll-margin-top: 1.6rem; } }
+
+@media (max-width: 760px) {
+  .quick { padding: 1.25rem 1.05rem 1.15rem; margin-left: -.35rem; margin-right: -.35rem; }
+  .quick-sync { grid-template-columns: 1fr; }
+}
+
+/* quick start: what LinkEffekt does. Send on the left, Receive on the right,
+   the three ways between them in the middle: the lines fan out of the Send and
+   join again into the Receive. Every route row draws its own pieces of both
+   trees (branch and trunk, left and right), so rows may differ in height. */
+.fan {
+  --gap: 1.9rem;    /* column gap: the line out of a card */
+  --arm: 1.2rem;    /* from a trunk to its route card */
+  --rgap: .5rem;    /* between route cards */
+  /* the side columns take the width their text needs (never a fixed width:
+     fonts differ between browsers), the ways in the middle get the rest */
+  display: grid; grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center; column-gap: var(--gap); margin: 0 0 1.6rem;
+}
+.fan-node {
+  position: relative; min-width: 12rem;   /* both ends equally wide */
+  background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px;
+  padding: .75rem .8rem .8rem;
+}
+.fan-src::after {                       /* Send to the left trunk */
+  content: ""; position: absolute; top: 50%; left: 100%;
+  width: calc(var(--gap) + 1px); height: 2px; background: var(--ok); transform: translateY(-1px);
+}
+.fan-dst::before {                      /* right trunk to the Receive */
+  content: ""; position: absolute; top: 50%; right: 100%;
+  width: calc(var(--gap) + 1px); height: 2px; background: var(--ok); transform: translateY(-1px);
+}
+.fan-tip {
+  position: absolute; top: 50%; left: -7px; transform: translateY(-50%);
+  border: 5px solid transparent; border-left: 6px solid var(--ok); border-right-width: 0;
+}
+.prose .fan .fan-kicker, .prose .fan .fan-status { margin: 0; }
+.prose .fan .fan-kicker {
+  font-family: var(--mono); font-size: .62rem; font-weight: 600; letter-spacing: .1em;
+  text-transform: uppercase; color: var(--faint); margin-bottom: .5rem;
+}
+.fan-plug {
+  display: flex; width: fit-content; align-items: center; gap: .5rem;   /* block box: no line-box slack above */
+  font-family: var(--mono); font-size: .66rem; font-weight: 600; white-space: nowrap;
+  color: var(--text); background: var(--panel); border: 1px solid var(--line); border-radius: 7px;
+  padding: .3rem .5rem;
+}
+.fan-wave { display: inline-flex; align-items: center; gap: 2px; height: 16px; flex: none; }
+.fan-wave i { display: block; width: 2px; border-radius: 1px; background: var(--ok); }
+.fan-wave i:nth-child(1) { height: 6px; }  .fan-wave i:nth-child(2) { height: 13px; }
+.fan-wave i:nth-child(3) { height: 9px; }  .fan-wave i:nth-child(4) { height: 16px; }
+.fan-wave i:nth-child(5) { height: 7px; }  .fan-wave i:nth-child(6) { height: 11px; }
+.fan-spk { width: 15px; height: 15px; flex: none; color: var(--ok); }
+.prose .fan .fan-status {
+  display: flex; align-items: center; gap: .45rem; margin-top: .55rem;
+  font-family: var(--mono); font-size: .68rem; color: var(--ok);
+}
+
+.fan-routes { display: grid; gap: var(--rgap); margin: 0 var(--arm); }
+.fan-route {
+  position: relative; display: flex; flex-direction: column;
+  background: var(--panel); border: 1px solid var(--line); border-radius: 10px;
+  padding: .5rem .75rem;
+}
+.fan-route .ln { position: absolute; background: var(--ok); }
+.fan-route .lb, .fan-route .rb { top: 50%; height: 2px; transform: translateY(-1px); }
+.fan-route .lb { left: calc(-1 * var(--arm) - 1px); width: calc(var(--arm) - 5px); }
+.fan-route .rb { right: calc(-1 * var(--arm) - 1px); width: calc(var(--arm) + 1px); }
+.fan-route .lt, .fan-route .rt { width: 2px; top: calc(var(--rgap) / -2 - 1px); bottom: calc(var(--rgap) / -2 - 1px); }
+.fan-route .lt { left: calc(-1 * var(--arm) - 1px); }
+.fan-route .rt { right: calc(-1 * var(--arm) - 1px); }
+.fan-route:first-child .lt, .fan-route:first-child .rt { top: 50%; }
+.fan-route:last-child .lt, .fan-route:last-child .rt { bottom: 50%; }
+.fan-title { font-weight: 650; font-size: .92rem; line-height: 1.3; color: var(--text); }
+.fan-sub { font-size: .8rem; line-height: 1.35; color: var(--muted); }
+
+.prose .fan .fan-live {
+  grid-column: 1 / -1; margin: 1rem 0 0;
+  display: flex; align-items: baseline; gap: .7rem; flex-wrap: wrap;
+  font-size: .86rem; color: var(--muted);
+  border-top: 1px dashed var(--line); padding-top: .8rem;
+}
+.fan-live-name {
+  font-family: var(--mono); font-size: .66rem; font-weight: 600; white-space: nowrap; color: var(--text);
+  border: 1px solid var(--line); border-radius: 6px; padding: .2rem .45rem;
+}
+
+/* phones and narrow tablets: one column, Send above the ways, Receive below */
+@media (max-width: 820px) {
+  .fan { grid-template-columns: 1fr; row-gap: var(--gap); }
+  .fan-route .ln, .fan-route .fan-tip { display: none; }
+  .fan-routes { margin: 0; }
+  .fan-src::after { top: 100%; left: 50%; width: 2px; height: calc(var(--gap) + 1px); transform: translateX(-1px); }
+  .fan-dst::before { top: auto; bottom: 100%; right: auto; left: 50%; width: 2px; height: calc(var(--gap) + 1px); transform: translateX(-1px); }
+  .fan-dst > .fan-tip { top: -7px; left: 50%; transform: translateX(-50%); border: 5px solid transparent; border-top: 6px solid var(--ok); border-bottom-width: 0; }
+  .fan-route { align-items: center; text-align: center; }
+  .prose .fan .fan-live { margin-top: .2rem; }
+}
+
+/* quick start: where the audio lands, as a two-bar timeline */
+.tl { display: block; width: 100%; max-width: 15rem; height: auto; margin: .15rem 0 .55rem; overflow: visible; }
+.tl .tl-base { stroke: var(--line); stroke-width: 1.5; }
+.tl .tl-bar { stroke: var(--faint); stroke-width: 1.5; }
+.tl .tl-beat { stroke: var(--faint); stroke-width: 1; opacity: .7; }
+.tl .tl-num { fill: var(--faint); font-family: var(--mono); font-size: 9px; }
+.tl .tl-audio { fill: var(--ok); }
+.tl .tl-ghost { fill: none; stroke: var(--faint); stroke-width: 1.2; stroke-dasharray: 3 2; }
+.tl .tl-arrow { fill: none; stroke: var(--muted); stroke-width: 1.3; }
+.tl .tl-head { fill: var(--muted); }
