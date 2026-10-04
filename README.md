@@ -21,3 +21,7 @@ Please include your host app, your device, and what the diagnostics line in the 
 ## Privacy
 
 See the [Privacy Policy](https://axibert.github.io/linkeffekt-support/privacy.html) (source: [PRIVACY.md](PRIVACY.md)).
+
+## Stylesheet-Version
+
+`style.css` wird in allen Seiten als `style.css?v=<Prüfsumme>` eingebunden. Nach jeder Änderung an `style.css` die Nummer neu setzen (`shasum style.css | cut -c1-8`), sonst kombinieren Browser die neue Seite mit dem alten Stylesheet aus dem Cache, und neue Bauteile (etwa die Grafik im Quick start) zerfallen.
