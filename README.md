@@ -22,6 +22,10 @@ Please include your host app, your device, and what the diagnostics line in the 
 
 See the [Privacy Policy](https://axibert.github.io/linkeffekt-support/privacy.html) (source: [PRIVACY.md](PRIVACY.md)).
 
-## Stylesheet version
+## Stylesheet and script version
 
-Every page loads `style.css?v=<checksum>`. After any change to `style.css`, set the new value (`shasum style.css | cut -c1-8`) in every page; otherwise browsers pair the new page with the old cached stylesheet.
+Every page loads `style.css?v=<checksum>` and `theme.js?v=<checksum>`. After any change to one of them, set the new value (`shasum style.css | cut -c1-8`, same for `theme.js`) in every page; otherwise browsers pair the new page with the old cached file.
+
+## Light and dark
+
+All pages share one palette and one switch: they follow the system setting until the reader picks a mode with the switch in the header, and the choice (localStorage `le-theme`) carries over to every page. Each page sets it in a one-line script in the head, before the stylesheet paints; `theme.js` runs the switch.
