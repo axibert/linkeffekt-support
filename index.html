@@ -20,7 +20,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=8cf98aaa">
+<link rel="stylesheet" href="style.css?v=b5750c05">
 <script>try{var t=localStorage.getItem('le-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
 <body>
@@ -46,22 +46,24 @@
     <h1>Stream audio between your music apps, right on the beat.</h1>
     <p class="sub">Send a track in one app. Hear it in another app on the same device, on a second device or online with a partner, right on your beat. Ableton Live 12.4+ receives it too.</p>
     <div class="hero-ctas">
-      <a class="btn primary" href="https://apps.apple.com/app/linkeffekt/id6759493415">Download on the App&nbsp;Store</a>
+      <a class="store-badge" href="https://apps.apple.com/app/linkeffekt/id6759493415">
+        <img class="on-light" src="img/home/app-store-badge-black.svg" width="150" height="50" alt="Download on the App Store">
+        <img class="on-dark" src="img/home/app-store-badge-white.svg" width="150" height="50" alt="Download on the App Store">
+      </a>
       <a class="btn" href="manual.html">Read the manual</a>
     </div>
 
-    <div class="signal" aria-hidden="true">
-      <div class="signal-row">
-        <span class="signal-node"><span class="dot ok"></span>SEND</span>
-        <span class="signal-wire"></span>
-        <span class="signal-node"><span class="dot ok"></span>RECEIVE</span>
+    <figure class="devices">
+      <div class="device phone">
+        <img src="img/home/iphone-send.webp" width="520" height="1063" alt="iPhone running AUM with LinkEffekt Send: Channel 1 · iPhone, streaming to a listener.">
+        <figcaption><span class="dot ok"></span>iPhone · AUM · Send</figcaption>
       </div>
-      <div class="signal-caption">
-        <span class="statusline"><span class="dot ok"></span>Receiving audio.</span>
-        <span class="statusline"><span class="dot ok"></span>In Sync</span>
-        <span class="badge"><span class="dot ok"></span>ONLINE · K7Q2</span>
+      <div class="device-wire" aria-hidden="true"><span>Wi-Fi</span></div>
+      <div class="device tablet">
+        <img src="img/home/ipad-receive.webp" width="1400" height="1015" alt="iPad running AUM with LinkEffekt Receive: Channel 1 · iPhone, in sync.">
+        <figcaption><span class="dot ok"></span>iPad · AUM · Receive · In sync</figcaption>
       </div>
-    </div>
+    </figure>
   </section>
 
   <section>

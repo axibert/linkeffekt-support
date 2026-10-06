@@ -75,16 +75,9 @@ a:focus-visible { outline: 2px solid var(--ok); outline-offset: 3px; border-radi
   white-space: nowrap;
 }
 
-.statusline {
-  display: flex; align-items: baseline; gap: .6rem;
-  font-family: var(--mono); font-size: .85rem;
-  color: var(--muted);
-}
-.statusline .dot { transform: translateY(-1px); }
-
 /* ---------- hero ---------- */
 
-.hero { padding: 4.5rem 0 3.5rem; }
+.hero { padding: 3.8rem 0 3.5rem; }
 .hero h1 {
   font-family: var(--display);
   font-weight: 800;
@@ -99,7 +92,7 @@ a:focus-visible { outline: 2px solid var(--ok); outline-offset: 3px; border-radi
   font-size: 1.15rem;
   max-width: 46ch;
 }
-.hero-ctas { margin-top: 2.2rem; display: flex; gap: .8rem; flex-wrap: wrap; align-items: center; }
+.hero-ctas { margin-top: 2.2rem; display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
 
 .btn {
   display: inline-block;
@@ -115,39 +108,97 @@ a:focus-visible { outline: 2px solid var(--ok); outline-offset: 3px; border-radi
 .btn.primary:hover { background: var(--btn-hover); }
 .btn:hover { border-color: var(--faint); }
 
-/* ---------- signal path (signature) ---------- */
+/* ---------- App Store badge (Apple artwork, unmodified) ----------
+   Black on light pages, the white alternative on dark ones. Clear space of a
+   quarter of its height comes from the gap in .hero-ctas. */
 
-.signal {
-  margin: 3.6rem 0 0;
-  border: 1px solid var(--line);
-  background: var(--panel);
-  border-radius: 14px;
-  padding: 1.6rem 1.4rem 1.4rem;
-  overflow: hidden;
+.store-badge { display: inline-block; line-height: 0; border-radius: 9px; }
+.store-badge img { height: 52px; width: auto; display: block; }
+.store-badge:focus-visible { outline: 2px solid var(--ok); outline-offset: 3px; }
+.store-badge .on-light { display: none; }
+html[data-theme="light"] .store-badge .on-light { display: block; }
+html[data-theme="light"] .store-badge .on-dark { display: none; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .store-badge .on-light { display: block; }
+  html:not([data-theme="dark"]) .store-badge .on-dark { display: none; }
 }
-.signal-row { display: flex; align-items: center; gap: 1rem; }
-.signal-node {
+
+/* ---------- devices (signature) ----------
+   Apple's product bezels, used as they are: true to scale, side by side,
+   nothing overlapping, no shadows. The wire between them carries the pulse. */
+
+.devices {
+  margin: 3.2rem 0 0;
+  display: flex; align-items: flex-end; justify-content: space-between;
+  /* wider than the text column, centred on it */
+  width: min(calc(100vw - 2.5rem), 72rem);
+  position: relative; left: 50%; transform: translateX(-50%);
+}
+.device { margin: 0; }
+.device img { display: block; width: 100%; height: auto; }
+.device.phone { width: 19.5%; }
+.device.tablet { width: 66%; }
+.device figcaption {
+  margin-top: .9rem;
+  display: flex; align-items: center; justify-content: center; gap: .5rem;
   font-family: var(--mono); font-size: .78rem; font-weight: 600;
-  letter-spacing: .1em; color: var(--muted);
-  display: flex; align-items: center; gap: .5rem; flex: none;
+  letter-spacing: .06em; color: var(--muted); white-space: nowrap;
 }
-.signal-wire { position: relative; flex: 1; height: 2px; background: var(--line); border-radius: 1px; }
-.signal-wire::after {
+.device-wire {
+  position: relative; align-self: center; flex: 1;
+  height: 2px; margin: 0 clamp(1rem, 2.5vw, 2rem); background: var(--line); border-radius: 1px;
+}
+.device-wire span {
+  position: absolute; left: 50%; bottom: .7rem; transform: translateX(-50%);
+  font-family: var(--mono); font-size: .72rem; font-weight: 600;
+  letter-spacing: .12em; text-transform: uppercase; color: var(--faint);
+  white-space: nowrap;
+}
+.device-wire::after {
   content: "";
   position: absolute; top: -2px; left: 0;
-  width: 42px; height: 6px; border-radius: 3px;
+  width: 40%; height: 6px; border-radius: 3px;
   background: linear-gradient(90deg, transparent, var(--ok));
   animation: pulse 2.6s linear infinite;
 }
+/* the pulse stays on the wire: it must not run into a device */
 @keyframes pulse {
-  0%   { left: -12%; opacity: 0; }
-  8%   { opacity: 1; }
-  92%  { opacity: 1; }
-  100% { left: 104%; opacity: 0; }
+  0%   { left: 0; opacity: 0; }
+  12%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { left: 60%; opacity: 0; }
 }
-.signal-caption {
-  margin-top: 1.1rem;
-  display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap;
+@keyframes pulse-down {
+  0%   { top: 0; opacity: 0; }
+  12%  { opacity: 1; }
+  80%  { opacity: 1; }
+  100% { top: 50%; opacity: 0; }
+}
+
+/* phones: badge and manual button stay on one line, at the same height */
+@media (max-width: 480px) {
+  .store-badge img { height: 48px; }
+  .hero-ctas .btn { padding: .6rem 1.1rem; }
+}
+
+/* phones: one above the other; Apple wants a device at least 200 px tall */
+@media (max-width: 640px) {
+  .devices {
+    flex-direction: column; align-items: center; margin-top: 2.8rem;
+    width: auto; left: 0; transform: none;
+  }
+  .device.phone { width: 128px; }
+  .device.tablet { width: 100%; }
+  .device-wire {
+    flex: none; align-self: center;
+    width: 2px; height: 56px; margin: 1.6rem 0;
+  }
+  .device-wire span { left: .9rem; bottom: auto; top: 50%; transform: translateY(-50%); }
+  .device-wire::after {
+    top: 0; left: -2px; width: 6px; height: 50%;
+    background: linear-gradient(180deg, transparent, var(--ok));
+    animation-name: pulse-down;
+  }
 }
 
 /* ---------- sections ---------- */
@@ -273,7 +324,6 @@ footer a { color: var(--muted); }
   .split, .plans { grid-template-columns: 1fr; }
   .toc { columns: 1; }
   .hero { padding-top: 3rem; }
-  .signal-caption { flex-direction: column; gap: .5rem; }
 }
 
 /* ---------- manual: layout with a running table of contents ----------

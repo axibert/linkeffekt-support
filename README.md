@@ -29,3 +29,7 @@ Every page loads `style.css?v=<checksum>` and `theme.js?v=<checksum>`. After any
 ## Light and dark
 
 All pages share one palette and one switch: they follow the system setting until the reader picks a mode with the switch in the header, and the choice (localStorage `le-theme`) carries over to every page. Each page sets it in a one-line script in the head, before the stylesheet paints; `theme.js` runs the switch.
+
+## Home page devices
+
+`img/home/ipad-receive.webp` and `img/home/iphone-send.webp` are real screenshots in Apple's product bezels, built with `Scripts/home-device-mockup.py` in the LinkEffekt repo (the bezels stay there, outside this public repo). Apple's rules: bezel unchanged, no shadow or tilt, nothing overlapping a device, at least 200 px tall on screen; the App Store badge is Apple's artwork, black on light pages and white on dark ones, with a quarter of its height as clear space.
