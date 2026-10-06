@@ -467,6 +467,9 @@ footer a { color: var(--muted); }
 .status-table .st { display: inline-flex; gap: .5rem; align-items: baseline; font-family: var(--mono); font-size: .82rem; color: var(--text); }
 .status-table .st .dot { transform: translateY(-1px); }
 
+/* host table (Hosts chapter): app or goal in the first column */
+.prose table.host-table td:first-child { white-space: nowrap; color: var(--text); }
+
 /* labelled sub-points inside a reference entry (Live Mode, Buffer, Cubasis) */
 .prose .lbl { color: var(--text); font-weight: 600; }
 
@@ -480,6 +483,14 @@ footer a { color: var(--muted); }
   .prose table.status-table td:first-child { white-space: normal; }
   .status-table .st { display: flex; }
   .prose .status-table td + td { margin-top: .2rem; }
+  /* host table: the app on top, each answer below with its column name */
+  .prose .host-table, .host-table tbody, .host-table tr, .prose .host-table td { display: block; }
+  .host-table tr:first-child { display: none; }
+  .host-table tr { padding: .65rem 0; border-bottom: 1px solid var(--line); }
+  .prose .host-table td { padding: 0; border: 0; }
+  .prose table.host-table td:first-child { white-space: normal; }
+  .prose .host-table td + td { margin-top: .25rem; }
+  .host-table td[data-label]::before { content: attr(data-label) ": "; color: var(--muted); }
 }
 
 @media (max-width: 760px) {
