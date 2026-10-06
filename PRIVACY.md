@@ -1,6 +1,6 @@
 # LinkEffekt Privacy Policy
 
-**Last updated:** July 10, 2026
+**Last updated:** October 6, 2026
 
 ## Data Collection
 
@@ -29,6 +29,10 @@ The Unlimited Channels purchase is processed entirely by Apple through the App S
 ## Local Storage
 
 LinkEffekt stores your plugin settings (channel name, preferences) locally on your device using standard iOS/macOS mechanisms (UserDefaults within an App Group). This data never leaves your device.
+
+## Diagnostics
+
+The plugins keep a timing log on your device (buffer, latency, connection state) to help with support. It contains no audio and no project content, and it never leaves your device on its own: only you can send it, with Share diagnostics in the LinkEffekt app. From version 2.0.4 the log is encrypted so that only LinkEffekt support can read it, shows channel names only as short codes, and keeps the last seven days.
 
 ## Contact
 
