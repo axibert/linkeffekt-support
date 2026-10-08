@@ -120,7 +120,7 @@
       <div class="fan-wire" aria-hidden="true"></div>
       <div class="fan-routes">
           <div class="fan-route"><i class="ln lb"></i><i class="ln lt"></i><i class="ln rb"></i><i class="ln rt"></i><i class="fan-tip"></i><span class="fan-title">Another device</span><span class="fan-sub">Wi-Fi or cable</span></div>
-          <div class="fan-route"><i class="ln lb"></i><i class="ln lt"></i><i class="ln rb"></i><i class="ln rt"></i><i class="fan-tip"></i><span class="fan-title">Same device</span><span class="fan-sub">app to app, 2 ms</span></div>
+          <div class="fan-route"><i class="ln lb"></i><i class="ln lt"></i><i class="ln rb"></i><i class="ln rt"></i><i class="fan-tip"></i><span class="fan-title">Same device</span><span class="fan-sub">app to app, under 1 ms</span></div>
           <div class="fan-route"><i class="ln lb"></i><i class="ln lt"></i><i class="ln rb"></i><i class="ln rt"></i><i class="fan-tip"></i><span class="fan-title">Online</span><span class="fan-sub">a friend, anywhere</span></div>
       </div>
       <div class="fan-wire" aria-hidden="true"></div>
@@ -312,12 +312,12 @@
     </ol>
     <figure class="shot">
       <div class="shot-imgs">
-        <img src="img/manual/app-to-app.png" width="520" height="601" loading="lazy" alt="LinkEffekt Receive Instrument in Cubasis, receiving Channel 1 · iPad · This device with a 2 ms buffer">
+        <img src="img/manual/app-to-app.png" width="520" height="601" loading="lazy" alt="LinkEffekt Receive Instrument in Cubasis, receiving Channel 1 · iPad · This device">
       </div>
       <figcaption>
         <ul class="callouts">
           <li><span class="cn">1</span><span><em>This device</em>: the Send in AUM, no network involved.</span></li>
-          <li><span class="cn">2</span>A 2&nbsp;ms buffer on a direct path.</li>
+          <li><span class="cn">2</span>A direct path: LinkEffekt adds under 1&nbsp;ms.</li>
         </ul>
       </figcaption>
     </figure>
@@ -377,11 +377,11 @@
     <ol class="steps">
       <li>In Live, open <strong>Settings &gt; Link</strong> and turn <strong>Sync to Incoming Audio</strong> off.</li>
       <li>On the iPad, load <strong>LinkEffekt Receive</strong> and pick a Live track in <strong>Now Receiving</strong> (every track with an audio output, returns and Main included).</li>
-      <li>Turn on <strong>Bar Sync</strong>. The status reads <em>In sync · locked to the bar</em>.</li>
+      <li>Turn on <strong>Bar Sync</strong>. The status reads <em>On your metronome · one bar later</em>.</li>
     </ol>
     <figure class="shot">
       <div class="shot-imgs">
-        <img src="img/manual/live-bar-sync.png" width="420" height="458" loading="lazy" alt="LinkEffekt Receive with Bar Sync switched on, status In sync · locked to the bar, Advanced timing below">
+        <img src="img/manual/live-bar-sync.png" width="420" height="458" loading="lazy" alt="LinkEffekt Receive with Bar Sync switched on, status On your metronome · one bar later, Advanced timing below">
       </div>
       <figcaption>
         <ul class="callouts">
@@ -559,7 +559,7 @@
     <li>Within a second you hear audio and the meter moves. The dot by the channel turns green, the sender shows <em>“Streaming to a listener”</em>, and the receiver’s status reads:</li>
   </ol>
   <div class="diag"><span class="dot ok"></span><em>In sync</em></div>
-  <p>If the sending app doesn’t play ahead it reads <em>“… ms behind the beat”</em> (see <a href="#hosts">Hosts</a>); without a shared beat, <em>“Free-run, not locked to the beat”</em>.</p>
+  <p>If the sending app doesn’t play ahead it reads <em>“… ms after your metronome”</em> (see <a href="#hosts">Hosts</a>); without a shared beat, <em>“Free-run, not locked to the beat”</em>.</p>
   <p><strong>Channel names:</strong> a new Send takes its host track’s name, or <em>“Channel 1”</em>, <em>“Channel 2”</em>…, plus the device: <em>“Bass · iPad”</em>, <em>“Channel 1 · iPhone”</em>. Numbers count across all apps on a device, so no two channels share a name. A name you type, or one loaded with a project, stays as it is.</p>
 
   <h3 id="cable">Tip: plug in a cable</h3>
@@ -678,10 +678,10 @@
     </table>
   </div>
   <ul>
-    <li><strong>Bar Sync</strong> (next to the status; Online is always on the bar): locks the incoming downbeat to your bar, one bar late, but rock-solid even on a shaky connection. Offered where it helps: when audio plays behind the beat or dropouts keep coming; not needed on This device / This host. Needs Ableton Link on in the host apps (see <a href="#setup">Set up once</a>).</li>
+    <li><strong>Bar Sync</strong> (next to the status; Online is always on the bar): locks the incoming downbeat to your bar, one bar late, but rock-solid even on a shaky connection. Offered where it helps: when audio plays behind the beat or dropouts keep coming, and on This device when the sending app itself plays late, like Drambo on its own. Needs Ableton Link on in the host apps (see <a href="#setup">Set up once</a>).</li>
     <li><strong>Buffer</strong> (3 to 200&nbsp;ms): audio held in reserve against gaps, like Live’s Link Audio latency.
       <ul>
-        <li><span class="lbl">Default:</span> 100&nbsp;ms over a network, 2&nbsp;ms on the same device.</li>
+        <li><span class="lbl">Default:</span> 100&nbsp;ms over a network, none on the same device (LinkEffekt adds under 1&nbsp;ms there).</li>
         <li><span class="lbl">On the beat or behind it:</span> a sender in AUM plays that far ahead, so you get your beat <strong>and</strong> the full reserve. A sender in Logic Pro plays a fixed 150&nbsp;ms ahead, enough for the default. From any other app the audio plays behind the beat by connection plus buffer, as the status says.</li>
         <li><span class="lbl">Fixed while you play:</span> set when you pick a channel; then nothing moves it. A gap longer than the buffer is a short dropout; the audio returns on the beat.</li>
         <li><span class="lbl">Your own value:</span> move the slider; it applies at once and the sender follows (up at once, down after ten seconds). <strong>Default</strong> resets it.</li>
