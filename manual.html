@@ -499,17 +499,17 @@
   <div class="table-scroll">
     <table class="host-table">
       <tr><th>App</th><th>As the sender</th><th>What to set</th></tr>
-      <tr><td><strong>AUM</strong></td><td data-label="As the sender">On the beat</td><td data-label="What to set">Link latency compensation (AUM’s Link settings) at 0. To only receive, load <strong>Receive Instrument</strong> as the channel’s source.</td></tr>
+      <tr><td><strong>AUM</strong></td><td data-label="As the sender">On the beat</td><td data-label="What to set">Link latency compensation (AUM’s Link settings) at 0. Loops in AUM’s File Player: <strong>Sync</strong> on, so they start on the beat. To only receive, load <strong>Receive Instrument</strong> as the channel’s source.</td></tr>
       <tr><td><strong>Logic Pro for iPad</strong></td><td data-label="As the sender">On the beat, from the first Play</td><td data-label="What to set">Nothing. After switching Live Mode, stop and play again (<a href="#host-logic">see below</a>).</td></tr>
       <tr><td><strong>Cubasis</strong></td><td data-label="As the sender">Needs Bar Sync</td><td data-label="What to set">Multi-core Processing off (<a href="#host-cubasis">see below</a>).</td></tr>
-      <tr><td><strong>Drambo</strong></td><td data-label="As the sender">Needs Bar Sync</td><td data-label="What to set">Nothing else.</td></tr>
+      <tr><td><strong>Drambo</strong></td><td data-label="As the sender">Needs Bar Sync</td><td data-label="What to set">Nothing else. On its own, Drambo plays about 6&nbsp;ms after the beat; Bar Sync takes that out too.</td></tr>
       <tr><td><strong>Loopy Pro</strong></td><td data-label="As the sender">Needs Bar Sync</td><td data-label="What to set">A few ms off? <strong>Nudge</strong> at the receiver.</td></tr>
       <tr><td><strong>Koala</strong></td><td data-label="As the sender">Needs Bar Sync</td><td data-label="What to set">Effects need Koala’s mixer (<a href="#host-koala">see below</a>).</td></tr>
       <tr><td><strong>GarageBand</strong></td><td data-label="As the sender">Not on the beat (no Ableton Link)</td><td data-label="What to set">Nothing. Streams and receives fine, without a shared beat: for recording and monitoring.</td></tr>
       <tr><td><strong>Ableton Live 12.4+</strong></td><td data-label="As the sender">Needs Bar Sync</td><td data-label="What to set">Sync to Incoming Audio by direction (<a href="#host-live">see below</a>).</td></tr>
     </table>
   </div>
-  <p>Your app isn’t listed? Send from it with Bar Sync off: the receiver’s status reads <em>In sync</em> if the app plays ahead, otherwise how far behind the beat it lands.</p>
+  <p>Your app isn’t listed? Send from it with Bar Sync off: the receiver’s status reads <em>In sync</em> if the app plays ahead, otherwise how far after your metronome it lands.</p>
 
   <h3 id="host-logic">Logic Pro for iPad</h3>
   <p>Logic builds in a plugin’s delay only when the plugin is inserted or a project loads, and when playback starts. So the Send plays a fixed 150&nbsp;ms ahead in Logic, enough for the default Buffer, and the stream lands on the receiver’s beat from the first Play.</p>
@@ -667,9 +667,10 @@
   <div class="table-scroll">
     <table class="status-table">
       <tr><th>Status</th><th>Meaning</th></tr>
-      <tr><td><span class="st"><span class="dot ok"></span>In sync</span></td><td>On the beat, audio flowing.</td></tr>
-      <tr><td><span class="st"><span class="dot ok"></span>… ms behind the beat</span></td><td>The sending app doesn’t play ahead (any app but AUM and Logic Pro, or Live Mode on; see <a href="#hosts">Hosts</a>); the number says how far.</td></tr>
-      <tr><td><span class="st"><span class="dot ok"></span>In sync · locked to the bar</span></td><td>Bar Sync placement, whole bars (see <a href="#beatsync">Beat Sync</a>).</td></tr>
+      <tr><td><span class="st"><span class="dot ok"></span>In sync · 0.9 ms after your metronome</span></td><td>Under 1&nbsp;ms from your metronome, audio flowing.</td></tr>
+      <tr><td><span class="st"><span class="dot ok"></span>… ms after your metronome · … ms of it from the sending app</span></td><td>How far you hear the audio after your metronome, and how much of that the sending app adds itself (Drambo on its own: about 6&nbsp;ms). The sending app doesn’t play ahead (any app but AUM and Logic Pro, or Live Mode on; see <a href="#hosts">Hosts</a>). From 1&nbsp;ms on, the Receive offers Bar Sync.</td></tr>
+      <tr><td><span class="st"><span class="dot ok"></span>On your metronome · one bar later</span></td><td>Bar Sync on, whole bars (see <a href="#beatsync">Beat Sync</a>).</td></tr>
+      <tr><td><span class="st"><span class="dot ok"></span>In sync · locked to the bar · internet</span></td><td>Online, whole bars.</td></tr>
       <tr><td><span class="st"><span class="dot"></span>Buffering…</span></td><td>Normal for a moment after picking a channel.</td></tr>
       <tr><td><span class="st"><span class="dot"></span>Free-run, not locked to the beat</span></td><td>No shared beat. Audio flows, just not on the beat.</td></tr>
       <tr><td><span class="st"><span class="dot"></span>Free-run. Enable Ableton Link (gear)…</span></td><td>Says how to lock to the beat on LAN.</td></tr>
@@ -747,7 +748,7 @@
       <ul>
         <li>Suits sequenced material: someone playing live on the sending device would hear their part again a bar later from a receiver in the same room.</li>
         <li>Online needs the <strong>transport playing</strong> and the <strong>same tempo</strong> on both sides. After play, expect about a bar of silence, then it locks.</li>
-        <li>If the sending app itself sits a few ms off the Link beat, so does the stream; <strong>Nudge</strong> moves it back.</li>
+        <li>If the sending app itself plays a few ms late, like Drambo on its own, Bar Sync takes that out too; <strong>Nudge</strong> is for anything left.</li>
         <li>Recording it? Move the recording earlier by the bars Bar Sync added, usually one.</li>
       </ul>
     </li>
@@ -776,6 +777,7 @@
   <ul>
     <li><strong>Ableton Link</strong> on in both <strong>host apps</strong>, not only in the plugin? Without it the sender plays its own tempo and bar (see <a href="#setup">Set up once</a>).</li>
     <li>Same tempo? With Link on, the apps follow each other.</li>
+    <li>A loop that runs free of its app’s beat lands off the beat too, and the status can’t see that: it only knows the beat the sending app reports. In AUM’s File Player, turn on <strong>Sync</strong>.</li>
   </ul>
     </div>
   </details>
