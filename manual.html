@@ -317,7 +317,7 @@
       <figcaption>
         <ul class="callouts">
           <li><span class="cn">1</span><span><em>This device</em>: the Send in AUM, no network involved.</span></li>
-          <li><span class="cn">2</span>A direct path: LinkEffekt adds under 1&nbsp;ms, sometimes one audio buffer more.</li>
+          <li><span class="cn">2</span>A direct path: LinkEffekt adds under 1&nbsp;ms, plus one audio buffer when iOS runs the receiving app first.</li>
         </ul>
       </figcaption>
     </figure>
@@ -582,7 +582,7 @@
     <li>A sender <em>inside the same host app</em> (e.g. AUM track 1 to track 2) appears as <strong>This host</strong>.</li>
   </ul>
   <p><strong>Example:</strong> AUM into Cubasis, see <a href="#wf-apps">Route audio between apps on one device</a>. The same works for a synth app through another host’s effects, or a DJ app into a recorder: wherever iOS has no direct path between apps.</p>
-  <p><strong>Latency on one device</strong> comes mostly from the two apps’ buffer sizes; LinkEffekt adds under 1&nbsp;ms, or one buffer more when iOS runs the receiving app first. The status line shows the distance to your metronome, and Bar Sync puts the audio on it. For the tightest timing, set both to 128 or 256 frames (AUM: Settings &gt; Buffer Size; Cubasis: Setup &gt; Audio &gt; Latency).</p>
+  <p><strong>Latency on one device</strong> comes mostly from the two apps’ buffer sizes; LinkEffekt adds under 1&nbsp;ms, plus one audio buffer when iOS runs the receiving app first. The status line shows the distance to your metronome; switch on Bar Sync to put the audio on it, one bar later. For the tightest timing, set both to 128 or 256 frames (AUM: Settings &gt; Buffer Size; Cubasis: Setup &gt; Audio &gt; Latency).</p>
 
   <h2 id="send">6 · LinkEffekt Send: reference</h2>
   <figure class="shot">
@@ -681,7 +681,7 @@
     <li><strong>Bar Sync</strong> (next to the status; Online is always on the bar): locks the incoming downbeat to your bar, one bar late, but rock-solid even on a shaky connection. Offered where it helps: when audio plays behind the beat or dropouts keep coming, and on This device whenever the audio sits 1&nbsp;ms or more from your metronome, for example when the sending app itself plays late, like Drambo on its own. It stays off until you switch it on. Needs Ableton Link on in the host apps (see <a href="#setup">Set up once</a>).</li>
     <li><strong>Buffer</strong> (3 to 200&nbsp;ms): audio held in reserve against gaps, like Live’s Link Audio latency.
       <ul>
-        <li><span class="lbl">Default:</span> 100&nbsp;ms over a network, none on the same device (LinkEffekt adds under 1&nbsp;ms there, sometimes one audio buffer more).</li>
+        <li><span class="lbl">Default:</span> 100&nbsp;ms over a network, none on the same device (LinkEffekt adds under 1&nbsp;ms there, plus one audio buffer when iOS runs the receiving app first).</li>
         <li><span class="lbl">On the beat or behind it:</span> a sender in AUM plays that far ahead, so you get your beat <strong>and</strong> the full reserve. A sender in Logic Pro plays a fixed 150&nbsp;ms ahead, enough for the default. From any other app the audio plays behind the beat by connection plus buffer, as the status says.</li>
         <li><span class="lbl">Fixed while you play:</span> set when you pick a channel; then nothing moves it. A gap longer than the buffer is a short dropout; the audio returns on the beat.</li>
         <li><span class="lbl">Your own value:</span> move the slider; it applies at once and the sender follows (up at once, down after ten seconds). <strong>Default</strong> resets it.</li>
