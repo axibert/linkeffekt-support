@@ -582,7 +582,7 @@
     <li>A sender <em>inside the same host app</em> (e.g. AUM track 1 to track 2) appears as <strong>This host</strong>.</li>
   </ul>
   <p><strong>Example:</strong> AUM into Cubasis, see <a href="#wf-apps">Route audio between apps on one device</a>. The same works for a synth app through another host’s effects, or a DJ app into a recorder: wherever iOS has no direct path between apps.</p>
-  <p><strong>Latency on one device</strong> comes mostly from the two apps’ buffer sizes; LinkEffekt adds under 1&nbsp;ms, plus one audio buffer when iOS runs the receiving app first. The status line shows the distance to your metronome; switch on Bar Sync to put the audio on it, one bar later. For the tightest timing, set both to 128 or 256 frames (AUM: Settings &gt; Buffer Size; Cubasis: Setup &gt; Audio &gt; Latency).</p>
+  <p><strong>Latency on one device:</strong> LinkEffekt adds under 1&nbsp;ms. In every audio cycle iOS calculates the apps one after the other, and it decides the order itself. If the receiving app comes first, the audio arrives one audio buffer later (2.7&nbsp;ms at 128 frames, 5.3&nbsp;ms at 256). The order often changes when you start the apps again, and no app can set it; the status line shows what you get. Sending from AUM or Logic Pro, the Send plays ahead and covers that buffer too. From any other app, switch on Bar Sync to put the audio on your metronome, one bar later. Smaller buffers keep it small: 128 or 256 frames (AUM: Settings &gt; Buffer Size; Cubasis: Setup &gt; Audio &gt; Latency).</p>
 
   <h2 id="send">6 · LinkEffekt Send: reference</h2>
   <figure class="shot">
@@ -896,6 +896,13 @@
     <summary>Ableton Live's metronome sounds later than my iPad's</summary>
     <div class="ts-body">
   <p><strong>Sync to Incoming Audio</strong> is on in Live: it delays Live on purpose, right while you send to Live (see <a href="#host-live">Hosts: Ableton Live</a>). If you only receive Live’s tracks, turn it off.</p>
+    </div>
+  </details>
+
+  <details class="ts">
+    <summary>On one device it’s sometimes under 1&nbsp;ms, sometimes a few ms more</summary>
+    <div class="ts-body">
+  <p>That’s the order in which iOS calculates the two apps, and iOS decides it, often anew when you start the apps. If the receiving app comes first, the audio arrives one audio buffer later. Sending from AUM or Logic Pro covers that; from any other app, switch on <strong>Bar Sync</strong>. See <a href="#same-device">Same device</a>.</p>
     </div>
   </details>
 
