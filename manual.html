@@ -105,7 +105,7 @@
 
   <header class="page-head">
     <h1>LinkEffekt Manual</h1>
-    <p class="pagemeta">Version 2.0.5 and later: Send, Receive and Receive Instrument · iOS 17+</p>
+    <p class="pagemeta">Version 2.0.6 and later: Send, Receive and Receive Instrument · iOS 17+</p>
   </header>
 
   <section class="quick" id="start" aria-labelledby="start-title">
@@ -601,7 +601,7 @@
     <li><strong>Destination: LAN &amp; Local / Online</strong>: where this track streams (LAN &amp; Local includes listeners on this device). Back to LAN &amp; Local takes only this track out of the room; the room stays open until you tap <strong>Leave</strong> (shown in the LAN &amp; Local tab).</li>
     <li><strong>Name</strong>: what receivers see. Renames reach them live, also Online, and they stay subscribed. If another channel in your network has the same name, the status line offers <strong>Rename</strong> (adds the device or the next free number); LinkEffekt never renames on its own.</li>
     <li><strong>Send Audio</strong>: streaming on or off; off passes the track through locally only.</li>
-    <li><strong>Mute Local Output</strong> (on by default): mutes the track here <em>after</em> streaming, so you don’t hear it twice. It only acts while the track streams (not with Send Audio off, the plugin bypassed or Bypass all on). Turn it off to hear yourself when you can’t hear the receiver: Online, headphones on the receiver, another room. In AUM and Logic Pro the track then plays as late as everything else in the app, so it stays in time (see Live Mode).</li>
+    <li><strong>Mute Local Output</strong> (on by default): mutes the track here <em>after</em> streaming, so you don’t hear it twice. It only acts while the track streams (not with Send Audio off, the plugin bypassed or Bypass all on). Turn it off to hear yourself when you can’t hear the receiver: Online, headphones on the receiver, another room. In AUM and Logic Pro the track then plays as late as everything else in the app, so it stays in time (see Live Mode). In a host with a Mix control on the effect slot, set it to 100&nbsp;% for the Send; below that, the track plays quieter here.</li>
     <li><strong>Bypass all LinkEffekt Sends</strong>: one switch for every Send on this device, in every host: nothing streams, every track plays here. An orange note in every Send says so; tap it to turn off. It stays on until you do, also after a restart. Example: <a href="#wf-couch">Take the iPad to the couch</a>.</li>
     <li><strong>Gain / Pan</strong>: for the stream and the local output, click-free. Gain at the bottom is true silence; pan keeps the center at full level.</li>
     <li><strong>Bypass</strong> (in your host): stops the stream and passes the track through unchanged.</li>
@@ -676,7 +676,7 @@
         <li><span class="lbl">Fixed while you play:</span> set when you pick a channel; then nothing moves it. A gap longer than the buffer is a short dropout; the audio returns on the beat.</li>
         <li><span class="lbl">Your own value:</span> move the slider; it applies at once and the sender follows (up at once, down after ten seconds). <strong>Default</strong> resets it.</li>
         <li><span class="lbl">Dropout count:</span> more than two in ten minutes show as a count next to <em>Buffer</em>: raise it until it stays quiet. Tap the count to reset it.</li>
-        <li><span class="lbl">If the connection changes while you play</span> (Bluetooth headphones, a new buffer size in the sender’s host), LinkEffekt measures once more: later audio raises the value (a gap of up to two seconds), earlier audio lowers it without a dropout. Announced changes (Live Mode) and ordinary hiccups never trigger this.</li>
+        <li><span class="lbl">If the connection changes while you play</span> (a new buffer size in the sender’s host), LinkEffekt measures once more: later audio raises the value (a gap of up to two seconds), earlier audio lowers it without a dropout. Announced changes (Live Mode, Bluetooth headphones) and ordinary hiccups never trigger this.</li>
       </ul>
     </li>
     <li><strong>Advanced timing</strong> (only with Bar Sync and in Online mode, collapsed by default):
@@ -807,7 +807,7 @@
   <details class="ts">
     <summary>The receiver goes quiet or stutters for up to two seconds, or jumps once</summary>
     <div class="ts-body">
-  <p>The connection changed (Bluetooth headphones, a new buffer size in the sender’s host). The receiver measures once more and plays on (see Buffer in <a href="#receive">LinkEffekt Receive</a>). Live Mode on the sender costs only a short jump.</p>
+  <p>The connection changed (a new buffer size in the sender’s host). The receiver measures once more and plays on (see Buffer in <a href="#receive">LinkEffekt Receive</a>). Live Mode on the sender costs only a short jump. Bluetooth headphones on either device cost a short break while iOS switches the output; LinkEffekt picks up the new delay by itself.</p>
     </div>
   </details>
 
