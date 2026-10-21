@@ -105,7 +105,7 @@
 
   <header class="page-head">
     <h1>LinkEffekt Manual</h1>
-    <p class="pagemeta">Version 2.0.6 and later: Send, Receive and Receive Instrument · iOS 17+</p>
+    <p class="pagemeta">Version 2.0.8 and later: Send, Receive and Receive Instrument · iOS 17+</p>
   </header>
 
   <section class="quick" id="start" aria-labelledby="start-title">
@@ -658,6 +658,7 @@
       <tr><th>Status</th><th>Meaning</th></tr>
       <tr><td><span class="st"><span class="dot ok"></span>In sync · 0.9 ms after your metronome</span></td><td>Under 1&nbsp;ms from your metronome, audio flowing.</td></tr>
       <tr><td><span class="st"><span class="dot ok"></span>… ms after your metronome · … ms of it from the sending app</span></td><td>How far you hear the audio after your metronome, and how much of that the sending app adds itself. The sending app doesn’t play ahead (any app but AUM and Logic Pro, or Live Mode on; see <a href="#hosts">Hosts</a>). From 1&nbsp;ms on, the Receive offers Bar Sync.</td></tr>
+      <tr><td><span class="st"><span class="dot ok"></span>… ms after your metronome · the sending app can’t send further ahead</span></td><td>The sending app already plays ahead as far as it can (200&nbsp;ms); the rest stays after your metronome, for example with Bluetooth headphones on this device. Bar Sync puts it on your metronome, one bar late.</td></tr>
       <tr><td><span class="st"><span class="dot ok"></span>On your metronome · one bar later</span></td><td>Bar Sync on, whole bars (see <a href="#beatsync">Beat Sync</a>).</td></tr>
       <tr><td><span class="st"><span class="dot ok"></span>In sync · locked to the bar · internet</span></td><td>Online, whole bars.</td></tr>
       <tr><td><span class="st"><span class="dot"></span>Buffering…</span></td><td>Normal for a moment after picking a channel.</td></tr>
@@ -807,7 +808,7 @@
   <details class="ts">
     <summary>The receiver goes quiet or stutters for up to two seconds, or jumps once</summary>
     <div class="ts-body">
-  <p>The connection changed (a new buffer size in the sender’s host). The receiver measures once more and plays on (see Buffer in <a href="#receive">LinkEffekt Receive</a>). Live Mode on the sender costs only a short jump. Bluetooth headphones on either device cost a short break while iOS switches the output; LinkEffekt picks up the new delay by itself.</p>
+  <p>The connection changed (a new buffer size in the sender’s host). The receiver measures once more and plays on (see Buffer in <a href="#receive">LinkEffekt Receive</a>). Live Mode on the sender costs only a short jump. Bluetooth headphones on either device cost a short break while iOS switches the output; LinkEffekt picks up the new delay by itself, and with Bar Sync the audio lands back on your metronome.</p>
     </div>
   </details>
 
