@@ -167,7 +167,7 @@
   </nav>
 
   <h2 id="what">1 · What is LinkEffekt?</h2>
-  <p>LinkEffekt streams audio between music apps: on one iPhone or iPad, between devices on your network (Ableton Link Audio) or over the internet (Online mode). It comes as three AUv3 plugins for any host (AUM, Logic Pro, Cubasis, Drambo, Loopy Pro, Koala, GarageBand and others; what differs between them: <a href="#hosts">Hosts</a>):</p>
+  <p>LinkEffekt streams audio between music apps: on one iPhone or iPad, between devices on your network (Ableton Link Audio) or over the internet (Online mode). It comes as three AUv3 plugins for any host (AUM, Logic Pro, Cubasis, Drambo, Loopy Pro, Koala, djay, GarageBand and others; what differs between them: <a href="#hosts">Hosts</a>):</p>
 
   <div class="table-scroll">
     <table>
@@ -178,7 +178,7 @@
     </table>
   </div>
 
-  <p><strong>What can you do with it?</strong> Jam across devices, route audio between apps, record iOS audio in Ableton Live, play Live’s tracks on your iPad, record Ableton Move and Note, jam online, monitor a band. <a href="#workflows">Workflows</a> shows each one step by step.</p>
+  <p><strong>What can you do with it?</strong> Jam across devices, route audio between apps, record iOS audio in Ableton Live, play Live’s tracks on your iPad, record Ableton Move and Note, bring a live act into your DJ set, jam online, monitor a band. <a href="#workflows">Workflows</a> shows each one step by step.</p>
   <p><strong>Free and paid:</strong> one Send and one Receive are free, in full quality, on your network and on one device. The one-time in-app purchase <strong>Unlimited Channels</strong> adds unlimited instances, several channels per Receive and <strong>Online</strong> mode. Buy or restore it in the app or in any plugin; it unlocks every plugin on the device.</p>
 
   <h2 id="setup">2 · Set up once</h2>
@@ -217,6 +217,8 @@
     <a class="wf-tile" href="#wf-live-tracks"><span class="wf-route">LIVE → IPAD</span><span class="wf-name">Play Live’s tracks on your iPad or iPhone</span></a>
     <a class="wf-tile" href="#wf-live-both"><span class="wf-route">IPAD ⇄ LIVE</span><span class="wf-name">Both directions with Live</span></a>
     <a class="wf-tile" href="#wf-couch"><span class="wf-route">ONE SWITCH</span><span class="wf-name">Take the iPad to the couch</span></a>
+    <p class="wf-group">In your DJ set</p>
+    <a class="wf-tile" href="#wf-djay"><span class="wf-route">MOVE · AUM · LIVE → DJAY</span><span class="wf-name">Add a live act to your DJ set</span></a>
     <p class="wf-group">Over the internet</p>
     <a class="wf-tile" href="#wf-online"><span class="wf-route">YOU ⇄ FRIEND</span><span class="wf-name">Jam online with a friend</span></a>
   </div>
@@ -437,6 +439,33 @@
     </details>
   </article>
 
+  <article class="wf" id="wf-djay">
+    <p class="wf-kind">In your DJ set</p>
+    <h3>Add a live act to your DJ set</h3>
+    <p class="wf-lead">A groovebox, a synth or a whole Live set plays into djay, on the beat of your mix: Ableton Move, AUM on a second iPad, or Ableton Live on the Mac.</p>
+    <div class="route" role="img" aria-label="Route: Ableton Move, AUM on a second device or Ableton Live 12.4 or later to djay, over Wi-Fi or a cable">
+      <span class="route-label">Wi-Fi or cable</span>
+      <span class="route-node">Other device</span>
+      <span class="route-wire"></span>
+      <span class="route-node">iPad · djay</span>
+    </div>
+    <ol class="steps">
+      <li>Turn on <strong>Ableton Link</strong> in djay’s settings: djay and the stream then share one beat.</li>
+      <li>On the other side, stream what you play: in AUM a <strong>LinkEffekt Send</strong> on each track; Move, Note and Live send by themselves with Link Audio on (<a href="#faq-move">Move and Note</a>, <a href="#wf-live-tracks">Live</a>).</li>
+      <li>In djay, load <strong>LinkEffekt Receive</strong> as the master effect, pick the channel in <strong>Now Receiving</strong> and unmute <strong>Host track</strong>: that is djay’s own output.</li>
+      <li>From Move, Note or Live, turn on <strong>Bar Sync</strong>: on djay’s beat, one bar late. From AUM the stream lands on the beat as it is.</li>
+    </ol>
+    <details class="gtk">
+      <summary class="gtk-title">Good to know</summary>
+      <ul>
+        <li>Playing pads or keys live on the other side: listen there on headphones. djay’s speakers play your part on the beat of the mix, later than your hands. In AUM, turn on <strong>Live Mode</strong> and turn off <strong>Mute Local Output</strong> in the Send, and Bar Sync in djay (see <a href="#send">LinkEffekt Send</a>).</li>
+        <li>The level of the stream: <strong>Received</strong> in the Receive’s mixer.</li>
+        <li>Several channels at once, drums and bass: <strong>Monitor multiple channels</strong> in the Receive, with the in-app purchase.</li>
+        <li>Your set into Live instead: load <strong>LinkEffekt Send</strong> as djay’s master effect and record it as in <a href="#wf-record-live">Record iOS audio in Ableton Live</a>. djay takes one master effect, so on your network it’s one direction at a time.</li>
+      </ul>
+    </details>
+  </article>
+
   <article class="wf" id="wf-online">
     <p class="wf-kind">Over the internet</p>
     <h3>Jam online with a friend</h3>
@@ -494,6 +523,7 @@
       <tr><td><strong>Drambo</strong></td><td data-label="As the sender">Needs Bar Sync</td><td data-label="What to set">Nothing else. On its own it sounded about 6&nbsp;ms after the beat in our tests; Bar Sync takes that out too.</td></tr>
       <tr><td><strong>Loopy Pro</strong></td><td data-label="As the sender">Needs Bar Sync</td><td data-label="What to set">Receive FX plays only on a track where something runs; otherwise use <strong>Receive Instrument</strong>. The plugin window opens small: drag it larger. Send and Receive in the same Loopy project: the Receive got the audio one audio buffer later in every arrangement we tried (3.6&nbsp;ms at 128 frames).</td></tr>
       <tr><td><strong>Koala</strong></td><td data-label="As the sender">Needs Bar Sync</td><td data-label="What to set">Effects need Koala’s mixer (<a href="#host-koala">see below</a>).</td></tr>
+      <tr><td><strong>djay</strong></td><td data-label="As the sender">Needs Bar Sync</td><td data-label="What to set">Ableton Link on in djay’s settings, so djay and the stream share one beat. The master effect takes one plugin. A Receive there: unmute <strong>Host track</strong>, it is djay’s own output (<a href="#wf-djay">Add a live act to your DJ set</a>).</td></tr>
       <tr><td><strong>GarageBand</strong></td><td data-label="As the sender">Not on the beat (no Ableton Link)</td><td data-label="What to set">Nothing. Streams and receives fine, without a shared beat: for recording and monitoring.</td></tr>
       <tr><td><strong>Ableton Live 12.4+</strong></td><td data-label="As the sender">Needs Bar Sync</td><td data-label="What to set">Sync to Incoming Audio by direction (<a href="#host-live">see below</a>).</td></tr>
     </table>
@@ -908,7 +938,7 @@
     <summary>Does LinkEffekt work with Ableton Live?</summary>
     <div class="ts-body"><p>Yes, both ways. Live 12.4+ receives LinkEffekt Send as an input. Live also sends: turn on Link and its <strong>Audio</strong> switch (Settings &gt; Link), and every Live track with an audio output appears in LinkEffekt Receive. Live doesn’t play ahead, so use <strong>Bar Sync</strong>. <strong>Sync to Incoming Audio</strong>: off to receive Live’s tracks, on to record into Live. Which setting for what: <a href="#host-live">Hosts: Ableton Live</a>.</p></div>
   </details>
-  <details class="ts faq">
+  <details class="ts faq" id="faq-move">
     <summary>Can I record Ableton Move or Note?</summary>
     <div class="ts-body"><p>Yes. Move 2.0 and Note 2.0 and later send Link Audio; they don’t receive it. With Link Audio on in Move or Note and both on the same network, their channels appear in LinkEffekt Receive in any host, ready to record in Logic Pro, AUM or Cubasis. Setup on the Ableton side: <a href="https://help.ableton.com/hc/en-us/articles/25425913328924-Link-Audio-FAQ">Ableton’s Link Audio FAQ</a>.</p></div>
   </details>
