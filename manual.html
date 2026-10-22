@@ -105,7 +105,7 @@
 
   <header class="page-head">
     <h1>LinkEffekt Manual</h1>
-    <p class="pagemeta">Version 2.0.8 and later: Send, Receive and Receive Instrument · iOS 17+</p>
+    <p class="pagemeta">Version 2.0.9 and later: Send, Receive and Receive Instrument · iOS 17+</p>
   </header>
 
   <section class="quick" id="start" aria-labelledby="start-title">
@@ -480,7 +480,7 @@
     <ol class="steps">
       <li>You: in <strong>LinkEffekt Send</strong>, switch to <strong>Online</strong>, tap <strong>Create Room</strong> and send your friend the code (copy button next to it).</li>
       <li>Your friend: in <strong>LinkEffekt Receive</strong>, switch to <strong>Online</strong>, enter the code, tap <strong>Join</strong> and pick your channel.</li>
-      <li>Both of you set the same tempo and press play in the host.</li>
+      <li>Both of you set the same tempo and press play in the host. In an app without a transport, turn on Ableton Link there and in the plugin instead.</li>
       <li>For the way back, your friend loads a Send and you a Receive; they join the same room by themselves (one room per host app).</li>
     </ol>
     <figure class="shot">
@@ -502,7 +502,7 @@
       <ul>
         <li>Your friend’s audio lands on your “1”, whole bars late. Each hears the other on their own beat, which is right as long as each listens to their own device.</li>
         <li>To hear your own part while you stream, turn off <strong>Mute Local Output</strong> in the Send.</li>
-        <li><strong>Tip: back to back with one plugin slot each</strong>, for example two DJs whose apps have a single master effect: both of you load <strong>LinkEffekt Receive</strong> there instead of a Send. You create the room, your friend joins; both turn on <strong>Send my track</strong>, pick the other’s channel and unmute <strong>Host track</strong> to hear yourselves too (see <a href="#online">Online mode</a>).</li>
+        <li><strong>Tip: back to back with one plugin slot each</strong>, for example two DJs whose apps have a single master effect: both of you load <strong>LinkEffekt Receive</strong> there instead of a Send. You create the room, your friend joins; both turn on <strong>Send my track</strong>, pick the other’s channel and unmute <strong>Host track</strong> to hear yourselves too. With Ableton Link on in both apps, it locks to the bar (see <a href="#online">Online mode</a>).</li>
       </ul>
     </details>
   </article>
@@ -695,6 +695,7 @@
       <tr><td><span class="st"><span class="dot"></span>Free-run, not locked to the beat</span></td><td>No shared beat. Audio flows, just not on the beat.</td></tr>
       <tr><td><span class="st"><span class="dot"></span>Free-run. Enable Ableton Link (gear)…</span></td><td>Says how to lock to the beat on LAN.</td></tr>
       <tr><td><span class="st"><span class="dot"></span>Press play in your host to lock to the beat</span></td><td>Online: the beat lock waits for your host’s transport.</td></tr>
+      <tr><td><span class="st"><span class="dot"></span>No beat from your host. Turn on Ableton Link to lock to the bar.</span></td><td>Online, in an app without a transport, such as a DJ app’s master effect: turn on Ableton Link in that app and in the plugin (gear). The stream then locks to the Link bars.</td></tr>
       <tr><td><span class="st"><span class="dot"></span>Tempo mismatch</span></td><td>Online: the line names both tempos.</td></tr>
     </table>
   </div>
@@ -730,7 +731,7 @@
     <li><strong>A:</strong> in <strong>LinkEffekt Send</strong>, set <strong>Destination</strong> to <strong>Online</strong>, tap <strong>Create Room</strong> and share the code (copy button next to it).</li>
     <li><strong>B:</strong> in <strong>LinkEffekt Receive</strong>, switch to <strong>Online</strong>, enter the code, tap <strong>Join</strong> and pick A’s channel.</li>
     <li>For two-way audio, B also loads a Send (or uses <strong>Send my track</strong>, see below).</li>
-    <li>Both press <strong>play</strong> in the host, at the <strong>same tempo</strong>. The audio locks to your bar, whole bars late (see <a href="#beatsync">Beat Sync</a>).</li>
+    <li>Both press <strong>play</strong> in the host, at the <strong>same tempo</strong>. The audio locks to your bar, whole bars late (see <a href="#beatsync">Beat Sync</a>). An app without a transport, such as a DJ app, locks through Ableton Link instead: turn it on in the app and in the plugin.</li>
     <li>To hear your own track, turn off <strong>Mute Local Output</strong> in the Send (on by default, so nobody in one room hears a track twice).</li>
   </ol>
   <p>The <strong>ONLINE</strong> badge in the header shows the room code: green = connected, orange = waiting for the peer or reconnecting, gray = room closed.</p>
@@ -739,7 +740,7 @@
   <ul>
     <li><strong>One room per host app:</strong> all Online instances in a host share one room; the first creates or joins, the others follow. <strong>Leave</strong> disconnects all of them.</li>
     <li><strong>Several tracks:</strong> each Send is its own channel at the peer (up to 8 per direction).</li>
-    <li><strong>Send my track</strong> (Receive effect, Online): also streams this track into the room, two-way in one plugin slot, e.g. for DJ apps. To hear yourself too, unmute <strong>Host track</strong>.</li>
+    <li><strong>Send my track</strong> (Receive effect, Online): also streams this track into the room, two-way in one plugin slot, e.g. for DJ apps. <strong>Name</strong> below it is what the other side sees; left empty, the stream is named like a channel, e.g. <em>Channel 1 · iPad</em>. To hear yourself too, unmute <strong>Host track</strong>.</li>
     <li><strong>Room codes</strong> are one-time invitations; the audio flows peer-to-peer and encrypted; if no direct connection is possible, a relay forwards it, still encrypted. A room with one participant closes after 30 minutes; active sessions have no limit.</li>
     <li><strong>Dropouts reconnect by themselves:</strong> after a network gap, a locked screen or sleep, LinkEffekt rebuilds the connection and shows <em>reconnecting…</em>; there is no need to leave. If the other side left, it shows <em>waiting for peer…</em> until they join again with the same code.</li>
   </ul>
