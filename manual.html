@@ -105,7 +105,7 @@
 
   <header class="page-head">
     <h1>LinkEffekt Manual</h1>
-    <p class="pagemeta">Version 2.0.9 and later: Send, Receive and Receive Instrument · iOS 17+</p>
+    <p class="pagemeta">Version 2.0.10 and later: Send, Receive and Receive Instrument · iOS 17+</p>
   </header>
 
   <section class="quick" id="start" aria-labelledby="start-title">
@@ -459,7 +459,7 @@
       <summary class="gtk-title">Good to know</summary>
       <ul>
         <li>Playing pads or keys live on the other side: listen there on headphones. djay’s speakers play your part on the beat of the mix, later than your hands. In AUM, turn on <strong>Live Mode</strong> and turn off <strong>Mute Local Output</strong> in the Send, and Bar Sync in djay (see <a href="#send">LinkEffekt Send</a>).</li>
-        <li>The level of the stream: <strong>Received</strong> in the Receive’s mixer.</li>
+        <li>The level of the stream: <strong>Received</strong> in the Receive’s mixer. Two full mixes add up, so pull it down if the meter turns red.</li>
         <li>Several channels at once, drums and bass: <strong>Monitor multiple channels</strong> in the Receive, with the in-app purchase.</li>
         <li>Your set into Live instead: load <strong>LinkEffekt Send</strong> as djay’s master effect and record it as in <a href="#wf-record-live">Record iOS audio in Ableton Live</a>. djay takes one master effect, so on your network it’s one direction at a time.</li>
         <li>Back to back with a DJ friend somewhere else: both load <strong>LinkEffekt Receive</strong> as djay’s master effect and play over the internet, as in the tip in <a href="#wf-online">Jam online with a friend</a>. Set the same <strong>Headroom</strong> in djay on both sides, or one mix arrives louder than the other.</li>
@@ -717,7 +717,7 @@
         <li><strong>Nudge</strong> (±100&nbsp;ms): moves where the received downbeat lands (minus = earlier). A value other than 0 shows next to “Advanced timing”. <strong>Apply to all channels in this host</strong> uses one value for every instance there, since it corrects the host’s own output delay.</li>
       </ul>
     </li>
-    <li><strong>Mixer</strong>, in signal order: <strong>Received</strong> (the stream), <strong>Host track</strong> (effect only: the track’s own input, muted by default against feedback) and <strong>Output</strong> (gain, pan, mute). Bypassing the Receive in your host unmutes the host track: mind a live mic near speakers.</li>
+    <li><strong>Mixer</strong>, in signal order: <strong>Received</strong> (the stream), <strong>Host track</strong> (effect only: the track’s own input, muted by default against feedback) and <strong>Output</strong> (gain, pan, mute). Received and Host track each have their own level, so you set the balance before they add up; double-tap a level to reset it. Bypassing the Receive in your host unmutes the host track: mind a live mic near speakers.</li>
         <li><strong>After loading a project</strong>, the Receive picks its saved channel again, by sender, else by name, but only if exactly one channel has that name. Otherwise it waits and says <em>“2× Channel 1: pick the right one.”</em></li>
     <li><strong>When the sending app restarts</strong>, its channel returns under the same name, and the Receive finds it again within seconds (same rule: only if the name is unique).</li>
     <li><strong>Gear, then Settings</strong>: the same Ableton Link settings as in the Send (one setting for every LinkEffekt plugin on this device), and the plugin version.</li>
