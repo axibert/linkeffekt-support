@@ -14,7 +14,7 @@ Please include your host app, your device, and what the diagnostics line in the 
 
 ## Requirements
 
-- iOS 17+ / macOS 14+ (Apple Silicon)
+- iOS 15+ / macOS 14+ (Apple Silicon)
 - Any AUv3-compatible host app (AUM, Logic Pro, Cubasis, GarageBand, Drambo, Loopy Pro, …)
 - Receiving in Ableton Live: Live 12.4 or later on the same local network
 
