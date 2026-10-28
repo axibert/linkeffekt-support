@@ -86,8 +86,16 @@
       <a href="#send"><span class="num">6</span>LinkEffekt Send</a>
       <a href="#receive"><span class="num">7</span>LinkEffekt Receive</a>
       <a href="#online"><span class="num">8</span>Online mode</a>
-      <a href="#beatsync"><span class="num">9</span>Beat Sync</a>
-      <a href="#troubleshooting"><span class="num">10</span>Troubleshooting</a>
+      <a href="#midi"><span class="num">9</span>MIDI controllers</a>
+      <div class="sub" data-for="midi">
+        <a href="#midi-setup">Set up in your host</a>
+        <a href="#midi-mac">On the Mac</a>
+        <a href="#midi-timing">Steady and Fast</a>
+        <a href="#midi-clock">Link clock</a>
+        <a href="#midi-free">Free and with the purchase</a>
+      </div>
+      <a href="#beatsync"><span class="num">10</span>Beat Sync</a>
+      <a href="#troubleshooting"><span class="num">11</span>Troubleshooting</a>
       <div class="sub" data-for="troubleshooting">
         <a href="#ts-no-channel">No channel appears</a>
         <a href="#ts-off-beat">Off the beat</a>
@@ -96,8 +104,11 @@
         <a href="#ts-airdrop">Dropouts after AirDrop</a>
         <a href="#ts-mac-late">Mac sounds late</a>
         <a href="#ts-live-metronome">Live’s metronome is late</a>
+        <a href="#ts-midi-twice">MIDI plays twice</a>
+        <a href="#ts-midi-host">No LinkEffekt MIDI in my app</a>
+        <a href="#ts-midi-mac">Mac doesn’t see the controllers</a>
       </div>
-      <a href="#faq"><span class="num">11</span>FAQ</a>
+      <a href="#faq"><span class="num">12</span>FAQ</a>
     </nav>
   </aside>
 
@@ -105,7 +116,7 @@
 
   <header class="page-head">
     <h1>LinkEffekt Manual</h1>
-    <p class="pagemeta">Version 2.0.11 and later: Send, Receive and Receive Instrument · iOS 15+</p>
+    <p class="pagemeta">Version 2.1 and later: Send, Receive, Receive Instrument and MIDI · iOS 15+ · Mac for MIDI controllers</p>
   </header>
 
   <section class="quick" id="start" aria-labelledby="start-title">
@@ -161,13 +172,14 @@
     <a href="#send"><span class="num">6</span>LinkEffekt Send</a>
     <a href="#receive"><span class="num">7</span>LinkEffekt Receive</a>
     <a href="#online"><span class="num">8</span>Online mode</a>
-    <a href="#beatsync"><span class="num">9</span>Beat Sync</a>
-    <a href="#troubleshooting"><span class="num">10</span>Troubleshooting</a>
-    <a href="#faq"><span class="num">11</span>FAQ</a>
+    <a href="#midi"><span class="num">9</span>MIDI controllers</a>
+    <a href="#beatsync"><span class="num">10</span>Beat Sync</a>
+    <a href="#troubleshooting"><span class="num">11</span>Troubleshooting</a>
+    <a href="#faq"><span class="num">12</span>FAQ</a>
   </nav>
 
   <h2 id="what">1 · What is LinkEffekt?</h2>
-  <p>LinkEffekt streams audio between music apps: on one iPhone or iPad, between devices on your network (Ableton Link Audio) or over the internet (Online mode). It comes as three AUv3 plugins for any host (AUM, Logic Pro, Cubasis, Drambo, Loopy Pro, Koala, djay, GarageBand and others; what differs between them: <a href="#hosts">Hosts</a>):</p>
+  <p>LinkEffekt streams audio between music apps: on one iPhone or iPad, between devices on your network (Ableton Link Audio) or over the internet (Online mode). It comes as four AUv3 plugins for any host (AUM, Logic Pro, Cubasis, Drambo, Loopy Pro, Koala, djay, GarageBand and others; what differs between them: <a href="#hosts">Hosts</a>):</p>
 
   <div class="table-scroll">
     <table>
@@ -175,11 +187,12 @@
       <tr><td><strong>LinkEffekt Send</strong></td><td>Audio effect</td><td>Streams a track. Insert it on the track you want to share.</td></tr>
       <tr><td><strong>LinkEffekt Receive</strong></td><td>Audio effect</td><td>Plays channels. The standard receiver, for every host.</td></tr>
       <tr><td><strong>LinkEffekt Receive Instrument</strong></td><td>Instrument</td><td>The same receiver as a sound source: for AUM’s source slot or an instrument track.</td></tr>
+      <tr><td><strong>LinkEffekt MIDI</strong></td><td>MIDI effect</td><td>Plays the MIDI controllers of all your devices, each on its own output (<a href="#midi">MIDI controllers</a>).</td></tr>
     </table>
   </div>
 
-  <p><strong>What can you do with it?</strong> Jam across devices, route audio between apps, record iOS audio in Ableton Live, play Live’s tracks on your iPad, record Ableton Move and Note, bring a live act into your DJ set, jam online, monitor a band. <a href="#workflows">Workflows</a> shows each one step by step.</p>
-  <p><strong>Free and paid:</strong> one Send and one Receive are free, in full quality, on your network and on one device. The one-time in-app purchase <strong>Unlimited Channels</strong> adds unlimited instances, several channels per Receive and <strong>Online</strong> mode. Buy or restore it in the app or in any plugin; it unlocks every plugin on the device.</p>
+  <p><strong>What can you do with it?</strong> Jam across devices, route audio between apps, record iOS audio in Ableton Live, play Live’s tracks on your iPad, record Ableton Move and Note, bring a live act into your DJ set, jam online, monitor a band, play a controller on every device. <a href="#workflows">Workflows</a> shows each one step by step. On the Mac, LinkEffekt shares MIDI controllers from the menu bar (<a href="#midi-mac">On the Mac</a>).</p>
+  <p><strong>Free and paid:</strong> one Send and one Receive are free, in full quality, on your network and on one device, and each device shares one MIDI controller. The one-time in-app purchase <strong>Unlimited Channels</strong> adds unlimited instances, several channels per Receive, <strong>Online</strong> mode and sharing every MIDI controller. Buy or restore it in the app or in any plugin; it unlocks every plugin on the device.</p>
 
   <h2 id="setup">2 · Set up once</h2>
   <p>A few switches, each set once. They stay set, so every plugin you add later works right away. Between devices you need all of them. On one device, app to app or track to track, LinkEffekt takes a direct path, and only Ableton Link in the host apps matters: it puts them on the same beat (<a href="#same-device">Same device or same host</a>).</p>
@@ -201,6 +214,7 @@
     <li><strong>Link Offset</strong> with <em>Apply to all channels</em>: every Send in this app.</li>
     <li><strong>Nudge</strong> with <em>Apply to all channels in this host</em>: every Receive in this app.</li>
     <li><strong>Online room</strong>: all Online plugins in one app share one room; <strong>Leave</strong> closes it for all of them.</li>
+    <li><strong>This iPad · all apps</strong> in LinkEffekt MIDI (Share, Name, Steady or Fast, Link clock): every app on this device.</li>
   </ul>
 
   <h2 id="workflows">3 · Workflows</h2>
@@ -748,7 +762,52 @@
   </ul>
   </details>
 
-<h2 id="beatsync">9 · Beat Sync: how it works and what to expect</h2>
+<h2 id="midi">9 · MIDI controllers</h2>
+  <p>Plug a MIDI controller into your iPad, iPhone or Mac and play it on all of them. On iPad and iPhone, <strong>LinkEffekt MIDI</strong> brings the controllers of all your devices into your host, each on its own output. On the Mac, the LinkEffekt app does it from the menu bar, for every app on the Mac (<a href="#midi-mac">On the Mac</a>). The devices find each other on the same Wi-Fi or over a USB cable between iPad and Mac.</p>
+
+  <h3 id="midi-setup">Set up in your host</h3>
+  <ol>
+    <li>On every iPad or iPhone you use, load <strong>LinkEffekt MIDI</strong> as a MIDI effect in your host, for example in AUM.</li>
+    <li>On the device the controller is plugged into, turn on <strong>Share controllers with other devices</strong> in the box <em>This iPad · all apps</em>. The controller now plays on your other devices.</li>
+    <li>Where you play, connect the output of LinkEffekt MIDI <strong>instead of the controller</strong>: to an instrument, or in AUM to <strong>MIDI Control</strong> for your mappings. Do the same on the device the controller is plugged into; there the output carries it right away.</li>
+    <li>Map as usual. Plug the controller into another device and it stays on the same output, so your mappings keep working.</li>
+  </ol>
+  <details class="gtk" id="midi-more">
+  <summary class="gtk-title">Good to know</summary>
+  <ul>
+    <li><strong>Outputs:</strong> each controller keeps its own output, numbered 1 to 8, with the device it is plugged into after its name. A green dot shows activity. Tap a name to rename it. A controller that is gone shows <em>offline</em>; <strong>Forget</strong> frees its output.</li>
+    <li><strong>Host MIDI goes to:</strong> MIDI your host sends into LinkEffekt MIDI goes to all your other devices, where it appears as an output named after this device with <em>host MIDI</em> (on the Mac: a port <em>iPad · LinkEffekt</em>). Or pick one controller, for example to light its pads.</li>
+    <li><strong>This iPad · all apps:</strong> Share, the device switches, Name, Steady or Fast and Link clock apply to every app on this device, so a second host with LinkEffekt MIDI shows the same.</li>
+    <li><strong>Name:</strong> what your other devices show after a controller’s name, for example <em>Launchpad X · Studio iPad</em>.</li>
+    <li><strong>Wi-Fi and cable:</strong> with both, LinkEffekt takes the cable.</li>
+  </ul>
+  </details>
+
+  <h3 id="midi-mac">On the Mac</h3>
+  <p>On the Mac, LinkEffekt is a menu bar app for MIDI controllers (Apple Silicon, macOS 14 or later); the audio plugins run on iPad and iPhone. It is the same app as on iPad and iPhone, from the Mac App Store. Open it once and allow Local Network access.</p>
+  <ul>
+    <li><strong>Other devices:</strong> every controller on your iPad or iPhone becomes a MIDI port on the Mac, named the way Ableton Live names the hardware, for example <em>Launchpad X (LPX MIDI)</em>. In Live, pick it in Settings &gt; Link, Tempo &amp; MIDI like the controller itself and map as usual. Plug the controller into the Mac and Live finds the real one under the same name; LinkEffekt removes its port then. Feedback from Live goes back to the controller.</li>
+    <li><strong>This Mac:</strong> <strong>Share controllers</strong> sends the controllers plugged into the Mac to your other devices; below it, a switch for each one. <strong>Name</strong>, <strong>Timing</strong> and <strong>Open at login</strong> work as on the iPad.</li>
+    <li><strong>Menu bar:</strong> the menu lists the same controllers and switches. <em>Open LinkEffekt…</em> shows the window.</li>
+  </ul>
+
+  <h3 id="midi-timing">Steady and Fast</h3>
+  <p><strong>Steady</strong> plays everything 10&nbsp;ms later and evenly, timed with Ableton Link, so Wi-Fi doesn’t shake your timing. It needs Ableton Link on both devices; without it, the box says so. <strong>Fast</strong> plays the moment a note arrives. The setting belongs to the device that plays.</p>
+
+  <h3 id="midi-clock">Link clock</h3>
+  <p>Gear without Ableton Link, plugged into this device, gets MIDI clock from Link: a drum machine or synth with a MIDI input. The box <em>Link clock · this iPad</em> lists it as soon as it is plugged in.</p>
+  <ul>
+    <li>Turn it on for each piece of gear. The clock follows Link’s tempo all the time, also while stopped.</li>
+    <li><strong>Start and stop</strong> follow Link when Start Stop Sync is on in LinkEffekt’s Link settings (gear) <em>and</em> in the app you press play in. The gear starts on the next bar. Until then, the box says <em>Start and stop follow Link once Start Stop Sync is on…</em>; tap it for the settings.</li>
+    <li><strong>Offset</strong> moves the clock up to 100&nbsp;ms earlier or later, to make up for the gear’s own delay. Set it by ear against your metronome: the slider for the rough value, + and − for single milliseconds.</li>
+    <li>The clock goes only to gear on the device where you turn it on. For gear on your Mac, turn it on in the Mac window.</li>
+  </ul>
+
+  <h3 id="midi-free">Free and with the purchase</h3>
+  <p>Each device shares <strong>one</strong> controller for free, with all its ports; an interface with several MIDI ports counts as one. Receiving, host MIDI, controllers on the device itself and Link clock are free too. The in-app purchase <strong>Unlimited Channels</strong> shares every controller, on every device with the same Apple Account.</p>
+  <p>The free controller stays the same when you plug in a second one, so your mappings don’t move. To share a different one, turn the shared one off. If you plug in a second controller while the first is unplugged, the second takes the free place, and the first shows a lock when it is back.</p>
+
+<h2 id="beatsync">10 · Beat Sync: how it works and what to expect</h2>
   <p>Audio over a network <strong>always</strong> arrives late. LinkEffekt makes that delay <em>musical</em>. Where the stream lands depends on the sending app (<a href="#hosts">Hosts</a>):</p>
   <ul>
     <li><strong>Sending from AUM or Logic Pro:</strong> the Send plays ahead by the trip, so the audio lands on your beat from the first Play, and nothing on the receiving side waits.</li>
@@ -780,7 +839,7 @@
   <p>On your network, both host apps need Ableton Link on (see <a href="#setup">Set up once</a>). Over the internet the two metronomes are <strong>not</strong> aligned: each side hears the other on <em>their own</em> beat, which is what you want when each listens to their own device.</p>
   </details>
 
-<h2 id="troubleshooting">10 · Troubleshooting</h2>
+<h2 id="troubleshooting">11 · Troubleshooting</h2>
 
   <details class="ts" id="ts-no-channel">
     <summary>No channel appears in Now Receiving (LAN)</summary>
@@ -936,7 +995,32 @@
     </div>
   </details>
 
-  <h2 id="faq">11 · Frequently asked questions</h2>
+  <details class="ts" id="ts-midi-twice">
+    <summary>MIDI: every note plays twice</summary>
+    <div class="ts-body">
+  <p>The controller is connected twice: directly and through LinkEffekt MIDI. Connect only the output of LinkEffekt MIDI, also on the device the controller is plugged into (<a href="#midi-setup">Set up in your host</a>).</p>
+    </div>
+  </details>
+
+  <details class="ts" id="ts-midi-host">
+    <summary>MIDI: LinkEffekt MIDI doesn’t show up in my app</summary>
+    <div class="ts-body">
+  <p>The app doesn’t load MIDI effects (AUv3 MIDI processors). In that app, this device neither shares its controllers nor gets those of your other devices. Load LinkEffekt MIDI in a host that does, such as AUM, next to your app.</p>
+    </div>
+  </details>
+
+  <details class="ts" id="ts-midi-mac">
+    <summary>MIDI: the Mac doesn’t see the controllers of my iPad</summary>
+    <div class="ts-body">
+  <ul>
+    <li>Local Network access on the Mac: the menu shows <em>Allow Local Network…</em> when it is off. Or turn on LinkEffekt in System Settings → Privacy &amp; Security → Local Network.</li>
+    <li><strong>Share controllers with other devices</strong> on, in LinkEffekt MIDI on the iPad.</li>
+    <li>Same Wi-Fi, or a USB cable between iPad and Mac.</li>
+  </ul>
+    </div>
+  </details>
+
+  <h2 id="faq">12 · Frequently asked questions</h2>
   <details class="ts faq">
     <summary>Does LinkEffekt work with Ableton Live?</summary>
     <div class="ts-body"><p>Yes, both ways. Live 12.4+ receives LinkEffekt Send as an input. Live also sends: turn on Link and its <strong>Audio</strong> switch (Settings &gt; Link), and every Live track with an audio output appears in LinkEffekt Receive. Live doesn’t play ahead, so use <strong>Bar Sync</strong>. <strong>Sync to Incoming Audio</strong>: off to receive Live’s tracks, on to record into Live. Which setting for what: <a href="#host-live">Hosts: Ableton Live</a>.</p></div>
@@ -960,6 +1044,14 @@
   <details class="ts faq">
     <summary>Why is there always some delay?</summary>
     <div class="ts-body"><p>Physics: network transit plus a safety buffer. LinkEffekt keeps the delay stable and musical (see <a href="#beatsync">Beat Sync</a>); with a sender in AUM or Logic Pro it lands on your beat.</p></div>
+  </details>
+  <details class="ts faq" id="faq-midi">
+    <summary>Can I use my MIDI controller on another device?</summary>
+    <div class="ts-body"><p>Yes. Plug it into any of your devices and load <strong>LinkEffekt MIDI</strong> on the others; on a Mac, the LinkEffekt app does it for every app. Your mappings stay when you plug the controller in elsewhere (<a href="#midi">MIDI controllers</a>).</p></div>
+  </details>
+  <details class="ts faq">
+    <summary>Does LinkEffekt run as a plugin on the Mac?</summary>
+    <div class="ts-body"><p>On the Mac, LinkEffekt shares MIDI controllers from the menu bar; the audio plugins run on iPad and iPhone. Ableton Live 12.4 and later on the Mac sends and receives Link Audio by itself.</p></div>
   </details>
   <details class="ts faq">
     <summary>Which sample rates are supported?</summary>
