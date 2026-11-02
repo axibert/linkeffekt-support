@@ -776,30 +776,34 @@
   <summary class="gtk-title">Good to know</summary>
   <ul>
     <li><strong>Outputs:</strong> each controller keeps its own output, numbered 1 to 8, with the device it is plugged into after its name and, for another device, the way and the delay (see <a href="#midi-timing">Timing</a>). A green dot shows activity. Tap a name to rename the controller; the name shows on all your devices, and an empty name brings back the controller’s own. A controller without a serial number counts as a new one on another device, so its name doesn’t move along. A controller that is gone shows <em>offline</em>; <strong>Forget</strong> frees its output.</li>
+    <li><strong>In your host:</strong> the outputs carry their number and the controller, for example <em>LinkEffekt 1 · OP-Z</em>; a free one is <em>LinkEffekt 3</em>. AUM reads these names when it loads the session. After a rename, or when an output gets another controller, the plugin shows <em>Host shows: …</em> under it until you load the session again; the number stays the same.</li>
+    <li><strong>All eight outputs taken:</strong> a controller you plug in takes the output of one that is gone, first one that never played. A controller that is plugged in keeps its output.</li>
+    <li><strong>Held notes:</strong> if your host pauses LinkEffekt MIDI or an output gets another controller, the notes it started end, so nothing keeps hanging. The same goes for host MIDI when you pick another target.</li>
     <li><strong>Host MIDI goes to:</strong> MIDI your host sends into LinkEffekt MIDI goes to all your other devices, where it appears as an output named after this device with <em>host MIDI</em> (on the Mac: a port <em>iPad · LinkEffekt</em>). Or pick one controller, for example to light its pads.</li>
     <li><strong>This iPad · all apps:</strong> Share, the device switches, Name and Link clock apply to every app on this device, so a second host with LinkEffekt MIDI shows the same.</li>
     <li><strong>Name:</strong> what your other devices show after a controller’s name, for example <em>Launchpad X · Studio iPad</em>.</li>
-    <li><strong>Wi-Fi and cable:</strong> with both, LinkEffekt takes the cable.</li>
+    <li><strong>Wi-Fi and cable:</strong> with both, LinkEffekt takes the cable. You can plug it in or pull it out while you play; no note gets lost.</li>
   </ul>
   </details>
 
   <h3 id="midi-mac">On the Mac</h3>
   <p>On the Mac, LinkEffekt is a menu bar app for MIDI controllers (Apple Silicon, macOS 14 or later); the audio plugins run on iPad and iPhone. It is the same app as on iPad and iPhone, from the Mac App Store. Open it once and allow Local Network access.</p>
   <ul>
-    <li><strong>Other devices:</strong> every controller on your iPad or iPhone becomes a MIDI port on the Mac, named the way Ableton Live names the hardware, for example <em>Launchpad X (LPX MIDI)</em>. In Live, pick it in Settings &gt; Link, Tempo &amp; MIDI like the controller itself and map as usual. Plug the controller into the Mac and Live finds the real one under the same name; LinkEffekt removes its port then. Feedback from Live goes back to the controller. After the device, the window shows the way and the delay (see <a href="#midi-timing">Timing</a>). The window shows the name from your devices; right-click a controller and choose <em>Rename…</em> to change it everywhere, or leave the field empty for the controller’s own name. The port in Live keeps the controller’s own name, so your Live settings stay.</li>
+    <li><strong>Other devices:</strong> every controller on your iPad or iPhone becomes a MIDI port on the Mac, named the way Ableton Live names the hardware, for example <em>Launchpad X (LPX MIDI)</em>. In Live, pick it in Settings &gt; Link, Tempo &amp; MIDI like the controller itself and map as usual. Plug the controller into the Mac and Live finds the real one under the same name; LinkEffekt removes its port then. Feedback from Live goes back to the controller. The window lists each of your other devices with the way and the delay (see <a href="#midi-timing">Timing</a>), and its controllers below it. The window shows the name from your devices; right-click a controller and choose <em>Rename…</em> to change it everywhere, or leave the field empty for the controller’s own name. The port in Live keeps the controller’s own name, so your Live settings stay.</li>
     <li><strong>This Mac:</strong> <strong>Share controllers</strong> sends the controllers plugged into the Mac to your other devices; below it, a switch for each one. <strong>Name</strong> and <strong>Open at login</strong> work as on the iPad.</li>
-    <li><strong>Menu bar:</strong> the menu lists the same controllers and switches. <em>Open LinkEffekt…</em> shows the window.</li>
+    <li><strong>Menu bar:</strong> the menu lists the same devices, controllers and switches. <em>Open LinkEffekt…</em> shows the window.</li>
   </ul>
 
   <h3 id="midi-timing">Timing</h3>
-  <p>There is nothing to set. LinkEffekt measures the way to each device and plays everything from it a fixed time later, timed with Ableton Link, so Wi-Fi doesn’t shake your timing. Each output shows the way and that time, for example <em>cable · 1&nbsp;ms</em> or <em>Wi-Fi · 14&nbsp;ms</em>. A cable between the devices is tightest; when Wi-Fi needs more than 20&nbsp;ms, the plugin suggests one. It needs Ableton Link on both devices; without it, the box says so.</p>
+  <p>There is nothing to set. LinkEffekt measures the way to each device and plays everything from it a fixed time later, timed with Ableton Link, so Wi-Fi doesn’t shake your timing. Each output shows the way and that time, for example <em>cable · 1&nbsp;ms</em> or <em>Wi-Fi · 14&nbsp;ms</em>, and so does the top of the plugin for up to two devices. A cable between the devices is tightest; when Wi-Fi needs more than 20&nbsp;ms, the plugin suggests one. It needs Ableton Link on both devices; without it, the box says so.</p>
 
   <h3 id="midi-clock">Link clock</h3>
-  <p>Gear without Ableton Link, plugged into this device, gets MIDI clock from Link: a drum machine or synth with a MIDI input. The box <em>Link clock · this iPad</em> lists it as soon as it is plugged in.</p>
+  <p>Gear without Ableton Link, plugged into this device, gets MIDI clock from Link: a drum machine or synth with a MIDI input. The box <em>Link clock · this iPad</em> lists it as soon as it is plugged in, with the clock on.</p>
   <ul>
-    <li>Turn it on for each piece of gear. The clock follows Link’s tempo all the time, also while stopped.</li>
+    <li>Turn it off for gear that shouldn’t get it. The clock follows Link’s tempo all the time, also while stopped.</li>
+    <li>Gear that sends its own clock shows <em>Sends its own clock</em> and gets none until you unplug it.</li>
     <li><strong>Start and stop</strong> follow Link when Start Stop Sync is on in LinkEffekt’s Link settings (gear) <em>and</em> in the app you press play in. The gear starts on the next bar. Until then, the box says <em>Start and stop follow Link once Start Stop Sync is on…</em>; tap it for the settings.</li>
-    <li><strong>Offset</strong> moves the clock up to 100&nbsp;ms earlier or later, to make up for the gear’s own delay. Set it by ear against your metronome: the slider for the rough value, + and − for single milliseconds.</li>
+    <li><strong>Offset</strong> moves the clock up to 100&nbsp;ms earlier or later, to make up for the gear’s own delay. Tap it and set it by ear against your metronome: the slider for the rough value, + and − for single milliseconds.</li>
     <li>The clock goes only to gear on the device where you turn it on. For gear on your Mac, turn it on in the Mac window.</li>
   </ul>
 
