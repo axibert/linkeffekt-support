@@ -19,7 +19,7 @@
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css?v=4cbdfc31">
 <script>try{var t=localStorage.getItem('le-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 </head>
@@ -42,125 +42,112 @@
   </header>
 
   <section class="hero">
-    <span class="badge"><span class="dot ok"></span>V2.1 ON THE APP STORE</span>
+    <p class="release"><a href="#midi">New in 2.1: your MIDI controllers on every device</a></p>
     <h1>Stream audio between your music apps, <span class="hl">right on the beat.</span></h1>
     <p class="sub">Send a track in one app. Hear it in another app on the same device, on a second device or online with a partner, right on your beat. Ableton Live 12.4+ receives it too.</p>
-    <div class="sync-facts">
-      <div><span class="dot ok"></span>In sync in AUM and Logic Pro</div>
-      <div><span class="dot wait"></span>Bar Sync in every other host</div>
-    </div>
+    <p class="sync-facts">In sync in AUM and Logic Pro. Bar Sync in every other host.</p>
     <div class="hero-ctas">
       <a class="store-badge" href="https://apps.apple.com/app/linkeffekt/id6759493415">
         <img class="on-light" src="img/home/app-store-badge-black.svg" width="150" height="50" alt="Download on the App Store">
         <img class="on-dark" src="img/home/app-store-badge-white.svg" width="150" height="50" alt="Download on the App Store">
       </a>
-      <a class="btn" href="manual.html">Read the manual</a>
+      <a class="text-link" href="manual.html">Read the manual</a>
     </div>
 
     <figure class="devices">
       <div class="device phone">
         <img src="img/home/iphone-send.webp" width="520" height="1063" alt="iPhone running AUM with LinkEffekt Send: Channel 1 · iPhone, streaming to a listener.">
-        <figcaption><span class="dot ok"></span>iPhone · AUM · Send</figcaption>
+        <figcaption>iPhone in AUM, sending</figcaption>
       </div>
       <div class="device-wire" aria-hidden="true"><span>Wi-Fi</span></div>
       <div class="device tablet">
         <img src="img/home/ipad-receive.webp" width="1400" height="1015" alt="iPad running AUM with LinkEffekt Receive: Channel 1 · iPhone, in sync.">
-        <figcaption><span class="dot ok"></span>iPad · AUM · Receive · In sync</figcaption>
+        <figcaption>iPad in AUM, receiving in sync</figcaption>
       </div>
     </figure>
   </section>
 
   <section>
-    <div class="eyebrow">Three plugins</div>
     <h2>AUv3: runs inside the host you already use</h2>
     <p class="lead">Load LinkEffekt in AUM, Logic Pro, Cubasis, GarageBand, Drambo, djay or any other AUv3 host. No standalone routing app, no cables.</p>
-    <div class="cards">
-      <div class="card">
-        <span class="kind">Audio effect</span>
-        <h3>LinkEffekt Send</h3>
-        <p>Insert it on a track to stream that track's stereo audio. Each instance is its own named channel.</p>
+    <dl class="rows">
+      <div>
+        <dt>LinkEffekt Send</dt>
+        <dd>An audio effect. Insert it on a track to stream that track's stereo audio. Each instance is its own named channel.</dd>
       </div>
-      <div class="card">
-        <span class="kind">Audio effect</span>
-        <h3>LinkEffekt Receive</h3>
-        <p>Pick a channel and hear it. Works in every host. Monitor several channels at once with the in-app purchase.</p>
+      <div>
+        <dt>LinkEffekt Receive</dt>
+        <dd>An audio effect. Pick a channel and hear it. Works in every host. Monitor several channels at once with the in-app purchase.</dd>
       </div>
-      <div class="card">
-        <span class="kind">Instrument</span>
-        <h3>LinkEffekt Receive Instrument</h3>
-        <p>The same receiver as a sound source, for AUM source slots and software-instrument tracks.</p>
+      <div>
+        <dt>LinkEffekt Receive Instrument</dt>
+        <dd>The same receiver as a sound source, for AUM source slots and software-instrument tracks.</dd>
       </div>
-    </div>
+    </dl>
   </section>
 
-  <section>
-    <div class="eyebrow">New in 2.1 · MIDI</div>
-    <h2>Your controllers on every device</h2>
+  <section id="midi">
+    <h2>New in 2.1: your controllers on every device</h2>
     <p class="lead">Plug a MIDI controller into your iPad, iPhone or Mac and play it on all of them. Your mappings stay when you plug it in elsewhere.</p>
-    <div class="split">
-      <div class="card">
-        <span class="kind">MIDI effect</span>
-        <h3>LinkEffekt MIDI</h3>
-        <p>Brings the controllers of all your devices into your host, each on its own output. Link clock sends MIDI clock from Ableton Link to gear without Link.</p>
+    <dl class="rows">
+      <div>
+        <dt>LinkEffekt MIDI</dt>
+        <dd>A MIDI effect. Brings the controllers of all your devices into your host, each on its own output. Link clock sends MIDI clock from Ableton Link to gear without Link.</dd>
       </div>
-      <div class="card">
-        <span class="kind">Mac menu bar</span>
-        <h3>LinkEffekt for Mac</h3>
-        <p>Shares the controllers plugged into your Mac and gives every app the controllers of your iPad and iPhone, named like the hardware, so Ableton Live keeps your mappings.</p>
+      <div>
+        <dt>LinkEffekt for Mac</dt>
+        <dd>Lives in the menu bar. Shares the controllers plugged into your Mac and gives every app the controllers of your iPad and iPhone, named like the hardware, so Ableton Live keeps your mappings.</dd>
       </div>
-    </div>
+    </dl>
   </section>
 
   <section>
-    <div class="eyebrow">Four ways to connect</div>
     <h2>One host, one device, your network, or the internet</h2>
-    <div class="split">
-      <div class="card">
-        <h3><span class="dot ok"></span>On this device or your network</h3>
-        <ul>
-          <li>Another app on the same device, or another track in the same host: on the beat with almost no delay, a direct path with no Wi-Fi, no Local Network permission and no Link setup.</li>
-          <li>Same Wi-Fi, zero setup: channels appear by name and device.</li>
-          <li>On the beat between devices, in both directions of a jam (sender in AUM or Logic Pro). Where the sending app cannot do that, Bar Sync locks the audio to your bar.</li>
-          <li>Streams straight into Ableton Live 12.4+.</li>
-        </ul>
+    <dl class="rows">
+      <div>
+        <dt>On this device or your network</dt>
+        <dd>
+          <p>Another app on the same device, or another track in the same host: on the beat with almost no delay, a direct path with no Wi-Fi, no Local Network permission and no Link setup.</p>
+          <p>On the same Wi-Fi there is nothing to set up: channels appear by name and device.</p>
+          <p>On the beat between devices, in both directions of a jam (sender in AUM or Logic Pro). Where the sending app cannot do that, Bar Sync locks the audio to your bar.</p>
+          <p>Streams straight into Ableton Live 12.4+.</p>
+        </dd>
       </div>
-      <div class="card">
-        <h3><span class="dot wait"></span>Online · rooms over the internet</h3>
-        <ul>
-          <li>Create a room, share the code, jam together.</li>
-          <li>Peer-to-peer and encrypted end-to-end (DTLS).</li>
-          <li>Bar Sync delays by whole bars: the peer's “1” lands on your “1”.</li>
-          <li>Two-way audio in a single slot with “Send my track”, for example two DJs back to back in djay.</li>
-        </ul>
+      <div>
+        <dt>Online, in rooms over the internet</dt>
+        <dd>
+          <p>Create a room, share the code, jam together. Peer-to-peer and encrypted end-to-end (DTLS).</p>
+          <p>Bar Sync delays by whole bars: the peer's “1” lands on your “1”.</p>
+          <p>Two-way audio in a single slot with “Send my track”, for example two DJs back to back in djay.</p>
+        </dd>
       </div>
-    </div>
+    </dl>
   </section>
 
   <section>
-    <div class="eyebrow">Pricing</div>
     <h2>Free to start, one purchase for everything</h2>
-    <div class="plans">
-      <div class="card">
-        <h3>Free</h3>
-        <p>1 Send and 1 Receive channel, fully functional on your local network, and one shared MIDI controller per device. No account, no ads.</p>
+    <dl class="rows">
+      <div>
+        <dt>Free</dt>
+        <dd>1 Send and 1 Receive channel, fully functional on your local network, and one shared MIDI controller per device. No account, no ads.</dd>
       </div>
-      <div class="card">
-        <h3>Unlimited Channels</h3>
-        <p>One-time purchase: unlimited instances, multi-channel monitoring, the Online (internet) mode and sharing every MIDI controller.</p>
+      <div>
+        <dt>Unlimited Channels</dt>
+        <dd>One-time purchase: unlimited instances, multi-channel monitoring, the Online (internet) mode and sharing every MIDI controller.</dd>
       </div>
-    </div>
+    </dl>
   </section>
 
   <section>
-    <div class="eyebrow">Requirements</div>
-    <p class="lead">iOS 15 or later (iPhone and iPad) · any AUv3 host. Ableton Live 12.4+ on the same network sends and receives too. For MIDI controllers on a Mac: Apple Silicon and macOS 14 or later.</p>
+    <h2>Requirements</h2>
+    <p class="lead">iOS 15 or later on iPhone and iPad, in any AUv3 host. Ableton Live 12.4+ on the same network sends and receives too. For MIDI controllers on a Mac: Apple Silicon and macOS 14 or later.</p>
   </section>
 
   <footer>
-    <span>© 2026 Alexander Joannou · LinkEffekt</span>
-    <span>
-      <a href="manual.html">Manual</a> ·
-      <a href="privacy.html">Privacy</a> ·
+    <span>© 2026 Alexander Joannou</span>
+    <span class="foot-links">
+      <a href="manual.html">Manual</a>
+      <a href="privacy.html">Privacy</a>
       <a href="mailto:alexander.joannou@gmail.com">alexander.joannou@gmail.com</a>
     </span>
   </footer>
