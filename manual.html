@@ -302,7 +302,7 @@
     <details class="gtk">
       <summary class="gtk-title">Good to know</summary>
       <ul>
-        <li>Several channels per Receive, or several Receives, need the in-app purchase on your device. Each player’s single Send is free.</li>
+        <li>Several channels per Receive, or several Receives, need LinkEffekt Unlimited on your device. Each player’s single Send is free.</li>
         <li>A player hears a delay on their own instrument? <strong>Live Mode</strong> in their Send (see <a href="#send">LinkEffekt Send</a>).</li>
       </ul>
     </details>
@@ -465,7 +465,7 @@
       <ul>
         <li>Playing pads or keys live on the other side: listen there on headphones. djay’s speakers play your part on the beat of the mix, later than your hands. In AUM, turn on <strong>Live Mode</strong> and turn off <strong>Mute Local Output</strong> in the Send, and Bar Sync in djay (see <a href="#send">LinkEffekt Send</a>).</li>
         <li>The level of the stream: <strong>Received</strong> in the Receive’s mixer. Two full mixes add up, so pull it down if the meter turns red.</li>
-        <li>Several channels at once, drums and bass: <strong>Monitor multiple channels</strong> in the Receive, with the in-app purchase.</li>
+        <li>Several channels at once, drums and bass: <strong>Monitor multiple channels</strong> in the Receive, with LinkEffekt Unlimited.</li>
         <li>Your set into Live instead: load <strong>LinkEffekt Send</strong> as djay’s master effect and record it as in <a href="#wf-record-live">Record iOS audio in Ableton Live</a>. djay takes one master effect, so on your network it’s one direction at a time.</li>
         <li>Back to back with a DJ friend somewhere else: both load <strong>LinkEffekt Receive</strong> as djay’s master effect and play over the internet, as in the tip in <a href="#wf-online">Jam online with a friend</a>. Set the same <strong>Headroom</strong> in djay on both sides, or one mix arrives louder than the other.</li>
       </ul>
@@ -481,7 +481,7 @@
       <span class="route-wire both"></span>
       <span class="route-node">Your friend</span>
     </div>
-    <p class="need">Both of you need the in-app purchase.</p>
+    <p class="need">Both of you need LinkEffekt Unlimited.</p>
     <ol class="steps">
       <li>You: in <strong>LinkEffekt Send</strong>, switch to <strong>Online</strong>, tap <strong>Create Room</strong> and send your friend the code (copy button next to it).</li>
       <li>Your friend: in <strong>LinkEffekt Receive</strong>, switch to <strong>Online</strong>, enter the code, tap <strong>Join</strong> and pick your channel.</li>
@@ -658,7 +658,7 @@
     </li>
   </ul>
   <p><strong>Orange banner “Share Audio is off”:</strong> only where it blocks something (no listener on this device, destination LAN &amp; Local). Tap it to open the settings.</p>
-  <p><strong>Without the purchase</strong>, a second Send passes audio through but doesn’t stream (“Channel Limited”, with an unlock button).</p>
+  <p><strong>Without LinkEffekt Unlimited</strong>, a second Send passes audio through but doesn’t stream (“Channel Limited”, with the button <em>Unlock Unlimited</em>).</p>
   </details>
 
 <h2 id="receive">LinkEffekt Receive: reference</h2>
@@ -686,7 +686,7 @@
   <ul>
     <li><strong>LAN &amp; Local / Online</strong>: which channels the list shows. LAN &amp; Local includes the direct paths on this device (This host / This device).</li>
     <li><strong>Now Receiving</strong>: pick one channel. <em>“(unavailable)”</em> means the sender is gone (app closed, network lost).</li>
-    <li><strong>Monitor multiple channels</strong> (in-app purchase): sums several channels into one stereo output; channels from the other tab are tagged, so nothing is summed unseen. For separate faders, use one Receive per channel.</li>
+    <li><strong>Monitor multiple channels</strong> (needs LinkEffekt Unlimited): sums several channels into one stereo output; channels from the other tab are tagged, so nothing is summed unseen. For separate faders, use one Receive per channel.</li>
     <li><strong>Status</strong>: one line under the channel menu. Problems and hints appear there in orange (see <a href="#troubleshooting">Troubleshooting</a>), e.g. <em>“Channel 1 · iPad found: tap to listen”</em>; while audio flows, dot, status and meter say it. The ms values are LinkEffekt’s own measurement; in our recordings they matched within about 1&nbsp;ms.</li>
   </ul>
   <div class="table-scroll">
@@ -732,7 +732,7 @@
   </details>
 
 <h2 id="online">Online mode</h2>
-  <p>Online mode streams over the internet, peer-to-peer and encrypted (DTLS). Both sides need the in-app purchase. Walk-through: <a href="#wf-online">Jam online with a friend</a>.</p>
+  <p>Online mode streams over the internet, peer-to-peer and encrypted (DTLS). Both sides need LinkEffekt Unlimited. Walk-through: <a href="#wf-online">Jam online with a friend</a>.</p>
   <ol>
     <li><strong>A:</strong> in <strong>LinkEffekt Send</strong>, set <strong>Destination</strong> to <strong>Online</strong>, tap <strong>Create Room</strong> and share the code (copy button next to it).</li>
     <li><strong>B:</strong> in <strong>LinkEffekt Receive</strong>, switch to <strong>Online</strong>, enter the code, tap <strong>Join</strong> and pick A’s channel.</li>
@@ -758,7 +758,7 @@
   <h3 id="midi-setup">Set up in your host</h3>
   <ol>
     <li>On every iPad or iPhone you use, load <strong>LinkEffekt MIDI</strong> as a MIDI effect in your host, for example in AUM.</li>
-    <li>On the device the controller is plugged into, turn on <strong>Share controllers with other devices</strong> in the box <em>This iPad · all apps</em> (needs the in-app purchase). The controller now plays on your other devices.</li>
+    <li>On the device the controller is plugged into, turn on <strong>Share controllers with other devices</strong> in the box <em>This iPad · all apps</em> (needs LinkEffekt Unlimited). The controller now plays on your other devices.</li>
     <li>Where you play, connect the output of LinkEffekt MIDI <strong>instead of the controller</strong>: to an instrument, or in AUM to <strong>MIDI Control</strong> for your mappings. Do the same on the device the controller is plugged into; there the output carries it right away.</li>
     <li>Map as usual. Plug the controller into another device and it stays on the same output, so your mappings keep working.</li>
   </ol>
@@ -769,7 +769,7 @@
     <li><strong>In your host:</strong> the outputs carry their number and the controller, for example <em>LinkEffekt 1 · OP-Z</em>; a free one is <em>LinkEffekt 3</em>. AUM reads these names when it loads the session. When an output gets another controller, the plugin shows <em>Host shows: …</em> under it until you load the session again; the number stays the same.</li>
     <li><strong>All eight outputs taken:</strong> a controller you plug in takes the output of one that is gone, first one that never played. A controller that is plugged in keeps its output.</li>
     <li><strong>Held notes:</strong> if your host pauses LinkEffekt MIDI or an output gets another controller, the notes it started end, so nothing keeps hanging. The same goes for host MIDI when you pick another target.</li>
-    <li><strong>Host MIDI goes to:</strong> MIDI your host sends into LinkEffekt MIDI goes to all your other devices, where it appears as an output named after this device with <em>host MIDI</em> (on the Mac: a port <em>iPad · LinkEffekt</em>); this needs the in-app purchase. Or pick one controller, for example to light its pads, also without it.</li>
+    <li><strong>Host MIDI goes to:</strong> MIDI your host sends into LinkEffekt MIDI goes to all your other devices, where it appears as an output named after this device with <em>host MIDI</em> (on the Mac: a port <em>iPad · LinkEffekt</em>); this needs LinkEffekt Unlimited. Or pick one controller, for example to light its pads, also without it.</li>
     <li><strong>This iPad · all apps:</strong> Share, the device switches, Name and Link clock apply to every app on this device, so a second host with LinkEffekt MIDI shows the same.</li>
     <li><strong>Name:</strong> what your other devices show after a controller’s name, for example <em>Launchpad X · Studio iPad</em>.</li>
     <li><strong>Wi-Fi and cable:</strong> with both, LinkEffekt takes the cable. You can plug it in or pull it out while you play; no note gets lost.</li>
@@ -780,7 +780,7 @@
   <p>On the Mac, LinkEffekt is a menu bar app for MIDI controllers (Apple Silicon, macOS 14 or later); the audio plugins run on iPad and iPhone. It is the same app as on iPad and iPhone, from the Mac App Store. Open it once and allow Local Network access.</p>
   <ul>
     <li><strong>Other devices:</strong> every controller on your iPad or iPhone becomes a MIDI port on the Mac, named the way Ableton Live names the hardware, for example <em>Launchpad X (LPX MIDI)</em>. In Live, pick it in Settings &gt; Link, Tempo &amp; MIDI like the controller itself and map as usual. Plug the controller into the Mac and Live finds the real one under the same name; LinkEffekt removes its port then. Feedback from Live goes back to the controller. The window lists each of your other devices with the way and the delay (see <a href="#midi-timing">Timing</a>), and its controllers below it.</li>
-    <li><strong>This Mac:</strong> <strong>Share controllers</strong> sends the controllers plugged into the Mac to your other devices (needs the in-app purchase); below it, a switch for each one. <strong>Name</strong> and <strong>Open at login</strong> work as on the iPad.</li>
+    <li><strong>This Mac:</strong> <strong>Share controllers</strong> sends the controllers plugged into the Mac to your other devices (needs LinkEffekt Unlimited); below it, a switch for each one, with a lock until you have it. <strong>Name</strong> and <strong>Open at login</strong> work as on the iPad.</li>
     <li><strong>Menu bar:</strong> the menu lists the same devices, controllers and switches. <em>Open LinkEffekt…</em> shows the window.</li>
   </ul>
 
@@ -865,7 +865,7 @@
   <div class="diag"><span class="msg"><em>No audio from the sender. Is Share Audio on there? Same network?</em></span> The sender isn’t streaming: Share Audio off, Send Audio off, or a different network.</div>
   <div class="diag"><span class="msg"><em>The host is not running this plugin…</em></span> The host never renders the channel. In AUM: give the channel a source, or use Receive Instrument as the source.</div>
   <div class="diag"><span class="msg"><em>Receiving, but Received is muted below</em> / <em>… Output is muted below</em> / <em>… Output Gain is at −∞</em></span> Un-mute or raise the control it names.</div>
-  <div class="diag"><span class="msg"><em>Free limit: this is a second receive instance…</em></span> A second Receive instance without the in-app purchase; unlock or remove it.</div>
+  <div class="diag"><span class="msg"><em>Free limit: this is a second receive instance…</em></span> A second Receive instance without LinkEffekt Unlimited; unlock it or remove the instance.</div>
   <div class="diag"><span class="msg"><em>No audio from the peer…</em></span> Online: the peer left the room or isn’t streaming.</div>
   <div class="diag"><span class="msg"><em>2× …: pick the right one.</em></span> After loading a project, the saved name exists more than once; pick the channel in the menu.</div>
     </div>
@@ -930,7 +930,7 @@
   <details class="ts">
     <summary>Online: stuck on “waiting for peer”</summary>
     <div class="ts-body">
-  <p>The other side hasn’t joined, or used a wrong code. Share it again; both sides need the in-app purchase.</p>
+  <p>The other side hasn’t joined, or used a wrong code. Share it again; both sides need LinkEffekt Unlimited.</p>
     </div>
   </details>
 
@@ -1009,7 +1009,7 @@
     <div class="ts-body">
   <ul>
     <li>Local Network access on the Mac: the menu shows <em>Allow Local Network…</em> when it is off. Or turn on LinkEffekt in System Settings → Privacy &amp; Security → Local Network.</li>
-    <li><strong>Share controllers with other devices</strong> on, in LinkEffekt MIDI on the iPad, with the in-app purchase.</li>
+    <li><strong>Share controllers with other devices</strong> on, in LinkEffekt MIDI on the iPad, with LinkEffekt Unlimited.</li>
     <li>Same Wi-Fi, or a USB cable between iPad and Mac.</li>
   </ul>
     </div>
@@ -1030,7 +1030,7 @@
   </details>
   <details class="ts faq">
     <summary>How many channels can I run?</summary>
-    <div class="ts-body"><p>With the in-app purchase: as many Send/Receive instances as your device handles; Online supports up to 8 streams per direction per host.</p></div>
+    <div class="ts-body"><p>With LinkEffekt Unlimited: as many Send/Receive instances as your device handles; Online supports up to 8 streams per direction per host.</p></div>
   </details>
   <details class="ts faq">
     <summary>Does audio go through your servers?</summary>
