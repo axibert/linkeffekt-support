@@ -199,7 +199,7 @@ h2 {
   margin-bottom: .9rem;
 }
 section p.lead { color: var(--muted); max-width: 52ch; }
-/* Slogan zwischen den Plugins und MIDI (2.1, Alex 04.11.2026: „als markanter slogan“): so gross wie der Kopf, damit er als Satz fuer sich steht. */
+/* Slogan zwischen den Plugins und MIDI (2.1, Alex 04.11.2026: „als markanter slogan“): gross, eine Farbe, ein Satz (Ban-Liste: kein dreiteiliger Slogan, keine farbig abgesetzte Wendung). */
 .slogan { padding-top: 5.2rem; }
 .slogan p {
   font-family: var(--display);
@@ -208,7 +208,6 @@ section p.lead { color: var(--muted); max-width: 52ch; }
   line-height: 1.08;
   letter-spacing: -0.022em;
 }
-.slogan .hl { display: block; }
 .nobreak { white-space: nowrap; }
 
 .rows { margin-top: 1.9rem; border-top: 1px solid var(--line); }
