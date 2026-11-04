@@ -758,7 +758,7 @@
   <h3 id="midi-setup">Set up in your host</h3>
   <ol>
     <li>On every iPad or iPhone you use, load <strong>LinkEffekt MIDI</strong> as a MIDI effect in your host, for example in AUM.</li>
-    <li>On the device the controller is plugged into, turn on <strong>Share controllers with other devices</strong> in the box <em>This iPad · all apps</em> (needs LinkEffekt Unlimited). The controller now plays on your other devices.</li>
+    <li>On the device the controller is plugged into, turn on <strong>Share controllers</strong> in the box <em>This iPad · all apps</em> (needs LinkEffekt Unlimited). The controller now plays on your other devices.</li>
     <li>Where you play, connect the output of LinkEffekt MIDI <strong>instead of the controller</strong>: to an instrument, or in AUM to <strong>MIDI Control</strong> for your mappings. Do the same on the device the controller is plugged into; there the output carries it right away.</li>
     <li>Map as usual. Plug the controller into another device and it stays on the same output, so your mappings keep working.</li>
   </ol>
@@ -766,12 +766,12 @@
   <summary class="gtk-title">Good to know</summary>
   <ul>
     <li><strong>Outputs:</strong> each controller keeps its own output, numbered 1 to 8, with the device it is plugged into after its name. The way to each device and the delay show at the top of the plugin (see <a href="#midi-timing">Timing</a>). A green dot shows activity. A controller without a serial number counts as a new one on another device, so it gets another output there. A controller that is gone shows <em>offline</em>; <strong>Forget</strong> frees its output.</li>
-    <li><strong>In your host:</strong> the outputs carry their number and the controller, for example <em>LinkEffekt 1 · OP-Z</em>; a free one is <em>LinkEffekt 3</em>. AUM reads these names when it loads the session. When an output gets another controller, the plugin shows <em>Host shows: …</em> under it until you load the session again; the number stays the same.</li>
+    <li><strong>In your host:</strong> the outputs carry the controller and their number, for example <em>OP-Z · LinkEffekt 1</em>; a free one is <em>LinkEffekt 3</em>. AUM reads these names when it loads the plugin. When an output gets another controller, the plugin shows <em>Host still shows … Reload the plugin to update.</em> under it until you do; the number stays the same.</li>
     <li><strong>All eight outputs taken:</strong> a controller you plug in takes the output of one that is gone, first one that never played. A controller that is plugged in keeps its output.</li>
     <li><strong>Held notes:</strong> if your host pauses LinkEffekt MIDI or an output gets another controller, the notes it started end, so nothing keeps hanging. The same goes for host MIDI when you pick another target.</li>
-    <li><strong>Host MIDI goes to:</strong> MIDI your host sends into LinkEffekt MIDI goes to all your other devices, where it appears as an output named after this device with <em>host MIDI</em> (on the Mac: a port <em>iPad · LinkEffekt</em>); this needs LinkEffekt Unlimited. Or pick one controller, for example to light its pads, also without it.</li>
-    <li><strong>This iPad · all apps:</strong> Share, the device switches, Name and Link clock apply to every app on this device, so a second host with LinkEffekt MIDI shows the same.</li>
-    <li><strong>Name:</strong> what your other devices show after a controller’s name, for example <em>Launchpad X · Studio iPad</em>.</li>
+    <li><strong>Host MIDI goes to:</strong> MIDI your host sends into LinkEffekt MIDI goes to all your other devices, where it appears as an output named after this device, for example <em>Studio iPad · LinkEffekt</em>, marked <em>from apps</em> (on the Mac: a port with that name); this needs LinkEffekt Unlimited. Or pick one controller, for example to light its pads, also without it.</li>
+    <li><strong>This iPad · all apps:</strong> Share, the device switches, the name and Link clock apply to every app on this device, so a second host with LinkEffekt MIDI shows the same.</li>
+    <li><strong>MIDI from this iPad:</strong> the name your other devices show for this device, for its own port (<em>Studio iPad · LinkEffekt</em>) and after its controllers (<em>Launchpad X · LinkEffekt · Studio iPad</em>). Tap it to change it.</li>
     <li><strong>Wi-Fi and cable:</strong> with both, LinkEffekt takes the cable. You can plug it in or pull it out while you play; no note gets lost.</li>
   </ul>
   </details>
@@ -779,8 +779,8 @@
   <h3 id="midi-mac">On the Mac</h3>
   <p>On the Mac, LinkEffekt is a menu bar app for MIDI controllers (Apple Silicon, macOS 14 or later); the audio plugins run on iPad and iPhone. It is the same app as on iPad and iPhone, from the Mac App Store. Open it once and allow Local Network access.</p>
   <ul>
-    <li><strong>Other devices:</strong> every controller on your iPad or iPhone becomes a MIDI port on the Mac, named after the hardware with <em>· LinkEffekt</em>, for example <em>Launchpad X (LPX MIDI) · LinkEffekt</em>. In Live, turn on Track or Remote for it in Settings &gt; Link, Tempo &amp; MIDI and map as usual; mappings follow channel and controller number, so they keep working when the controller moves to the Mac. Plug the controller into the Mac and LinkEffekt removes its port. Feedback from Live goes back to the controller. The window lists each of your other devices with the way and the delay (see <a href="#midi-timing">Timing</a>), and its controllers below it.</li>
-    <li><strong>This Mac:</strong> <strong>Share controllers</strong> sends the controllers plugged into the Mac to your other devices (needs LinkEffekt Unlimited); below it, a switch for each one, with a lock until you have it. <strong>Name</strong> and <strong>Open at login</strong> work as on the iPad.</li>
+    <li><strong>From other devices:</strong> every controller on your iPad or iPhone becomes a MIDI port on the Mac, named after the hardware with <em>· LinkEffekt</em>, for example <em>Launchpad X (LPX MIDI) · LinkEffekt</em>. In Live, turn on Track or Remote for it in Settings &gt; Link, Tempo &amp; MIDI and map as usual; mappings follow channel and controller number, so they keep working when the controller moves to the Mac. Plug the controller into the Mac and LinkEffekt removes its port. Feedback from Live goes back to the controller. The window lists each of your other devices with the way and the delay (see <a href="#midi-timing">Timing</a>), and its controllers below it.</li>
+    <li><strong>This Mac:</strong> <strong>Share controllers</strong> sends the controllers plugged into the Mac to your other devices (needs LinkEffekt Unlimited); below it, a switch for each one, with a lock until you have it. <strong>MIDI from this Mac</strong> works as on the iPad. At the bottom, <strong>Open at login</strong> starts LinkEffekt with the Mac.</li>
     <li><strong>Menu bar:</strong> the menu lists the same devices, controllers and switches. <em>Open LinkEffekt…</em> shows the window.</li>
   </ul>
 
@@ -792,10 +792,10 @@
   <ul>
     <li>Turn it off for gear that shouldn’t get it. The clock follows Link’s tempo all the time, also while stopped.</li>
     <li>Gear that sends its own clock shows <em>Sends its own clock</em> and gets none, so it isn’t clocked twice. Once it stops sending clock, LinkEffekt clocks it again after a moment. To give it Link clock anyway, turn its switch on.</li>
-    <li><strong>Start and stop</strong> follow Link when Start Stop Sync is on in LinkEffekt’s Link settings (gear) <em>and</em> in the app you press play in. The gear starts on the next bar. Until then, the box says <em>Start and stop follow Link once Start Stop Sync is on…</em>; tap it for the settings.</li>
-    <li><strong>Offset</strong> moves the clock up to 100&nbsp;ms earlier or later, to make up for the gear’s own delay. Tap the gear’s name and set it by ear against your metronome: the slider for the rough value, + and − for single milliseconds. A value other than 0 shows next to the name.</li>
+    <li><strong>Start and stop</strong> follow Link when Start Stop Sync is on in LinkEffekt’s Link settings (gear) <em>and</em> in the app you press play in. The gear starts on the next bar. Until then, the box says <em>Enable Start Stop Sync here in ⚙ and in the host where you press play</em>; tap it for the settings.</li>
+    <li><strong>Offset</strong> moves the clock up to 100&nbsp;ms earlier or later, to make up for the gear’s own delay. Tap <strong>Offset</strong> next to the switch and set it by ear against your metronome: the slider for the rough value, + and − for single milliseconds. Once set, it shows the value, for example <em>Offset +3&nbsp;ms</em>.</li>
     <li>The clock goes only to gear on the device where you turn it on. For gear on your Mac, turn it on in the Mac window.</li>
-    <li><strong>One clock only:</strong> while gear gets Link clock, LinkEffekt holds back the MIDI clock an app sends to it through LinkEffekt, for example Live’s MIDI Sync on its port. To clock it from the app instead, turn its Link clock off. Clock an app sends to the gear directly, for example from AUM’s matrix to the gear itself, makes it run twice as fast: turn off one of the two.</li>
+    <li><strong>One clock only:</strong> while gear gets Link clock, LinkEffekt holds back the MIDI clock an app sends to it through LinkEffekt, for example Live’s MIDI Sync on its port. To clock it from the app instead, turn its Link clock off. Clock an app sends to the gear directly, for example from AUM’s matrix to the gear itself, or Live’s MIDI Sync on the port of gear plugged into the Mac, makes it run twice as fast: turn off one of the two.</li>
   </ul>
 
   <h3 id="midi-free">Free and with the purchase</h3>
@@ -1009,7 +1009,7 @@
     <div class="ts-body">
   <ul>
     <li>Local Network access on the Mac: the menu shows <em>Allow Local Network…</em> when it is off. Or turn on LinkEffekt in System Settings → Privacy &amp; Security → Local Network.</li>
-    <li><strong>Share controllers with other devices</strong> on, in LinkEffekt MIDI on the iPad, with LinkEffekt Unlimited.</li>
+    <li><strong>Share controllers</strong> on, in LinkEffekt MIDI on the iPad, with LinkEffekt Unlimited.</li>
     <li>Same Wi-Fi, or a USB cable between iPad and Mac.</li>
   </ul>
     </div>
