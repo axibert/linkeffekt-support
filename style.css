@@ -581,6 +581,8 @@ html[data-theme="light"] .theme-toggle .ico-moon { display: block; }
 .prose .sync-card p { margin: 0; font-size: .95rem; }
 .prose .sync-card .sync-kicker { margin: 0 0 .35rem; font-weight: 650; color: var(--text); }
 .prose .quick .quick-next { margin: 1.2rem 0 0; font-size: .95rem; color: var(--muted); }
+/* second quick start (MIDI) under the audio one, same weight */
+.prose .quick h2.quick-second { margin-top: 2.4rem; }
 
 /* ---------- manual: folded parts ----------
    Tips, the long reference text, troubleshooting and FAQ open on demand.

@@ -159,6 +159,12 @@
         <p><strong>Turn on Bar Sync</strong> in the Receive: one bar late, on your metronome.</p>
       </div>
     </div>
+    <h2 class="quick-second" id="start-midi">Play a controller on every device in three steps</h2>
+    <ol class="steps quick-steps">
+      <li><strong>Load LinkEffekt MIDI</strong> as a MIDI effect in your host on each iPad or iPhone you play on. On a Mac, open LinkEffekt.</li>
+      <li><strong>Turn on Share controllers</strong> where the controller is plugged in, to play it on your other devices (needs LinkEffekt Unlimited).</li>
+      <li><strong>Pick your controller with ·&nbsp;LinkEffekt</strong> where you play, instead of the controller itself, and map as usual. Your mappings then work wherever you plug it in. More in <a href="#midi">MIDI controllers</a>.</li>
+    </ol>
     <p class="quick-next">Next: <a href="#workflows">find your setup in Workflows</a>, and what to set in your app in <a href="#hosts">Hosts</a>. Something not working? <a href="#troubleshooting">Troubleshooting</a>.</p>
   </section>
 
@@ -191,7 +197,7 @@
   </div>
 
   <p><strong>What can you do with it?</strong> Jam across devices, route audio between apps, record iOS audio in Ableton Live, play Live’s tracks on your iPad, record Ableton Move and Note, bring a live act into your DJ set, jam online, monitor a band, play a controller on every device. <a href="#workflows">Workflows</a> shows each one step by step. On the Mac, LinkEffekt shares MIDI controllers from the menu bar (<a href="#midi-mac">On the Mac</a>).</p>
-  <p><strong>Free and paid:</strong> one Send and one Receive are free, in full quality, on your network and on one device, and each device sends Link clock to one piece of gear. The one-time in-app purchase <strong>LinkEffekt Unlimited</strong> adds unlimited instances, several channels per Receive, <strong>Online</strong> mode, MIDI between your devices and Link clock for all your gear. Buy or restore it in the app or in any plugin; it unlocks every plugin on the device.</p>
+  <p><strong>Free and paid:</strong> one Send and one Receive are free, in full quality, on your network and on one device, each device sends Link clock to one piece of gear, and on the Mac one controller gets its own port. The one-time in-app purchase <strong>LinkEffekt Unlimited</strong> adds unlimited instances, several channels per Receive, <strong>Online</strong> mode, MIDI between your devices, Link clock for all your gear and unlimited virtual MIDI ports on the Mac. Buy or restore it in the app or in any plugin; it unlocks every plugin on the device.</p>
 
   <h2 id="setup">Set up once</h2>
   <p>A few switches, each set once. They stay set, so every plugin you add later works right away. Between devices you need all of them. On one device, app to app or track to track, LinkEffekt takes a direct path, and only Ableton Link in the host apps matters: it puts them on the same beat (<a href="#same-device">Same device or same host</a>).</p>
@@ -780,8 +786,10 @@
   <h3 id="midi-mac">On the Mac</h3>
   <p>On the Mac, LinkEffekt is a menu bar app for MIDI controllers (Apple Silicon, macOS 14 or later); the audio plugins run on iPad and iPhone. It is the same app as on iPad and iPhone, from the Mac App Store. Open it once and allow Local Network access.</p>
   <ul>
-    <li><strong>From other devices:</strong> every controller on your iPad or iPhone becomes a MIDI port on the Mac, named after the hardware with <em>· LinkEffekt</em>, for example <em>Launchpad X (LPX MIDI) · LinkEffekt</em>. In Live, turn on Track or Remote for it in Settings &gt; Link, Tempo &amp; MIDI and map as usual; mappings follow channel and controller number, so they keep working when the controller moves to the Mac. Plug the controller into the Mac and LinkEffekt removes its port. Feedback from Live goes back to the controller. The window lists each of your other devices with the way and the delay (see <a href="#midi-timing">Timing</a>), and its controllers below it.</li>
-    <li><strong>This Mac:</strong> <strong>Share controllers</strong> sends the controllers plugged into the Mac to your other devices (needs LinkEffekt Unlimited); below it, a switch for each one, with a lock until you have it. <strong>MIDI from this Mac</strong> works as on the iPad. At the bottom, <strong>Open at login</strong> starts LinkEffekt with the Mac.</li>
+    <li><strong>A port for every controller:</strong> each controller becomes a MIDI port on the Mac, named after the hardware with <em>· LinkEffekt</em>, for example <em>Launchpad X (LPX MIDI) · LinkEffekt</em>, whether it is plugged into the Mac, your iPad or your iPhone. Pick that port in your host instead of the controller itself and map as usual: it stays the same port when the controller moves between iPad and Mac, so your mappings keep working. Feedback from the host goes back to the controller, and notes from Live reach a controller on the Mac on Live’s timing. The window shows each port in small type next to its controller under <em>This Mac</em>.</li>
+    <li><strong>In Ableton Live:</strong> turn on Track or Remote for the <em>· LinkEffekt</em> port in Settings &gt; Link, Tempo &amp; MIDI. Live lists LinkEffekt’s ports after the hardware, and it also turns on Track for the controller’s own port: turn Track and Sync off there, or notes arrive twice and gear with Link clock runs twice as fast. The window says so once for each controller, until you click <strong>OK</strong>.</li>
+    <li><strong>From other devices:</strong> the window lists each of your other devices with the way and the delay (see <a href="#midi-timing">Timing</a>), and its controllers below it.</li>
+    <li><strong>This Mac:</strong> <strong>Share controllers</strong> sends the controllers plugged into the Mac to your other devices (needs LinkEffekt Unlimited); below it, a switch for each one, with a lock until you have it. <strong>MIDI from this Mac</strong> works as on the iPad. At the bottom, <strong>Open at login</strong> starts LinkEffekt with the Mac, so the ports are there when your host opens.</li>
     <li><strong>Menu bar:</strong> the menu lists the same devices, controllers and switches. <em>Open LinkEffekt…</em> shows the window.</li>
   </ul>
 
@@ -801,7 +809,7 @@
   </ul>
 
   <h3 id="midi-free">Free and with the purchase</h3>
-  <p>Free on every device: the controllers plugged into it, on the outputs of LinkEffekt MIDI; everything your other devices share with it; MIDI back to their controllers, so pads and displays light up; and Link clock for <strong>one</strong> piece of gear. Sharing controllers and host MIDI with your other devices needs the in-app purchase <strong>LinkEffekt Unlimited</strong> on the device the MIDI comes from. It also sends Link clock to all your gear, on every device with the same Apple Account. Until you have it, the top of LinkEffekt MIDI and of the Mac window says what it adds.</p>
+  <p>Free on every device: the controllers plugged into it, on the outputs of LinkEffekt MIDI; everything your other devices share with it; MIDI back to their controllers, so pads and displays light up; and Link clock for <strong>one</strong> piece of gear. Sharing controllers and host MIDI with your other devices needs the in-app purchase <strong>LinkEffekt Unlimited</strong> on the device the MIDI comes from. It also sends Link clock to all your gear, on every device with the same Apple Account, and gives every controller its port on the Mac; without it, the top controller in the list of <em>This Mac</em> gets one. Until you have it, the top of LinkEffekt MIDI and of the Mac window says what it adds.</p>
   <p>Without the purchase, the gear that gets Link clock keeps it when you plug in more, and the others show a lock under <em>Send Link clock</em>. To clock a different one, turn the clock off at the one that has it. Gear that sends its own clock hands the free clock on and doesn’t take it back by itself; turn the clock off at the new one to return it.</p>
 
 <h2 id="beatsync">Beat Sync: how it works and what to expect</h2>
