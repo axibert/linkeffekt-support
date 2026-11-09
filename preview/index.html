@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LinkEffekt: stream audio and MIDI between your music apps</title>
+<meta name="description" content="LinkEffekt streams audio between iOS music apps and to Ableton Live: over your local network via Ableton Link Audio, or over the internet, locked to the beat. Your MIDI controllers play on every device. Four AUv3 plugins for AUM, Logic Pro, Cubasis and more, and a Mac app for MIDI.">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="preload" href="fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="home.css?v=17">
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+
+<header class="bar dark">
+  <a class="logo-link" href="./" aria-label="LinkEffekt home"><img src="logo-dark.png" width="759" height="134" alt="LinkEffekt"></a>
+  <nav>
+    <a href="../manual.html">Manual</a>
+    <a href="mailto:hello@linkeffekt.com">Support</a>
+  </nav>
+</header>
+
+<main>
+
+<section class="stage dark" aria-labelledby="title">
+  <h1 id="title">Link Audio and MIDI<br> everywhere.</h1>
+  <div class="stage-side">
+    <p class="sub">LinkEffekt streams audio and MIDI between your music apps and devices, from inside the host you already use.</p>
+    <div class="stage-action">
+      <img class="icon" src="icon-180.png" width="180" height="180" alt="">
+      <a class="badge" href="https://apps.apple.com/app/linkeffekt/id6759493415"><img src="img/home/app-store-badge-white.svg" width="150" height="50" alt="Download on the App Store"></a>
+    </div>
+    <p class="fine">Free to start on iPhone and iPad. <a href="../manual.html">Read the manual</a></p>
+  </div>
+  <div class="devices">
+    <img class="d-ipad" src="img/home/ipad-receive.webp" width="1400" height="1015" alt="iPad running AUM with LinkEffekt Receive: Channel 1 · iPhone, in sync.">
+    <img class="d-iphone" src="img/home/iphone-send.webp" width="520" height="1063" alt="iPhone running AUM with LinkEffekt Send: Channel 1 · iPhone, streaming to a listener.">
+  </div>
+</section>
+
+<section class="routes" aria-labelledby="routes-title">
+  <h2 id="routes-title">The routing tool for your whole setup.</h2>
+  <div class="matrix" id="matrix" aria-hidden="true"></div>
+  <div class="patch">
+    <div class="strips" role="group" aria-label="Pick a setup">
+      <button type="button" class="strip" data-route="jam" aria-pressed="true">iPhone and iPad</button>
+      <button type="button" class="strip" data-route="live" aria-pressed="false">iPad into Live</button>
+      <button type="button" class="strip" data-route="back" aria-pressed="false">Live into iPad</button>
+      <button type="button" class="strip" data-route="apps" aria-pressed="false">App to app</button>
+      <button type="button" class="strip" data-route="online" aria-pressed="false">Online</button>
+      <button type="button" class="strip" data-route="midi" aria-pressed="false">Controllers</button>
+      <button type="button" class="strip" data-route="clock" aria-pressed="false">Clock for gear</button>
+    </div>
+    <div class="notes" aria-live="polite">
+      <p data-route="jam">Load a Send on one device and a Receive on the other. In AUM and Logic Pro both directions play right on the beat, over Wi-Fi or a cable, with nothing to set up.</p>
+      <p data-route="live">Each iPad track shows up in Ableton Live 12.4 or later as its own Link Audio channel, with no audio interface in between.</p>
+      <p data-route="back">Live’s tracks play in your iPad host. Bar Sync locks them to your bar.</p>
+      <p data-route="apps">From one app into another on the same device, on the beat with almost no delay. No Wi-Fi and no Link setup.</p>
+      <p data-route="online">Create a room, share the code and jam over the internet. Bar Sync delays by whole bars, so your partner’s “1” lands on your “1”.</p>
+      <p data-route="midi">Plug a controller into your iPad, iPhone or Mac and play it on all of them. Each controller gets its own port, so you load your template and it plays.</p>
+      <p data-route="clock">Gear plugged into your iPad, iPhone or Mac gets MIDI clock from Ableton Link, with its own offset for each piece.</p>
+    </div>
+  </div>
+</section>
+
+<section class="beat dark" aria-labelledby="beat-title">
+  <h2 id="beat-title">On the beat, or locked to the bar.</h2>
+  <div class="beat-pair">
+    <div>
+      <p class="hosts">AUM<br>Logic Pro</p>
+      <div class="seq seq-same" role="img" aria-label="Two bars of four beats. The app that sends and the app that receives hit the same beat.">
+        <span class="trk">Sends</span><div class="lane" data-lane><i class="pad hit">1</i><i class="pad">2</i><i class="pad">3</i><i class="pad">4</i><i class="pad hit">1</i><i class="pad">2</i><i class="pad">3</i><i class="pad">4</i></div>
+        <div class="tie"><span>on the same beat</span></div>
+        <span class="trk">Receives</span><div class="lane" data-lane><i class="pad hit">1</i><i class="pad">2</i><i class="pad">3</i><i class="pad">4</i><i class="pad hit">1</i><i class="pad">2</i><i class="pad">3</i><i class="pad">4</i></div>
+      </div>
+      <p class="say">The audio plays right on the beat of the receiving app, in both directions of a jam.</p>
+    </div>
+    <div>
+      <p class="hosts hosts-small">Cubasis, Drambo, Loopy Pro, Koala, GarageBand, djay</p>
+      <div class="seq seq-bar" role="img" aria-label="Two bars of four beats. With Bar Sync the downbeat that is sent arrives exactly one bar later, on the downbeat of the app that receives.">
+        <span class="trk">Sends</span><div class="lane" data-lane><i class="pad hit">1</i><i class="pad">2</i><i class="pad">3</i><i class="pad">4</i><i class="pad">1</i><i class="pad">2</i><i class="pad">3</i><i class="pad">4</i></div>
+        <div class="tie"><span>one bar later, on the 1</span></div>
+        <span class="trk">Receives</span><div class="lane" data-lane><i class="pad">1</i><i class="pad">2</i><i class="pad">3</i><i class="pad">4</i><i class="pad hit">1</i><i class="pad">2</i><i class="pad">3</i><i class="pad">4</i></div>
+      </div>
+      <p class="say">In every other host, Bar Sync locks the incoming downbeat to your bar. One bar later and rock-solid, even over the internet.</p>
+    </div>
+  </div>
+</section>
+
+<section class="host" aria-labelledby="host-title">
+  <h2 id="host-title">It runs inside the host you already use.</h2>
+  <p class="lead">Load LinkEffekt in AUM, Logic Pro, Cubasis, GarageBand, Drambo, Loopy Pro, djay or any other AUv3 host. No standalone routing app.</p>
+  <div class="host-shots">
+    <img src="img/home/plugin-send.webp" width="800" height="833" alt="LinkEffekt Send in AUM: Channel 1 · iPhone, its status line reads Streaming to a listener.">
+    <img src="img/home/plugin-receive.webp" width="800" height="901" alt="LinkEffekt Receive in AUM, playing Channel 1 · iPad, status In sync, Buffer 100 ms.">
+  </div>
+  <dl>
+    <dt>LinkEffekt Send</dt>
+    <dd>Insert it on a track to stream that track. Each instance is its own named channel.</dd>
+    <dt>LinkEffekt Receive</dt>
+    <dd>Pick a channel and hear it, in every host.</dd>
+    <dt>LinkEffekt Receive Instrument</dt>
+    <dd>The same receiver as a sound source, for AUM source slots and instrument tracks.</dd>
+    <dt>LinkEffekt MIDI</dt>
+    <dd>Brings the controllers of all your devices into your host, each on its own output.</dd>
+  </dl>
+</section>
+
+<section class="midi dark" id="midi" aria-labelledby="midi-title">
+  <h2 id="midi-title">New in 2.1: your controllers on every device.</h2>
+  <img class="midi-shot" src="img/home/mac-midi.webp" width="1056" height="868" loading="lazy" alt="LinkEffekt MIDI on the Mac: controllers from an iPad Pro and an iPhone listed as ports, Share controllers switched on for a Faderfox UC4.">
+  <div class="midi-text">
+    <p class="lead">Plug a MIDI controller into your iPad, iPhone or Mac and play it on all of them. If you know the iConnectivity Audio4c, it works much the same way.</p>
+    <p>On the Mac, LinkEffekt lives in the menu bar and gives every app one port per controller, like <em>OP-Z · LinkEffekt</em>. Move the controller to another device and your mappings stay.</p>
+    <p>Gear without Ableton Link gets MIDI clock from Link, with its own offset for each piece.</p>
+  </div>
+</section>
+
+<section class="price" aria-labelledby="price-title">
+  <h2 id="price-title">Free to start, one purchase for everything.</h2>
+  <div class="price-pair">
+    <div>
+      <h3>Free</h3>
+      <p>One Send and one Receive on your network, and Link to MIDI clock for one piece of gear. No account, no ads.</p>
+    </div>
+    <div>
+      <h3>LinkEffekt Unlimited</h3>
+      <p>A one-time purchase. Unlimited instances, several channels per Receive, Online mode, MIDI between your devices, clock for all your gear and unlimited virtual MIDI ports on the Mac.</p>
+    </div>
+  </div>
+  <p class="needs">iOS 15 or later on iPhone and iPad, in any AUv3 host. Ableton Live 12.4 or later on the same network sends and receives. MIDI on a Mac needs Apple Silicon and macOS 14 or later.</p>
+</section>
+
+<section class="close dark" aria-labelledby="close-title">
+  <h2 id="close-title">Try LinkEffekt for free.</h2>
+  <div class="stage-action">
+    <img class="icon" src="icon-180.png" width="180" height="180" alt="">
+    <a class="badge" href="https://apps.apple.com/app/linkeffekt/id6759493415"><img src="img/home/app-store-badge-white.svg" width="150" height="50" alt="Download on the App Store"></a>
+  </div>
+  <p class="fine">On iPhone and iPad, in the host you already use. <a href="../manual.html">Read the manual</a></p>
+</section>
+
+</main>
+
+<footer class="foot dark">
+  <span>© 2026 Alexander Joannou</span>
+  <span><a href="../manual.html">Manual</a><a href="../privacy.html">Privacy</a><a href="mailto:hello@linkeffekt.com">hello@linkeffekt.com</a></span>
+</footer>
+
+<script src="home.js?v=9"></script>
+</body>
+</html>
