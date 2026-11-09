@@ -76,11 +76,40 @@
 
   if (still) return;
 
+  // The level meters in the two hero screenshots move together: what the iPhone
+  // sends is what the iPad plays. Drawn over the real screenshots, which stay
+  // untouched for anyone who prefers no motion.
+  const meters = [];
+  (function () {
+    const stage = document.querySelector(".devices");
+    if (!stage) return;
+    const vu = (cls, host) => {
+      const m = make("i", "vu " + cls);
+      m.append(make("b"), make("b"));
+      host.appendChild(m);
+      meters.push(...m.children);
+    };
+    const phone = stage.querySelector(".d-iphone");
+    const wrap = make("span", "d-iphone");
+    phone.replaceWith(wrap);
+    phone.className = "";
+    wrap.appendChild(phone);
+    vu("vu-iphone", wrap);
+    vu("vu-ipad", stage);
+  })();
+
+  function level(beat) {
+    const p = beat % 1, off = (beat + 0.5) % 1;
+    return 0.2 + 0.62 * Math.max(Math.exp(-4.2 * p), 0.5 * Math.exp(-7 * off));
+  }
+
   // The pins and the beat lanes further down tap the same clock.
   const lanes = [...document.querySelectorAll("[data-lane]")].map((lane) => [...lane.querySelectorAll(".pad")]);
   let lastBeat = -1;
 
   function tick(now) {
+    const l = level(now / BEAT_MS);
+    meters.forEach((m, i) => m.style.setProperty("--l", (i % 2 ? l * 0.96 : l).toFixed(3)));
     const whole = Math.floor(now / BEAT_MS);
     if (whole !== lastBeat) {
       lastBeat = whole;
