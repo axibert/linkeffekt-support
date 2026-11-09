@@ -50,7 +50,6 @@
       <a href="#workflows">Workflows</a>
       <div class="sub" data-for="workflows">
         <a href="#wf-jam">Jam with two devices</a>
-        <a href="#wf-band">Monitor a band</a>
         <a href="#wf-apps">Between apps on one device</a>
         <a href="#wf-record-live">Record iOS audio in Live</a>
         <a href="#wf-live-tracks">Play Live’s tracks on iOS</a>
@@ -181,7 +180,7 @@
     </table>
   </div>
 
-  <p><strong>What can you do with it?</strong> Jam across devices, route audio between apps, record iOS audio in Ableton Live, play Live’s tracks on your iPad, record Ableton Move and Note, bring a live act into your DJ set, jam online, monitor a band, play a controller on every device. <a href="#workflows">Workflows</a> shows each one step by step. On the Mac, LinkEffekt shares MIDI controllers from the menu bar (<a href="#midi-mac">On the Mac</a>).</p>
+  <p><strong>What can you do with it?</strong> Jam across devices, route audio between apps, record iOS audio in Ableton Live, play Live’s tracks on your iPad, record Ableton Move and Note, bring a live act into your DJ set, jam online, play a controller on every device. <a href="#workflows">Workflows</a> shows each one step by step. On the Mac, LinkEffekt shares MIDI controllers from the menu bar (<a href="#midi-mac">On the Mac</a>).</p>
   <p><strong>Free and paid:</strong> one Send and one Receive are free, in full quality, on your network and on one device, each device sends Link to MIDI clock to one piece of gear, and on the Mac one controller gets its own port. The one-time in-app purchase <strong>LinkEffekt Unlimited</strong> adds unlimited instances, several channels per Receive, <strong>Online</strong> mode, MIDI between your devices, Link to MIDI clock for all your gear and unlimited virtual MIDI ports on the Mac. Buy or restore it in the app or in any plugin; it unlocks every plugin on the device.</p>
 
   <h2 id="setup">Set up once</h2>
@@ -213,7 +212,6 @@
   <div class="wf-index">
     <p class="wf-group">In one room</p>
     <a class="wf-tile" href="#wf-jam"><span class="wf-route">iPhone ⇄ iPad</span><span class="wf-name">Jam with two devices</span></a>
-    <a class="wf-tile" href="#wf-band"><span class="wf-route">Players → one mix</span><span class="wf-name">Monitor a band on one device</span></a>
     <p class="wf-group">On one device</p>
     <a class="wf-tile" href="#wf-apps"><span class="wf-route">AUM → Cubasis</span><span class="wf-name">Route audio between apps on one device</span></a>
     <p class="wf-group">With Ableton Live</p>
@@ -265,39 +263,6 @@
         <li>Logic Pro plays ahead too. Sending from any other app (Cubasis, Drambo, Loopy Pro, Koala)? The other side plays behind the beat: turn on <strong>Bar Sync</strong> there (one bar late). See <a href="#hosts">Hosts</a>.</li>
         <li>A cable instead of Wi-Fi: no AirDrop dropouts and a much smaller buffer (<a href="#cable">Plug in a cable</a>).</li>
         <li><strong>Tip: two audio interfaces in one session.</strong> An iPad or iPhone uses one USB audio interface at a time, but each device can have its own. Plug the second interface into the iPhone, insert <strong>LinkEffekt Send</strong> on its inputs in AUM and pick them in a <strong>LinkEffekt Receive</strong> on the iPad. Both interfaces now play in one session, locked to Ableton Link. The iPhone’s inputs arrive later than the iPad’s own (the status says how far), so this isn’t for hearing yourself while you play.</li>
-      </ul>
-    </details>
-  </article>
-
-  <article class="wf" id="wf-band">
-    <h3>Monitor a band on one device</h3>
-    <p class="wf-lead">Several players, each with a Send; you hear them all on one device: at rehearsal, at the desk, in your in-ears.</p>
-    <div class="route" role="img" aria-label="Route: every player’s Send to one Receive, over Wi-Fi">
-      <span class="route-label">Wi-Fi</span>
-      <span class="route-node">Each player · Send</span>
-      <span class="route-wire"></span>
-      <span class="route-node">Your device · Receive</span>
-    </div>
-    <ol>
-      <li>Each player inserts <strong>LinkEffekt Send</strong> on their track and names it (e.g. <em>Vocals</em>).</li>
-      <li>On your device, load <strong>LinkEffekt Receive</strong>, turn on <strong>Monitor multiple channels</strong> and tick every channel (one stereo mix). For separate faders, use one Receive per channel.</li>
-    </ol>
-    <figure class="shot">
-      <div class="shot-imgs">
-        <img src="img/manual/channel-menu.png" width="400" height="395" loading="lazy" alt="The channel menu in LinkEffekt Receive: None, Channel 1 · iPad · This host, and the selected Channel 1 · iPhone">
-      </div>
-      <figcaption>
-        <ul class="callouts">
-          <li><span class="cn">1</span><span><em>This host</em>: a Send in this same app.</span></li>
-          <li><span class="cn">2</span>The channel you are listening to, with the sender’s device in its name.</li>
-        </ul>
-      </figcaption>
-    </figure>
-    <details class="gtk">
-      <summary class="gtk-title">Good to know</summary>
-      <ul>
-        <li>Several channels per Receive, or several Receives, need LinkEffekt Unlimited on your device. Each player’s single Send is free.</li>
-        <li>A player hears a delay on their own instrument? <strong>Live Mode</strong> in their Send (see <a href="#send">LinkEffekt Send</a>).</li>
       </ul>
     </details>
   </article>
