@@ -765,3 +765,5 @@ html[data-theme="light"] .site-head img.logo { filter: brightness(0); }
 @media (prefers-color-scheme: light) {
   html:not([data-theme="dark"]) .site-head img.logo { filter: brightness(0); }
 }
+.site-head img.logo { height: 26px; }
+@media (max-width: 640px) { .site-head img.logo { height: 22px; } }
