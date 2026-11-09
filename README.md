@@ -2,7 +2,7 @@
 
 LinkEffekt streams audio between iOS/Mac music apps: over the local network via Ableton Link Audio, or over the internet (Online mode), locked to the beat. Three AUv3 plugins: **Send**, **Receive**, **Receive Instrument**.
 
-**Website & Manual:** https://axibert.github.io/linkeffekt-support/
+**Website & Manual:** https://linkeffekt.com/
 
 **App Store:** https://apps.apple.com/app/linkeffekt/id6759493415
 
@@ -20,7 +20,7 @@ Please include your host app, your device, and what the diagnostics line in the 
 
 ## Privacy
 
-See the [Privacy Policy](https://axibert.github.io/linkeffekt-support/privacy.html) (source: [PRIVACY.md](PRIVACY.md)).
+See the [Privacy Policy](https://linkeffekt.com/privacy.html) (source: [PRIVACY.md](PRIVACY.md)).
 
 ## Stylesheet and script version
 
