@@ -221,14 +221,24 @@ button.pin:hover i { transform: scale(.34); }
 .midi h2 { grid-column: 1 / -1; }
 .midi-shot { border-radius: 12px; width: 100%; max-width: 620px; }
 .midi-text { max-width: 42rem; }
-.midi-text p + p { margin-top: 1.25rem; }
+.midi-text .lead { font-size: clamp(1.5rem, 1.1rem + 1.7vw, 2.4rem); line-height: 1.2; font-weight: 600; letter-spacing: -.015em; }
+.midi-text p + p { margin-top: 1.25rem; font-size: var(--t-lead); line-height: 1.32; font-weight: 500; }
+.midi-text .lead + p { margin-top: 2rem; }
+.midi { align-items: center; }
 .midi em { font-style: normal; font-weight: 700; }
 
-/* ---------- price ---------- */
+/* ---------- price: free on the page, Unlimited as the black field ---------- */
 
-.price-pair { display: grid; grid-template-columns: 1fr 1.4fr; gap: 2.5rem clamp(2rem, 6vw, 6rem); margin-top: var(--gap-head); }
-.price-pair p { margin-top: 1rem; max-width: 40ch; font-size: var(--t-lead); line-height: 1.32; font-weight: 500; }
-.needs { margin-top: var(--gap-head); max-width: 62ch; }
+.price { padding-bottom: 0; }
+.price-pair { display: grid; grid-template-columns: 1fr 1.5fr; gap: 0 clamp(2rem, 6vw, 6rem); margin-top: var(--gap-head); align-items: stretch; }
+.tier { padding-block: clamp(2rem, 4vw, 3.5rem); }
+.tier h3 { font-size: clamp(2rem, 1.2rem + 3vw, 3.6rem); }
+.tier ul { list-style: none; margin-top: clamp(1.5rem, 3vw, 2.5rem); }
+.tier li { font-size: var(--t-lead); font-weight: 600; line-height: 1.25; letter-spacing: -.01em; padding-block: .55em; border-top: 2px solid var(--ink); max-width: 26ch; }
+.tier-full { padding-inline: clamp(1.5rem, 4vw, 4rem) var(--edge); margin-right: calc(var(--edge) * -1); }
+.tier-full li { max-width: none; border-top-color: var(--dim); }
+.once { margin-top: .6rem; font-size: var(--t-lead); font-weight: 500; }
+.needs { padding-block: var(--gap-head) var(--gap-section); max-width: 62ch; }
 
 /* ---------- close ---------- */
 
@@ -252,6 +262,7 @@ button.pin:hover i { transform: scale(.34); }
   h2 { font-size: min(8.6vw, 3rem); }
   .close h2 { font-size: min(11vw, 4rem); }
   .host, .beat-pair, .price-pair, .midi { grid-template-columns: 1fr; }
+  .tier-full { margin-inline: calc(var(--edge) * -1); padding-inline: var(--edge); }
   .host-shots { grid-column: 1; grid-row: auto; }
   .host-shots img:nth-child(2) { align-self: flex-start; }
   .host dl { grid-template-columns: 1fr; gap: 1.5rem; }
