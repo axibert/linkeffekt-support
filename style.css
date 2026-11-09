@@ -723,3 +723,45 @@ html[data-theme="light"] .theme-toggle .ico-moon { display: block; }
 .tl .tl-ghost { fill: none; stroke: var(--faint); stroke-width: 1.2; stroke-dasharray: 3 2; }
 .tl .tl-arrow { fill: none; stroke: var(--muted); stroke-width: 1.3; }
 .tl .tl-head { fill: var(--muted); }
+
+/* ---------- same world as the homepage (09.11.2026) ----------
+   Pure black and white, Archivo for everything, self-hosted. Green and orange
+   stay what they are in the plugin: status, nothing else. */
+
+@font-face {
+  font-family: "Archivo";
+  src: url("fonts/archivo-var.woff2") format("woff2");
+  font-weight: 400 800;
+  font-stretch: 62% 125%;
+  font-display: swap;
+}
+
+:root {
+  --sans: "Archivo", Helvetica, sans-serif;
+  --bg: #000; --panel: #141414; --panel-2: #1c1c1c; --line: #2c2c2c;
+  --text: #fff; --prose: #e6e6e6; --muted: #a6a6a6; --faint: #8c8c8c;
+  --bar-bg: rgba(0, 0, 0, .94);
+}
+html[data-theme="light"] {
+  --bg: #fff; --panel: #f3f3f3; --panel-2: #e9e9e9; --line: #d6d6d6;
+  --text: #000; --prose: #1a1a1a; --muted: #4f4f4f; --faint: #6b6b6b;
+  --bar-bg: rgba(255, 255, 255, .94);
+}
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) {
+    --bg: #fff; --panel: #f3f3f3; --panel-2: #e9e9e9; --line: #d6d6d6;
+    --text: #000; --prose: #1a1a1a; --muted: #4f4f4f; --faint: #6b6b6b;
+    --bar-bg: rgba(255, 255, 255, .94);
+  }
+}
+body { font-weight: 450; }
+h1, h2 { letter-spacing: -.03em; }
+.hl { color: var(--text); }
+.site-nav { font-weight: 600; }
+.site-nav a { color: var(--text); text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .22em; }
+::selection { background: var(--text); color: var(--bg); }
+.site-head img.logo { filter: brightness(0) invert(1); opacity: 1; }
+html[data-theme="light"] .site-head img.logo { filter: brightness(0); }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .site-head img.logo { filter: brightness(0); }
+}
