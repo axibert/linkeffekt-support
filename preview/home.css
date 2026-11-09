@@ -88,6 +88,14 @@ section { padding: var(--gap-section) var(--edge); }
 .devices { position: relative; }
 .d-ipad { width: 100%; }
 .d-iphone { position: absolute; left: -9%; bottom: -4%; width: 27%; }
+span.d-iphone { display: block; }
+span.d-iphone img { width: 100%; }
+/* live level meters over the screenshots' own meters */
+.vu { position: absolute; display: grid; grid-template-rows: 1fr 1fr; gap: 8%; background: #000; overflow: hidden; }
+.vu b { display: block; background: #2a2a2c; position: relative; }
+.vu b::after { content: ""; position: absolute; inset: 0; background: #62cf68; transform: scaleX(var(--l, .6)); transform-origin: left; }
+.vu-iphone { left: 8.85%; width: 82.3%; top: 58%; height: 2.45%; }
+.vu-ipad { left: 60.6%; width: 28.05%; top: 64.78%; height: 2.28%; }
 .devices img { filter: drop-shadow(0 30px 40px rgba(0, 0, 0, .8)); }
 
 @media (min-width: 900px) {
