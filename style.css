@@ -293,7 +293,7 @@ footer {
 .pad.hit { background: var(--ink); color: var(--ground); }
 .tie { grid-column: 2; position: relative; height: 2.2rem; --x5: calc(4.5 * var(--w) + 5 * var(--g) + var(--sp)); }
 .tie::before, .tie::after { content: ""; position: absolute; box-sizing: border-box; }
-.tie span { position: absolute; top: 50%; transform: translateY(-50%); font-weight: 600; font-size: var(--t-small); white-space: nowrap; }
+.tie span { position: absolute; top: 50%; right: 0; transform: translateY(-50%); font-weight: 600; font-size: var(--t-small); line-height: 1.15; text-wrap: balance; }
 .seq-same .tie::before, .seq-same .tie::after { top: 0; bottom: 0; width: 3px; background: var(--ink); }
 .seq-same .tie::before { left: calc(var(--w) / 2 - 1.5px); }
 .seq-same .tie::after { left: calc(var(--x5) - 1.5px); }
