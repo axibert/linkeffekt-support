@@ -427,3 +427,27 @@ footer {
   .prose .status-table td + td, .prose .host-table td + td { margin-top: .25rem; }
   .host-table td[data-label]::before { content: attr(data-label) ": "; font-weight: 700; }
 }
+
+/* ---------- contact form ----------
+   Plain POST to the contact worker (contact.linkeffekt.com), which mails it to
+   hello@linkeffekt.com and redirects back here with ?sent=1 or ?error=1. */
+
+.contact-form { display: grid; gap: 1.4rem; margin: 2rem 0 var(--gap-part); max-width: 34rem; }
+.contact-form label { display: grid; gap: .45rem; font-weight: 700; }
+.contact-form label small { font-size: inherit; font-weight: 500; color: var(--dim); margin-left: .35rem; }
+.contact-form input,
+.contact-form textarea {
+  font: inherit; color: var(--ink); background: var(--ground);
+  border: 2px solid var(--ink); border-radius: 0; padding: .7rem .8rem; width: 100%;
+}
+.contact-form textarea { min-height: 12rem; resize: vertical; line-height: 1.5; }
+.contact-form .trap { position: absolute; left: -10000px; width: 1px; height: 1px; overflow: hidden; }
+.contact-form button {
+  justify-self: start; font: inherit; font-weight: 800; cursor: pointer;
+  color: var(--ground); background: var(--ink); border: 2px solid var(--ink); border-radius: 0;
+  padding: .8rem 1.4rem;
+}
+.contact-form button:hover { color: var(--ink); background: var(--ground); }
+.form-note { margin: 2rem 0 0; padding: 1rem 1.2rem; border: 2px solid var(--ink); font-weight: 600; max-width: 34rem; }
+.form-note[hidden] { display: none; }
+.foot-links { display: flex; flex-wrap: wrap; gap: 1.5rem; }
