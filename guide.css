@@ -1,0 +1,93 @@
+/* LinkEffekt guides: additions to style.css for pages like ableton-ipad.html.
+   Same world as the manual: black and white, Archivo, the five type sizes of
+   style.css. Colour appears only inside the screenshots. */
+
+/* ---------- head: the answer first ---------- */
+
+.guide .prose header.page-head { padding-bottom: 0; }
+.guide .prose .answer {
+  margin: 1.75rem 0 0; max-width: 34em;
+  font-size: var(--t-h3); font-weight: 500; line-height: 1.32; letter-spacing: -.01em;
+  text-wrap: pretty;
+}
+.guide .prose .byline { margin: 1.5rem 0 0; font-size: var(--t-small); font-weight: 500; color: var(--dim); }
+
+/* ---------- the path: what you load on the iPad, what you see in Live ---------- */
+
+.path {
+  margin: var(--gap-part) 0 0;
+  display: grid; grid-template-columns: minmax(0, 21rem) minmax(3rem, 1fr) minmax(0, 11rem);
+  column-gap: 1.25rem; row-gap: .75rem; align-items: start;
+}
+.path-name { grid-row: 1; align-self: end; font-weight: 700; font-size: var(--t-small); line-height: 1.3; }
+.path-name:nth-of-type(1) { grid-column: 1; }
+.path-name:nth-of-type(2) { grid-column: 3; }
+.path img {
+  grid-row: 2; display: block; width: 100%; height: auto;
+  border: 1px solid var(--rule); border-radius: 10px; background: #000;
+}
+.path-wire {
+  grid-row: 2; grid-column: 2; align-self: center; position: relative; height: 2px; background: var(--ink);
+}
+.path-wire::before, .path-wire::after { content: ""; position: absolute; }
+.path-wire::before { left: -1px; top: -4px; width: 10px; height: 10px; border-radius: 50%; background: var(--ink); }
+.path-wire::after { right: -1px; top: -4px; border: 5px solid transparent; border-left: 9px solid var(--ink); border-right-width: 0; }
+.path-wire span {
+  position: absolute; left: 0; right: 0; bottom: .75rem; text-align: center;
+  font-size: var(--t-small); font-weight: 500; color: var(--dim); line-height: 1.25;
+}
+.path figcaption { grid-column: 1 / -1; margin-top: .5rem; font-size: var(--t-small); }
+
+@media (max-width: 620px) {
+  .path { grid-template-columns: minmax(0, 1fr); justify-items: start; row-gap: .6rem; }
+  .path-name, .path img, .path-wire, .path-name:nth-of-type(1), .path-name:nth-of-type(2) { grid-row: auto; grid-column: 1; }
+  .path img:nth-of-type(1) { max-width: 21rem; }
+  .path img:nth-of-type(2) { max-width: 11rem; }
+  /* each name directly above its picture */
+  .path-name:nth-of-type(1) { order: 1; }
+  .path img:nth-of-type(1) { order: 2; }
+  .path-wire { order: 3; }
+  .path-name:nth-of-type(2) { order: 4; }
+  .path img:nth-of-type(2) { order: 5; }
+  .path figcaption { order: 6; }
+  /* the wire turns and runs down */
+  .path-wire { width: 2px; height: 3.5rem; margin: .5rem 0 .5rem 1.5rem; }
+  .path-wire::before { left: -4px; top: -1px; }
+  .path-wire::after { right: auto; left: -4px; top: auto; bottom: -1px; border: 5px solid transparent; border-top: 9px solid var(--ink); border-bottom-width: 0; }
+  .path-wire span { left: 1.25rem; right: auto; bottom: auto; top: 50%; transform: translateY(-50%); white-space: nowrap; text-align: left; }
+}
+
+/* ---------- contents inside the text, below the width of the side list ---------- */
+
+.guide-toc { margin: var(--gap-part) 0 0; padding-top: 1.25rem; border-top: 2px solid var(--ink); columns: 2; column-gap: 2rem; }
+.guide-toc a { display: block; padding: .28rem 0; font-weight: 600; break-inside: avoid; }
+@media (min-width: 1080px) { .guide-toc { display: none; } }
+@media (max-width: 560px) { .guide-toc { columns: 1; } }
+
+/* ---------- text ---------- */
+
+.guide .prose .lede { font-weight: 600; }
+.guide .prose h2 + .route { margin-top: 1.75rem; }
+.guide .prose ol + p, .guide .prose .table-scroll + p { margin-top: 1.5rem; }
+.guide .prose table.host-table td:first-child { font-weight: 700; }
+.guide .prose .src { font-size: var(--t-small); }
+.guide .shot-imgs img.wide { width: 100%; max-width: 34rem; }
+.guide .prose .shot + ul { margin-top: 1.5rem; }
+
+/* ---------- the field in the opposite ground: try it ---------- */
+
+.cta { margin-top: var(--gap-part); }
+.prose .cta h2 { margin: 0; }
+.prose .cta p { margin: 1rem 0 0; max-width: 34em; }
+.cta-action { display: flex; align-items: center; gap: 1rem; margin-top: 1.75rem; }
+.cta-action .app-icon { width: 50px; height: 50px; border-radius: 11.5px; display: block; }
+.cta-action .badge img { display: block; height: 50px; width: auto; }
+/* Apple's badge: black on a light field, white on a dark one. The field is the
+   opposite of the page, so the badge follows the opposite of the theme. */
+.cta .badge img.badge-white { display: none; }
+html[data-theme="light"] .cta .badge img.badge-black { display: none; }
+html[data-theme="light"] .cta .badge img.badge-white { display: block; border-radius: 8px; outline: 1px solid var(--dim); outline-offset: -1px; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .cta .badge img.badge-black { display: none; }
+  html:not([data-theme="dark"]) .cta .badge img.badge-white { display: block; border-radius: 8px; outline: 1px solid var(--dim); outline-offset: -1px; }
+}

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ableton iPad: use your iPad with Ableton Live | LinkEffekt</title>
+<meta name="description" content="Ableton Live does not run on an iPad. How to use the iPad with Live anyway: Note, controller apps and every iPad track over Link Audio.">
+<link rel="canonical" href="https://linkeffekt.com/ableton-ipad.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LinkEffekt">
+<meta property="og:title" content="Use your iPad with Ableton Live">
+<meta property="og:description" content="Ableton Live does not run on an iPad. How to use the iPad with Live anyway: Note, controller apps and every iPad track over Link Audio.">
+<meta property="og:url" content="https://linkeffekt.com/ableton-ipad.html">
+<meta property="og:image" content="https://linkeffekt.com/og-ableton-ipad.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Use your iPad with Ableton Live: LinkEffekt Send on an iPad track and the same track in the input chooser of Ableton Live.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="preload" href="fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=bw6">
+<link rel="stylesheet" href="guide.css?v=e92ae332">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('le-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://linkeffekt.com/ableton-ipad.html#article",
+      "headline": "Use your iPad with Ableton Live",
+      "description": "Ableton Live does not run on an iPad. How to use the iPad with Live anyway: Note, controller apps and every iPad track over Link Audio.",
+      "image": "https://linkeffekt.com/og-ableton-ipad.png",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://linkeffekt.com/ableton-ipad.html",
+      "author": { "@type": "Person", "name": "Alexander Joannou", "url": "https://linkeffekt.com/imprint.html" },
+      "publisher": { "@type": "Organization", "name": "LinkEffekt", "url": "https://linkeffekt.com/", "logo": { "@type": "ImageObject", "url": "https://linkeffekt.com/icon-180.png" } },
+      "about": [
+        { "@type": "SoftwareApplication", "name": "Ableton Live", "applicationCategory": "MusicApplication", "operatingSystem": "macOS, Windows" },
+        { "@type": "SoftwareApplication", "name": "LinkEffekt", "applicationCategory": "MusicApplication", "operatingSystem": "iOS, iPadOS, macOS", "url": "https://apps.apple.com/app/linkeffekt/id6759493415" }
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "LinkEffekt", "item": "https://linkeffekt.com/" },
+        { "@type": "ListItem", "position": 2, "name": "iPad with Ableton Live", "item": "https://linkeffekt.com/ableton-ipad.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "Is there an Ableton Live app for iPad?", "acceptedAnswer": { "@type": "Answer", "text": "No. Ableton’s app for iPad and iPhone is Note, a sketchpad for new ideas. Live runs on a Mac or a Windows computer." } },
+        { "@type": "Question", "name": "Is Ableton Live Lite free?", "acceptedAnswer": { "@type": "Answer", "text": "According to Ableton, Live 12 Lite is free for all Note users through the app. It runs on the computer and not on the iPad." } },
+        { "@type": "Question", "name": "Do I need an audio interface to record my iPad in Ableton Live?", "acceptedAnswer": { "@type": "Answer", "text": "No. With Live 12.4 or later the audio travels over your network with Link Audio. Each iPad track with LinkEffekt Send shows up as its own input in Live." } },
+        { "@type": "Question", "name": "Does this work with Ableton Live on Windows?", "acceptedAnswer": { "@type": "Answer", "text": "Link Audio is part of Live 12.4 on every computer Live runs on, and the audio part of this guide needs nothing else on the computer. I test with Live on a Mac. The MIDI part needs the LinkEffekt app for Mac." } },
+        { "@type": "Question", "name": "How much latency does Link Audio add?", "acceptedAnswer": { "@type": "Answer", "text": "It depends on your network. You set it with the Latency slider in Live’s Link settings. With Sync to Incoming Audio on, Live shifts its own playback by that amount, so the iPad tracks stay in sync with Live’s clips." } },
+        { "@type": "Question", "name": "Can I run a Live track through effects on the iPad?", "acceptedAnswer": { "@type": "Answer", "text": "You can stream a Live track to the iPad and process it there. A round trip back into the same Live set does not line up with the original yet." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="guide">
+
+<div class="wrap wide">
+  <header class="site-head">
+    <a class="logo-link" href="./" aria-label="LinkEffekt home">
+      <img class="logo" src="logo@3x.png" alt="LinkEffekt">
+    </a>
+    <nav class="site-nav">
+      <a class="nav-secondary" href="./">Home</a>
+      <a href="manual.html">Manual</a>
+      <a href="contact.html">Contact</a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch between light and dark">
+        <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 1.8v2.2M10 16v2.2M1.8 10H4M16 10h2.2M4.2 4.2l1.6 1.6M14.2 14.2l1.6 1.6M4.2 15.8l1.6-1.6M14.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16.5 12.6A7 7 0 0 1 7.4 3.5a7 7 0 1 0 9.1 9.1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </button>
+    </nav>
+  </header>
+</div>
+
+<div class="wrap wide manual-layout">
+
+  <aside class="side-toc" aria-label="On this page">
+    <nav id="side-nav">
+      <a href="#run">Ableton on an iPad</a>
+      <a href="#control">Control Live</a>
+      <a href="#record">Record iPad apps</a>
+      <a href="#link-audio">Link Audio</a>
+      <a href="#setup">Setup step by step</a>
+      <a href="#back">Live to the iPad</a>
+      <a href="#midi">MIDI</a>
+      <a href="#need">What you need</a>
+      <a href="#faq">Questions</a>
+    </nav>
+  </aside>
+
+  <main class="prose">
+
+  <header class="page-head">
+    <h1>Use your iPad with Ableton Live</h1>
+    <p class="answer">Ableton Live does not run on an iPad. Ableton’s own iPad app is Note, and Live itself stays on the computer. The iPad still fits into a Live setup in three ways. You can sketch ideas in Note, control Live from the touchscreen, or record your iPad synths and drum machines in Live. Since Live 12.4 that last one works over Wi-Fi with Link Audio, every iPad track as its own input and without an audio interface.</p>
+    <p class="byline">By Alexander Joannou, developer of LinkEffekt. Updated November 23, 2026.</p>
+  </header>
+
+  <figure class="path">
+    <span class="path-name">iPad · AUM</span>
+    <span class="path-name">Mac · Ableton Live</span>
+    <img src="img/guide/send-ipad.webp" width="700" height="784" alt="LinkEffekt Send on an iPad track in AUM, named Channel 1 · iPad, status Streaming to a listener.">
+    <span class="path-wire"><span>Wi-Fi or Ethernet</span></span>
+    <img src="img/guide/live-channels.png" width="252" height="452" alt="Input chooser of an audio track in Ableton Live: the peer LinkEffekt and a list of channels, one for each iPad track.">
+    <figcaption>LinkEffekt Send on a track on the iPad, and the same track in the input chooser of an audio track in Live.</figcaption>
+  </figure>
+
+  <nav class="guide-toc" aria-label="On this page">
+    <a href="#run">Ableton on an iPad</a>
+    <a href="#control">Control Live</a>
+    <a href="#record">Record iPad apps</a>
+    <a href="#link-audio">Link Audio</a>
+    <a href="#setup">Setup step by step</a>
+    <a href="#back">Live to the iPad</a>
+    <a href="#midi">MIDI</a>
+    <a href="#need">What you need</a>
+    <a href="#faq">Questions</a>
+  </nav>
+
+  <h2 id="run">Can you run Ableton on an iPad?</h2>
+  <p>No. Ableton Live is software for macOS and Windows, and there is no version of Live in the App Store. What Ableton makes for the iPad and the iPhone is <a href="https://www.ableton.com/en/note/" target="_blank" rel="noopener">Ableton Note</a>.</p>
+  <p>Note is a sketchpad. It has drum kits, synths and samplers from Live, a Session View with eight tracks and eight scenes, and a piano roll for melodies. When an idea is worth keeping, Ableton Cloud sends the Note Set to Live’s browser. You open it on the computer with the same sounds and carry on there. Ableton also gives every Note user Live 12 Lite for free through the app.</p>
+  <p>So Note is where a track can start. For everything below Live runs on the computer and the iPad joins it.</p>
+
+  <h2 id="control">Control Ableton Live from an iPad</h2>
+  <p>Controller apps turn the iPad into a touch surface for Live. They put clips, the mixer and device parameters on the touchscreen. One example is <a href="https://apps.apple.com/us/app/touchable-pro/id1205967746" target="_blank" rel="noopener">touchAble Pro</a>, which its App Store page describes as a way to produce and perform in Live with everything at your fingertips.</p>
+  <p>These apps move no audio. They are a remote for Live, and they sit well next to the audio and MIDI setup in this guide. If you want to take control of Live with a hardware MIDI controller that is plugged into the iPad, that is covered under <a href="#midi">MIDI</a>.</p>
+
+  <h2 id="record">Record iPad apps in Ableton Live</h2>
+  <p>An iPad full of synths, drum machines and samplers is an instrument rack for Live. There are three ways to connect it and get its audio onto a Live track.</p>
+  <div class="table-scroll">
+    <table class="host-table">
+      <tr><th>Way</th><th>You need</th><th>You get</th></tr>
+      <tr><td>Audio interface</td><td data-label="You need">An interface with free inputs on the computer and an audio cable from the iPad.</td><td data-label="You get">The iPad’s mix on a stereo input. Timing and latency are yours to set.</td></tr>
+      <tr><td>USB cable to a Mac</td><td data-label="You need">A Mac and a USB cable. In Audio MIDI Setup you click Enable next to the iPad.</td><td data-label="You get">The iPad as an audio input device on the Mac.</td></tr>
+      <tr><td>Link Audio</td><td data-label="You need">Live 12.4 or later and both devices on the same network.</td><td data-label="You get">Every iPad track as its own input in Live, in sync with Live’s clips.</td></tr>
+    </table>
+  </div>
+  <p class="src">The cable way is in Apple’s guide <a href="https://support.apple.com/guide/audio-midi-setup/ams59f301fda/mac" target="_blank" rel="noopener">Set up audio devices in Audio MIDI Setup on Mac</a>. The rest of this page is about the third way.</p>
+
+  <h2 id="link-audio">What is Ableton Link Audio?</h2>
+  <p>Ableton Link keeps the tempo and the beat of apps and devices in time over a local network. Link Audio came with Live 12.4 in May 2026 and adds the sound. A device in the Link session offers audio channels, and Live lists them as inputs next to the inputs of your audio interface. Recordings line up with your set because Live compensates the latency of the network.</p>
+  <p>Link Audio runs over Wi-Fi and over wired Ethernet. Ableton recommends the wire for the most stable connection. It is built into Live, Push 3 standalone, Move and Note. Move and Note send audio and do not receive it. The details are in <a href="https://help.ableton.com/hc/en-us/articles/25425913328924-Link-Audio-FAQ" target="_blank" rel="noopener">Ableton’s Link Audio FAQ</a>.</p>
+  <p>An app needs Link Audio built in to show up in Live. For every app that does not have it, LinkEffekt adds it from the outside. LinkEffekt Send is an AUv3 plugin. Put it on a track in a host like AUM, Loopy Pro, Drambo, Logic Pro for iPad, Cubasis or GarageBand, and that track becomes a Link Audio channel. Ableton lists LinkEffekt among its <a href="https://www.ableton.com/en/link/products/" target="_blank" rel="noopener">Link-enabled products</a>.</p>
+
+  <h2 id="setup">Ableton iPad setup with Link Audio</h2>
+  <div class="route" role="img" aria-label="Route: iPad in AUM to Ableton Live 12.4 or later on the computer, over Wi-Fi or Ethernet">
+    <span class="route-label">Wi-Fi or Ethernet</span>
+    <span class="route-node">iPad · AUM</span>
+    <span class="route-wire"></span>
+    <span class="route-node">Live 12.4+</span>
+  </div>
+  <ol>
+    <li>Open the <strong>LinkEffekt app</strong> once on the iPad and allow Local Network access.</li>
+    <li>Turn on <strong>Ableton Link</strong> in your iPad host. In Live open <strong>Settings &gt; Link</strong> and turn on Link and <strong>Link Audio</strong>.</li>
+    <li>On the iPad put <strong>LinkEffekt Send</strong> on each track you want in Live and give it a name, for example <em>Bass</em>. In the Send’s gear menu turn on Ableton Link and Share Audio. You do this once.</li>
+    <li>In Live’s Link settings turn on <strong>Sync to Incoming Audio</strong>.</li>
+    <li>On an audio track in Live set the input to <strong>LinkEffekt</strong>, pick the channel and set Monitor to <strong>In</strong>.</li>
+    <li>Raise the <strong>Latency</strong> slider in Live’s Link settings until playback is stable. Then record.</li>
+  </ol>
+  <p>Listen through Live. The Send mutes its track on the iPad, so you hear every track once and in sync with Live’s clips. Live delays its own playback by the latency you set. That is what Sync to Incoming Audio does, and it is why the iPad’s speaker and Live’s do not line up by ear.</p>
+  <p>Loops, sequencers and drum machines that follow Ableton Link arrive in sync, however high you set the latency. Parts you play by hand reach Live later by that amount.</p>
+  <p>Only one device in the Link session can have Sync to Incoming Audio on. Ableton’s FAQ says Link Audio does not work otherwise.</p>
+  <p>Wi-Fi can pause for a moment. For a stage or a long session put both devices on wired Ethernet. A USB-C Ethernet adapter on the iPad is enough.</p>
+  <p>Hardware plugged into the iPad goes the same way. The audio of a synth or a groovebox comes into the iPad host as an input and through a Send to Live. The same steps with more detail are in the manual under <a href="manual.html#wf-record-live">Record iOS audio in Ableton Live</a>.</p>
+
+  <h2 id="back">Stream Live’s tracks to the iPad</h2>
+  <p>It works the other way round too. Live offers every track with an audio output as a Link Audio channel, returns and Main included. On the iPad <strong>LinkEffekt Receive</strong> picks them up.</p>
+  <ol>
+    <li>In Live’s Link settings turn <strong>Sync to Incoming Audio</strong> off.</li>
+    <li>On the iPad load LinkEffekt Receive and pick a Live track under <strong>Now Receiving</strong>.</li>
+    <li>Turn on <strong>Bar Sync</strong>. The status reads <em>On your metronome · one bar later</em>.</li>
+  </ol>
+  <p>Live does not send its tracks ahead of time, so without Bar Sync they arrive behind your beat. Bar Sync holds them back to one full bar, which puts them in sync with the apps on the iPad.</p>
+  <p>For both directions at once leave Sync to Incoming Audio on and use Bar Sync on the iPad. Each player then listens to their own device. More under <a href="manual.html#host-live">Ableton Live 12.4+</a> in the manual.</p>
+
+  <h2 id="midi">MIDI between iPad and Ableton Live</h2>
+  <p>Audio is half of a hybrid setup. Since LinkEffekt 2.1 MIDI travels the same way, in both directions.</p>
+  <figure class="shot">
+    <div class="shot-imgs">
+      <img class="wide" src="img/home/mac-midi.webp" width="1056" height="868" loading="lazy" alt="LinkEffekt on the Mac: MIDI controllers from an iPad Pro and an iPhone listed as ports, Share controllers switched on.">
+    </div>
+    <figcaption><p class="shot-note">LinkEffekt in the Mac menu bar. Controllers from the iPad and the iPhone appear as MIDI ports for Live.</p></figcaption>
+  </figure>
+  <ul>
+    <li><strong>Your controllers on both devices.</strong> A MIDI controller plugged into the Mac also works on the iPad, and one plugged into the iPad shows up in Live. Each controller gets a virtual MIDI port named after the hardware. The port stays the same when you plug the controller into the other device, so your MIDI mappings in Live keep working.</li>
+    <li><strong>The iPad as an instrument for Live.</strong> The iPad itself becomes a MIDI port on the Mac. Send a MIDI track in Live to that port and Live plays a synth on the iPad. Its audio comes back over Link Audio.</li>
+    <li><strong>Clock for gear without Link.</strong> Hardware plugged into the iPad or the Mac gets MIDI clock from Ableton Link. It follows Live’s tempo and starts on the one. Each piece of gear has its own offset in steps of 0.1 ms.</li>
+  </ul>
+  <p>On the Mac LinkEffekt is an app in the menu bar. On the iPad you load the plugin <strong>LinkEffekt MIDI</strong> once as a MIDI effect in your host. In Live open <strong>Settings &gt; Link, Tempo &amp; MIDI</strong> and turn on Track or Remote for the port that ends in <em>· LinkEffekt</em>. Turn Track and Sync off for the controller’s own port, otherwise notes arrive twice.</p>
+  <p>The MIDI part needs a Mac with Apple Silicon and macOS 14 or later. iPad and Mac find each other on the same Wi-Fi or over a USB cable. The manual has the full chapter on <a href="manual.html#midi">MIDI controllers</a>.</p>
+
+  <h2 id="need">What you need</h2>
+  <ul>
+    <li>Ableton Live 12.4 or later on the computer.</li>
+    <li>An iPad or iPhone with iOS 15 or later and an AUv3 host. AUM, Loopy Pro, Drambo, Logic Pro for iPad, Cubasis and GarageBand all work.</li>
+    <li>Both devices on the same network.</li>
+    <li>LinkEffekt from the App Store.</li>
+  </ul>
+  <p>One Send, one Receive and Link to MIDI clock for one piece of gear are free with no time limit. That is enough to try this guide with one track. LinkEffekt Unlimited is a one-time purchase. It adds unlimited Sends and Receives, MIDI between your devices and clock for all your gear.</p>
+
+  <section class="quick cta" aria-labelledby="cta-title">
+    <h2 id="cta-title">Try it with one iPad track.</h2>
+    <p>LinkEffekt is free to start on iPhone and iPad and runs inside the host you already use.</p>
+    <div class="cta-action">
+      <img class="app-icon" src="icon-180.png" width="180" height="180" alt="">
+      <a class="badge" href="https://apps.apple.com/app/linkeffekt/id6759493415">
+        <img class="badge-black" src="img/home/app-store-badge-black.svg" width="150" height="50" alt="Download on the App Store">
+        <img class="badge-white" src="img/home/app-store-badge-white.svg" width="150" height="50" alt="Download on the App Store">
+      </a>
+    </div>
+  </section>
+
+  <h2 id="faq">Questions about Ableton and the iPad</h2>
+  <details class="ts">
+    <summary>Is there an Ableton Live app for iPad?</summary>
+    <div class="ts-body"><p>No. Ableton’s app for iPad and iPhone is Note, a sketchpad for new ideas. Live runs on a Mac or a Windows computer.</p></div>
+  </details>
+  <details class="ts">
+    <summary>Is Ableton Live Lite free?</summary>
+    <div class="ts-body"><p>According to Ableton, Live 12 Lite is free for all Note users through the app. It runs on the computer and not on the iPad.</p></div>
+  </details>
+  <details class="ts">
+    <summary>Do I need an audio interface to record my iPad in Ableton Live?</summary>
+    <div class="ts-body"><p>No. With Live 12.4 or later the audio travels over your network with Link Audio. Each iPad track with LinkEffekt Send shows up as its own input in Live.</p></div>
+  </details>
+  <details class="ts">
+    <summary>Does this work with Ableton Live on Windows?</summary>
+    <div class="ts-body"><p>Link Audio is part of Live 12.4 on every computer Live runs on, and the audio part of this guide needs nothing else on the computer. I test with Live on a Mac. The MIDI part needs the LinkEffekt app for Mac.</p></div>
+  </details>
+  <details class="ts">
+    <summary>How much latency does Link Audio add?</summary>
+    <div class="ts-body"><p>It depends on your network. You set it with the Latency slider in Live’s Link settings. With Sync to Incoming Audio on, Live shifts its own playback by that amount, so the iPad tracks stay in sync with Live’s clips.</p></div>
+  </details>
+  <details class="ts">
+    <summary>Can I run a Live track through effects on the iPad?</summary>
+    <div class="ts-body"><p>You can stream a Live track to the iPad and process it there. A round trip back into the same Live set does not line up with the original yet.</p></div>
+  </details>
+
+  <footer>
+    <span><a class="backlink" href="./">← LinkEffekt</a></span>
+    <span class="foot-links"><a href="manual.html">Manual</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="imprint.html">Imprint</a></span>
+  </footer>
+
+  </main>
+</div>
+
+<script>
+/* The list on the side marks the chapter you are reading. */
+(function () {
+  var links = [].slice.call(document.querySelectorAll('#side-nav a'));
+  if (!links.length) return;
+  var heads = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  function mark() {
+    var line = window.innerHeight * 0.3, cur = 0;
+    heads.forEach(function (h, i) { if (h && h.getBoundingClientRect().top <= line) cur = i; });
+    links.forEach(function (a, i) { a.classList.toggle('active', i === cur); });
+  }
+  window.addEventListener('scroll', mark, { passive: true });
+  window.addEventListener('resize', mark);
+  mark();
+})();
+</script>
+<script src="theme.js?v=cfb7869f"></script>
+</body>
+</html>
