@@ -73,6 +73,10 @@
 .guide .prose .src { font-size: var(--t-small); }
 .guide .shot-imgs img.wide { width: 100%; max-width: 34rem; }
 .guide .prose .shot + ul { margin-top: 1.5rem; }
+.guide .prose .lead-shot { margin-top: var(--gap-part); }
+.guide .prose details.ts + .src { margin-top: 1.75rem; }
+.guide .prose h2 + h3 { margin-top: 1.75rem; }
+.guide .prose p + .route { margin-top: 2rem; }
 
 /* ---------- the field in the opposite ground: try it ---------- */
 

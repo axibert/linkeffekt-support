@@ -20,7 +20,7 @@
 <link rel="apple-touch-icon" href="icon-180.png">
 <link rel="preload" href="fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="stylesheet" href="style.css?v=bw6">
-<link rel="stylesheet" href="guide.css?v=e92ae332">
+<link rel="stylesheet" href="guide.css?v=7cdc16a3">
 <script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('le-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
 <script type="application/ld+json">
 {
@@ -197,7 +197,7 @@
   <ul>
     <li><strong>Your controllers on both devices.</strong> A MIDI controller plugged into the Mac also works on the iPad, and one plugged into the iPad shows up in Live. Each controller gets a virtual MIDI port named after the hardware. The port stays the same when you plug the controller into the other device, so your MIDI mappings in Live keep working.</li>
     <li><strong>The iPad as an instrument for Live.</strong> The iPad itself becomes a MIDI port on the Mac. Send a MIDI track in Live to that port and Live plays a synth on the iPad. Its audio comes back over Link Audio.</li>
-    <li><strong>Clock for gear without Link.</strong> Hardware plugged into the iPad or the Mac gets MIDI clock from Ableton Link. It follows Live’s tempo and starts on the one. Each piece of gear has its own offset in steps of 0.1 ms.</li>
+    <li><strong>Clock for gear without Link.</strong> Hardware plugged into the iPad or the Mac gets MIDI clock from Ableton Link. It follows Live’s tempo and starts on the one. Each piece of gear has its own offset in steps of 0.1 ms. The guide <a href="ableton-link-midi-clock.html">Sync external gear to Ableton Link</a> shows the setup.</li>
   </ul>
   <p>On the Mac LinkEffekt is an app in the menu bar. On the iPad you load the plugin <strong>LinkEffekt MIDI</strong> once as a MIDI effect in your host. In Live open <strong>Settings &gt; Link, Tempo &amp; MIDI</strong> and turn on Track or Remote for the port that ends in <em>· LinkEffekt</em>. Turn Track and Sync off for the controller’s own port, otherwise notes arrive twice.</p>
   <p>The MIDI part needs a Mac with Apple Silicon and macOS 14 or later. iPad and Mac find each other on the same Wi-Fi or over a USB cable. The manual has the full chapter on <a href="manual.html#midi">MIDI controllers</a>.</p>
@@ -251,7 +251,7 @@
 
   <footer>
     <span><a class="backlink" href="./">← LinkEffekt</a></span>
-    <span class="foot-links"><a href="manual.html">Manual</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="imprint.html">Imprint</a></span>
+    <span class="foot-links"><a href="ableton-link-midi-clock.html">MIDI clock from Link</a><a href="manual.html">Manual</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="imprint.html">Imprint</a></span>
   </footer>
 
   </main>

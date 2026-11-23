@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ableton Link to MIDI clock: sync external gear | LinkEffekt</title>
+<meta name="description" content="Hardware without Ableton Link follows MIDI clock. How to send MIDI clock from Link to external gear on iPad, iPhone and Mac, with an offset.">
+<link rel="canonical" href="https://linkeffekt.com/ableton-link-midi-clock.html">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="LinkEffekt">
+<meta property="og:title" content="Sync external gear to Ableton Link">
+<meta property="og:description" content="Hardware without Ableton Link follows MIDI clock. How to send MIDI clock from Link to external gear on iPad, iPhone and Mac, with an offset.">
+<meta property="og:url" content="https://linkeffekt.com/ableton-link-midi-clock.html">
+<meta property="og:image" content="https://linkeffekt.com/og-ableton-link-midi-clock.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Sync external gear to Ableton Link: LinkEffekt sends Link to MIDI clock to an OP-Z with an offset of +3.0 ms.">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" type="image/png" href="favicon-64.png">
+<link rel="apple-touch-icon" href="icon-180.png">
+<link rel="preload" href="fonts/archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="style.css?v=bw6">
+<link rel="stylesheet" href="guide.css?v=7cdc16a3">
+<script>document.documentElement.classList.add('js');try{var t=localStorage.getItem('le-theme');if(t==='light'||t==='dark')document.documentElement.setAttribute('data-theme',t)}catch(e){}</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      "@id": "https://linkeffekt.com/ableton-link-midi-clock.html#article",
+      "headline": "Sync external gear to Ableton Link",
+      "description": "Hardware without Ableton Link follows MIDI clock. How to send MIDI clock from Link to external gear on iPad, iPhone and Mac, with an offset.",
+      "image": "https://linkeffekt.com/og-ableton-link-midi-clock.png",
+      "datePublished": "2026-11-23",
+      "dateModified": "2026-11-23",
+      "inLanguage": "en",
+      "mainEntityOfPage": "https://linkeffekt.com/ableton-link-midi-clock.html",
+      "author": { "@type": "Person", "name": "Alexander Joannou", "url": "https://linkeffekt.com/imprint.html" },
+      "publisher": { "@type": "Organization", "name": "LinkEffekt", "url": "https://linkeffekt.com/", "logo": { "@type": "ImageObject", "url": "https://linkeffekt.com/icon-180.png" } }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "LinkEffekt", "item": "https://linkeffekt.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Ableton Link to MIDI clock", "item": "https://linkeffekt.com/ableton-link-midi-clock.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        { "@type": "Question", "name": "What is the difference between Ableton Link and MIDI clock?", "acceptedAnswer": { "@type": "Answer", "text": "Ableton Link keeps beat, tempo and phase of apps in time over a network, and nobody has to lead. MIDI clock runs over a MIDI connection from one device that leads to the devices that follow, with 24 timing messages per quarter note." } },
+        { "@type": "Question", "name": "Can Ableton Live send MIDI clock itself?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. In Live you turn on Sync for a MIDI output port and set its MIDI Clock Sync Delay. Link to MIDI clock in LinkEffekt is for gear on an iPad or iPhone, for sessions where another app sets the tempo, and for one offset for each piece of gear on every device." } },
+        { "@type": "Question", "name": "Does my gear start together with Live?", "acceptedAnswer": { "@type": "Answer", "text": "Yes, with Start Stop Sync turned on in LinkEffekt’s Link settings and in the app where you press play. The gear starts on the next bar." } },
+        { "@type": "Question", "name": "Does Wi-Fi shake the clock?", "acceptedAnswer": { "@type": "Answer", "text": "The clock is made on the device the gear is plugged into. Only the Link session itself runs over the network." } },
+        { "@type": "Question", "name": "Is Link to MIDI clock free?", "acceptedAnswer": { "@type": "Answer", "text": "For one piece of gear it is free on every device with no time limit. LinkEffekt Unlimited is a one-time purchase and sends the clock to all your gear." } }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body class="guide">
+
+<div class="wrap wide">
+  <header class="site-head">
+    <a class="logo-link" href="./" aria-label="LinkEffekt home">
+      <img class="logo" src="logo@3x.png" alt="LinkEffekt">
+    </a>
+    <nav class="site-nav">
+      <a class="nav-secondary" href="./">Home</a>
+      <a href="manual.html">Manual</a>
+      <a href="contact.html">Contact</a>
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch between light and dark">
+        <svg class="ico-sun" viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="3.6" fill="none" stroke="currentColor" stroke-width="1.6"/><path d="M10 1.8v2.2M10 16v2.2M1.8 10H4M16 10h2.2M4.2 4.2l1.6 1.6M14.2 14.2l1.6 1.6M4.2 15.8l1.6-1.6M14.2 5.8l1.6-1.6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+        <svg class="ico-moon" viewBox="0 0 20 20" aria-hidden="true"><path d="M16.5 12.6A7 7 0 0 1 7.4 3.5a7 7 0 1 0 9.1 9.1z" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>
+      </button>
+    </nav>
+  </header>
+</div>
+
+<div class="wrap wide manual-layout">
+
+  <aside class="side-toc" aria-label="On this page">
+    <nav id="side-nav">
+      <a href="#what">What is MIDI clock?</a>
+      <a href="#link">Link and MIDI clock</a>
+      <a href="#need">What you need</a>
+      <a href="#setup">Send the clock</a>
+      <a href="#offset">Set the offset</a>
+      <a href="#live">Record gear in Live</a>
+      <a href="#one">One clock only</a>
+      <a href="#faq">Questions</a>
+    </nav>
+  </aside>
+
+  <main class="prose">
+
+  <header class="page-head">
+    <h1>Sync external gear to Ableton Link</h1>
+    <p class="answer">Hardware without Ableton Link follows MIDI clock. LinkEffekt turns your Link session into MIDI clock for every drum machine, groovebox or synth plugged into your iPad, iPhone or Mac. Each piece of gear has its own offset to line it up with Ableton Live, AUM or any other app with Link.</p>
+    <p class="byline">By Alexander Joannou, developer of LinkEffekt. Updated November 23, 2026.</p>
+  </header>
+
+  <figure class="shot lead-shot">
+    <div class="shot-imgs">
+      <img class="wide" src="img/manual/midi-clock.png" width="1040" height="286" alt="LinkEffekt on the Mac, box Send Link to MIDI clock: an OP-Z with the clock on and an offset of +3.0 ms, a TR-8S with the clock off.">
+    </div>
+    <figcaption><p class="shot-note">Link to MIDI clock in LinkEffekt on the Mac. Every piece of gear has its own switch and its own offset.</p></figcaption>
+  </figure>
+
+  <nav class="guide-toc" aria-label="On this page">
+    <a href="#what">What is MIDI clock?</a>
+    <a href="#link">Link and MIDI clock</a>
+    <a href="#need">What you need</a>
+    <a href="#setup">Send the clock</a>
+    <a href="#offset">Set the offset</a>
+    <a href="#live">Record gear in Live</a>
+    <a href="#one">One clock only</a>
+    <a href="#faq">Questions</a>
+  </nav>
+
+  <h2 id="what">What is MIDI clock?</h2>
+  <p>MIDI clock is the tempo signal of the MIDI standard. The device that leads sends a timing message 24 times per quarter note. Every device that follows counts these messages and keeps its tempo by them. Start, Stop and Continue messages run the transport. The MIDI Association lists them in its <a href="https://midi.org/summary-of-midi-1-0-messages" target="_blank" rel="noopener">summary of MIDI 1.0 messages</a>.</p>
+  <p>The clock travels over any MIDI connection, a 5-pin cable or USB. One device leads and all others follow. It carries tempo and no sound, and each piece of gear reacts with its own small delay. That is why a MIDI clock usually needs an offset before a sequencer sits tight.</p>
+
+  <h2 id="link">Ableton Link and MIDI clock</h2>
+  <p>Ableton Link does the same job for apps, over the network. It keeps beat, tempo and phase in time and nobody has to lead. Anyone in the session can change the tempo and the others follow, as <a href="https://help.ableton.com/hc/en-us/articles/209776125-Link-features-and-functions-FAQ" target="_blank" rel="noopener">Ableton’s Link FAQ</a> explains.</p>
+  <p>Ableton Live, AUM, Logic Pro for iPad and many other apps have Link built in. Most hardware does not. It follows MIDI clock. A setup with apps and external gear therefore needs a bridge that reads the Link session and sends MIDI clock to the hardware. In LinkEffekt that bridge is called Link to MIDI clock.</p>
+  <div class="route" role="img" aria-label="Route: an app with Ableton Link sets the tempo, LinkEffekt sends MIDI clock to your gear">
+    <span class="route-label">MIDI clock from Link</span>
+    <span class="route-node">Live or AUM · Ableton Link</span>
+    <span class="route-wire"></span>
+    <span class="route-node">Your gear</span>
+  </div>
+
+  <h2 id="need">What you need</h2>
+  <ul>
+    <li>Gear with a MIDI input over USB or a MIDI interface, set to follow external clock.</li>
+    <li>An iPad or iPhone with iOS 15 or later and a host that loads MIDI effects, for example AUM. Or a Mac with Apple Silicon and macOS 14 or later.</li>
+    <li>An app with Ableton Link that sets the tempo, for example Ableton Live or AUM.</li>
+    <li>LinkEffekt from the App Store. Link to MIDI clock for one piece of gear is free.</li>
+  </ul>
+
+  <h2 id="setup">Send MIDI clock from Ableton Link to your gear</h2>
+  <h3>On iPad and iPhone</h3>
+  <ol>
+    <li>Plug the gear into the iPad and set it to follow external MIDI clock.</li>
+    <li>Load <strong>LinkEffekt MIDI</strong> as a MIDI effect in your host, for example in AUM.</li>
+    <li>The box <strong>Send Link to MIDI clock</strong> lists the gear as soon as it is plugged in, with the clock on.</li>
+    <li>For start and stop turn on <strong>Start Stop Sync</strong> in LinkEffekt’s Link settings behind the gear icon and in the app where you press play. The gear then starts on the next bar.</li>
+  </ol>
+  <h3>On the Mac</h3>
+  <ol>
+    <li>Open <strong>LinkEffekt</strong>. It lives in the menu bar.</li>
+    <li>Plug the gear into the Mac. The window shows one switch for each piece of gear with the offset next to it.</li>
+    <li>Turn on Ableton Link in Live or in the app that sets the tempo.</li>
+  </ol>
+  <p>The clock follows Link’s tempo all the time, also while the transport is stopped. It goes only to gear on the device where you turn it on. For gear on the Mac you turn it on in the Mac window, for gear on the iPad in LinkEffekt MIDI.</p>
+
+  <h2 id="offset">Set the offset for each piece of gear</h2>
+  <p>Offset moves the clock up to 100 ms earlier or later to make up for the gear’s own delay. Tap <strong>Offset</strong> next to the switch and set it by ear against your metronome. The slider gives the rough value, plus and minus move in steps of 0.1 ms, or you type the number.</p>
+  <p>Set the offset where you listen, with the gear and the metronome in the same app. Each device keeps its own offset for a piece of gear. Plug it into another device and that device’s value applies.</p>
+  <p>You set it once. In one of my tests an OP-Z on the iPad needed −21 ms to sit in sync with Live.</p>
+
+  <h2 id="live">Record external gear in Ableton Live</h2>
+  <p>Where the gear is plugged in decides how its audio reaches Live.</p>
+  <ul>
+    <li><strong>Gear on the iPad.</strong> One USB cable carries the clock to the gear and, if the gear sends audio over USB, its sound into the iPad. Bring that audio into your iPad host as an input and put LinkEffekt Send on the track. It shows up as its own input in Live. The steps are in <a href="ableton-ipad.html">Use your iPad with Ableton Live</a>.</li>
+    <li><strong>Gear on the Mac.</strong> The clock comes from LinkEffekt in the menu bar and the audio goes through your audio interface as usual.</li>
+  </ul>
+  <p>For gear on the iPad set the offset in Live against Live’s metronome, with the gear’s track on Monitor In. Then it lines up with every other track that comes from the iPad. Do not compare the gear on one device with the metronome on another. Live delays its own playback on purpose when Sync to Incoming Audio is on.</p>
+
+  <h2 id="one">One clock only</h2>
+  <p>Gear that gets two clocks runs twice as fast. While a piece of gear gets Link to MIDI clock, LinkEffekt holds back the MIDI clock an app sends to it through LinkEffekt’s port. Clock that an app sends to the gear directly is not held back, for example Live’s Sync on the gear’s own port. Turn off one of the two.</p>
+  <p>Gear that sends its own clock shows <em>Sends its own clock</em> and gets none, so it is not clocked twice.</p>
+
+  <section class="quick cta" aria-labelledby="cta-title">
+    <h2 id="cta-title">Try it with one piece of gear.</h2>
+    <p>Link to MIDI clock for one piece of gear is free on iPhone, iPad and Mac.</p>
+    <div class="cta-action">
+      <img class="app-icon" src="icon-180.png" width="180" height="180" alt="">
+      <a class="badge" href="https://apps.apple.com/app/linkeffekt/id6759493415">
+        <img class="badge-black" src="img/home/app-store-badge-black.svg" width="150" height="50" alt="Download on the App Store">
+        <img class="badge-white" src="img/home/app-store-badge-white.svg" width="150" height="50" alt="Download on the App Store">
+      </a>
+    </div>
+  </section>
+
+  <h2 id="faq">Questions about MIDI clock and Ableton Link</h2>
+  <details class="ts">
+    <summary>What is the difference between Ableton Link and MIDI clock?</summary>
+    <div class="ts-body"><p>Ableton Link keeps beat, tempo and phase of apps in time over a network, and nobody has to lead. MIDI clock runs over a MIDI connection from one device that leads to the devices that follow, with 24 timing messages per quarter note.</p></div>
+  </details>
+  <details class="ts">
+    <summary>Can Ableton Live send MIDI clock itself?</summary>
+    <div class="ts-body"><p>Yes. In Live you turn on Sync for a MIDI output port and set its MIDI Clock Sync Delay. Link to MIDI clock in LinkEffekt is for gear on an iPad or iPhone, for sessions where another app sets the tempo, and for one offset for each piece of gear on every device.</p></div>
+  </details>
+  <details class="ts">
+    <summary>Does my gear start together with Live?</summary>
+    <div class="ts-body"><p>Yes, with Start Stop Sync turned on in LinkEffekt’s Link settings and in the app where you press play. The gear starts on the next bar.</p></div>
+  </details>
+  <details class="ts">
+    <summary>Does Wi-Fi shake the clock?</summary>
+    <div class="ts-body"><p>The clock is made on the device the gear is plugged into. Only the Link session itself runs over the network.</p></div>
+  </details>
+  <details class="ts">
+    <summary>Is Link to MIDI clock free?</summary>
+    <div class="ts-body"><p>For one piece of gear it is free on every device with no time limit. LinkEffekt Unlimited is a one-time purchase and sends the clock to all your gear.</p></div>
+  </details>
+  <p class="src">Live’s own MIDI sync is described in the chapter <a href="https://www.ableton.com/en/live-manual/12/synchronizing-with-link-tempo-follower-and-midi/" target="_blank" rel="noopener">Synchronizing with Link, Tempo Follower, and MIDI</a> of the Live manual. Every control of Link to MIDI clock is in the LinkEffekt manual under <a href="manual.html#midi-clock">Link to MIDI clock</a>.</p>
+
+  <footer>
+    <span><a class="backlink" href="./">← LinkEffekt</a></span>
+    <span class="foot-links"><a href="ableton-ipad.html">iPad with Ableton Live</a><a href="manual.html">Manual</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="imprint.html">Imprint</a></span>
+  </footer>
+
+  </main>
+</div>
+
+<script>
+/* The list on the side marks the chapter you are reading. */
+(function () {
+  var links = [].slice.call(document.querySelectorAll('#side-nav a'));
+  if (!links.length) return;
+  var heads = links.map(function (a) { return document.getElementById(a.getAttribute('href').slice(1)); });
+  function mark() {
+    var line = window.innerHeight * 0.3, cur = 0;
+    heads.forEach(function (h, i) { if (h && h.getBoundingClientRect().top <= line) cur = i; });
+    links.forEach(function (a, i) { a.classList.toggle('active', i === cur); });
+  }
+  window.addEventListener('scroll', mark, { passive: true });
+  window.addEventListener('resize', mark);
+  mark();
+})();
+</script>
+<script src="theme.js?v=cfb7869f"></script>
+</body>
+</html>
