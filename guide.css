@@ -95,3 +95,12 @@ html[data-theme="light"] .cta .badge img.badge-white { display: block; border-ra
   html:not([data-theme="dark"]) .cta .badge img.badge-black { display: none; }
   html:not([data-theme="dark"]) .cta .badge img.badge-white { display: block; border-radius: 8px; outline: 1px solid var(--dim); outline-offset: -1px; }
 }
+
+/* ---------- tutorials: the list of guides ---------- */
+
+.tut { margin-top: var(--gap-part); padding-top: 1.5rem; border-top: 2px solid var(--ink); }
+.prose .tut h2 { margin: 0; }
+.tut h2 a { text-decoration: none; }
+.tut h2 a:hover { text-decoration: underline; text-decoration-thickness: 4px; text-underline-offset: .12em; }
+.prose .tut p { margin: 1rem 0 0; max-width: 34em; }
+.prose .tut-more { margin-top: var(--gap-part); padding-top: 1.5rem; border-top: 2px solid var(--ink); }

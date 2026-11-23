@@ -24,7 +24,7 @@ See the [Privacy Policy](https://linkeffekt.com/privacy.html) (source: [PRIVACY.
 
 ## Stylesheet and script version
 
-Every page loads `style.css?v=<checksum>` and `theme.js?v=<checksum>`. After any change to one of them, set the new value (`shasum style.css | cut -c1-8`, same for `theme.js`) in every page; otherwise browsers pair the new page with the old cached file. Guides such as `ableton-ipad.html` load `guide.css?v=<checksum>` on top of `style.css`; the same rule applies.
+Every page loads `style.css?v=<checksum>` and `theme.js?v=<checksum>`. After any change to one of them, set the new value (`shasum style.css | cut -c1-8`, same for `theme.js`) in every page; otherwise browsers pair the new page with the old cached file. Guides such as `ableton-ipad.html` load `guide.css?v=<checksum>` on top of `style.css`; the same rule applies. Every guide gets an entry on `tutorials.html`, which is linked as Tutorials in the header of every page, and a line in `sitemap.xml`.
 
 ## Light and dark
 

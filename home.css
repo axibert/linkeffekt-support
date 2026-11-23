@@ -69,6 +69,15 @@ section { padding: var(--gap-section) var(--edge); }
 }
 .logo-link img { height: 26px; width: auto; filter: brightness(0) invert(1); }
 .bar nav { display: flex; gap: 1.75rem; font-weight: 600; }
+/* phones: Contact gives way, it stays in the footer */
+@media (max-width: 480px) {
+  .bar nav { gap: 1.1rem; }
+  .bar .nav-wide { display: none; }
+}
+@media (max-width: 360px) {
+  .logo-link img { height: 20px; }
+  .bar nav { gap: .8rem; }
+}
 
 /* ---------- stage: the app, large ---------- */
 
