@@ -7,13 +7,15 @@
   const still = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const BEAT_MS = 500; // 120 BPM
 
-  const DEVICES = [["gear", "Controllers"], ["iphone", "iPhone"], ["ipad", "iPad"], ["live", "Ableton Live"], ["online", "Friend online"]];
+  // [id, name, name as a column where only some of them receive]
+  const DEVICES = [["gear", "Control\u00adlers"], ["iphone", "iPhone"], ["ipad", "iPad"], ["live", "Ableton Live"], ["ableton", "Ableton Move, Note & Push 3", "Ableton Push 3"], ["online", "Friend online"]];
 
   // Each pin: [from, to].
   const ROUTES = {
     jam: [["iphone", "ipad"], ["ipad", "iphone"]],
     live: [["ipad", "live"]],
     back: [["live", "ipad"]],
+    move: [["ableton", "ipad"], ["ipad", "ableton"]],
     apps: [["ipad", "ipad"]],
     online: [["ipad", "online"], ["online", "ipad"]],
     midi: [["gear", "iphone"], ["gear", "ipad"], ["gear", "live"]],
@@ -34,7 +36,7 @@
 
   // Header: "To" in front of the column names, then "From" above the row names.
   matrix.append(make("span", "m-axis m-to", "To"));
-  DEVICES.forEach(([id, label]) => { cols[id] = matrix.appendChild(make("span", "m-col", label)); });
+  DEVICES.forEach(([id, label, toLabel]) => { cols[id] = matrix.appendChild(make("span", "m-col", toLabel || label)); });
   matrix.append(make("span", "m-axis m-from", "From"), make("span", "m-fill"));
   DEVICES.forEach(([from, label], r) => {
     rows[from] = matrix.appendChild(make("span", "m-row", label));

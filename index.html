@@ -56,8 +56,9 @@
   <div class="patch">
     <div class="strips" role="group" aria-label="Pick a setup">
       <button type="button" class="strip" data-route="jam" aria-pressed="true">iPhone and iPad</button>
-      <button type="button" class="strip" data-route="live" aria-pressed="false">iPad into Live</button>
-      <button type="button" class="strip" data-route="back" aria-pressed="false">Live into iPad</button>
+      <button type="button" class="strip" data-route="live" aria-pressed="false">iPad into Ableton Live</button>
+      <button type="button" class="strip" data-route="back" aria-pressed="false">Ableton Live into iPad</button>
+      <button type="button" class="strip" data-route="move" aria-pressed="false">Move, Note and Push 3</button>
       <button type="button" class="strip" data-route="apps" aria-pressed="false">App to app</button>
       <button type="button" class="strip" data-route="online" aria-pressed="false">Online</button>
       <button type="button" class="strip" data-route="midi" aria-pressed="false">Controllers</button>
@@ -65,8 +66,9 @@
     </div>
     <div class="notes" aria-live="polite">
       <p data-route="jam">Load a Send on one device and a Receive on the other. In AUM and Logic Pro both directions are in sync over Wi-Fi or a cable with nothing to set up.</p>
-      <p data-route="live">Each iPad track shows up in Ableton Live 12.4 or later as its own Link Audio channel, with no audio interface in between.</p>
-      <p data-route="back">Live’s tracks play in your iPad host. Bar Sync locks them to your bar.</p>
+      <p data-route="live">Each iPad track shows up in Ableton Live 12.4 or later as its own Link Audio channel, in sync from any host and with no audio interface in between.</p>
+      <p data-route="back">Ableton Live’s tracks play in your iPad host. Bar Sync locks them to your bar.</p>
+      <p data-route="move">Ableton Move, Note and Push 3 in Standalone Mode send their tracks over Link Audio. A Receive on your iPad picks them up, and Bar Sync locks them to your bar so you can record each track simultaneously. Push also receives what your iPad sends.</p>
       <p data-route="apps">From one app into another on the same device in sync and with almost no delay. No Wi-Fi and no Link setup.</p>
       <p data-route="online">Create a room, share the code and jam over the internet. Bar Sync delays by whole bars, so your partner’s “1” lands on your “1”.</p>
       <p data-route="midi">Connect your controllers to any iOS device or Mac and they work anywhere. Controllers and other MIDI gear get virtual ports so you keep all your mappings.</p>
@@ -79,13 +81,13 @@
   <h2 id="beat-title">In sync or locked to the bar.</h2>
   <div class="beat-pair">
     <div>
-      <p class="hosts">AUM<br>Logic Pro</p>
+      <p class="hosts">AUM<br>Logic Pro<br>Any&nbsp;Host&nbsp;to&nbsp;Ableton&nbsp;Live</p>
       <div class="seq seq-same" role="img" aria-label="Two bars of four beats. The app that sends and the app that receives hit the same beat.">
         <span class="trk">Sends</span><div class="lane" data-lane><i class="pad hit">1</i><i class="pad">2</i><i class="pad">3</i><i class="pad">4</i><i class="pad hit">1</i><i class="pad">2</i><i class="pad">3</i><i class="pad">4</i></div>
         <div class="tie"><span>in sync</span></div>
         <span class="trk">Receives</span><div class="lane" data-lane><i class="pad hit">1</i><i class="pad">2</i><i class="pad">3</i><i class="pad">4</i><i class="pad hit">1</i><i class="pad">2</i><i class="pad">3</i><i class="pad">4</i></div>
       </div>
-      <p class="say">The audio arrives in sync with the receiving app in both directions of a jam.</p>
+      <p class="say">The audio arrives in sync with the receiving app in both directions of a jam. With Sync to Incoming Audio on, Live receives every host in sync.</p>
     </div>
     <div>
       <p class="hosts hosts-small">Cubasis, Drambo, Loopy Pro, Koala, GarageBand, djay</p>

@@ -120,7 +120,7 @@ section { padding: var(--gap-section) var(--edge); }
 
 .matrix {
   --cell: clamp(46px, 6.6vw, 92px);
-  display: grid; grid-template-columns: max-content repeat(5, var(--cell));
+  display: grid; grid-template-columns: max-content repeat(6, var(--cell));
   grid-template-rows: auto auto; grid-auto-rows: var(--cell);
   align-items: center; justify-items: center;
   font-weight: 650; font-size: clamp(.9rem, .8rem + .4vw, 1.15rem);
@@ -135,7 +135,7 @@ section { padding: var(--gap-section) var(--edge); }
 .m-fill { grid-column: 2 / -1; }
 .m-col, .m-row { color: var(--dim); transition: color .3s var(--out); }
 .m-col { padding-bottom: .9em; align-self: end; text-align: center; line-height: 1.15; max-width: var(--cell); font-size: .8em; }
-.m-row { justify-self: start; padding-right: 1.2em; white-space: nowrap; }
+.m-row { justify-self: start; padding-right: 1.2em; max-width: 8.5em; line-height: 1.15; text-wrap: balance; }
 .m-col.on, .m-row.on { color: var(--ink); }
 
 .pin {
@@ -161,13 +161,14 @@ span.pin.row-on i, span.pin.col-on i { opacity: 1; }
 button.pin:hover i { transform: scale(.34); }
 .pin.on i, button.pin.on:hover i { transform: scale(1); }
 
-/* the setups as a list to pick from */
+/* the setups as a list to pick from; each name stays on one line, in a narrow column the size gives way */
+.patch { container-type: inline-size; }
 .strips { display: flex; flex-direction: column; align-items: flex-start; }
 .strip {
   appearance: none; border: 0; background: none; cursor: pointer;
   padding: .12em 0; text-align: left;
   color: var(--dim);
-  font: inherit; font-size: var(--t-h3); font-weight: 800; letter-spacing: -.03em; line-height: 1.12;
+  font: inherit; font-size: min(var(--t-h3), 9.3cqi); font-weight: 800; letter-spacing: -.03em; line-height: 1.12;
   transition: color .2s ease-out;
 }
 .strip:hover { color: var(--ink); }
@@ -182,8 +183,9 @@ button.pin:hover i { transform: scale(.34); }
 /* ---------- beat ---------- */
 
 .beat-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem clamp(2rem, 6vw, 6rem); margin-top: var(--gap-head); align-items: start; }
-.hosts { font-weight: 800; font-size: var(--t-h3); line-height: 1.05; letter-spacing: -.03em; max-width: 18ch; min-height: 3.15em; }
-.beat-pair > div { min-width: 0; }
+/* the longest line of a host list stays whole, in a narrow column the size gives way */
+.hosts { font-weight: 800; font-size: min(var(--t-h3), 8.6cqi); line-height: 1.05; letter-spacing: -.03em; max-width: 18ch; min-height: 3.15em; }
+.beat-pair > div { min-width: 0; container-type: inline-size; }
 .say { margin-top: 2rem; max-width: 34ch; }
 
 /* two tracks of two bars, tied where the sent beat is heard */
@@ -281,12 +283,17 @@ button.pin:hover i { transform: scale(.34); }
   .seq { --lab: 4.6rem; }
   .tie span { font-size: .85rem; }
   .seq-same .tie span, .seq-bar .tie span { left: calc(var(--x5) + .6rem); }
-  .matrix { --cell: calc((100vw - 2 * var(--edge) - 6.6rem) / 5); font-size: .8rem; grid-template-columns: 6.6rem repeat(5, var(--cell)); }
+  .matrix { --lab: 6.6rem; --cell: calc((100vw - 2 * var(--edge) - var(--lab)) / 6); font-size: .8rem; grid-template-columns: var(--lab) repeat(6, var(--cell)); }
   .m-row { padding-right: .4em; }
   .m-col { font-size: .72em; overflow-wrap: anywhere; }
   .m-to { padding-right: .6em; }
   .routes { min-width: 0; }
   .notes { min-height: calc(var(--t-lead) * 1.32 * 6); }
+}
+
+/* On the smallest phones six columns only fit with smaller names. */
+@media (max-width: 359px) {
+  .matrix { --lab: 5.9rem; font-size: .72rem; }
 }
 
 /* Between phone and desktop the matrix stands alone above the list and fills the width. */
