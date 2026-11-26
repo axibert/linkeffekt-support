@@ -266,6 +266,13 @@ span.pin.row-on i, span.pin.col-on i { opacity: 1; }
 
 .close { display: grid; gap: 2.5rem; }
 .close .fine { margin-top: -1rem; }
+/* users' own words, quiet, after the download: the heading keeps the section to itself.
+   The opening quote hangs so each quote lines up with the text above. */
+.voices { display: flex; flex-wrap: wrap; gap: 1.5rem clamp(2rem, 6vw, 6rem); margin-top: calc(var(--gap-head) - 2.5rem); }
+.voices figure { max-width: 30ch; }
+.voices p { font-weight: 500; hanging-punctuation: first; }
+@supports not (hanging-punctuation: first) { .voices p { text-indent: -.435em; } }
+.voices figcaption { margin-top: .25rem; color: var(--dim); }
 .close h2 { font-size: clamp(3rem, 1rem + 9vw, 9rem); max-width: 15ch; line-height: .94; }
 .close .stage-action { margin-top: 0; }
 .close .icon { width: 64px; height: 64px; border-radius: 14.5px; }
