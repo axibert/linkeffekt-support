@@ -273,6 +273,13 @@ span.pin.row-on i, span.pin.col-on i { opacity: 1; }
 .voices p { font-weight: 500; hanging-punctuation: first; }
 @supports not (hanging-punctuation: first) { .voices p { text-indent: -.435em; } }
 .voices figcaption { margin-top: .25rem; color: var(--dim); }
+/* who wrote about it: each logo is the link to the article (a "featured on" needs its source). */
+.press { display: grid; justify-items: start; gap: .5rem; color: var(--dim); }
+.press-logos { display: flex; flex-wrap: wrap; align-items: baseline; gap: .75rem clamp(1.5rem, 3vw, 2.5rem); }
+.press-logos a { display: block; -webkit-tap-highlight-color: transparent; transition: opacity .15s ease, transform .15s var(--out); }
+.press-logos a:active { transform: scale(.97); }
+.press-logos img { display: block; height: .9em; width: auto; }
+@media (hover: hover) and (pointer: fine) { .press-logos a:hover { opacity: .7; } }
 .close h2 { font-size: clamp(3rem, 1rem + 9vw, 9rem); max-width: 15ch; line-height: .94; }
 .close .stage-action { margin-top: 0; }
 .close .icon { width: 64px; height: 64px; border-radius: 14.5px; }
