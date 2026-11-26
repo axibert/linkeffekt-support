@@ -85,6 +85,8 @@
 .prose .cta p { margin: 1rem 0 0; max-width: 34em; }
 .cta-action { display: flex; align-items: center; gap: 1rem; margin-top: 1.75rem; }
 .cta-action .app-icon { width: 50px; height: 50px; border-radius: 11.5px; display: block; }
+.cta-action .badge { -webkit-tap-highlight-color: transparent; transition: transform .15s var(--out); }
+.cta-action .badge:active { transform: scale(.97); }
 .cta-action .badge img { display: block; height: 50px; width: auto; }
 /* Apple's badge: black on a light field, white on a dark one. The field is the
    opposite of the page, so the badge follows the opposite of the theme. */
@@ -101,6 +103,8 @@ html[data-theme="light"] .cta .badge img.badge-white { display: block; border-ra
 .tut { margin-top: var(--gap-part); padding-top: 1.5rem; border-top: 2px solid var(--ink); }
 .prose .tut h2 { margin: 0; }
 .tut h2 a { text-decoration: none; }
-.tut h2 a:hover { text-decoration: underline; text-decoration-thickness: 4px; text-underline-offset: .12em; }
+@media (hover: hover) and (pointer: fine) {
+  .tut h2 a:hover { text-decoration: underline; text-decoration-thickness: 4px; text-underline-offset: .12em; }
+}
 .prose .tut p { margin: 1rem 0 0; max-width: 34em; }
 .prose .tut-more { margin-top: var(--gap-part); padding-top: 1.5rem; border-top: 2px solid var(--ink); }

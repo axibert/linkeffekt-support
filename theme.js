@@ -1,4 +1,7 @@
 /* Light or dark: follows the system until the reader picks one; the choice is kept. */
+/* iPhone and iPad only show :active (a button giving way) when the page listens for touches. */
+document.addEventListener('touchstart', function () {}, { passive: true });
+
 (function () {
   var btn = document.getElementById('theme-toggle');
   if (!btn) return;

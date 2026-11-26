@@ -40,10 +40,13 @@ body {
 
 ::selection { background: var(--ink); color: var(--ground); }
 
+/* no word alone on the last line */
+p, li, dd { text-wrap: pretty; }
+
 img { display: block; max-width: 100%; height: auto; }
 
 a { color: inherit; text-decoration: underline; text-decoration-thickness: 2px; text-underline-offset: .22em; }
-a:hover { text-decoration-thickness: 4px; }
+@media (hover: hover) and (pointer: fine) { a:hover { text-decoration-thickness: 4px; } }
 
 :focus-visible { outline: 3px solid var(--ink); outline-offset: 4px; }
 
@@ -55,7 +58,7 @@ h1, h2 {
 }
 h1 { font-size: clamp(1.5rem, calc((100vw - 2 * var(--edge)) / 9.9), 11rem); white-space: nowrap; letter-spacing: -.04em; line-height: .94; }
 h2 { font-size: var(--t-h2); max-width: 21ch; }
-h3 { font-size: var(--t-h3); font-weight: 800; letter-spacing: -.03em; line-height: 1.05; }
+h3 { font-size: var(--t-h3); font-weight: 800; letter-spacing: -.03em; line-height: 1.05; text-wrap: balance; }
 
 .lead, .sub, .say, .notes p { font-size: var(--t-lead); line-height: 1.32; font-weight: 500; text-wrap: pretty; }
 
@@ -89,7 +92,8 @@ section { padding: var(--gap-section) var(--edge); }
 .stage-side { max-width: 30rem; }
 .stage-action { display: flex; align-items: center; gap: 1rem; margin-top: 1.75rem; }
 .icon { width: 50px; height: 50px; border-radius: 11.5px; }
-.badge { display: block; }
+.badge { display: block; -webkit-tap-highlight-color: transparent; transition: transform .15s var(--out); }
+.badge:active { transform: scale(.97); }
 .dark .badge img { border-radius: 8px; outline: 1px solid var(--dim); outline-offset: -1px; }
 .fine { margin-top: 1.25rem; font-weight: 500; }
 .fine a { white-space: nowrap; }
@@ -133,7 +137,7 @@ section { padding: var(--gap-section) var(--edge); }
 .m-from { justify-self: start; padding-bottom: .6em; }
 .m-from::after { border-top-color: currentColor; border-bottom-width: 0; margin-top: .15em; }
 .m-fill { grid-column: 2 / -1; }
-.m-col, .m-row { color: var(--dim); transition: color .3s var(--out); }
+.m-col, .m-row { color: var(--dim); transition: color .2s ease; }
 .m-col { padding-bottom: .9em; align-self: end; text-align: center; line-height: 1.15; max-width: var(--cell); font-size: .8em; }
 .m-row { justify-self: start; padding-right: 1.2em; max-width: 8.5em; line-height: 1.15; text-wrap: balance; }
 .m-col.on, .m-row.on { color: var(--ink); }
@@ -144,8 +148,9 @@ section { padding: var(--gap-section) var(--edge); }
   display: grid; place-items: center; position: relative;
 }
 button.pin { cursor: pointer; }
-/* the line of an active row or column runs through its cells, one after the other */
-.pin::before, .pin::after { content: ""; position: absolute; background: var(--ink); pointer-events: none; transition: transform .14s linear; }
+/* the line of an active row or column runs through its cells, one after the other:
+   each piece runs as long as the step to the next, at one speed, so the line never breaks */
+.pin::before, .pin::after { content: ""; position: absolute; background: var(--ink); pointer-events: none; transition: transform 70ms linear; }
 .pin::before { left: 50%; top: 0; bottom: 0; width: 2px; margin-left: -1px; transform: scaleY(0); transform-origin: top; }
 .pin::after { top: 50%; left: 0; right: 0; height: 2px; margin-top: -1px; transform: scaleX(0); transform-origin: left; }
 .pin.col-on::before { transform: none; transition-delay: calc(var(--r) * 70ms); }
@@ -154,12 +159,15 @@ button.pin { cursor: pointer; }
   display: block; width: 58%; height: 58%; border-radius: 50%;
   background: var(--ink); position: relative; z-index: 1;
   transform: scale(.13);
-  transition: transform .5s var(--out);
+  transition: transform .25s var(--out);
 }
 span.pin i { opacity: .28; }
 span.pin.row-on i, span.pin.col-on i { opacity: 1; }
-button.pin:hover i { transform: scale(.34); }
-.pin.on i, button.pin.on:hover i { transform: scale(1); }
+.pin.on i { transform: scale(1); }
+@media (hover: hover) and (pointer: fine) {
+  button.pin:hover i { transform: scale(.34); }
+  button.pin.on:hover i { transform: scale(1); }
+}
 
 /* the setups as a list to pick from; each name stays on one line, in a narrow column the size gives way */
 .patch { container-type: inline-size; }
@@ -169,10 +177,12 @@ button.pin:hover i { transform: scale(.34); }
   padding: .12em 0; text-align: left;
   color: var(--dim);
   font: inherit; font-size: min(var(--t-h3), 9.3cqi); font-weight: 800; letter-spacing: -.03em; line-height: 1.12;
-  transition: color .2s ease-out;
+  -webkit-tap-highlight-color: transparent;
+  transition: color .2s ease;
 }
-.strip:hover { color: var(--ink); }
-.strip[aria-pressed="true"] { color: var(--ink); }
+/* a list is picked from often: it answers a press with colour, not movement */
+.strip:active, .strip[aria-pressed="true"] { color: var(--ink); }
+@media (hover: hover) and (pointer: fine) { .strip:hover { color: var(--ink); } }
 
 .notes { margin-top: 2rem; min-height: calc(var(--t-lead) * 1.32 * 4); }
 .notes p { max-width: 36ch; }
@@ -224,7 +234,7 @@ button.pin:hover i { transform: scale(.34); }
 .host-shots img { flex: 1 1 0; min-width: 0; border-radius: 10px; }
 .host dl { grid-column: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 2rem clamp(1.5rem, 3vw, 3rem); align-self: end; }
 .host dl > div { min-width: 0; }
-.host dt { font-weight: 800; font-size: clamp(1.2rem, 1.05rem + .5vw, 1.45rem); letter-spacing: -.02em; line-height: 1.15; }
+.host dt { text-wrap: balance; font-weight: 800; font-size: clamp(1.2rem, 1.05rem + .5vw, 1.45rem); letter-spacing: -.02em; line-height: 1.15; }
 .host dd { margin-top: .4rem; }
 
 /* ---------- MIDI ---------- */
@@ -301,6 +311,7 @@ button.pin:hover i { transform: scale(.34); }
   .matrix { --cell: clamp(64px, 10vw, 92px); }
 }
 
+/* reduced motion: nothing moves, colours still fade (the lines are ::before and ::after) */
 @media (prefers-reduced-motion: reduce) {
-  * { transition: none !important; }
+  *, *::before, *::after { transition-property: color, background-color, opacity !important; }
 }

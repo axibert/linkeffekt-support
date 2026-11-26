@@ -1,5 +1,8 @@
 // LinkEffekt homepage: a pin matrix for the routes, one shared beat.
 // Everything readable is plain HTML; without this script all setups are listed.
+// iPhone and iPad only show :active (a button giving way) when the page listens for touches.
+document.addEventListener("touchstart", () => {}, { passive: true });
+
 (function () {
   const matrix = document.getElementById("matrix");
   if (!matrix) return;
