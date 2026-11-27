@@ -24,7 +24,7 @@ See the [Privacy Policy](https://linkeffekt.com/privacy.html) (source: [PRIVACY.
 
 ## Stylesheet and script version
 
-Every page loads `style.css?v=<checksum>` and `theme.js?v=<checksum>`. After any change to one of them, set the new value (`shasum style.css | cut -c1-8`, same for `theme.js`) in every page; otherwise browsers pair the new page with the old cached file. Guides such as `ableton-ipad.html` load `guide.css?v=<checksum>` on top of `style.css`; the same rule applies. Every guide gets an entry on `tutorials.html`, which is linked as Tutorials in the header of every page, and a line in `sitemap.xml`.
+Every page loads `style.css?v=<checksum>` and `theme.js?v=<checksum>`; the homepage loads `home.css?v=<n>` instead of both. After any change to one of them, set the new value (`shasum style.css | cut -c1-8`, same for `theme.js`) in every page; otherwise browsers pair the new page with the old cached file. Guides such as `ableton-ipad.html` load `guide.css?v=<checksum>` on top of `style.css`; the same rule applies. The header is one and the same on every page, homepage included: its layout lives only in `head.css?v=<checksum>` (loaded right after the page's stylesheet), the markup is identical (Tutorials, Manual, Contact, the current page with `aria-current`, the light and dark switch before the links on pages that have it), so logo and links stand in the same place on every page and at every width; check that with a measurement at 320 to 1440 px after any change. Every guide gets an entry on `tutorials.html`, which is linked as Tutorials in the header of every page, and a line in `sitemap.xml`.
 
 ## Light and dark
 

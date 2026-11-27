@@ -64,23 +64,9 @@ h3 { font-size: var(--t-h3); font-weight: 800; letter-spacing: -.03em; line-heig
 
 section { padding: var(--gap-section) var(--edge); }
 
-/* ---------- header ---------- */
+/* ---------- header (layout in head.css, shared with every page) ---------- */
 
-.bar {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.5rem var(--edge) 0;
-}
-.logo-link img { height: 26px; width: auto; filter: brightness(0) invert(1); }
-.bar nav { display: flex; gap: 1.75rem; font-weight: 600; }
-/* phones: Contact gives way, it stays in the footer */
-@media (max-width: 480px) {
-  .bar nav { gap: 1.1rem; }
-  .bar .nav-wide { display: none; }
-}
-@media (max-width: 360px) {
-  .logo-link img { height: 20px; }
-  .bar nav { gap: .8rem; }
-}
+.site-head .logo-link img { filter: brightness(0) invert(1); }
 
 /* ---------- stage: the app, large ---------- */
 

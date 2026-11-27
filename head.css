@@ -1,0 +1,48 @@
+/* The one header of every page. Logo and links stand in the same place on
+   every page and at every width, so nothing moves when the reader changes
+   pages; only the mark of the current page moves. The pages differ only in
+   the light and dark switch, which sits before the links so they keep their
+   place. Colours and the logo's tint come from the page's own stylesheet. */
+
+.site-head {
+  display: flex; align-items: center; justify-content: space-between; gap: .75rem;
+  padding: 1.5rem var(--edge) 0;
+  line-height: 1.5;
+}
+.site-head .logo-link { flex: none; text-decoration: none; }
+.site-head .logo-link img { display: block; width: auto; }
+
+.site-nav {
+  display: flex; align-items: center;
+  font-size: clamp(1.05rem, 1rem + .25vw, 1.2rem); font-weight: 600;
+}
+.site-nav a { white-space: nowrap; }
+/* where the reader is: the underline of the hover, kept */
+.site-nav a[aria-current] { text-decoration-thickness: 4px; }
+
+/* the switch keeps a 32 px target, but takes no more height than a line of the
+   menu and no more width than its icon: icon and words keep the same gap */
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 2rem; height: 2rem; margin: -.25rem -.375rem; flex: none;
+  background: none; border: 0; color: inherit; cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  transition: transform .15s var(--out);
+}
+/* a 20 px icon only visibly gives way at .9 */
+.theme-toggle:active { transform: scale(.9); }
+.theme-toggle svg { width: 20px; height: 20px; display: block; }
+.theme-toggle .ico-moon { display: none; }
+html[data-theme="light"] .theme-toggle .ico-sun { display: none; }
+html[data-theme="light"] .theme-toggle .ico-moon { display: block; }
+@media (prefers-color-scheme: light) {
+  html:not([data-theme="dark"]) .theme-toggle .ico-sun { display: none; }
+  html:not([data-theme="dark"]) .theme-toggle .ico-moon { display: block; }
+}
+
+/* Phones: Contact gives way to the footer. Below that nothing jumps: the gaps
+   close from 520 px and the logo shrinks from 395 px, in step, on every page,
+   so the pages with the switch still fit at 320 px. */
+.site-nav { gap: clamp(.5rem, 10vw - 1.5rem, 1.75rem); }
+.site-head .logo-link img { height: clamp(16px, 13.333vw - 26.67px, 26px); }
+@media (max-width: 520px) { .site-nav .nav-wide { display: none; } }

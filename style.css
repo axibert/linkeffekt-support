@@ -68,48 +68,12 @@ a { color: inherit; text-decoration: underline; text-decoration-thickness: 2px; 
 .wrap { max-width: 72rem; margin: 0 auto; padding: 0 var(--edge); }
 .narrow { max-width: 46rem; }
 
-/* ---------- header ---------- */
+/* ---------- header (layout in head.css, shared with the homepage) ---------- */
 
-.site-head {
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.5rem 0 0;
-}
-.site-head a.logo-link { text-decoration: none; }
-.site-head img.logo { height: 26px; width: auto; display: block; filter: brightness(0) invert(1); }
+.site-head img.logo { filter: brightness(0) invert(1); }
 html[data-theme="light"] .site-head img.logo { filter: brightness(0); }
 @media (prefers-color-scheme: light) {
   html:not([data-theme="dark"]) .site-head img.logo { filter: brightness(0); }
-}
-.site-nav { display: flex; align-items: center; gap: 1.75rem; font-weight: 600; }
-
-.theme-toggle {
-  display: inline-flex; align-items: center; justify-content: center;
-  width: 2rem; height: 2rem; flex: none;
-  background: none; border: 0; color: var(--ink); cursor: pointer;
-  -webkit-tap-highlight-color: transparent;
-  transition: transform .15s var(--out);
-}
-/* a 20 px icon only visibly gives way at .9 */
-.theme-toggle:active { transform: scale(.9); }
-.theme-toggle svg { width: 20px; height: 20px; display: block; }
-.theme-toggle .ico-moon { display: none; }
-html[data-theme="light"] .theme-toggle .ico-sun { display: none; }
-html[data-theme="light"] .theme-toggle .ico-moon { display: block; }
-@media (prefers-color-scheme: light) {
-  html:not([data-theme="dark"]) .theme-toggle .ico-sun { display: none; }
-  html:not([data-theme="dark"]) .theme-toggle .ico-moon { display: block; }
-}
-@media (max-width: 640px) { .site-head img.logo { height: 22px; } }
-/* phones: Home gives way to the switch, the logo leads there */
-/* below 640 px Contact and Privacy give way, they stay in the footer */
-@media (max-width: 640px) { .site-nav .nav-wide { display: none; } }
-@media (max-width: 520px) { .site-nav .nav-secondary { display: none; } }
-@media (max-width: 480px) { .site-nav { gap: 1.1rem; } }
-@media (max-width: 400px) { .site-nav { gap: .7rem; font-size: .95rem; } }
-@media (max-width: 360px) { .site-head img.logo { height: 18px; } }
-@media (max-width: 340px) {
-  .site-head img.logo { height: 16px; }
-  .site-nav { gap: .45rem; }
 }
 
 /* ---------- text ---------- */
