@@ -33,3 +33,7 @@ All pages share one palette and one switch: they follow the system setting until
 ## Home page devices
 
 `img/home/ipad-receive.webp` and `img/home/iphone-send.webp` are real screenshots in Apple's product bezels, built with `Scripts/home-device-mockup.py` in the LinkEffekt repo (the bezels stay there, outside this public repo). Apple's rules: bezel unchanged, no shadow or tilt, nothing overlapping a device, at least 200 px tall on screen; the App Store badge is Apple's artwork, black on light pages and white on dark ones, with a quarter of its height as clear space.
+
+## Colour fields
+
+Every field with its own background (a full-width band or a box) has the same visible space above its first and below its last content, at every width; where the layout stacks boxes on a phone, each becomes a band of its own and gets the section gap at both colour edges. `.githooks/pre-commit` checks this with `farbflaechen.mjs` from the Website-System on every commit that touches HTML or CSS (all pages, 320 to 1440 px) and refuses the commit on a finding. Activate once per clone with `git config core.hooksPath .githooks`.

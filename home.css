@@ -170,7 +170,9 @@ span.pin.row-on i, span.pin.col-on i { opacity: 1; }
 .strip:active, .strip[aria-pressed="true"] { color: var(--ink); }
 @media (hover: hover) and (pointer: fine) { .strip:hover { color: var(--ink); } }
 
-.notes { margin-top: 2rem; min-height: calc(var(--t-lead) * 1.32 * 4); }
+/* no reserved height: a guessed reserve left a hole under short notes and still broke under the longest one;
+   the band now always ends one section gap below the text (farbflaechen.mjs) */
+.notes { margin-top: 2rem; }
 .notes p { max-width: 36ch; }
 .notes p + p { margin-top: 1rem; }
 .js .notes p { display: none; margin: 0; }
@@ -243,6 +245,8 @@ span.pin.row-on i, span.pin.col-on i { opacity: 1; }
 .tier h3 { font-size: clamp(2rem, 1.2rem + 3vw, 3.6rem); }
 .tier ul { list-style: none; margin-top: clamp(1.5rem, 3vw, 2.5rem); }
 .tier li { font-size: var(--t-lead); font-weight: 600; line-height: 1.25; letter-spacing: -.01em; padding-block: .55em; border-top: 2px solid var(--ink); max-width: 26ch; text-wrap: balance; }
+/* the last line has no rule under it, so its padding would only add to the space at the bottom of the field */
+.tier li:last-child { padding-bottom: 0; }
 .tier-full { padding-inline: clamp(1.5rem, 4vw, 4rem) var(--edge); margin-right: calc(var(--edge) * -1); }
 .tier-full li { max-width: none; border-top-color: var(--dim); }
 .once { margin-top: .6rem; font-size: var(--t-lead); font-weight: 500; }
@@ -284,7 +288,11 @@ span.pin.row-on i, span.pin.col-on i { opacity: 1; }
   h2 { font-size: min(8.6vw, 3rem); }
   .close h2 { font-size: min(11vw, 4rem); }
   .host, .beat-pair, .price-pair, .midi { grid-template-columns: 1fr; }
-  .tier-full { margin-inline: calc(var(--edge) * -1); padding-inline: var(--edge); }
+  /* stacked, Free, Unlimited and the requirements become full-width bands of their own:
+     each band has the section gap at both of its colour edges */
+  .tier:not(.tier-full) { padding-bottom: var(--gap-section); }
+  .tier-full { margin-inline: calc(var(--edge) * -1); padding: var(--gap-section) var(--edge); }
+  .needs { padding-top: var(--gap-section); }
   .tier li { max-width: none; }
   .host-shots { grid-column: 1; grid-row: auto; }
   .host-shots img:nth-child(2) { align-self: flex-start; }
@@ -298,7 +306,6 @@ span.pin.row-on i, span.pin.col-on i { opacity: 1; }
   .m-col { font-size: .72em; overflow-wrap: anywhere; }
   .m-to { padding-right: .6em; }
   .routes { min-width: 0; }
-  .notes { min-height: calc(var(--t-lead) * 1.32 * 6); }
 }
 
 /* On the smallest phones six columns only fit with smaller names. */
