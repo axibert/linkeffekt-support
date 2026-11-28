@@ -1,17 +1,13 @@
 #!/usr/bin/env bash
-# Farbflaechen-Schranke (Alex 28.11.2026: Abstaende in Farbflaechen „verhinder dass das jemals wieder passiert“).
-# Aendert ein Commit HTML oder CSS, misst farbflaechen.mjs aus dem Website-System jede Seite bei 320 bis 1440 px:
-# jede Farbflaeche braucht oben und unten denselben sichtbaren Abstand. Befund = kein Commit.
-# Aktiviert per `git config core.hooksPath .githooks`.
+# Farbflaechen-Hinweis (Alex 28.11.2026): aendert ein Commit HTML oder CSS, misst farbflaechen.mjs aus dem
+# Website-System jede Seite bei 320 bis 1440 px und zeigt Baender, deren Abstand zum Rand oben und unten
+# deutlich verschieden ist. Keine Sperre („je nach block stimmig … aber keine rigorose regel“): jede Stelle
+# ansehen und beurteilen. Aktiviert per `git config core.hooksPath .githooks`.
 set -euo pipefail
 cd "$(git rev-parse --show-toplevel)"
 git diff --cached --name-only | grep -qE '\.(html|css)$' || exit 0
 PRUEFER="$HOME/Coding/Website-System/Website-Claude-Code-System/scripts/farbflaechen.mjs"
-if [ ! -f "$PRUEFER" ]; then echo "Farbflaechen-Schranke: $PRUEFER fehlt, Pruefung uebersprungen."; exit 0; fi
-echo "Farbflaechen-Schranke: alle Seiten bei 320 bis 1440 px …"
-if ! AUSGABE="$(node "$PRUEFER" --dir . --alle)"; then
-  echo "$AUSGABE"
-  echo "Farbflaechen-Schranke: Commit abgelehnt. Abstaende angleichen und erneut committen."
-  exit 1
-fi
-echo "Farbflaechen-Schranke: $(echo "$AUSGABE" | tail -1)"
+[ -f "$PRUEFER" ] || exit 0
+AUSGABE="$(node "$PRUEFER" --dir . --alle --hinweis)"
+if echo "$AUSGABE" | grep -q "BEFUND"; then echo "$AUSGABE"; else echo "Farbflaechen: $(echo "$AUSGABE" | tail -1)"; fi
+exit 0
